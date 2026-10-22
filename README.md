@@ -1,32 +1,75 @@
-# React + TypeScript + Vite
+# プロセカ マイセカイ レコードチェッカー (Mysekai Record Checker)
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+「プロジェクトセカイ カラフルステージ！ feat. 初音ミク」のゲーム内コンテンツ「マイセカイ」における**楽曲レコード（BGMアイテム）の所持状況を直感的に記録・管理し、ユニット別・周年別の達成率を自動で可視化するWebアプリケーション**です。
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 1. 解決する課題と中核的価値
 
-## React Compiler
+- **対象利用者**: プロセカのマイセカイで楽曲レコード収集を行っているプレイヤー
+- **切実な不便**: 
+  - ゲーム内では各レコードの所持状況を一括で一覧・比較しづらく、スプレッドシート等で管理する負担が大きい。
+  - 外部サービスでも、アクセス急増時のサーバーダウンや通信コストの懸念がある。
+- **中核的価値**:
+  - 完全クライアントサイド（LocalStorage）動作による**完全無料・サーバーレス・超高速レスポンス**。
+  - ワンタップでサクサク所持登録でき、ユニット別や周年別のコンプリート率が一目で把握できる洗練されたUI。
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the Oxlint configuration
+## 2. 実装機能
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+### 画面①：リスト表示（メイン画面）
+- **上部固定コントロールバー**:
+  - **並べ替え**: 「配信日順（新しい順/古い順）」「デフォルト順（配置順）」「五十音順（あ→ん / ん→あ）」の明示的ソート。
+  - **絞り込み**: 所持ステータス、ユニット選択、全26名の歌唱キャラクター絞り込み、4種の歌唱バージョン（セカイ/VS/コネライ/アナボ）。
+  - **表示項目設定**: ジャケット、配信日、歌唱verバッジ、歌唱キャラクターアイコンの表示切替。
+  - **クイックチェックトグル**: 行タップで詳細モーダルを開くモード ⇔ 行全体をタップして連続チェックできるモードをスイッチ切り替え。
+  - **固定検索バー**: 曲名および「よみがな」でのインクリメンタル検索。
+- **達成率プログレスバー**: 全体および絞り込み条件に応じたリアルタイム集計。
+- **レコード一覧**: チェックボックスによる即時保存。**チェック時の取り消し線（line-through）は厳禁規律**を徹底し、上品なパステルカラーで視認性を確保。
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+### 画面②：所持率比較
+- **ユニット別比較（標準）**: 各ユニットの公式イメージカラーバーで所持率を並列比較。全曲収集でCOMPLETEバッジ。
+- **周年別・年目別比較（標準）**: 毎年9月30日の周年を基準とした「1年目」「2年目」「3年目」…の所持率比較。
+- **カスタム条件比較**: 歌唱ver別、指定キャラクター別、ピックアップユニット別など、利用者が自由に軸を選んでグラフを生成。
+
+### 画面③：メニュー
+- **共有URL発行（完全無料・サーバーレス）**: チェック状態をBase64に圧縮したURLを生成し、SNS共有や端末間引継ぎが可能。
+- **JSONバックアップ / 復元**: 手元でのデータ保存と読み込み。
+- **一括操作**: すべて所持 / すべて解除。
+
+---
+
+## 3. 技術スタック
+
+| 分類 | 技術 | 役割・選定理由 |
+| :--- | :--- | :--- |
+| **フロントエンド** | React 19, TypeScript | 厳格な型安全性（strictモード）と高速な状態更新 |
+| **スタイリング** | Tailwind CSS v4 | プロセカ公式HP調の多重パステルグラデーション、すりガラス調UI |
+| **ビルドツール** | Vite 8 | 超高速なHMRと最適化バンドル |
+| **テスト** | Vitest | コアな集計・ソート・フィルタ・エンコード処理の単体テスト自動化 |
+| **データ永続化** | LocalStorage / URLハッシュ | 完全クライアント完結・サーバー代0円・無限スケーラブル |
+
+---
+
+## 4. 開発コマンド
+
+```bash
+# 依存パッケージのインストール
+npm install
+
+# ローカル開発サーバー起動
+npm run dev
+
+# 単体テストの実行（Vitest）
+npm test
+
+# プロダクションビルド（TypeScript型チェック + Viteバンドル）
+npm run build
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+---
+
+## 5. 免責事項
+
+本アプリはファンによる非公式ツールであり、株式会社セガ様、株式会社Colorful Palette様、クリプトン・フューチャー・メディア株式会社様とは一切関係ありません。
