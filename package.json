@@ -8,6 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
+    "start": "vite preview --port 4173 --open",
     "test": "vitest run"
   },
   "dependencies": {
