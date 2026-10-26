@@ -408,7 +408,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "airi",
       "shizuku",
       "luka",
-      "GUMI",
+      "gumi",
       "miku",
       "rin",
       "meiko"
@@ -431,7 +431,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "luka",
-          "GUMI"
+          "gumi"
         ]
       },
       {
@@ -682,7 +682,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "characters": [
       "akito",
       "toya",
-      "GUMI",
+      "gumi",
       "len",
       "kaito",
       "ALKALOID"
@@ -702,7 +702,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       },
       {
@@ -1860,7 +1860,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "len",
       "akito",
       "toya",
-      "IA"
+      "ia"
     ],
     "vocalTracks": [
       {
@@ -1878,7 +1878,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "IA"
+          "ia"
         ]
       },
       {
@@ -3201,7 +3201,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "an",
       "akito",
       "toya",
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -3221,7 +3221,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       },
       {
@@ -3333,7 +3333,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "miku",
       "mafuyu",
       "ena",
-      "VY2V3"
+      "vy2"
     ],
     "vocalTracks": [
       {
@@ -3351,7 +3351,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "VY2V3"
+          "vy2"
         ]
       }
     ]
@@ -3813,7 +3813,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "rin",
       "emu",
       "nene",
-      "音街ウナ"
+      "una"
     ],
     "vocalTracks": [
       {
@@ -3831,7 +3831,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "音街ウナ",
+          "una",
           "rin"
         ]
       },
@@ -4100,8 +4100,8 @@ export const ALL_RECORDS: RecordItem[] = [
       "toya",
       "luka",
       "miku",
-      "GUMI",
-      "IA",
+      "gumi",
+      "ia",
       "rin"
     ],
     "vocalTracks": [
@@ -4122,8 +4122,8 @@ export const ALL_RECORDS: RecordItem[] = [
         "singers": [
           "luka",
           "miku",
-          "GUMI",
-          "IA",
+          "gumi",
+          "ia",
           "rin"
         ]
       },
@@ -4808,7 +4808,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "characters": [
       "tsukasa",
       "rui",
-      "GUMI",
+      "gumi",
       "kaito",
       "Crazy:B"
     ],
@@ -4827,7 +4827,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       },
       {
@@ -4939,7 +4939,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "miku",
       "ichika",
       "saki",
-      "歌愛ユキ"
+      "yuki"
     ],
     "vocalTracks": [
       {
@@ -4957,7 +4957,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "歌愛ユキ"
+          "yuki"
         ]
       },
       {
@@ -5473,7 +5473,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "characters": [
       "miku",
       "ichika",
-      "IA"
+      "ia"
     ],
     "vocalTracks": [
       {
@@ -5490,7 +5490,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "IA"
+          "ia"
         ]
       },
       {
@@ -5529,7 +5529,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "luka",
       "haruka",
       "shizuku",
-      "GUMI",
+      "gumi",
       "meiko",
       "ichika",
       "nene"
@@ -5550,7 +5550,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       },
       {
@@ -5897,7 +5897,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "an",
       "akito",
       "toya",
-      "IA"
+      "ia"
     ],
     "vocalTracks": [
       {
@@ -5917,7 +5917,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "IA"
+          "ia"
         ]
       },
       {
@@ -6525,7 +6525,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -6533,7 +6533,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       }
     ]
@@ -6613,7 +6613,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -6621,7 +6621,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       }
     ]
@@ -6685,7 +6685,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -6693,7 +6693,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       }
     ]
@@ -8785,7 +8785,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "emu",
       "nene",
       "rui",
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -8806,7 +8806,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "rin",
-          "GUMI"
+          "gumi"
         ]
       },
       {
@@ -8973,7 +8973,7 @@ export const ALL_RECORDS: RecordItem[] = [
     },
     "characters": [
       "miku",
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -8982,7 +8982,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "miku",
-          "GUMI"
+          "gumi"
         ]
       }
     ]
@@ -9002,7 +9002,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -9010,7 +9010,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       }
     ]
@@ -9248,7 +9248,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "rin",
       "kohane",
       "an",
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -9268,7 +9268,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "miku",
-          "GUMI",
+          "gumi",
           "rin"
         ]
       },
@@ -9399,7 +9399,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "characters": [
       "miku",
       "kanade",
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -9417,7 +9417,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "miku",
-          "GUMI"
+          "gumi"
         ]
       }
     ]
@@ -9883,7 +9883,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "nene",
       "rui",
       "rin",
-      "GUMI",
+      "gumi",
       "shiho",
       "minori",
       "kohane"
@@ -9908,7 +9908,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "singers": [
           "miku",
           "rin",
-          "GUMI"
+          "gumi"
         ]
       },
       {
@@ -10395,7 +10395,7 @@ export const ALL_RECORDS: RecordItem[] = [
     },
     "characters": [
       "miku",
-      "GUMI",
+      "gumi",
       "rin",
       "luka",
       "meiko"
@@ -10407,7 +10407,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "miku",
-          "GUMI"
+          "gumi"
         ]
       },
       {
@@ -10437,7 +10437,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -10445,7 +10445,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       }
     ]
@@ -10715,7 +10715,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "emu",
       "nene",
       "rui",
-      "IA",
+      "ia",
       "miku",
       "len"
     ],
@@ -10737,7 +10737,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "IA"
+          "ia"
         ]
       },
       {
@@ -11408,7 +11408,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "saki",
       "honami",
       "shiho",
-      "GUMI",
+      "gumi",
       "len",
       "kaito"
     ],
@@ -11429,7 +11429,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       },
       {
@@ -11506,7 +11506,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "mafuyu",
       "ena",
       "mizuki",
-      "可不",
+      "kaf",
       "miku",
       "kaito"
     ],
@@ -11528,7 +11528,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "可不"
+          "kaf"
         ]
       },
       {
@@ -11617,7 +11617,7 @@ export const ALL_RECORDS: RecordItem[] = [
     },
     "characters": [
       "rin",
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -11626,7 +11626,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "rin",
-          "GUMI"
+          "gumi"
         ]
       }
     ]
@@ -11713,8 +11713,8 @@ export const ALL_RECORDS: RecordItem[] = [
       "luka",
       "kaito",
       "meiko",
-      "GUMI",
-      "神威がくぽ"
+      "gumi",
+      "gakupo"
     ],
     "vocalTracks": [
       {
@@ -11728,8 +11728,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka",
           "kaito",
           "meiko",
-          "GUMI",
-          "神威がくぽ"
+          "gumi",
+          "gakupo"
         ]
       }
     ]
@@ -11852,7 +11852,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "an",
       "akito",
       "toya",
-      "IA",
+      "ia",
       "Vivid BAD SQUAD",
       "Leo/need"
     ],
@@ -11874,7 +11874,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "IA"
+          "ia"
         ]
       },
       {
@@ -12754,7 +12754,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "saki",
       "honami",
       "shiho",
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -12774,7 +12774,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       },
       {
@@ -13340,9 +13340,9 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "星界",
-      "可不",
-      "東北きりたん"
+      "sekai_cevio",
+      "kaf",
+      "kiritan"
     ],
     "vocalTracks": [
       {
@@ -13350,9 +13350,9 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "星界",
-          "可不",
-          "東北きりたん"
+          "sekai_cevio",
+          "kaf",
+          "kiritan"
         ]
       }
     ]
@@ -13372,8 +13372,8 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "可不",
-      "ゲキヤク"
+      "kaf",
+      "gekiyaku"
     ],
     "vocalTracks": [
       {
@@ -13381,8 +13381,8 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "可不",
-          "ゲキヤク"
+          "kaf",
+          "gekiyaku"
         ]
       }
     ]
@@ -13402,7 +13402,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -13410,7 +13410,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       }
     ]
@@ -13584,7 +13584,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "minori",
       "haruka",
       "airi",
-      "可不",
+      "kaf",
       "miku"
     ],
     "vocalTracks": [
@@ -13605,7 +13605,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "可不"
+          "kaf"
         ]
       },
       {
@@ -13929,7 +13929,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "haruka",
       "airi",
       "shizuku",
-      "音街ウナ"
+      "una"
     ],
     "vocalTracks": [
       {
@@ -13949,7 +13949,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "音街ウナ"
+          "una"
         ]
       },
       {
@@ -14873,7 +14873,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "ena",
       "mizuki",
       "flower",
-      "結月ゆかり"
+      "yukari"
     ],
     "vocalTracks": [
       {
@@ -14894,7 +14894,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "flower",
-          "結月ゆかり"
+          "yukari"
         ]
       },
       {
@@ -15065,7 +15065,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "saki",
       "honami",
       "shiho",
-      "IA",
+      "ia",
       "miku"
     ],
     "vocalTracks": [
@@ -15086,7 +15086,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "IA"
+          "ia"
         ]
       },
       {
@@ -15277,7 +15277,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "rin",
       "minori",
       "airi",
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -15295,7 +15295,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       },
       {
@@ -15579,7 +15579,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "kohane",
       "akito",
       "toya",
-      "可不"
+      "kaf"
     ],
     "vocalTracks": [
       {
@@ -15599,7 +15599,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "可不"
+          "kaf"
         ]
       },
       {
@@ -15640,7 +15640,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "emu",
       "nene",
       "rui",
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -15660,7 +15660,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI",
+          "gumi",
           "len"
         ]
       }
@@ -15923,7 +15923,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "haruka",
       "airi",
       "shizuku",
-      "可不",
+      "kaf",
       "miku"
     ],
     "vocalTracks": [
@@ -15944,7 +15944,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "可不"
+          "kaf"
         ]
       },
       {
@@ -16388,7 +16388,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "ずんだもん"
+      "zundamon"
     ],
     "vocalTracks": [
       {
@@ -16396,7 +16396,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "ずんだもん"
+          "zundamon"
         ]
       }
     ]
@@ -16638,7 +16638,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "len",
       "kanade",
       "mafuyu",
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -16656,7 +16656,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       },
       {
@@ -17484,8 +17484,8 @@ export const ALL_RECORDS: RecordItem[] = [
       "an",
       "toya",
       "miku",
-      "GUMI",
-      "IA",
+      "gumi",
+      "ia",
       "rin"
     ],
     "vocalTracks": [
@@ -17508,8 +17508,8 @@ export const ALL_RECORDS: RecordItem[] = [
         "singers": [
           "luka",
           "miku",
-          "GUMI",
-          "IA",
+          "gumi",
+          "ia",
           "rin"
         ]
       },
@@ -17718,7 +17718,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "haruka",
       "airi",
       "miku",
-      "可不"
+      "kaf"
     ],
     "vocalTracks": [
       {
@@ -17739,7 +17739,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "miku",
-          "可不"
+          "kaf"
         ]
       },
       {
@@ -17941,7 +17941,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "luka",
       "kanade",
       "ena",
-      "可不"
+      "kaf"
     ],
     "vocalTracks": [
       {
@@ -17959,7 +17959,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "可不"
+          "kaf"
         ]
       },
       {
@@ -18246,7 +18246,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "mafuyu",
       "ena",
       "mizuki",
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -18267,7 +18267,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "miku",
-          "GUMI"
+          "gumi"
         ]
       },
       {
@@ -18464,15 +18464,15 @@ export const ALL_RECORDS: RecordItem[] = [
     "characters": [
       "miku",
       "flower",
-      "歌愛ユキ",
-      "GUMI",
-      "可不",
-      "星界",
-      "足立レイ",
-      "裏命",
-      "花隈千冬",
-      "VY1",
-      "SOLARIA"
+      "yuki",
+      "gumi",
+      "kaf",
+      "sekai_cevio",
+      "adachi_rei",
+      "rime",
+      "chifuyu",
+      "vy1",
+      "solaria"
     ],
     "vocalTracks": [
       {
@@ -18482,15 +18482,15 @@ export const ALL_RECORDS: RecordItem[] = [
         "singers": [
           "miku",
           "flower",
-          "歌愛ユキ",
-          "GUMI",
-          "可不",
-          "星界",
-          "足立レイ",
-          "裏命",
-          "花隈千冬",
-          "VY1",
-          "SOLARIA"
+          "yuki",
+          "gumi",
+          "kaf",
+          "sekai_cevio",
+          "adachi_rei",
+          "rime",
+          "chifuyu",
+          "vy1",
+          "solaria"
         ]
       }
     ]
@@ -18515,7 +18515,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "emu",
       "nene",
       "rui",
-      "歌愛ユキ",
+      "yuki",
       "len"
     ],
     "vocalTracks": [
@@ -18536,7 +18536,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "歌愛ユキ"
+          "yuki"
         ]
       },
       {
@@ -18613,7 +18613,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "mafuyu",
       "ena",
       "mizuki",
-      "GUMI",
+      "gumi",
       "luka"
     ],
     "vocalTracks": [
@@ -18634,7 +18634,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       },
       {
@@ -18720,7 +18720,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "airi",
       "shizuku",
       "miku",
-      "可不"
+      "kaf"
     ],
     "vocalTracks": [
       {
@@ -18741,7 +18741,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "miku",
-          "可不"
+          "kaf"
         ]
       },
       {
@@ -19014,7 +19014,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "an",
       "akito",
       "toya",
-      "可不",
+      "kaf",
       "rin",
       "emu"
     ],
@@ -19036,7 +19036,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "可不"
+          "kaf"
         ]
       },
       {
@@ -19118,7 +19118,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "歌愛ユキ"
+      "yuki"
     ],
     "vocalTracks": [
       {
@@ -19126,7 +19126,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "歌愛ユキ"
+          "yuki"
         ]
       }
     ]
@@ -19146,9 +19146,9 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "琴葉茜",
-      "琴葉葵",
-      "ずんだもん"
+      "akane",
+      "aoi",
+      "zundamon"
     ],
     "vocalTracks": [
       {
@@ -19156,9 +19156,9 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "琴葉茜",
-          "琴葉葵",
-          "ずんだもん"
+          "akane",
+          "aoi",
+          "zundamon"
         ]
       }
     ]
@@ -19469,7 +19469,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "meiko",
       "kanade",
       "mizuki",
-      "歌愛ユキ"
+      "yuki"
     ],
     "vocalTracks": [
       {
@@ -19487,7 +19487,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "歌愛ユキ"
+          "yuki"
         ]
       },
       {
@@ -19562,7 +19562,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "miku",
       "mafuyu",
       "ena",
-      "歌愛ユキ"
+      "yuki"
     ],
     "vocalTracks": [
       {
@@ -19580,7 +19580,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "歌愛ユキ"
+          "yuki"
         ]
       },
       {
@@ -19882,7 +19882,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "saki",
       "honami",
       "shiho",
-      "結月ゆかり"
+      "yukari"
     ],
     "vocalTracks": [
       {
@@ -19902,7 +19902,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "結月ゆかり"
+          "yukari"
         ]
       },
       {
@@ -20049,7 +20049,7 @@ export const ALL_RECORDS: RecordItem[] = [
     },
     "characters": [
       "miku",
-      "重音テト"
+      "teto"
     ],
     "vocalTracks": [
       {
@@ -20058,7 +20058,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "miku",
-          "重音テト"
+          "teto"
         ]
       }
     ]
@@ -20140,7 +20140,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "mafuyu",
       "mizuki",
       "miku",
-      "歌愛ユキ",
+      "yuki",
       "rin"
     ],
     "vocalTracks": [
@@ -20162,7 +20162,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "miku",
-          "歌愛ユキ"
+          "yuki"
         ]
       },
       {
@@ -20203,7 +20203,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "an",
       "akito",
       "toya",
-      "GUMI",
+      "gumi",
       "kaito"
     ],
     "vocalTracks": [
@@ -20224,7 +20224,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       },
       {
@@ -20560,7 +20560,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "emu",
       "nene",
       "rui",
-      "重音テト",
+      "teto",
       "ワンダーランズ×ショウタイム",
       "MORE MORE JUMP！"
     ],
@@ -20582,7 +20582,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "重音テト"
+          "teto"
         ]
       },
       {
@@ -20721,7 +20721,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "mafuyu",
       "ena",
       "mizuki",
-      "足立レイ"
+      "adachi_rei"
     ],
     "vocalTracks": [
       {
@@ -20741,7 +20741,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "足立レイ"
+          "adachi_rei"
         ]
       }
     ]
@@ -20794,7 +20794,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "haruka",
       "airi",
       "shizuku",
-      "重音テト"
+      "teto"
     ],
     "vocalTracks": [
       {
@@ -20814,7 +20814,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "重音テト"
+          "teto"
         ]
       }
     ]
@@ -20966,7 +20966,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "emu",
       "nene",
       "rui",
-      "GUMI",
+      "gumi",
       "saki",
       "mizuki"
     ],
@@ -20988,7 +20988,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       },
       {
@@ -21219,7 +21219,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "haruka",
       "airi",
       "shizuku",
-      "音街ウナ",
+      "una",
       "miku",
       "kohane"
     ],
@@ -21241,7 +21241,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "音街ウナ",
+          "una",
           "rin"
         ]
       },
@@ -21424,7 +21424,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "len",
       "ichika",
       "saki",
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -21442,7 +21442,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       }
     ]
@@ -21536,7 +21536,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "重音テト"
+      "teto"
     ],
     "vocalTracks": [
       {
@@ -21544,7 +21544,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "重音テト"
+          "teto"
         ]
       }
     ]
@@ -21564,7 +21564,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "めろう"
+      "merrow"
     ],
     "vocalTracks": [
       {
@@ -21572,7 +21572,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "めろう"
+          "merrow"
         ]
       }
     ]
@@ -21658,7 +21658,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "an",
       "akito",
       "toya",
-      "Lily"
+      "lily"
     ],
     "vocalTracks": [
       {
@@ -21678,7 +21678,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "Lily"
+          "lily"
         ]
       },
       {
@@ -21765,7 +21765,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "meiko",
       "emu",
       "nene",
-      "GUMI",
+      "gumi",
       "miku"
     ],
     "vocalTracks": [
@@ -21784,7 +21784,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       },
       {
@@ -21869,7 +21869,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "emu",
       "nene",
       "rui",
-      "音街ウナ"
+      "una"
     ],
     "vocalTracks": [
       {
@@ -21890,7 +21890,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "miku",
-          "音街ウナ"
+          "una"
         ]
       }
     ]
@@ -21913,7 +21913,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "kaito",
       "haruka",
       "airi",
-      "IA"
+      "ia"
     ],
     "vocalTracks": [
       {
@@ -21931,7 +21931,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "IA"
+          "ia"
         ]
       },
       {
@@ -22294,7 +22294,7 @@ export const ALL_RECORDS: RecordItem[] = [
     },
     "characters": [
       "miku",
-      "重音テト"
+      "teto"
     ],
     "vocalTracks": [
       {
@@ -22303,7 +22303,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "miku",
-          "重音テト"
+          "teto"
         ]
       }
     ]
@@ -22989,7 +22989,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "luka",
       "kanade",
       "ena",
-      "可不",
+      "kaf",
       "saki",
       "airi",
       "emu"
@@ -23010,7 +23010,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "可不"
+          "kaf"
         ]
       },
       {
@@ -23245,7 +23245,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "minori",
       "haruka",
       "airi",
-      "重音テト",
+      "teto",
       "rin"
     ],
     "vocalTracks": [
@@ -23266,7 +23266,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "重音テト"
+          "teto"
         ]
       },
       {
@@ -23307,7 +23307,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "an",
       "akito",
       "toya",
-      "花奏かのんβ"
+      "kanon"
     ],
     "vocalTracks": [
       {
@@ -23328,7 +23328,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "miku",
-          "花奏かのんβ"
+          "kanon"
         ]
       }
     ]
@@ -23421,7 +23421,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "鳴花ミコト"
+      "mikoto"
     ],
     "vocalTracks": [
       {
@@ -23429,7 +23429,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "鳴花ミコト"
+          "mikoto"
         ]
       }
     ]
@@ -23482,7 +23482,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "an",
       "akito",
       "toya",
-      "可不"
+      "kaf"
     ],
     "vocalTracks": [
       {
@@ -23502,7 +23502,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "可不"
+          "kaf"
         ]
       },
       {
@@ -23588,7 +23588,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "saki",
       "honami",
       "shiho",
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -23608,7 +23608,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       },
       {
@@ -23644,9 +23644,9 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "ずんだもん",
+      "zundamon",
       "miku",
-      "重音テト"
+      "teto"
     ],
     "vocalTracks": [
       {
@@ -23654,9 +23654,9 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "ずんだもん",
+          "zundamon",
           "miku",
-          "重音テト"
+          "teto"
         ]
       }
     ]
@@ -23725,7 +23725,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "saki",
       "honami",
       "shiho",
-      "IA"
+      "ia"
     ],
     "vocalTracks": [
       {
@@ -23745,7 +23745,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "IA"
+          "ia"
         ]
       },
       {
@@ -23934,7 +23934,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -23942,7 +23942,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       }
     ]
@@ -24489,9 +24489,9 @@ export const ALL_RECORDS: RecordItem[] = [
     },
     "characters": [
       "DI:Verse (東雲 彰人",
-      "青柳 冬弥",
-      "天馬 司",
-      "神代 類",
+      "toya",
+      "tsukasa",
+      "rui",
       "漣 ジュン",
       "瀬名 泉",
       "守沢 千秋",
@@ -24506,9 +24506,9 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "sekai",
         "singers": [
           "DI:Verse (東雲 彰人",
-          "青柳 冬弥",
-          "天馬 司",
-          "神代 類",
+          "toya",
+          "tsukasa",
+          "rui",
           "漣 ジュン",
           "瀬名 泉",
           "守沢 千秋",
@@ -24530,9 +24530,9 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "connect_live",
         "singers": [
           "DI:Verse (東雲 彰人",
-          "青柳 冬弥",
-          "天馬 司",
-          "神代 類",
+          "toya",
+          "tsukasa",
+          "rui",
           "漣 ジュン",
           "瀬名 泉",
           "守沢 千秋",
@@ -24547,9 +24547,9 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "connect_live",
         "singers": [
           "DI:Verse (東雲 彰人",
-          "青柳 冬弥",
-          "天馬 司",
-          "神代 類",
+          "toya",
+          "tsukasa",
+          "rui",
           "漣 ジュン",
           "瀬名 泉",
           "守沢 千秋",
@@ -24564,9 +24564,9 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "connect_live",
         "singers": [
           "DI:Verse (東雲 彰人",
-          "青柳 冬弥",
-          "天馬 司",
-          "神代 類",
+          "toya",
+          "tsukasa",
+          "rui",
           "漣 ジュン",
           "瀬名 泉",
           "守沢 千秋",
@@ -24581,9 +24581,9 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "connect_live",
         "singers": [
           "DI:Verse (東雲 彰人",
-          "青柳 冬弥",
-          "天馬 司",
-          "神代 類",
+          "toya",
+          "tsukasa",
+          "rui",
           "漣 ジュン",
           "瀬名 泉",
           "守沢 千秋",
@@ -24614,7 +24614,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "an",
       "akito",
       "toya",
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -24634,7 +24634,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       },
       {
@@ -24770,7 +24770,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "haruka",
       "airi",
       "shizuku",
-      "重音テト",
+      "teto",
       "miku",
       "mizuki"
     ],
@@ -24792,7 +24792,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "重音テト"
+          "teto"
         ]
       },
       {
@@ -24864,7 +24864,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "emu",
       "nene",
       "rui",
-      "重音テト"
+      "teto"
     ],
     "vocalTracks": [
       {
@@ -24884,7 +24884,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "重音テト"
+          "teto"
         ]
       },
       {
@@ -24953,7 +24953,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "saki",
       "honami",
       "shiho",
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -24973,7 +24973,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       },
       {
@@ -25017,7 +25017,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "miku",
       "luka",
       "meiko",
-      "重音テト",
+      "teto",
       "flower"
     ],
     "vocalTracks": [
@@ -25049,7 +25049,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "重音テト",
+          "teto",
           "flower"
         ]
       },
@@ -25211,7 +25211,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "重音テト"
+      "teto"
     ],
     "vocalTracks": [
       {
@@ -25219,7 +25219,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "重音テト"
+          "teto"
         ]
       }
     ]
@@ -25295,7 +25295,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -25303,7 +25303,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       }
     ]
@@ -25372,7 +25372,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "mafuyu",
       "ena",
       "mizuki",
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -25392,7 +25392,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       },
       {
@@ -26035,7 +26035,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "an",
       "akito",
       "toya",
-      "重音テト"
+      "teto"
     ],
     "vocalTracks": [
       {
@@ -26055,7 +26055,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "重音テト"
+          "teto"
         ]
       },
       {
@@ -26091,7 +26091,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "重音テト"
+      "teto"
     ],
     "vocalTracks": [
       {
@@ -26099,7 +26099,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "重音テト"
+          "teto"
         ]
       }
     ]
@@ -26537,9 +26537,9 @@ export const ALL_RECORDS: RecordItem[] = [
       "airi",
       "shizuku",
       "miku",
-      "夏色花梨",
-      "音街ウナ",
-      "GUMI"
+      "karin",
+      "una",
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -26560,9 +26560,9 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "miku",
-          "夏色花梨",
-          "音街ウナ",
-          "GUMI"
+          "karin",
+          "una",
+          "gumi"
         ]
       },
       {
@@ -26601,7 +26601,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "meiko",
       "kanade",
       "mizuki",
-      "可不"
+      "kaf"
     ],
     "vocalTracks": [
       {
@@ -26619,7 +26619,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "可不"
+          "kaf"
         ]
       }
     ]
@@ -26793,7 +26793,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "an",
       "akito",
       "toya",
-      "IA",
+      "ia",
       "miku"
     ],
     "vocalTracks": [
@@ -26814,7 +26814,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "IA",
+          "ia",
           "miku"
         ]
       }
@@ -26896,7 +26896,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "kanade",
       "mafuyu",
       "ena",
-      "可不"
+      "kaf"
     ],
     "vocalTracks": [
       {
@@ -26916,7 +26916,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "可不"
+          "kaf"
         ]
       },
       {
@@ -27445,7 +27445,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "saki",
       "honami",
       "shiho",
-      "GUMI",
+      "gumi",
       "miku",
       "tsukasa"
     ],
@@ -27467,7 +27467,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI",
+          "gumi",
           "miku"
         ]
       },
@@ -27530,7 +27530,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "haruka",
       "airi",
       "shizuku",
-      "GUMI",
+      "gumi",
       "flower"
     ],
     "vocalTracks": [
@@ -27551,7 +27551,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI",
+          "gumi",
           "flower"
         ]
       }
@@ -27676,7 +27676,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "emu",
       "nene",
       "rui",
-      "重音テト"
+      "teto"
     ],
     "vocalTracks": [
       {
@@ -27696,7 +27696,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "重音テト"
+          "teto"
         ]
       }
     ]
@@ -27716,7 +27716,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "重音テト",
+      "teto",
       "miku",
       "len",
       "kaito"
@@ -27727,7 +27727,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "重音テト"
+          "teto"
         ]
       },
       {
@@ -27762,7 +27762,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "mafuyu",
       "ena",
       "mizuki",
-      "歌愛ユキ"
+      "yuki"
     ],
     "vocalTracks": [
       {
@@ -27782,7 +27782,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "歌愛ユキ"
+          "yuki"
         ]
       },
       {
@@ -28446,7 +28446,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "ichika",
       "honami",
       "shiho",
-      "重音テト",
+      "teto",
       "flower"
     ],
     "vocalTracks": [
@@ -28467,7 +28467,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "重音テト",
+          "teto",
           "flower"
         ]
       }
@@ -28779,7 +28779,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "an",
       "akito",
       "toya",
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -28799,7 +28799,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       }
     ]
@@ -28956,7 +28956,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "重音テト"
+      "teto"
     ],
     "vocalTracks": [
       {
@@ -28964,7 +28964,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "重音テト"
+          "teto"
         ]
       }
     ]
@@ -29495,8 +29495,8 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "琴葉茜",
-      "琴葉葵"
+      "akane",
+      "aoi"
     ],
     "vocalTracks": [
       {
@@ -29504,8 +29504,8 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "琴葉茜",
-          "琴葉葵"
+          "akane",
+          "aoi"
         ]
       }
     ]
@@ -29525,7 +29525,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "重音テト"
+      "teto"
     ],
     "vocalTracks": [
       {
@@ -29533,7 +29533,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "重音テト"
+          "teto"
         ]
       }
     ]
@@ -29640,7 +29640,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "tsukasa",
       "nene",
       "rui",
-      "ずんだもん"
+      "zundamon"
     ],
     "vocalTracks": [
       {
@@ -29661,7 +29661,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "rin",
-          "ずんだもん"
+          "zundamon"
         ]
       }
     ]
@@ -29729,7 +29729,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "an",
       "akito",
       "toya",
-      "GUMI"
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -29749,7 +29749,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "GUMI"
+          "gumi"
         ]
       }
     ]
@@ -30066,7 +30066,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "kanade",
       "mafuyu",
       "ena",
-      "可不"
+      "kaf"
     ],
     "vocalTracks": [
       {
@@ -30086,7 +30086,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "可不"
+          "kaf"
         ]
       }
     ]
@@ -30143,7 +30143,7 @@ export const ALL_RECORDS: RecordItem[] = [
     },
     "characters": [
       "miku",
-      "重音テト"
+      "teto"
     ],
     "vocalTracks": [
       {
@@ -30152,7 +30152,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "miku",
-          "重音テト"
+          "teto"
         ]
       }
     ]
@@ -30285,7 +30285,7 @@ export const ALL_RECORDS: RecordItem[] = [
     },
     "characters": [
       "miku",
-      "重音テト"
+      "teto"
     ],
     "vocalTracks": [
       {
@@ -30294,7 +30294,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "miku",
-          "重音テト"
+          "teto"
         ]
       }
     ]
@@ -30364,8 +30364,8 @@ export const ALL_RECORDS: RecordItem[] = [
       "akito",
       "toya",
       "miku",
-      "重音テト",
-      "GUMI"
+      "teto",
+      "gumi"
     ],
     "vocalTracks": [
       {
@@ -30386,8 +30386,8 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "miku",
-          "重音テト",
-          "GUMI"
+          "teto",
+          "gumi"
         ]
       },
       {
@@ -30428,7 +30428,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "mafuyu",
       "ena",
       "mizuki",
-      "歌愛ユキ",
+      "yuki",
       "flower"
     ],
     "vocalTracks": [
@@ -30449,7 +30449,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "歌愛ユキ",
+          "yuki",
           "flower"
         ]
       }
@@ -30720,11 +30720,11 @@ export const ALL_RECORDS: RecordItem[] = [
       "airi",
       "shizuku",
       "miku",
-      "可不",
-      "裏命",
-      "星界",
-      "狐子",
-      "羽累"
+      "kaf",
+      "rime",
+      "sekai_cevio",
+      "koko",
+      "haru"
     ],
     "vocalTracks": [
       {
@@ -30745,11 +30745,11 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "miku",
-          "可不",
-          "裏命",
-          "星界",
-          "狐子",
-          "羽累"
+          "kaf",
+          "rime",
+          "sekai_cevio",
+          "koko",
+          "haru"
         ]
       }
     ]
@@ -30772,7 +30772,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "kaito",
       "kanade",
       "ena",
-      "音街ウナ"
+      "una"
     ],
     "vocalTracks": [
       {
@@ -30790,7 +30790,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "音街ウナ"
+          "una"
         ]
       }
     ]
@@ -30888,7 +30888,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "luka",
       "mafuyu",
       "mizuki",
-      "可不"
+      "kaf"
     ],
     "vocalTracks": [
       {
@@ -30906,7 +30906,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "可不"
+          "kaf"
         ]
       }
     ]
@@ -31115,7 +31115,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "mafuyu",
       "luka",
       "miku",
-      "重音テト"
+      "teto"
     ],
     "vocalTracks": [
       {
@@ -31136,7 +31136,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "miku",
-          "重音テト"
+          "teto"
         ]
       }
     ]
@@ -31161,7 +31161,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "emu",
       "nene",
       "rui",
-      "重音テト"
+      "teto"
     ],
     "vocalTracks": [
       {
@@ -31181,7 +31181,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "重音テト"
+          "teto"
         ]
       }
     ]
@@ -31473,7 +31473,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "meiko",
       "kohane",
       "an",
-      "可不"
+      "kaf"
     ],
     "vocalTracks": [
       {
@@ -31491,7 +31491,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "可不"
+          "kaf"
         ]
       }
     ]
@@ -31628,7 +31628,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "rui",
       "mizuki",
       "kaito",
-      "重音テト",
+      "teto",
       "flower"
     ],
     "vocalTracks": [
@@ -31649,7 +31649,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "重音テト",
+          "teto",
           "flower"
         ]
       }
@@ -31739,7 +31739,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "重音テト"
+      "teto"
     ],
     "vocalTracks": [
       {
@@ -31747,7 +31747,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "重音テト"
+          "teto"
         ]
       }
     ]
@@ -31767,7 +31767,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "ついなちゃん"
+      "tsuina"
     ],
     "vocalTracks": [
       {
@@ -31775,7 +31775,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "ついなちゃん"
+          "tsuina"
         ]
       }
     ]
@@ -32221,7 +32221,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "kohane",
       "an",
       "toya",
-      "重音テト"
+      "teto"
     ],
     "vocalTracks": [
       {
@@ -32241,7 +32241,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "重音テト"
+          "teto"
         ]
       }
     ]
@@ -32267,11 +32267,11 @@ export const ALL_RECORDS: RecordItem[] = [
       "emu",
       "rui",
       "miku",
-      "GUMI",
-      "IA",
+      "gumi",
+      "ia",
       "flower",
-      "可不",
-      "重音テト"
+      "kaf",
+      "teto"
     ],
     "vocalTracks": [
       {
@@ -32292,11 +32292,11 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "miku",
-          "GUMI",
-          "IA",
+          "gumi",
+          "ia",
           "flower",
-          "可不",
-          "重音テト"
+          "kaf",
+          "teto"
         ]
       }
     ]
@@ -32515,7 +32515,7 @@ export const ALL_RECORDS: RecordItem[] = [
     },
     "characters": [
       "miku",
-      "重音テト"
+      "teto"
     ],
     "vocalTracks": [
       {
@@ -32524,7 +32524,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "miku",
-          "重音テト"
+          "teto"
         ]
       }
     ]
@@ -32661,7 +32661,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "重音テト"
+      "teto"
     ],
     "vocalTracks": [
       {
@@ -32669,7 +32669,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "重音テト"
+          "teto"
         ]
       }
     ]
@@ -32839,7 +32839,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "mafuyu",
       "ena",
       "mizuki",
-      "歌愛ユキ"
+      "yuki"
     ],
     "vocalTracks": [
       {
@@ -32859,7 +32859,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "歌愛ユキ"
+          "yuki"
         ]
       }
     ]
@@ -32985,7 +32985,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "emu",
       "nene",
       "rui",
-      "知声"
+      "chisei"
     ],
     "vocalTracks": [
       {
@@ -33005,7 +33005,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "バーチャル・シンガーver",
         "type": "virtual_singer",
         "singers": [
-          "知声"
+          "chisei"
         ]
       }
     ]

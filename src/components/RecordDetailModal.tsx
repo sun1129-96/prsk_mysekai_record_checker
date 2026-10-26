@@ -119,9 +119,16 @@ export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
                 </div>
               ) : (
                 tracks.map((track) => {
-                  const singerObjs = track.singers
-                    .map((id) => CHARACTERS.find((c) => c.id === id))
-                    .filter(Boolean);
+                  const singerObjs = track.singers.map((s) => {
+                    const found = CHARACTERS.find((c) => c.id === s || c.name === s);
+                    if (found) return found;
+                    return {
+                      id: s,
+                      name: s,
+                      unit: 'virtual_singer' as const,
+                      color: '#10b981',
+                    };
+                  });
 
                   // アナザーボーカルverの場合はタイトルに(キャラ名)を表示しない
                   const displayTrackName =

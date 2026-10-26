@@ -50,6 +50,44 @@ const CHAR_MAP = {
   '朝比奈まふゆ': 'mafuyu',
   '東雲絵名': 'ena',
   '暁山瑞希': 'mizuki',
+
+  // プロセカ外部バーチャル・シンガー
+  'GUMI': 'gumi',
+  'flower': 'flower',
+  '重音テト': 'teto',
+  'IA': 'ia',
+  '音街ウナ': 'una',
+  '可不': 'kaf',
+  '歌愛ユキ': 'yuki',
+  '神威がくぽ': 'gakupo',
+  '結月ゆかり': 'yukari',
+  'ずんだもん': 'zundamon',
+  '東北きりたん': 'kiritan',
+  '琴葉茜': 'akane',
+  '琴葉葵': 'aoi',
+  '知声': 'chisei',
+  '足立レイ': 'adachi_rei',
+  '夏色花梨': 'karin',
+  '花隈千冬': 'chifuyu',
+  '裏命': 'rime',
+  '星界': 'sekai_cevio',
+  '羽累': 'haru',
+  '狐子': 'koko',
+  'ついなちゃん': 'tsuina',
+  'めろう': 'merrow',
+  'ゲキヤク': 'gekiyaku',
+  '花奏かのんβ': 'kanon',
+  '鳴花ミコト': 'mikoto',
+  'Lily': 'lily',
+  'SOLARIA': 'solaria',
+  'VY1': 'vy1',
+  'VY2V3': 'vy2',
+
+  // 空白混じり表記対応
+  '天馬 司': 'tsukasa',
+  '神代 類': 'rui',
+  '青柳 冬弥': 'toya',
+  '東雲 彰人': 'akito',
 };
 
 async function fetchWithRetry(url, retries = 3) {
@@ -337,18 +375,36 @@ async function main() {
   }
 
   // BOM付きUTF-8でCSVを保存（Excel/スプレッドシート文字化け防止）
+  // 先にJSONを保存
+  const jsonPath = path.join(__dirname, '..', 'src', 'data', 'allImportedRecords.json');
+  fs.writeFileSync(jsonPath, JSON.stringify(songs, null, 2), 'utf-8');
+  console.log(`JSON保存完了: ${jsonPath}`);
+
+  // BOM付きUTF-8でCSV / TSVを保存
   const BOM = '\uFEFF';
   const csvPath = path.join(__dirname, '..', 'records_spreadsheet.csv');
   const tsvPath = path.join(__dirname, '..', 'records_spreadsheet.tsv');
-  const jsonPath = path.join(__dirname, '..', 'src', 'data', 'allImportedRecords.json');
 
-  fs.writeFileSync(csvPath, BOM + csvRows.join('\r\n'), 'utf-8');
-  fs.writeFileSync(tsvPath, tsvRows.join('\r\n'), 'utf-8');
-  fs.writeFileSync(jsonPath, JSON.stringify(songs, null, 2), 'utf-8');
+  try {
+    fs.writeFileSync(csvPath, BOM + csvRows.join('\r\n'), 'utf-8');
+    console.log(`CSV保存完了: ${csvPath}`);
+  } catch (err) {
+    if (err.code === 'EBUSY') {
+      const fallbackCsvPath = path.join(__dirname, '..', 'records_spreadsheet_updated.csv');
+      fs.writeFileSync(fallbackCsvPath, BOM + csvRows.join('\r\n'), 'utf-8');
+      console.log(`※ records_spreadsheet.csv が開かれているため、最新版をこちらに出力しました: ${fallbackCsvPath}`);
+    } else {
+      throw err;
+    }
+  }
 
-  console.log(`CSV保存完了: ${csvPath}`);
-  console.log(`TSV保存完了: ${tsvPath}`);
-  console.log(`JSON保存完了: ${jsonPath}`);
+  try {
+    fs.writeFileSync(tsvPath, tsvRows.join('\r\n'), 'utf-8');
+    console.log(`TSV保存完了: ${tsvPath}`);
+  } catch (err) {
+    console.warn('TSV書き込みスキップ:', err.message);
+  }
+
   console.log('すべての処理が正常に終了しました！');
 }
 
