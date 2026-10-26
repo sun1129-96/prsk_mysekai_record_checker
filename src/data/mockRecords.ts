@@ -1,7 +1,7 @@
 import type { RecordItem } from '../types/record';
 
 /**
- * プロセカ マイセカイ レコード初期モックデータ（キャラクター歌唱情報付き）
+ * プロセカ マイセカイ レコード初期モックデータ（バージョン別歌唱者トラック付き）
  */
 export const MOCK_RECORDS: RecordItem[] = [
   // バーチャル・シンガー
@@ -14,7 +14,9 @@ export const MOCK_RECORDS: RecordItem[] = [
     defaultOrder: 1,
     vocalVersions: { virtualSinger: true, sekai: false, connectLive: false, anotherVocal: false },
     characters: ['miku'],
-    source: 'レコードショップ (100コイン)',
+    vocalTracks: [
+      { id: 'vs_01_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['miku'] },
+    ],
   },
   {
     id: 'rec_vs_02',
@@ -25,7 +27,9 @@ export const MOCK_RECORDS: RecordItem[] = [
     defaultOrder: 2,
     vocalVersions: { virtualSinger: true, sekai: false, connectLive: false, anotherVocal: false },
     characters: ['miku'],
-    source: 'レコードショップ (100コイン)',
+    vocalTracks: [
+      { id: 'vs_02_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['miku'] },
+    ],
   },
   {
     id: 'rec_vs_03',
@@ -36,7 +40,9 @@ export const MOCK_RECORDS: RecordItem[] = [
     defaultOrder: 8,
     vocalVersions: { virtualSinger: true, sekai: false, connectLive: false, anotherVocal: false },
     characters: ['miku'],
-    source: 'レコードショップ (150コイン)',
+    vocalTracks: [
+      { id: 'vs_03_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['miku'] },
+    ],
   },
   {
     id: 'rec_vs_04',
@@ -47,7 +53,9 @@ export const MOCK_RECORDS: RecordItem[] = [
     defaultOrder: 14,
     vocalVersions: { virtualSinger: true, sekai: false, connectLive: false, anotherVocal: false },
     characters: ['miku'],
-    source: 'レコードショップ (100コイン)',
+    vocalTracks: [
+      { id: 'vs_04_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['miku'] },
+    ],
   },
 
   // Leo/need
@@ -60,7 +68,12 @@ export const MOCK_RECORDS: RecordItem[] = [
     defaultOrder: 3,
     vocalVersions: { virtualSinger: true, sekai: true, connectLive: true, anotherVocal: true },
     characters: ['ichika', 'rin'],
-    source: 'レコードショップ (100コイン)',
+    vocalTracks: [
+      { id: 'ln_01_sekai', name: 'セカイver', type: 'sekai', singers: ['ichika', 'rin'] },
+      { id: 'ln_01_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['rin'] },
+      { id: 'ln_01_cl', name: 'コネクトライブver', type: 'connect_live', singers: ['ichika', 'rin'] },
+      { id: 'ln_01_av1', name: 'アナザーボーカルver (一歌 & 咲希)', type: 'another_vocal', singers: ['ichika', 'saki'] },
+    ],
   },
   {
     id: 'rec_ln_02',
@@ -71,7 +84,12 @@ export const MOCK_RECORDS: RecordItem[] = [
     defaultOrder: 9,
     vocalVersions: { virtualSinger: true, sekai: true, connectLive: false, anotherVocal: true },
     characters: ['ichika', 'saki', 'honami', 'shiho', 'miku'],
-    source: 'レコードショップ (100コイン)',
+    vocalTracks: [
+      { id: 'ln_02_sekai', name: 'セカイver', type: 'sekai', singers: ['ichika', 'saki', 'honami', 'shiho', 'miku'] },
+      { id: 'ln_02_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['miku'] },
+      { id: 'ln_02_av1', name: 'アナザーボーカルver (一歌)', type: 'another_vocal', singers: ['ichika'] },
+      { id: 'ln_02_av2', name: 'アナザーボーカルver (咲希)', type: 'another_vocal', singers: ['saki'] },
+    ],
   },
   {
     id: 'rec_ln_03',
@@ -82,7 +100,10 @@ export const MOCK_RECORDS: RecordItem[] = [
     defaultOrder: 15,
     vocalVersions: { virtualSinger: true, sekai: true, connectLive: false, anotherVocal: false },
     characters: ['ichika', 'saki', 'miku'],
-    source: 'レコードショップ (100コイン)',
+    vocalTracks: [
+      { id: 'ln_03_sekai', name: 'セカイver', type: 'sekai', singers: ['ichika', 'saki', 'miku'] },
+      { id: 'ln_03_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['miku'] },
+    ],
   },
   {
     id: 'rec_ln_04',
@@ -93,7 +114,12 @@ export const MOCK_RECORDS: RecordItem[] = [
     defaultOrder: 22,
     vocalVersions: { virtualSinger: false, sekai: true, connectLive: true, anotherVocal: true },
     characters: ['ichika', 'saki', 'honami', 'shiho', 'meiko'],
-    source: 'レコードショップ (150コイン)',
+    vocalTracks: [
+      { id: 'ln_04_sekai', name: 'セカイver', type: 'sekai', singers: ['ichika', 'saki', 'honami', 'shiho', 'meiko'] },
+      { id: 'ln_04_cl', name: 'コネクトライブver', type: 'connect_live', singers: ['ichika', 'saki', 'honami', 'shiho'] },
+      { id: 'ln_04_av1', name: 'アナザーボーカルver (穂波)', type: 'another_vocal', singers: ['honami'] },
+      { id: 'ln_04_av2', name: 'アナザーボーカルver (志歩)', type: 'another_vocal', singers: ['shiho'] },
+    ],
   },
 
   // MORE MORE JUMP!
@@ -106,7 +132,12 @@ export const MOCK_RECORDS: RecordItem[] = [
     defaultOrder: 4,
     vocalVersions: { virtualSinger: true, sekai: true, connectLive: true, anotherVocal: true },
     characters: ['minori', 'shizuku', 'luka'],
-    source: 'レコードショップ (100コイン)',
+    vocalTracks: [
+      { id: 'mmj_01_sekai', name: 'セカイver', type: 'sekai', singers: ['minori', 'shizuku', 'luka'] },
+      { id: 'mmj_01_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['luka', 'gumi'] },
+      { id: 'mmj_01_cl', name: 'コネクトライブver', type: 'connect_live', singers: ['minori', 'shizuku'] },
+      { id: 'mmj_01_av1', name: 'アナザーボーカルver (みのり & 雫)', type: 'another_vocal', singers: ['minori', 'shizuku'] },
+    ],
   },
   {
     id: 'rec_mmj_02',
@@ -117,7 +148,12 @@ export const MOCK_RECORDS: RecordItem[] = [
     defaultOrder: 7,
     vocalVersions: { virtualSinger: true, sekai: true, connectLive: false, anotherVocal: true },
     characters: ['minori', 'haruka', 'airi', 'shizuku', 'miku'],
-    source: 'レコードショップ (100コイン)',
+    vocalTracks: [
+      { id: 'mmj_02_sekai', name: 'セカイver', type: 'sekai', singers: ['minori', 'haruka', 'airi', 'shizuku', 'miku'] },
+      { id: 'mmj_02_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['miku', 'rin', 'luka', 'meiko'] },
+      { id: 'mmj_02_av1', name: 'アナザーボーカルver (みのり)', type: 'another_vocal', singers: ['minori'] },
+      { id: 'mmj_02_av2', name: 'アナザーボーカルver (遥)', type: 'another_vocal', singers: ['haruka'] },
+    ],
   },
   {
     id: 'rec_mmj_03',
@@ -128,7 +164,10 @@ export const MOCK_RECORDS: RecordItem[] = [
     defaultOrder: 17,
     vocalVersions: { virtualSinger: true, sekai: true, connectLive: false, anotherVocal: false },
     characters: ['haruka', 'shizuku', 'miku'],
-    source: 'レコードショップ (100コイン)',
+    vocalTracks: [
+      { id: 'mmj_03_sekai', name: 'セカイver', type: 'sekai', singers: ['haruka', 'shizuku', 'miku'] },
+      { id: 'mmj_03_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['miku'] },
+    ],
   },
   {
     id: 'rec_mmj_04',
@@ -139,7 +178,12 @@ export const MOCK_RECORDS: RecordItem[] = [
     defaultOrder: 20,
     vocalVersions: { virtualSinger: false, sekai: true, connectLive: true, anotherVocal: true },
     characters: ['minori', 'haruka', 'airi', 'shizuku', 'miku'],
-    source: 'レコードショップ (150コイン)',
+    vocalTracks: [
+      { id: 'mmj_04_sekai', name: 'セカイver', type: 'sekai', singers: ['minori', 'haruka', 'airi', 'shizuku', 'miku'] },
+      { id: 'mmj_04_cl', name: 'コネクトライブver', type: 'connect_live', singers: ['minori', 'haruka', 'airi', 'shizuku'] },
+      { id: 'mmj_04_av1', name: 'アナザーボーカルver (愛莉)', type: 'another_vocal', singers: ['airi'] },
+      { id: 'mmj_04_av2', name: 'アナザーボーカルver (雫)', type: 'another_vocal', singers: ['shizuku'] },
+    ],
   },
 
   // Vivid BAD SQUAD
@@ -152,7 +196,12 @@ export const MOCK_RECORDS: RecordItem[] = [
     defaultOrder: 5,
     vocalVersions: { virtualSinger: true, sekai: true, connectLive: true, anotherVocal: true },
     characters: ['kohane', 'an', 'akito', 'toya', 'miku'],
-    source: 'レコードショップ (100コイン)',
+    vocalTracks: [
+      { id: 'vbs_01_sekai', name: 'セカイver', type: 'sekai', singers: ['kohane', 'an', 'akito', 'toya', 'miku'] },
+      { id: 'vbs_01_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['miku'] },
+      { id: 'vbs_01_cl', name: 'コネクトライブver', type: 'connect_live', singers: ['kohane', 'an', 'akito', 'toya'] },
+      { id: 'vbs_01_av1', name: 'アナザーボーカルver (こはね & 杏)', type: 'another_vocal', singers: ['kohane', 'an'] },
+    ],
   },
   {
     id: 'rec_vbs_02',
@@ -163,7 +212,11 @@ export const MOCK_RECORDS: RecordItem[] = [
     defaultOrder: 10,
     vocalVersions: { virtualSinger: true, sekai: true, connectLive: false, anotherVocal: true },
     characters: ['akito', 'toya'],
-    source: 'レコードショップ (100コイン)',
+    vocalTracks: [
+      { id: 'vbs_02_sekai', name: 'セカイver', type: 'sekai', singers: ['akito', 'toya'] },
+      { id: 'vbs_02_av1', name: 'アナザーボーカルver (彰人)', type: 'another_vocal', singers: ['akito'] },
+      { id: 'vbs_02_av2', name: 'アナザーボーカルver (冬弥)', type: 'another_vocal', singers: ['toya'] },
+    ],
   },
   {
     id: 'rec_vbs_03',
@@ -172,9 +225,13 @@ export const MOCK_RECORDS: RecordItem[] = [
     unit: 'vivid_bad_squad',
     releaseDate: '2020-10-14',
     defaultOrder: 12,
-    vocalVersions: { virtualSinger: true, sekai: true, connectLive: false, anotherVocal: false },
+    vocalVersions: { virtualSinger: true, sekai: true, connectLive: false, anotherVocal: true },
     characters: ['kohane', 'an', 'rin', 'len'],
-    source: 'レコードショップ (100コイン)',
+    vocalTracks: [
+      { id: 'vbs_03_sekai', name: 'セカイver', type: 'sekai', singers: ['kohane', 'an', 'rin', 'len'] },
+      { id: 'vbs_03_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['rin', 'len'] },
+      { id: 'vbs_03_av1', name: 'アナザーボーカルver (こはね & 杏)', type: 'another_vocal', singers: ['kohane', 'an'] },
+    ],
   },
   {
     id: 'rec_vbs_04',
@@ -185,7 +242,11 @@ export const MOCK_RECORDS: RecordItem[] = [
     defaultOrder: 25,
     vocalVersions: { virtualSinger: false, sekai: true, connectLive: true, anotherVocal: true },
     characters: ['kohane', 'an', 'akito', 'toya', 'kaito'],
-    source: 'レコードショップ (150コイン)',
+    vocalTracks: [
+      { id: 'vbs_04_sekai', name: 'セカイver', type: 'sekai', singers: ['kohane', 'an', 'akito', 'toya', 'kaito'] },
+      { id: 'vbs_04_cl', name: 'コネクトライブver', type: 'connect_live', singers: ['kohane', 'an', 'akito', 'toya'] },
+      { id: 'vbs_04_av1', name: 'アナザーボーカルver (彰人)', type: 'another_vocal', singers: ['akito'] },
+    ],
   },
 
   // ワンダーランズ×ショウタイム
@@ -198,7 +259,12 @@ export const MOCK_RECORDS: RecordItem[] = [
     defaultOrder: 6,
     vocalVersions: { virtualSinger: true, sekai: true, connectLive: true, anotherVocal: true },
     characters: ['tsukasa', 'emu', 'nene', 'rui', 'miku'],
-    source: 'レコードショップ (100コイン)',
+    vocalTracks: [
+      { id: 'ws_01_sekai', name: 'セカイver', type: 'sekai', singers: ['tsukasa', 'emu', 'nene', 'rui', 'miku'] },
+      { id: 'ws_01_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['miku'] },
+      { id: 'ws_01_cl', name: 'コネクトライブver', type: 'connect_live', singers: ['tsukasa', 'emu', 'nene', 'rui'] },
+      { id: 'ws_01_av1', name: 'アナザーボーカルver (司 & えむ)', type: 'another_vocal', singers: ['tsukasa', 'emu'] },
+    ],
   },
   {
     id: 'rec_ws_02',
@@ -209,7 +275,11 @@ export const MOCK_RECORDS: RecordItem[] = [
     defaultOrder: 11,
     vocalVersions: { virtualSinger: true, sekai: true, connectLive: false, anotherVocal: true },
     characters: ['tsukasa', 'rui', 'len'],
-    source: 'レコードショップ (100コイン)',
+    vocalTracks: [
+      { id: 'ws_02_sekai', name: 'セカイver', type: 'sekai', singers: ['tsukasa', 'rui', 'len'] },
+      { id: 'ws_02_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['len'] },
+      { id: 'ws_02_av1', name: 'アナザーボーカルver (類)', type: 'another_vocal', singers: ['rui'] },
+    ],
   },
   {
     id: 'rec_ws_03',
@@ -220,7 +290,9 @@ export const MOCK_RECORDS: RecordItem[] = [
     defaultOrder: 16,
     vocalVersions: { virtualSinger: true, sekai: true, connectLive: false, anotherVocal: false },
     characters: ['tsukasa', 'emu', 'nene', 'rui'],
-    source: 'レコードショップ (100コイン)',
+    vocalTracks: [
+      { id: 'ws_03_sekai', name: 'セカイver', type: 'sekai', singers: ['tsukasa', 'emu', 'nene', 'rui'] },
+    ],
   },
   {
     id: 'rec_ws_04',
@@ -231,7 +303,12 @@ export const MOCK_RECORDS: RecordItem[] = [
     defaultOrder: 27,
     vocalVersions: { virtualSinger: false, sekai: true, connectLive: true, anotherVocal: true },
     characters: ['tsukasa', 'emu', 'nene', 'rui', 'kaito'],
-    source: 'レコードショップ (150コイン)',
+    vocalTracks: [
+      { id: 'ws_04_sekai', name: 'セカイver', type: 'sekai', singers: ['tsukasa', 'emu', 'nene', 'rui', 'kaito'] },
+      { id: 'ws_04_cl', name: 'コネクトライブver', type: 'connect_live', singers: ['tsukasa', 'emu', 'nene', 'rui'] },
+      { id: 'ws_04_av1', name: 'アナザーボーカルver (寧々)', type: 'another_vocal', singers: ['nene'] },
+      { id: 'ws_04_av2', name: 'アナザーボーカルver (えむ)', type: 'another_vocal', singers: ['emu'] },
+    ],
   },
 
   // 25時、ナイトコードで。
@@ -244,7 +321,12 @@ export const MOCK_RECORDS: RecordItem[] = [
     defaultOrder: 13,
     vocalVersions: { virtualSinger: true, sekai: true, connectLive: true, anotherVocal: true },
     characters: ['kanade', 'mafuyu', 'ena', 'mizuki', 'miku'],
-    source: 'レコードショップ (100コイン)',
+    vocalTracks: [
+      { id: '25_01_sekai', name: 'セカイver', type: 'sekai', singers: ['kanade', 'mafuyu', 'ena', 'mizuki', 'miku'] },
+      { id: '25_01_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['miku'] },
+      { id: '25_01_cl', name: 'コネクトライブver', type: 'connect_live', singers: ['kanade', 'mafuyu', 'ena', 'mizuki'] },
+      { id: '25_01_av1', name: 'アナザーボーカルver (奏)', type: 'another_vocal', singers: ['kanade'] },
+    ],
   },
   {
     id: 'rec_25_02',
@@ -255,7 +337,11 @@ export const MOCK_RECORDS: RecordItem[] = [
     defaultOrder: 18,
     vocalVersions: { virtualSinger: true, sekai: true, connectLive: false, anotherVocal: true },
     characters: ['kanade', 'mafuyu', 'miku'],
-    source: 'レコードショップ (100コイン)',
+    vocalTracks: [
+      { id: '25_02_sekai', name: 'セカイver', type: 'sekai', singers: ['kanade', 'mafuyu', 'miku'] },
+      { id: '25_02_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['miku'] },
+      { id: '25_02_av1', name: 'アナザーボーカルver (まふゆ)', type: 'another_vocal', singers: ['mafuyu'] },
+    ],
   },
   {
     id: 'rec_25_03',
@@ -264,9 +350,12 @@ export const MOCK_RECORDS: RecordItem[] = [
     unit: 'nightcord_at_25',
     releaseDate: '2020-10-25',
     defaultOrder: 19,
-    vocalVersions: { virtualSinger: true, sekai: true, connectLive: false, anotherVocal: false },
+    vocalVersions: { virtualSinger: true, sekai: true, connectLive: false, anotherVocal: true },
     characters: ['ena', 'mizuki'],
-    source: 'レコードショップ (100コイン)',
+    vocalTracks: [
+      { id: '25_03_sekai', name: 'セカイver', type: 'sekai', singers: ['ena', 'mizuki'] },
+      { id: '25_03_av1', name: 'アナザーボーカルver (絵名 & 瑞希)', type: 'another_vocal', singers: ['ena', 'mizuki'] },
+    ],
   },
   {
     id: 'rec_25_04',
@@ -277,7 +366,12 @@ export const MOCK_RECORDS: RecordItem[] = [
     defaultOrder: 30,
     vocalVersions: { virtualSinger: false, sekai: true, connectLive: true, anotherVocal: true },
     characters: ['kanade', 'mafuyu', 'ena', 'mizuki', 'meiko'],
-    source: 'レコードショップ (150コイン)',
+    vocalTracks: [
+      { id: '25_04_sekai', name: 'セカイver', type: 'sekai', singers: ['kanade', 'mafuyu', 'ena', 'mizuki', 'meiko'] },
+      { id: '25_04_cl', name: 'コネクトライブver', type: 'connect_live', singers: ['kanade', 'mafuyu', 'ena', 'mizuki'] },
+      { id: '25_04_av1', name: 'アナザーボーカルver (絵名)', type: 'another_vocal', singers: ['ena'] },
+      { id: '25_04_av2', name: 'アナザーボーカルver (瑞希)', type: 'another_vocal', singers: ['mizuki'] },
+    ],
   },
 
   // その他・タイアップ
@@ -290,7 +384,11 @@ export const MOCK_RECORDS: RecordItem[] = [
     defaultOrder: 28,
     vocalVersions: { virtualSinger: true, sekai: true, connectLive: true, anotherVocal: false },
     characters: ['ichika', 'minori', 'kohane', 'tsukasa', 'kanade', 'miku'],
-    source: 'アニバーサリー配布',
+    vocalTracks: [
+      { id: 'oth_01_sekai', name: 'セカイver', type: 'sekai', singers: ['ichika', 'minori', 'kohane', 'tsukasa', 'kanade', 'miku'] },
+      { id: 'oth_01_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['miku'] },
+      { id: 'oth_01_cl', name: 'コネクトライブver', type: 'connect_live', singers: ['ichika', 'minori', 'kohane', 'tsukasa', 'kanade'] },
+    ],
   },
   {
     id: 'rec_oth_02',
@@ -301,6 +399,10 @@ export const MOCK_RECORDS: RecordItem[] = [
     defaultOrder: 35,
     vocalVersions: { virtualSinger: true, sekai: true, connectLive: true, anotherVocal: false },
     characters: ['ichika', 'minori', 'kohane', 'tsukasa', 'kanade', 'miku'],
-    source: 'アニバーサリー配布',
+    vocalTracks: [
+      { id: 'oth_02_sekai', name: 'セカイver', type: 'sekai', singers: ['ichika', 'minori', 'kohane', 'tsukasa', 'kanade', 'miku'] },
+      { id: 'oth_02_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['miku'] },
+      { id: 'oth_02_cl', name: 'コネクトライブver', type: 'connect_live', singers: ['ichika', 'minori', 'kohane', 'tsukasa', 'kanade'] },
+    ],
   },
 ];

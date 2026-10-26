@@ -142,6 +142,16 @@ export interface VocalVersions {
 }
 
 /**
+ * 歌唱トラックの詳細情報
+ */
+export interface VocalTrackDetail {
+  id: string;
+  name: string; // 例: "セカイver", "バチャシンver", "コネクトライブver", "アナザーボーカル (一歌ver)"
+  type: 'sekai' | 'virtual_singer' | 'connect_live' | 'another_vocal';
+  singers: string[]; // 歌唱キャラクターID一覧
+}
+
+/**
  * 楽曲レコードマスターデータ型
  */
 export interface RecordItem {
@@ -150,11 +160,12 @@ export interface RecordItem {
   reading: string;          // 五十音ソート用よみがな
   unit: UnitType;
   releaseDate: string;      // YYYY-MM-DD
-  defaultOrder: number;     // ゲーム内マイセカイ順
+  defaultOrder: number;     // 実装順 (ゲーム内配置順)
   vocalVersions: VocalVersions;
-  characters: string[];     // 歌唱キャラクターID一覧 (例: ['miku', 'ichika'])
+  characters: string[];     // 全歌唱キャラクターID一覧
+  vocalTracks?: VocalTrackDetail[]; // 各バージョンの詳細トラック情報
   jacketUrl?: string;       // ジャケット画像URL
-  source?: string;          // 入手方法（例: レコードショップ）
+  source?: string;          // 入手方法
 }
 
 /**
