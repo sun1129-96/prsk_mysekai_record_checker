@@ -370,25 +370,37 @@ export const ListView: React.FC<ListViewProps> = ({
                   {displaySettings.showVocalBadges && (() => {
                     const vsMeta = UNIT_METAS.virtual_singer;
 
-                    // 複数歌唱者の滑らかなグラデーション背景スタイル生成
+                    // 歌唱者の境界のみグラデーションする背景スタイル生成（元の色を分かりやすく保持）
                     const getAnotherVocalStyle = (singers: typeof CHARACTERS) => {
-                      if (singers.length >= 2) {
-                        const stops = singers
-                          .map((c, i) => {
-                            const pct = Math.round((i / (singers.length - 1)) * 100);
-                            return `${c.color}35 ${pct}%`;
-                          })
-                          .join(', ');
+                      if (singers.length === 2) {
+                        const c1 = singers[0];
+                        const c2 = singers[1];
                         return {
-                          background: `linear-gradient(135deg, ${stops})`,
-                          borderColor: `${singers[0].color}66`,
+                          background: `linear-gradient(105deg, ${c1.color}3d 0%, ${c1.color}3d 40%, ${c2.color}3d 60%, ${c2.color}3d 100%)`,
+                          borderColor: `${c1.color}77`,
+                          color: '#1e293b',
+                        };
+                      } else if (singers.length > 2) {
+                        // 3人以上の場合は各キャラの領域を確保しつつ境界のみグラデーション
+                        const n = singers.length;
+                        const stops: string[] = [];
+                        singers.forEach((c, i) => {
+                          const startPct = Math.round((i / n) * 100);
+                          const endPct = Math.round(((i + 1) / n) * 100);
+                          const pad = Math.min(6, Math.floor(100 / n / 3));
+                          stops.push(`${c.color}3d ${startPct + (i === 0 ? 0 : pad)}%`);
+                          stops.push(`${c.color}3d ${endPct - (i === n - 1 ? 0 : pad)}%`);
+                        });
+                        return {
+                          background: `linear-gradient(105deg, ${stops.join(', ')})`,
+                          borderColor: `${singers[0].color}77`,
                           color: '#1e293b',
                         };
                       } else if (singers.length === 1) {
                         const c1 = singers[0];
                         return {
-                          backgroundColor: `${c1.color}20`,
-                          borderColor: `${c1.color}66`,
+                          backgroundColor: `${c1.color}28`,
+                          borderColor: `${c1.color}77`,
                           color: '#1e293b',
                         };
                       }
