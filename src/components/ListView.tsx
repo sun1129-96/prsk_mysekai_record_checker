@@ -467,21 +467,10 @@ export const ListView: React.FC<ListViewProps> = ({
                               return (
                                 <span
                                   key={track.id}
-                                  className="px-1.5 py-0.5 rounded-md font-bold border flex items-center gap-1 shadow-2xs transition-all"
+                                  className="px-1.5 py-0.5 rounded-md font-bold border transition-colors shadow-2xs"
                                   style={badgeStyle}
                                 >
-                                  {trackSingers.length > 0 && (
-                                    <span className="flex items-center -space-x-1">
-                                      {trackSingers.map((s) => (
-                                        <span
-                                          key={s.id}
-                                          className="w-1.5 h-1.5 rounded-full ring-1 ring-white"
-                                          style={{ backgroundColor: s.color }}
-                                        />
-                                      ))}
-                                    </span>
-                                  )}
-                                  <span>アナボ</span>
+                                  アナボ
                                 </span>
                               );
                             }
