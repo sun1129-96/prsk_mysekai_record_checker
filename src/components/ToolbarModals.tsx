@@ -450,21 +450,6 @@ export const DisplaySettingsModal: React.FC<DisplaySettingsModalProps> = ({
 
           <label className="flex items-center justify-between cursor-pointer p-2 rounded-xl hover:bg-slate-50 transition-colors">
             <div>
-              <span className="block text-slate-800 font-medium">歌唱キャラクター</span>
-              <span className="text-[11px] text-slate-400">歌唱メンバーのアイコンを表示</span>
-            </div>
-            <input
-              type="checkbox"
-              checked={settings.showCharacters}
-              onChange={(e) =>
-                onSettingsChange({ ...settings, showCharacters: e.target.checked })
-              }
-              className="w-5 h-5 accent-[#33ccbb] rounded"
-            />
-          </label>
-
-          <label className="flex items-center justify-between cursor-pointer p-2 rounded-xl hover:bg-slate-50 transition-colors">
-            <div>
               <span className="block text-slate-800 font-medium">コンパクト表示</span>
               <span className="text-[11px] text-slate-400">リスト行の上下余白を縮小する</span>
             </div>

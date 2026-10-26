@@ -374,7 +374,7 @@ export const MOCK_RECORDS: RecordItem[] = [
     ],
   },
 
-  // その他・タイアップ
+  // その他
   {
     id: 'rec_oth_01',
     title: '群青讃歌',

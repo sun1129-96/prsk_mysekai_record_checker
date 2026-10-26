@@ -73,7 +73,7 @@ export const UNIT_METAS: Record<UnitType, UnitMeta> = {
   },
   other: {
     id: 'other',
-    name: 'その他・タイアップ',
+    name: 'その他',
     shortName: 'その他',
     themeColor: '#64748b',
     bgColor: '#f8fafc',

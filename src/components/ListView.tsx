@@ -295,11 +295,6 @@ export const ListView: React.FC<ListViewProps> = ({
             const isOwned = !!ownedRecordIds[record.id];
             const unitMeta = UNIT_METAS[record.unit];
 
-            // 歌唱キャラクターのメタ情報取得
-            const vocalCharacters = record.characters
-              .map((cId) => CHARACTERS.find((c) => c.id === cId))
-              .filter(Boolean);
-
             return (
               <div
                 key={record.id}
@@ -370,24 +365,6 @@ export const ListView: React.FC<ListViewProps> = ({
                   <h4 className="text-xs sm:text-sm font-bold text-slate-800 truncate tracking-tight">
                     {record.title}
                   </h4>
-
-                  {/* 歌唱キャラクターアイコン（表示設定による。「Vo:」プレフィックスは削除） */}
-                  {displaySettings.showCharacters && vocalCharacters.length > 0 && (
-                    <div className="flex items-center gap-1 mt-1 flex-wrap">
-                      {vocalCharacters.map((char) => (
-                        <span
-                          key={char!.id}
-                          className="inline-flex items-center gap-1 px-1.5 py-0.2 rounded-md bg-slate-100 text-[10px] text-slate-600 font-medium"
-                        >
-                          <span
-                            className="w-1.5 h-1.5 rounded-full"
-                            style={{ backgroundColor: char!.color }}
-                          />
-                          {char!.name}
-                        </span>
-                      ))}
-                    </div>
-                  )}
 
                   {/* 歌唱verバッジ（表示設定による） */}
                   {displaySettings.showVocalBadges && (() => {
