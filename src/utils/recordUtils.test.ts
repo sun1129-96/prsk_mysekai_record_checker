@@ -176,6 +176,35 @@ describe('filterAndSortRecords', () => {
     expect(readingRes.length).toBe(1);
     expect(readingRes[0].title).toBe('トンデモワンダーズ');
   });
+
+  it('defaultSort（デフォルト順コード）で昇順・降順ソートできる', () => {
+    const itemsWithSortCode: RecordItem[] = [
+      { ...mockItems[0], defaultSort: 10003 }, // メルト
+      { ...mockItems[1], defaultSort: 11001 }, // ステラ
+      { ...mockItems[2], defaultSort: 14001 }, // トンデモ
+      { ...mockItems[3], defaultSort: 29001 }, // 群青讃歌
+    ];
+
+    const ascRes = filterAndSortRecords(
+      itemsWithSortCode,
+      {},
+      'defaultSort',
+      'asc',
+      defaultFilter
+    );
+    expect(ascRes[0].title).toBe('メルト');
+    expect(ascRes[3].title).toBe('群青讃歌');
+
+    const descRes = filterAndSortRecords(
+      itemsWithSortCode,
+      {},
+      'defaultSort',
+      'desc',
+      defaultFilter
+    );
+    expect(descRes[0].title).toBe('群青讃歌');
+    expect(descRes[3].title).toBe('メルト');
+  });
 });
 
 describe('encodeShareData / decodeShareData', () => {

@@ -33,9 +33,9 @@ export const ListView: React.FC<ListViewProps> = ({
   ownedRecordIds,
   onToggleOwned,
 }) => {
-  // 並び替え状態
-  const [sortType, setSortType] = useState<SortType>('releaseDate');
-  const [sortDirection, setSortDirection] = useState<SortDirection>('desc');
+  // 並び替え状態（初期値: 実装順 昇順）
+  const [sortType, setSortType] = useState<SortType>('defaultOrder');
+  const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
 
   // 絞り込み状態
   const [filterOptions, setFilterOptions] = useState<FilterOptions>({
@@ -470,6 +470,16 @@ export const ListView: React.FC<ListViewProps> = ({
                                     </span>
                                   )}
                                   <span>アナボ</span>
+                                </span>
+                              );
+                            }
+                            if (track.type === 'other') {
+                              return (
+                                <span
+                                  key={track.id}
+                                  className="px-1.5 py-0.5 rounded-md bg-purple-50 text-purple-700 border border-purple-200/60 font-bold shadow-2xs"
+                                >
+                                  {track.name.includes('コラボ') ? 'コラボ' : 'その他'}
                                 </span>
                               );
                             }

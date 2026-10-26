@@ -147,7 +147,7 @@ export interface VocalVersions {
 export interface VocalTrackDetail {
   id: string;
   name: string; // 例: "セカイver", "バチャシンver", "コネクトライブver", "アナザーボーカル (一歌ver)"
-  type: 'sekai' | 'virtual_singer' | 'connect_live' | 'another_vocal';
+  type: 'sekai' | 'virtual_singer' | 'connect_live' | 'another_vocal' | 'other';
   singers: string[]; // 歌唱キャラクターID一覧
 }
 
@@ -160,7 +160,8 @@ export interface RecordItem {
   reading: string;          // 五十音ソート用よみがな
   unit: UnitType;
   releaseDate: string;      // YYYY-MM-DD
-  defaultOrder: number;     // 実装順 (ゲーム内配置順)
+  defaultOrder: number;     // 実装順 (ゲーム内配置順 No.)
+  defaultSort?: number;     // デフォルト順コード (並び替え用)
   vocalVersions: VocalVersions;
   characters: string[];     // 全歌唱キャラクターID一覧
   vocalTracks?: VocalTrackDetail[]; // 各バージョンの詳細トラック情報
@@ -171,7 +172,7 @@ export interface RecordItem {
 /**
  * 並び替え種別
  */
-export type SortType = 'releaseDate' | 'defaultOrder' | 'reading';
+export type SortType = 'defaultSort' | 'defaultOrder' | 'releaseDate' | 'reading';
 export type SortDirection = 'asc' | 'desc';
 
 /**

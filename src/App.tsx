@@ -39,15 +39,14 @@ export const App: React.FC = () => {
       // ignore
     }
 
-    // 3. 初期モック用プリセット（例として数曲を所持状態に）
+    // 3. 初期モック用プリセット（例として各ユニットの代表曲を所持状態に）
     return {
-      rec_vs_01: true,
-      rec_vs_02: true,
-      rec_ln_01: true,
-      rec_mmj_01: true,
-      rec_vbs_01: true,
-      rec_ws_01: true,
-      rec_25_01: true,
+      rec_1: true, // Tell Your World
+      rec_7: true, // ロキ
+      rec_10: true, // ハッピーシンセサイザ
+      rec_15: true, // フラジール
+      rec_16: true, // ブリキノダンス
+      rec_19: true, // シャルル
     };
   });
 

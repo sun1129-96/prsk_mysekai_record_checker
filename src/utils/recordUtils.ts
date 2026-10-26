@@ -103,10 +103,12 @@ export const filterAndSortRecords = (
     })
     .sort((a, b) => {
       let compare = 0;
-      if (sortType === 'releaseDate') {
-        compare = a.releaseDate.localeCompare(b.releaseDate);
+      if (sortType === 'defaultSort') {
+        compare = (a.defaultSort ?? a.defaultOrder) - (b.defaultSort ?? b.defaultOrder);
       } else if (sortType === 'defaultOrder') {
         compare = a.defaultOrder - b.defaultOrder;
+      } else if (sortType === 'releaseDate') {
+        compare = a.releaseDate.localeCompare(b.releaseDate);
       } else if (sortType === 'reading') {
         compare = a.reading.localeCompare(b.reading, 'ja');
       }

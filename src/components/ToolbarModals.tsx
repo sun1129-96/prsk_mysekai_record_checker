@@ -92,17 +92,17 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
             </div>
 
             {/* ソート項目選択 */}
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-2 gap-2">
               <button
                 type="button"
-                onClick={() => onSortChange('releaseDate', sortDirection)}
+                onClick={() => onSortChange('defaultSort', sortDirection)}
                 className={`py-2.5 px-3 rounded-xl border font-bold text-xs sm:text-sm text-center transition-all ${
-                  sortType === 'releaseDate'
+                  sortType === 'defaultSort'
                     ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] shadow-2xs'
                     : 'border-slate-200 text-slate-600 hover:bg-slate-50'
                 }`}
               >
-                配信日順
+                デフォルト順
               </button>
 
               <button
@@ -114,7 +114,19 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                     : 'border-slate-200 text-slate-600 hover:bg-slate-50'
                 }`}
               >
-                デフォルト順
+                実装順 (No.)
+              </button>
+
+              <button
+                type="button"
+                onClick={() => onSortChange('releaseDate', sortDirection)}
+                className={`py-2.5 px-3 rounded-xl border font-bold text-xs sm:text-sm text-center transition-all ${
+                  sortType === 'releaseDate'
+                    ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] shadow-2xs'
+                    : 'border-slate-200 text-slate-600 hover:bg-slate-50'
+                }`}
+              >
+                配信日順
               </button>
 
               <button
