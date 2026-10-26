@@ -55,13 +55,23 @@ export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
 
           {/* ジャケットプレビュー */}
           <div
-            className="w-24 h-24 rounded-2xl flex items-center justify-center shadow-md mb-3"
+            className="w-24 h-24 rounded-2xl flex items-center justify-center shadow-md mb-3 overflow-hidden relative bg-slate-100"
             style={{
-              background: `linear-gradient(135deg, ${unitMeta.themeColor}33, ${unitMeta.themeColor}11)`,
               border: `2px solid ${unitMeta.borderColor}`,
             }}
           >
-            <Music className="w-10 h-10" style={{ color: unitMeta.themeColor }} />
+            {record.jacketUrl ? (
+              <img
+                src={record.jacketUrl}
+                alt={record.title}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).style.display = 'none';
+                }}
+              />
+            ) : (
+              <Music className="w-10 h-10" style={{ color: unitMeta.themeColor }} />
+            )}
           </div>
 
           {/* ユニットバッジ */}

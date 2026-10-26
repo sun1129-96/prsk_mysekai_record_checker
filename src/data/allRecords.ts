@@ -1,4 +1,4 @@
-// 自動生成ファイル (pjsekai.com より全727曲インポート)
+// 自動生成ファイル (pjsekai.com より全727曲インポート・ジャケット画像URL対応)
 import type { RecordItem } from '../types/record';
 
 export const ALL_RECORDS: RecordItem[] = [
@@ -10,6 +10,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 1,
     "defaultSort": 10001,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Tell%20Your%20World&src=Tell%20Your%20World.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -38,6 +39,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 2,
     "defaultSort": 10002,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%8D%E3%82%AF%E3%82%B9%E3%83%88%E3%83%8D%E3%82%B9%E3%83%88&src=%E3%83%8D%E3%82%AF%E3%82%B9%E3%83%88%E3%83%8D%E3%82%B9%E3%83%88.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -66,6 +68,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 3,
     "defaultSort": 10003,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A1%E3%83%AB%E3%83%88&src=%E3%83%A1%E3%83%AB%E3%83%88.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -94,6 +97,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 4,
     "defaultSort": 10004,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%88%9D%E9%9F%B3%E3%83%9F%E3%82%AF%E3%81%AE%E6%B6%88%E5%A4%B1&src=%E5%88%9D%E9%9F%B3%E3%83%9F%E3%82%AF%E3%81%AE%E6%B6%88%E5%A4%B1.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -122,6 +126,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 5,
     "defaultSort": 10005,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Blessing&src=Blessing.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -177,6 +182,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 6,
     "defaultSort": 10006,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=alive&src=alive.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -205,6 +211,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 7,
     "defaultSort": 11001,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AD%E3%82%AD&src=%E3%83%AD%E3%82%AD.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -255,6 +262,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 8,
     "defaultSort": 11002,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%86%E3%82%AA&src=%E3%83%86%E3%82%AA.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -320,6 +328,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 9,
     "defaultSort": 11003,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%92%E3%83%90%E3%83%8A%20-Reloaded-&src=%E3%83%92%E3%83%90%E3%83%8A%20-Reloaded-.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -396,6 +405,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 10,
     "defaultSort": 12001,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B7%E3%83%B3%E3%82%BB%E3%82%B5%E3%82%A4%E3%82%B6&src=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B7%E3%83%B3%E3%82%BB%E3%82%B5%E3%82%A4%E3%82%B6.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -473,6 +483,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 11,
     "defaultSort": 12002,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Nostalogic&src=Nostalogic.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -529,6 +540,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 12,
     "defaultSort": 12003,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%84%E3%82%AE%E3%83%8F%E3%82%AE%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AB%E3%83%BC%E3%83%88&src=%E3%83%84%E3%82%AE%E3%83%8F%E3%82%AE%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AB%E3%83%BC%E3%83%88.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -581,6 +593,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 13,
     "defaultSort": 13001,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%8A%A3%E7%AD%89%E4%B8%8A%E7%AD%89&src=%E5%8A%A3%E7%AD%89%E4%B8%8A%E7%AD%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -624,6 +637,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 14,
     "defaultSort": 13002,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%89%E3%82%AF%E3%82%BF%E3%83%BC%EF%BC%9D%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AF%E3%83%93%E3%83%BC%E3%83%88&src=%E3%83%89%E3%82%AF%E3%82%BF%E3%83%BC%EF%BC%9D%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AF%E3%83%93%E3%83%BC%E3%83%88.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -673,6 +687,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 15,
     "defaultSort": 13003,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%95%E3%83%A9%E3%82%B8%E3%83%BC%E3%83%AB&src=%E3%83%95%E3%83%A9%E3%82%B8%E3%83%BC%E3%83%AB.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -750,6 +765,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 16,
     "defaultSort": 14001,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%96%E3%83%AA%E3%82%AD%E3%83%8E%E3%83%80%E3%83%B3%E3%82%B9&src=%E3%83%96%E3%83%AA%E3%82%AD%E3%83%8E%E3%83%80%E3%83%B3%E3%82%B9.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -807,6 +823,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 17,
     "defaultSort": 14002,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B9%E3%82%A4%E3%83%BC%E3%83%88%E3%83%9E%E3%82%B8%E3%83%83%E3%82%AF&src=%E3%82%B9%E3%82%A4%E3%83%BC%E3%83%88%E3%83%9E%E3%82%B8%E3%83%83%E3%82%AF.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -883,6 +900,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 18,
     "defaultSort": 14003,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%BC%E3%81%86%E3%81%91%E3%82%93%E3%81%AE%E3%81%97%E3%82%87%E3%81%8C%E3%81%8D%E3%81%88%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81&src=%E3%81%BC%E3%81%86%E3%81%91%E3%82%93%E3%81%AE%E3%81%97%E3%82%87%E3%81%8C%E3%81%8D%E3%81%88%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -926,6 +944,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 19,
     "defaultSort": 15001,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B7%E3%83%A3%E3%83%AB%E3%83%AB&src=%E3%82%B7%E3%83%A3%E3%83%AB%E3%83%AB_%E3%82%BB%E3%82%AB%E3%82%A4ver.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -1003,6 +1022,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 20,
     "defaultSort": 15002,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%8F%E3%83%AD%EF%BC%8F%E3%83%8F%E3%83%AF%E3%83%A6&src=%E3%83%8F%E3%83%AD%EF%BC%8F%E3%83%8F%E3%83%AF%E3%83%A6.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -1043,6 +1063,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 21,
     "defaultSort": 15003,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E8%87%AA%E5%82%B7%E7%84%A1%E8%89%B2&src=%E8%87%AA%E5%82%B7%E7%84%A1%E8%89%B2.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -1083,6 +1104,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 22,
     "defaultSort": 21001,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=needLe&src=needLe.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -1151,6 +1173,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 23,
     "defaultSort": 22001,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%82%A4%E3%83%89%E3%83%AB%E6%96%B0%E9%8B%AD%E9%9A%8A&src=%E3%82%A2%E3%82%A4%E3%83%89%E3%83%AB%E8%A6%AA%E8%A1%9B%E9%9A%8A.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -1201,6 +1224,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 24,
     "defaultSort": 23001,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Ready%20Steady&src=ReadySteady.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -1249,6 +1273,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 25,
     "defaultSort": 24001,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%BB%E3%82%AB%E3%82%A4%E3%81%AF%E3%81%BE%E3%81%A0%E5%A7%8B%E3%81%BE%E3%81%A3%E3%81%A6%E3%81%99%E3%82%89%E3%81%84%E3%81%AA%E3%81%84&src=%E3%82%BB%E3%82%AB%E3%82%A4%E3%81%AF%E3%81%BE%E3%81%A0%E5%A7%8B%E3%81%BE%E3%81%A3%E3%81%A6%E3%81%99%E3%82%89%E3%81%84%E3%81%AA%E3%81%84.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -1311,6 +1336,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 26,
     "defaultSort": 25001,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%82%94%E3%82%84%E3%82%80%E3%81%A8%E6%9B%B8%E3%81%84%E3%81%A6%E3%83%9F%E3%83%A9%E3%82%A4&src=%E6%82%94%E3%82%84%E3%82%80%E3%81%A8%E6%9B%B8%E3%81%84%E3%81%A6%E3%83%9F%E3%83%A9%E3%82%A4.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -1387,6 +1413,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 27,
     "defaultSort": 29001,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%BB%E3%82%AB%E3%82%A4&src=%E3%82%BB%E3%82%AB%E3%82%A4.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -1447,6 +1474,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-09-30",
     "defaultOrder": 28,
     "defaultSort": 29002,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AF%E3%83%BC%E3%83%AF%E3%83%BC%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89&src=%E3%83%AF%E3%83%BC%E3%83%AF%E3%83%BC%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -1489,6 +1517,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-10-01",
     "defaultOrder": 29,
     "defaultSort": 11004,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%82%B9%E3%83%8E%E3%83%A8%E3%82%BE%E3%83%A9%E5%93%A8%E6%88%92%E7%8F%AD&src=%E3%82%A2%E3%82%B9%E3%83%8E%E3%83%A8%E3%82%BE%E3%83%A9%E5%93%A8%E6%88%92%E7%8F%AD.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": false,
@@ -1517,6 +1546,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-10-02",
     "defaultOrder": 30,
     "defaultSort": 12004,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%8B%E3%82%A2&src=%E3%83%8B%E3%82%A2.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -1565,6 +1595,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-10-03",
     "defaultOrder": 31,
     "defaultSort": 13004,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Just%20Be%20Friends&src=Just%20Be%20Friends.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -1621,6 +1652,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-10-04",
     "defaultOrder": 32,
     "defaultSort": 14004,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E8%84%B1%E6%B3%95%E3%83%AD%E3%83%83%E3%82%AF&src=%E8%84%B1%E6%B3%95%E3%83%AD%E3%83%83%E3%82%AF.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -1670,6 +1702,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-10-05",
     "defaultOrder": 33,
     "defaultSort": 15004,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%91%BD%E3%81%AB%E5%AB%8C%E3%82%8F%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B&src=%E5%91%BD%E3%81%AB%E5%AB%8C%E3%82%8F%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -1734,6 +1767,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-10-06",
     "defaultOrder": 34,
     "defaultSort": 10007,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%82%A4%E3%82%BA%E3%83%9E%E3%82%A4%E3%83%B3&src=%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%82%A4%E3%82%BA%E3%83%9E%E3%82%A4%E3%83%B3.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -1762,6 +1796,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-10-07",
     "defaultOrder": 35,
     "defaultSort": 14005,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%80%E3%83%B3%E3%82%B9%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E3%83%80%E3%83%B3%E3%82%B9&src=%E3%83%80%E3%83%B3%E3%82%B9%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E3%83%80%E3%83%B3%E3%82%B9.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -1822,6 +1857,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-10-08",
     "defaultOrder": 36,
     "defaultSort": 10008,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Hand%20in%20Hand&src=Hand%20in%20Hand.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -1850,6 +1886,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-10-09",
     "defaultOrder": 37,
     "defaultSort": 13005,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%A4%9C%E5%92%84%E3%83%87%E3%82%A3%E3%82%BB%E3%82%A4%E3%83%96&src=%E5%A4%9C%E5%92%84%E3%83%87%E3%82%A3%E3%82%BB%E3%82%A4%E3%83%96.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -1915,6 +1952,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-10-10",
     "defaultOrder": 38,
     "defaultSort": 10009,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Gimme%C3%97Gimme&src=Gimme%C3%97Gimme.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -1945,6 +1983,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-10-11",
     "defaultOrder": 39,
     "defaultSort": 12005,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%93%E3%83%90%E3%83%8F%E3%83%94&src=%E3%83%93%E3%83%90%E3%83%8F%E3%83%94.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -1998,6 +2037,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-10-12",
     "defaultOrder": 40,
     "defaultSort": 10010,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B8%E3%83%A3%E3%83%B3%E3%82%AD%E3%83%BC%E3%83%8A%E3%82%A4%E3%83%88%E3%82%BF%E3%82%A6%E3%83%B3%E3%82%AA%E3%83%BC%E3%82%B1%E3%82%B9%E3%83%88%E3%83%A9&src=%E3%82%B8%E3%83%A3%E3%83%B3%E3%82%AD%E3%83%BC%E3%83%8A%E3%82%A4%E3%83%88%E3%82%BF%E3%82%A6%E3%83%B3%E3%82%AA%E3%83%BC%E3%82%B1%E3%82%B9%E3%83%88%E3%83%A9.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -2026,6 +2066,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-10-13",
     "defaultOrder": 41,
     "defaultSort": 14006,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%9F%E3%83%A9%E3%82%AF%E3%83%AB%E3%83%9A%E3%82%A4%E3%83%B3%E3%83%88&src=%E3%83%9F%E3%83%A9%E3%82%AF%E3%83%AB%E3%83%9A%E3%82%A4%E3%83%B3%E3%83%88.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -2070,6 +2111,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-10-14",
     "defaultOrder": 42,
     "defaultSort": 10011,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=on%20the%20rocks&src=on%20the%20rocks.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -2100,6 +2142,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-10-15",
     "defaultOrder": 43,
     "defaultSort": 25002,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%90%BA%E5%B8%AF%E6%81%8B%E8%A9%B1&src=%E6%90%BA%E5%B8%AF%E6%81%8B%E8%A9%B1.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": false,
@@ -2148,6 +2191,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-10-16",
     "defaultOrder": 44,
     "defaultSort": 10012,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=39%E3%81%BF%E3%82%85%E3%83%BC%E3%81%98%E3%81%A3%E3%81%8F%EF%BC%81&src=39%E3%81%BF%E3%82%85%E3%83%BC%E3%81%98%E3%81%A3%E3%81%8F%EF%BC%81.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -2176,6 +2220,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-10-17",
     "defaultOrder": 45,
     "defaultSort": 11005,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E9%9D%92%E3%81%8F%E9%A7%86%E3%81%91%E3%82%8D%EF%BC%81&src=%E9%9D%92%E3%81%8F%E9%A7%86%E3%81%91%E3%82%8D%EF%BC%81.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -2214,6 +2259,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-10-18",
     "defaultOrder": 46,
     "defaultSort": 21002,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B9%E3%83%86%E3%83%A9&src=%E3%82%B9%E3%83%86%E3%83%A9.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -2274,6 +2320,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-10-19",
     "defaultOrder": 47,
     "defaultSort": 10013,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Leia%20-%20Remind&src=Leia%20-%20Remind.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -2302,6 +2349,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-10-20",
     "defaultOrder": 48,
     "defaultSort": 25003,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B8%E3%83%A3%E3%83%83%E3%82%AF%E3%83%9D%E3%83%83%E3%83%88%E3%82%B5%E3%83%83%E3%83%89%E3%82%AC%E3%83%BC%E3%83%AB&src=%E3%82%B8%E3%83%A3%E3%83%83%E3%82%AF%E3%83%9D%E3%83%83%E3%83%88%E3%82%B5%E3%83%83%E3%83%89%E3%82%AC%E3%83%BC%E3%83%AB.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -2372,6 +2420,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-10-25",
     "defaultOrder": 49,
     "defaultSort": 12006,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A1%E3%83%AB%E3%83%86%E3%82%A3%E3%83%A9%E3%83%B3%E3%83%89%E3%83%8A%E3%82%A4%E3%83%88%E3%83%A1%E3%82%A2&src=%E3%83%A1%E3%83%AB%E3%83%86%E3%82%A3%E3%83%A9%E3%83%B3%E3%83%89%E3%83%8A%E3%82%A4%E3%83%88%E3%83%A1%E3%82%A2.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -2416,6 +2465,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-11-01",
     "defaultOrder": 50,
     "defaultSort": 15005,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E4%B9%99%E5%A5%B3%E8%A7%A3%E5%89%96&src=%E4%B9%99%E5%A5%B3%E8%A7%A3%E5%89%96.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -2472,6 +2522,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-11-07",
     "defaultOrder": 51,
     "defaultSort": 24002,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=potato%E3%81%AB%E3%81%AA%E3%81%A3%E3%81%A6%E3%81%84%E3%81%8F&src=potato%E3%81%AB%E3%81%AA%E3%81%A3%E3%81%A6%E3%81%84%E3%81%8F.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -2534,6 +2585,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-11-14",
     "defaultOrder": 52,
     "defaultSort": 10014,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AD%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%AC%E3%83%BC%E3%83%AB&src=%E3%83%AD%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%AC%E3%83%BC%E3%83%AB.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -2562,6 +2614,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-11-19",
     "defaultOrder": 53,
     "defaultSort": 22002,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A2%E3%82%A2%EF%BC%81%E3%82%B8%E3%83%A3%E3%83%B3%E3%83%97%EF%BC%81%E3%83%A2%E3%82%A2%EF%BC%81&src=%E3%83%A2%E3%82%A2%EF%BC%81%E3%82%B8%E3%83%A3%E3%83%B3%E3%83%97%EF%BC%81%E3%83%A2%E3%82%A2%EF%BC%81.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -2606,6 +2659,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-11-21",
     "defaultOrder": 54,
     "defaultSort": 10015,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E8%A3%8F%E8%A1%A8%E3%83%A9%E3%83%90%E3%83%BC%E3%82%BA&src=%E8%A3%8F%E8%A1%A8%E3%83%A9%E3%83%90%E3%83%BC%E3%82%BA.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -2634,6 +2688,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-11-23",
     "defaultOrder": 55,
     "defaultSort": 10016,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%83%B3%E3%83%8E%E3%82%A6%E3%83%B3%E3%83%BB%E3%83%9E%E3%82%B6%E3%83%BC%E3%82%B0%E3%83%BC%E3%82%B9&src=%E3%82%A2%E3%83%B3%E3%83%8E%E3%82%A6%E3%83%B3%E3%83%BB%E3%83%9E%E3%82%B6%E3%83%BC%E3%82%B0%E3%83%BC%E3%82%B9.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -2662,6 +2717,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-11-30",
     "defaultOrder": 56,
     "defaultSort": 10017,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%84%9B%E3%81%95%E3%82%8C%E3%81%AA%E3%81%8F%E3%81%A6%E3%82%82%E5%90%9B%E3%81%8C%E3%81%84%E3%82%8B&src=%E6%84%9B%E3%81%95%E3%82%8C%E3%81%AA%E3%81%8F%E3%81%A6%E3%82%82%E5%90%9B%E3%81%8C%E3%81%84%E3%82%8B.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -2690,6 +2746,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-12-01",
     "defaultOrder": 57,
     "defaultSort": 11006,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A6%E3%83%9F%E3%83%A6%E3%83%AA%E6%B5%B7%E5%BA%95%E8%AD%9A&src=%E3%82%A6%E3%83%9F%E3%83%A6%E3%83%AA%E6%B5%B7%E5%BA%95%E8%AD%9A_1.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -2738,6 +2795,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-12-08",
     "defaultOrder": 58,
     "defaultSort": 23002,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Forward&src=Forward.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -2807,6 +2865,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-12-14",
     "defaultOrder": 59,
     "defaultSort": 15006,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%8B%AC%E3%82%8A%E3%82%93%E3%81%BC%E3%82%A8%E3%83%B3%E3%83%B4%E3%82%A3%E3%83%BC&src=%E7%8B%AC%E3%82%8A%E3%82%93%E3%81%BC%E3%82%A8%E3%83%B3%E3%83%B4%E3%82%A3%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -2875,6 +2934,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-12-20",
     "defaultOrder": 60,
     "defaultSort": 24003,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%8B%E3%82%B8%E3%82%A4%E3%83%AD%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC%E3%82%BA&src=%E3%83%8B%E3%82%B8%E3%82%A4%E3%83%AD%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC%E3%82%BA.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -2944,6 +3004,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-12-24",
     "defaultOrder": 61,
     "defaultSort": 10018,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=ODDS%EF%BC%86ENDS&src=ODDS%EF%BC%86ENDS.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -2972,6 +3033,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-12-28",
     "defaultOrder": 62,
     "defaultSort": 11007,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%89%E3%83%A9%E3%83%9E%E3%83%84%E3%83%AB%E3%82%AE%E3%83%BC&src=%E3%83%89%E3%83%A9%E3%83%9E%E3%83%84%E3%83%AB%E3%82%AE%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -3018,6 +3080,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-12-29",
     "defaultOrder": 63,
     "defaultSort": 10019,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B0%E3%83%AA%E3%83%BC%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%84%E3%83%BB%E3%82%BB%E3%83%AC%E3%83%8A%E3%83%BC%E3%83%87&src=%E3%82%B0%E3%83%AA%E3%83%BC%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%84%E3%83%BB%E3%82%BB%E3%83%AC%E3%83%8A%E3%83%BC%E3%83%87.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -3046,6 +3109,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-12-30",
     "defaultOrder": 64,
     "defaultSort": 12007,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%81%8B%E6%84%9B%E8%A3%81%E5%88%A4&src=%E6%81%8B%E6%84%9B%E8%A3%81%E5%88%A4.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -3102,6 +3166,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2020-12-31",
     "defaultOrder": 65,
     "defaultSort": 10020,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%EF%BC%8A%E3%83%8F%E3%83%AD%E3%83%BC%E3%80%81%E3%83%97%E3%83%A9%E3%83%8D%E3%83%83%E3%83%88%E3%80%82&src=%EF%BC%8A%E3%83%8F%E3%83%AD%E3%83%BC%E3%80%81%E3%83%97%E3%83%A9%E3%83%8D%E3%83%83%E3%83%88%E3%80%82.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -3130,6 +3195,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-01-01",
     "defaultOrder": 66,
     "defaultSort": 10021,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%8D%83%E6%9C%AC%E6%A1%9C&src=%E5%8D%83%E6%9C%AC%E6%A1%9C.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -3189,6 +3255,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-01-02",
     "defaultOrder": 67,
     "defaultSort": 13006,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=ECHO&src=ECHO.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -3252,6 +3319,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-01-03",
     "defaultOrder": 68,
     "defaultSort": 14007,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%81%E3%83%A5%E3%83%AB%E3%83%AA%E3%83%A9%E3%83%BB%E3%83%81%E3%83%A5%E3%83%AB%E3%83%AA%E3%83%A9%E3%83%BB%E3%83%80%E3%83%83%E3%83%80%E3%83%83%E3%83%80%EF%BC%81&src=%E3%83%81%E3%83%A5%E3%83%AB%E3%83%AA%E3%83%A9%E3%83%BB%E3%83%81%E3%83%A5%E3%83%AB%E3%83%AA%E3%83%A9%E3%83%BB%E3%83%80%E3%83%83%E3%83%80%E3%83%83%E3%83%80%EF%BC%81.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": false,
@@ -3295,6 +3363,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-01-04",
     "defaultOrder": 69,
     "defaultSort": 10022,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%96%E3%83%AC%E3%82%B9%E3%83%BB%E3%83%A6%E3%82%A2%E3%83%BB%E3%83%96%E3%83%AC%E3%82%B9&src=%E3%83%96%E3%83%AC%E3%82%B9%E3%83%BB%E3%83%A6%E3%82%A2%E3%83%BB%E3%83%96%E3%83%AC%E3%82%B9.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -3323,6 +3392,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-01-05",
     "defaultOrder": 70,
     "defaultSort": 15007,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%A8%E3%81%A6%E3%82%82%E7%97%9B%E3%81%84%E7%97%9B%E3%81%8C%E3%82%8A%E3%81%9F%E3%81%84&src=%E3%81%A8%E3%81%A6%E3%82%82%E7%97%9B%E3%81%84%E7%97%9B%E3%81%8C%E3%82%8A%E3%81%9F%E3%81%84.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -3364,6 +3434,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-01-10",
     "defaultOrder": 71,
     "defaultSort": 21003,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E9%9C%BD%E3%82%8C%E3%82%92%E5%BE%85%E3%81%A4&src=%E9%9C%BD%E3%82%8C%E3%82%92%E5%BE%85%E3%81%A4.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -3424,6 +3495,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-01-14",
     "defaultOrder": 72,
     "defaultSort": 10023,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AF%E3%83%BC%E3%83%AB%E3%82%BA%E3%82%A8%E3%83%B3%E3%83%89%E3%83%BB%E3%83%80%E3%83%B3%E3%82%B9%E3%83%9B%E3%83%BC%E3%83%AB&src=%E3%83%AF%E3%83%BC%E3%83%AB%E3%82%BA%E3%82%A8%E3%83%B3%E3%83%89%E3%83%BB%E3%83%80%E3%83%B3%E3%82%B9%E3%83%9B%E3%83%BC%E3%83%AB.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -3454,6 +3526,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-01-18",
     "defaultOrder": 73,
     "defaultSort": 10024,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%92%E3%83%93%E3%82%AB%E3%82%BB&src=%E3%83%92%E3%83%93%E3%82%AB%E3%82%BB.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -3482,6 +3555,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-01-29",
     "defaultOrder": 74,
     "defaultSort": 22003,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Color%20of%20Drops&src=Color%20of%20Drops.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -3551,6 +3625,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-01-31",
     "defaultOrder": 75,
     "defaultSort": 23003,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=RAD%20DOGS&src=RAD%20DOGS.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -3617,6 +3692,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-02-06",
     "defaultOrder": 76,
     "defaultSort": 12008,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%9F%E3%83%AB%E3%82%AF%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%B3%E3%83%BB%E3%82%AA%E3%83%B3%E3%83%BB%E3%82%BD%E3%83%BC%E3%83%8D%E3%83%81%E3%82%AB&src=%E3%83%9F%E3%83%AB%E3%82%AF%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%B3%E3%83%BB%E3%82%AA%E3%83%B3%E3%83%BB%E3%82%BD%E3%83%BC%E3%83%8D%E3%83%81%E3%82%AB.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -3673,6 +3749,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-02-10",
     "defaultOrder": 77,
     "defaultSort": 11008,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%BF%E3%82%A4%E3%83%A0%E3%83%9E%E3%82%B7%E3%83%B3&src=%E3%82%BF%E3%82%A4%E3%83%A0%E3%83%9E%E3%82%B7%E3%83%B3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -3733,6 +3810,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-02-15",
     "defaultOrder": 78,
     "defaultSort": 13007,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=drop%20pop%20candy&src=drop%20pop%20candy.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -3803,6 +3881,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-02-19",
     "defaultOrder": 79,
     "defaultSort": 14008,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%9D%E3%82%B8%E3%83%86%E3%82%A3%E3%83%96%E2%98%86%E3%83%80%E3%83%B3%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%A0&src=%E3%83%9D%E3%82%B8%E3%83%86%E3%82%A3%E3%83%96%E2%98%86%E3%83%80%E3%83%B3%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%A0.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -3861,6 +3940,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-02-22",
     "defaultOrder": 80,
     "defaultSort": 10025,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Brand%20New%20Day&src=Brand%20New%20Day.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -3899,6 +3979,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-02-26",
     "defaultOrder": 81,
     "defaultSort": 25004,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E9%99%90%E3%82%8A%E3%81%AA%E3%81%8F%E7%81%B0%E8%89%B2%E3%81%B8&src=%E9%99%90%E3%82%8A%E3%81%AA%E3%81%8F%E7%81%B0%E8%89%B2%E3%81%B8.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -3960,6 +4041,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-02-28",
     "defaultOrder": 82,
     "defaultSort": 24004,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AF%E3%83%B3%E3%82%B9%E3%82%A2%E3%83%9D%E3%83%B3%E3%82%A2%E3%83%89%E3%83%AA%E3%83%BC%E3%83%A0&src=%E3%83%AF%E3%83%B3%E3%82%B9%E3%82%A2%E3%83%9D%E3%83%B3%E3%82%A2%E3%83%89%E3%83%AA%E3%83%BC%E3%83%A0.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -4021,6 +4103,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-03-06",
     "defaultOrder": 83,
     "defaultSort": 15008,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%9C%E3%83%83%E3%82%AB%E3%83%87%E3%83%A9%E3%83%99%E3%83%AA%E3%82%BF&src=%E3%83%9C%E3%83%83%E3%82%AB%E3%83%87%E3%83%A9%E3%83%99%E3%83%AA%E3%82%BF.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -4060,6 +4143,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-03-09",
     "defaultOrder": 84,
     "defaultSort": 10026,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%BF%E3%81%8F%E3%81%BF%E3%81%8F%E3%81%AB%E3%81%97%E3%81%A6%E3%81%82%E3%81%92%E3%82%8B%E2%99%AA%E3%80%90%E3%81%97%E3%81%A6%E3%82%84%E3%82%93%E3%82%88%E3%80%91&src=%E3%81%BF%E3%81%8F%E3%81%BF%E3%81%8F%E3%81%AB%E3%81%97%E3%81%A6%E3%81%82%E3%81%92%E3%82%8B%E2%99%AA%E3%80%90%E3%81%97%E3%81%A6%E3%82%84%E3%82%93%E3%82%88%E3%80%91.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -4088,6 +4172,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-03-15",
     "defaultOrder": 85,
     "defaultSort": 13008,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%A8%81%E9%A2%A8%E5%A0%82%E3%80%85&src=%E5%A8%81%E9%A2%A8%E5%A0%82%E3%80%85.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -4161,6 +4246,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-03-22",
     "defaultOrder": 86,
     "defaultSort": 11009,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=from%20Y%20to%20Y&src=from%20Y%20to%20Y.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -4223,6 +4309,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-03-30",
     "defaultOrder": 87,
     "defaultSort": 10027,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%88%9D%E9%9F%B3%E3%83%9F%E3%82%AF%E3%81%AE%E6%BF%80%E5%94%B1&src=%E5%88%9D%E9%9F%B3%E3%83%9F%E3%82%AF%E3%81%AE%E6%BF%80%E5%94%B1.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -4251,6 +4338,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-03-30",
     "defaultOrder": 88,
     "defaultSort": 22004,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%A4%A9%E4%BD%BF%E3%81%AE%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%90%E3%83%BC&src=%E5%A4%A9%E4%BD%BF%E3%81%AE%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%90%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -4311,6 +4399,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-04-05",
     "defaultOrder": 89,
     "defaultSort": 14009,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%8A%E6%B0%97%E3%81%AB%E5%8F%AC%E3%81%99%E3%81%BE%E3%81%BE&src=%E3%81%8A%E6%B0%97%E3%81%AB%E5%8F%AC%E3%81%99%E3%81%BE%E3%81%BE.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -4364,6 +4453,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-04-12",
     "defaultOrder": 90,
     "defaultSort": 12009,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%A9%E3%82%8A%E3%83%BC%E3%81%BF%E3%82%93%E3%83%81%E3%83%A5%E3%83%81%E3%83%A5&src=%E3%81%A9%E3%82%8A%E3%83%BC%E3%81%BF%E3%82%93%E3%83%81%E3%83%A5%E3%83%81%E3%83%A5.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -4432,6 +4522,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-04-19",
     "defaultOrder": 91,
     "defaultSort": 25005,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%82%A4%E3%83%87%E3%82%A3%E3%82%B9%E3%83%9E%E3%82%A4%E3%83%AB&src=%E3%82%A2%E3%82%A4%E3%83%87%E3%82%A3%E3%82%B9%E3%83%9E%E3%82%A4%E3%83%AB.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -4511,6 +4602,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-04-21",
     "defaultOrder": 92,
     "defaultSort": 21004,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%80%8C%EF%BC%91%E3%80%8D&src=%E3%80%8C%EF%BC%91%E3%80%8D.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -4579,6 +4671,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-04-26",
     "defaultOrder": 93,
     "defaultSort": 10028,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E8%8A%B1%E3%82%92%E5%94%84%E3%81%86&src=%E8%8A%B1%E3%82%92%E5%94%84%E3%81%86.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -4607,6 +4700,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-05-01",
     "defaultOrder": 94,
     "defaultSort": 15009,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%A4%9C%E3%81%AB%E9%A7%86%E3%81%91%E3%82%8B&src=%E5%A4%9C%E3%81%AB%E9%A7%86%E3%81%91%E3%82%8B.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -4689,6 +4783,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-05-03",
     "defaultOrder": 95,
     "defaultSort": 13009,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%B9%BD%E9%9C%8A%E6%9D%B1%E4%BA%AC&src=%E5%B9%BD%E9%9C%8A%E6%9D%B1%E4%BA%AC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -4738,6 +4833,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-05-08",
     "defaultOrder": 96,
     "defaultSort": 23004,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B7%E3%83%8D%E3%83%9E&src=%E3%82%B7%E3%83%8D%E3%83%9E.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -4799,6 +4895,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-05-17",
     "defaultOrder": 97,
     "defaultSort": 14010,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=KING&src=KING.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -4874,6 +4971,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-05-21",
     "defaultOrder": 98,
     "defaultSort": 22005,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%82%A4%E3%83%8E%E3%83%9E%E3%83%86%E3%83%AA%E3%82%A2%E3%83%AB&src=%E3%82%A2%E3%82%A4%E3%83%8E%E3%83%9E%E3%83%86%E3%83%AA%E3%82%A2%E3%83%AB.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -4929,6 +5027,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-05-28",
     "defaultOrder": 99,
     "defaultSort": 11010,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%84%E3%81%8B%E3%81%AA%E3%81%84%E3%81%A7&src=%E3%81%84%E3%81%8B%E3%81%AA%E3%81%84%E3%81%A7.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -4978,6 +5077,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-06-07",
     "defaultOrder": 100,
     "defaultSort": 12010,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AD%E3%83%9F%E3%82%AA%E3%81%A8%E3%82%B7%E3%83%B3%E3%83%87%E3%83%AC%E3%83%A9&src=%E3%83%AD%E3%83%9F%E3%82%AA%E3%81%A8%E3%82%B7%E3%83%B3%E3%83%87%E3%83%AC%E3%83%A9.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -5047,6 +5147,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-06-14",
     "defaultOrder": 101,
     "defaultSort": 10029,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%B3%A1%E6%B2%AB%E6%9C%AA%E6%9D%A5&src=%E6%B3%A1%E6%B2%AB%E6%9C%AA%E6%9D%A5.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -5075,6 +5176,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-06-19",
     "defaultOrder": 102,
     "defaultSort": 24005,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%88%E3%83%B3%E3%83%87%E3%83%A2%E3%83%AF%E3%83%B3%E3%83%80%E3%83%BC%E3%82%BA&src=%E3%83%88%E3%83%B3%E3%83%87%E3%83%A2%E3%83%AF%E3%83%B3%E3%83%80%E3%83%BC%E3%82%BA.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -5153,6 +5255,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-06-21",
     "defaultOrder": 103,
     "defaultSort": 25006,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AB%E3%83%8A%E3%83%87%E3%83%88%E3%83%A2%E3%82%B9%E3%82%BD%E3%83%A9&src=%E3%82%AB%E3%83%8A%E3%83%87%E3%83%88%E3%83%A2%E3%82%B9%E3%82%BD%E3%83%A9.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -5238,6 +5341,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-06-30",
     "defaultOrder": 104,
     "defaultSort": 13010,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%88%E3%83%A9%E3%83%95%E3%82%A3%E3%83%83%E3%82%AF%E3%83%BB%E3%82%B8%E3%83%A3%E3%83%A0&src=%E3%83%88%E3%83%A9%E3%83%95%E3%82%A3%E3%83%83%E3%82%AF%E3%83%BB%E3%82%B8%E3%83%A3%E3%83%A0.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -5309,6 +5413,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-07-07",
     "defaultOrder": 105,
     "defaultSort": 21005,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%95%E3%83%AD%E3%83%A0%E3%83%88%E3%83%BC%E3%82%AD%E3%83%A7%E3%83%BC&src=%E3%83%95%E3%83%AD%E3%83%A0%E3%83%88%E3%83%BC%E3%82%AD%E3%83%A7%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -5377,6 +5482,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-07-09",
     "defaultOrder": 106,
     "defaultSort": 23005,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Beat%20Eater&src=Beat%20Eater.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -5464,6 +5570,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-07-12",
     "defaultOrder": 107,
     "defaultSort": 11011,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%85%AD%E5%85%86%E5%B9%B4%E3%81%A8%E4%B8%80%E5%A4%9C%E7%89%A9%E8%AA%9E&src=%E5%85%AD%E5%85%86%E5%B9%B4%E3%81%A8%E4%B8%80%E5%A4%9C%E7%89%A9%E8%AA%9E.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -5519,6 +5626,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-07-19",
     "defaultOrder": 108,
     "defaultSort": 12011,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%9C%B0%E7%90%83%E6%9C%80%E5%BE%8C%E3%81%AE%E5%91%8A%E7%99%BD%E3%82%92&src=%E5%9C%B0%E7%90%83%E6%9C%80%E5%BE%8C%E3%81%AE%E5%91%8A%E7%99%BD%E3%82%92.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -5596,6 +5704,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-07-28",
     "defaultOrder": 109,
     "defaultSort": 15010,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%93%E3%82%BF%E3%83%BC%E3%83%81%E3%83%A7%E3%82%B3%E3%83%87%E3%82%B3%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3&src=%E3%83%93%E3%82%BF%E3%83%BC%E3%83%81%E3%83%A7%E3%82%B3%E3%83%87%E3%82%B3%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -5673,6 +5782,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-08-06",
     "defaultOrder": 110,
     "defaultSort": 10030,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%9D%E3%81%86%E3%81%A0%E3%81%A3%E3%81%9F%EF%BC%81%EF%BC%81&src=%E3%81%9D%E3%81%86%E3%81%A0%E3%81%A3%E3%81%9F%EF%BC%81%EF%BC%81.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -5711,6 +5821,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-08-15",
     "defaultOrder": 111,
     "defaultSort": 11012,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AB%E3%82%B2%E3%83%AD%E3%82%A6%E3%83%87%E3%82%A4%E3%82%BA&src=%E3%82%AB%E3%82%B2%E3%83%AD%E3%82%A6%E3%83%87%E3%82%A4%E3%82%BA.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -5787,6 +5898,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-08-18",
     "defaultOrder": 112,
     "defaultSort": 22006,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%82%A4%E3%82%B9%E3%83%89%E3%83%AD%E3%83%83%E3%83%97&src=%E3%82%A2%E3%82%A4%E3%82%B9%E3%83%89%E3%83%AD%E3%83%83%E3%83%97.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -5840,6 +5952,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-08-20",
     "defaultOrder": 113,
     "defaultSort": 24006,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Glory%20Steady%20Go%21&src=Glory%20Steady%20Go%21.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -5885,6 +5998,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-08-23",
     "defaultOrder": 114,
     "defaultSort": 13011,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%81%E3%83%AB%E3%83%89%E3%83%AC%E3%83%B3%E3%83%AC%E3%82%B3%E3%83%BC%E3%83%89&src=%E3%83%81%E3%83%AB%E3%83%89%E3%83%AC%E3%83%B3%E3%83%AC%E3%82%B3%E3%83%BC%E3%83%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -5948,6 +6062,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-09-01",
     "defaultOrder": 115,
     "defaultSort": 20001,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=magic%20number&src=magic%20number.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -5976,6 +6091,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-09-10",
     "defaultOrder": 116,
     "defaultSort": 21006,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%B5%81%E6%98%9F%E3%81%AE%E3%83%91%E3%83%AB%E3%82%B9&src=%E6%B5%81%E6%98%9F%E3%81%AE%E3%83%91%E3%83%AB%E3%82%B9.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -6046,6 +6162,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-09-21",
     "defaultOrder": 117,
     "defaultSort": 15011,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AB%E3%83%88%E3%83%A9%E3%83%AA%E3%83%BC&src=%E3%82%AB%E3%83%88%E3%83%A9%E3%83%AA%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -6102,6 +6219,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-09-29",
     "defaultOrder": 118,
     "defaultSort": 25007,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%86%8D%E7%94%9F&src=%E5%86%8D%E7%94%9F.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -6171,6 +6289,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-09-30",
     "defaultOrder": 119,
     "defaultSort": 29003,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%BE%A4%E9%9D%92%E8%AE%83%E6%AD%8C&src=%E7%BE%A4%E9%9D%92%E8%AE%83%E6%AD%8C_%E3%80%8C%E5%8A%87%E5%A0%B4%E7%89%88%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%BB%E3%82%AB%E3%82%A4%E3%80%8Dver.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -6301,6 +6420,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-10-01",
     "defaultOrder": 120,
     "defaultSort": 10031,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%82%89%E5%BF%83%E8%9E%8D%E8%A7%A3&src=%E7%82%89%E5%BF%83%E8%9E%8D%E8%A7%A3.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -6329,6 +6449,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-10-02",
     "defaultOrder": 121,
     "defaultSort": 11013,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AD%E3%82%B9%E3%83%88%E3%83%AF%E3%83%B3%E3%81%AE%E5%8F%B7%E5%93%AD&src=%E3%83%AD%E3%82%B9%E3%83%88%E3%83%AF%E3%83%B3%E3%81%AE%E5%8F%B7%E5%93%AD.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -6407,6 +6528,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-10-03",
     "defaultOrder": 122,
     "defaultSort": 20002,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%9E%E3%82%B7%E3%83%B3%E3%82%AC%E3%83%B3%E3%83%9D%E3%82%A8%E3%83%A0%E3%83%89%E3%83%BC%E3%83%AB&src=%E3%83%9E%E3%82%B7%E3%83%B3%E3%82%AC%E3%83%B3%E3%83%9D%E3%82%A8%E3%83%A0%E3%83%89%E3%83%BC%E3%83%AB.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -6435,6 +6557,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-10-04",
     "defaultOrder": 123,
     "defaultSort": 15012,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%99%E3%83%8E%E3%83%A0&src=%E3%83%99%E3%83%8E%E3%83%A0.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -6518,6 +6641,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-10-05",
     "defaultOrder": 124,
     "defaultSort": 10032,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%8B%9D%E5%95%93%E3%83%89%E3%83%83%E3%83%9A%E3%83%AB%E3%82%B2%E3%83%B3%E3%82%AC%E3%83%BC&src=%E6%8B%9D%E5%95%93%E3%83%89%E3%83%83%E3%83%9A%E3%83%AB%E3%82%B2%E3%83%B3%E3%82%AC%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -6546,6 +6670,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-10-06",
     "defaultOrder": 125,
     "defaultSort": 14011,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%86%E3%83%AC%E3%82%AD%E3%83%A3%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%93%E3%83%BC%E3%83%9C%E3%83%BC%E3%82%A4&src=%E3%83%86%E3%83%AC%E3%82%AD%E3%83%A3%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%93%E3%83%BC%E3%83%9C%E3%83%BC%E3%82%A4.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -6606,6 +6731,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-10-07",
     "defaultOrder": 126,
     "defaultSort": 10033,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%88%E3%82%AD%E3%83%B2%E3%83%BB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AB&src=%E3%83%88%E3%82%AD%E3%83%B2%E3%83%BB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AB.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -6634,6 +6760,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-10-08",
     "defaultOrder": 127,
     "defaultSort": 13012,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%82%AA%E9%AD%94%E3%81%AE%E8%B8%8A%E3%82%8A%E6%96%B9&src=%E6%82%AA%E9%AD%94%E3%81%AE%E8%B8%8A%E3%82%8A%E6%96%B9.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -6678,6 +6805,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-10-09",
     "defaultOrder": 128,
     "defaultSort": 10034,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%A0%E3%82%8C%E3%81%8B%E3%81%AE%E5%BF%83%E8%87%93%E3%81%AB%E3%81%AA%E3%82%8C%E3%81%9F%E3%81%AA%E3%82%89&src=%E3%81%A0%E3%82%8C%E3%81%8B%E3%81%AE%E5%BF%83%E8%87%93%E3%81%AB%E3%81%AA%E3%82%8C%E3%81%9F%E3%81%AA%E3%82%89.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -6706,6 +6834,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-10-10",
     "defaultOrder": 129,
     "defaultSort": 12012,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%9E%E3%82%B7%E3%83%A5%E3%83%9E%E3%83%AA%E3%83%BC&src=%E3%83%9E%E3%82%B7%E3%83%A5%E3%83%9E%E3%83%AA%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -6754,6 +6883,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-10-11",
     "defaultOrder": 130,
     "defaultSort": 10035,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%8F%B3%E8%82%A9%E3%81%AE%E8%9D%B6&src=%E5%8F%B3%E8%82%A9%E3%81%AE%E8%9D%B6.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -6782,6 +6912,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-10-12",
     "defaultOrder": 131,
     "defaultSort": 11014,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=ray&src=ray.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -6820,6 +6951,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-10-13",
     "defaultOrder": 132,
     "defaultSort": 11015,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Hello%2Cworld%21&src=Hello_world%21.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -6864,6 +6996,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-10-22",
     "defaultOrder": 133,
     "defaultSort": 10036,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%97%E3%81%A3%E3%81%8F%E3%81%8A%E3%81%B6%E3%81%AF%E3%81%86%E3%81%99%EF%BC%81&src=%E3%81%97%E3%81%A3%E3%81%8F%E3%81%8A%E3%81%B6%E3%81%AF%E3%81%86%E3%81%99%EF%BC%81.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -6894,6 +7027,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-10-29",
     "defaultOrder": 134,
     "defaultSort": 24007,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B7%E3%83%A7%E3%82%A6%E3%82%BF%E3%82%A4%E3%83%A0%E3%83%BB%E3%83%AB%E3%83%BC%E3%83%A9%E3%83%BC&src=%E3%82%B7%E3%83%A7%E3%82%A6%E3%82%BF%E3%82%A4%E3%83%A0%E3%83%BB%E3%83%AB%E3%83%BC%E3%83%A9%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -6954,6 +7088,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-10-30",
     "defaultOrder": 135,
     "defaultSort": 12013,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Happy%20Halloween&src=Happy%20Halloween.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -7022,6 +7157,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-10-31",
     "defaultOrder": 136,
     "defaultSort": 25008,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AD%E3%82%A6%E3%83%AF%E3%83%BC&src=%E3%83%AD%E3%82%A6%E3%83%AF%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -7100,6 +7236,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-11-05",
     "defaultOrder": 137,
     "defaultSort": 10037,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%88%9D%E9%9F%B3%E5%A4%A9%E5%9C%B0%E9%96%8B%E9%97%A2%E7%A5%9E%E8%A9%B1&src=%E5%88%9D%E9%9F%B3%E5%A4%A9%E5%9C%B0%E9%96%8B%E9%97%A2%E7%A5%9E%E8%A9%B1.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -7128,6 +7265,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-11-10",
     "defaultOrder": 138,
     "defaultSort": 13013,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AA%E3%83%AB%E3%82%BF%E3%83%BC%E3%82%A8%E3%82%B4&src=%E3%82%AA%E3%83%AB%E3%82%BF%E3%83%BC%E3%82%A8%E3%82%B4.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -7196,6 +7334,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-11-18",
     "defaultOrder": 139,
     "defaultSort": 21007,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=STAGE%20OF%20SEKAI&src=STAGE%20OF%20SEKAI.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -7281,6 +7420,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-11-29",
     "defaultOrder": 140,
     "defaultSort": 12014,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%8B%E3%82%89%E3%81%8F%E3%82%8A%E3%83%94%E3%82%A8%E3%83%AD&src=%E3%81%8B%E3%82%89%E3%81%8F%E3%82%8A%E3%83%94%E3%82%A8%E3%83%AD.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -7343,6 +7483,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-12-10",
     "defaultOrder": 141,
     "defaultSort": 22007,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%AF%E3%82%A4%E3%83%89%E3%83%AF%E3%83%B3%E3%83%80%E3%83%BC&src=%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%AF%E3%82%A4%E3%83%89%E3%83%AF%E3%83%B3%E3%83%80%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -7396,6 +7537,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-12-13",
     "defaultOrder": 142,
     "defaultSort": 10038,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%82%AA%E3%83%8E%E5%A8%98&src=%E6%82%AA%E3%83%8E%E5%A8%98.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -7424,6 +7566,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-12-14",
     "defaultOrder": 143,
     "defaultSort": 10039,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%82%AA%E3%83%8E%E5%8F%AC%E4%BD%BF&src=%E6%82%AA%E3%83%8E%E5%8F%AC%E4%BD%BF.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -7452,6 +7595,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-12-15",
     "defaultOrder": 144,
     "defaultSort": 20003,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%8E%BB%E3%82%8A%E4%BA%BA%E9%81%94%E3%81%AE%E3%83%AF%E3%83%AB%E3%83%84&src=%E5%8E%BB%E3%82%8A%E4%BA%BA%E9%81%94%E3%81%AE%E3%83%AF%E3%83%AB%E3%83%84.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -7480,6 +7624,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-12-20",
     "defaultOrder": 145,
     "defaultSort": 10040,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A9%E3%82%B9%E3%83%88%E3%82%B9%E3%82%B3%E3%82%A2&src=%E3%83%A9%E3%82%B9%E3%83%88%E3%82%B9%E3%82%B3%E3%82%A2.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -7508,6 +7653,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-12-28",
     "defaultOrder": 146,
     "defaultSort": 14012,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%95%E3%82%A3%E3%82%AF%E3%82%B5%E3%83%BC&src=%E3%83%95%E3%82%A3%E3%82%AF%E3%82%B5%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -7563,6 +7709,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-12-29",
     "defaultOrder": 147,
     "defaultSort": 23006,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%9F%E3%83%A9%E3%82%A4&src=%E3%83%9F%E3%83%A9%E3%82%A4.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -7632,6 +7779,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-12-30",
     "defaultOrder": 148,
     "defaultSort": 11016,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B4%E3%83%BC%E3%82%B9%E3%83%88%E3%83%AB%E3%83%BC%E3%83%AB&src=%E3%82%B4%E3%83%BC%E3%82%B9%E3%83%88%E3%83%AB%E3%83%BC%E3%83%AB.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -7692,6 +7840,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2021-12-31",
     "defaultOrder": 149,
     "defaultSort": 15013,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%B4%E3%82%A3%E3%83%A9%E3%83%B3&src=%E3%83%B4%E3%82%A3%E3%83%A9%E3%83%B3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -7747,6 +7896,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-01-01",
     "defaultOrder": 150,
     "defaultSort": 10041,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B5%E3%83%B3%E3%83%89%E3%83%AA%E3%83%A8%E3%83%B3%2010th%20Anniversary&src=%E3%82%B5%E3%83%B3%E3%83%89%E3%83%AA%E3%83%A8%E3%83%B3%2010th%20Anniversary.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -7777,6 +7927,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-01-02",
     "defaultOrder": 151,
     "defaultSort": 12015,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%B0%91%E5%A5%B3%E3%83%AC%E3%82%A4&src=%E5%B0%91%E5%A5%B3%E3%83%AC%E3%82%A4.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -7833,6 +7984,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-01-03",
     "defaultOrder": 152,
     "defaultSort": 13014,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AC%E3%83%A9%E3%83%B3%E3%83%89&src=%E3%82%AC%E3%83%A9%E3%83%B3%E3%83%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -7890,6 +8042,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-01-08",
     "defaultOrder": 153,
     "defaultSort": 39001,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A8%E3%83%B3%E3%83%89%E3%83%9E%E3%83%BC%E3%82%AF%E3%81%AB%E5%B8%8C%E6%9C%9B%E3%81%A8%E6%B6%99%E3%82%92%E6%B7%BB%E3%81%88%E3%81%A6&src=%E3%82%A8%E3%83%B3%E3%83%89%E3%83%9E%E3%83%BC%E3%82%AF%E3%81%AB%E5%B8%8C%E6%9C%9B%E3%81%A8%E6%B6%99%E3%82%92%E6%B7%BB%E3%81%88%E3%81%A6.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": false,
@@ -7907,6 +8060,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-01-09",
     "defaultOrder": 154,
     "defaultSort": 39002,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=the%20EmpErroR&src=the%20EmpErroR.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": false,
@@ -7924,6 +8078,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-01-10",
     "defaultOrder": 155,
     "defaultSort": 39003,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Don%27t%20Fight%20The%20Music&src=Don%27t%20Fight%20The%20Music.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": false,
@@ -7941,6 +8096,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-01-19",
     "defaultOrder": 156,
     "defaultSort": 24008,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%AB%E3%81%A3%E3%81%93%E3%82%8A%5E%5E%E8%AA%BF%E6%9F%BB%E9%9A%8A%E3%81%AE%E3%83%86%E3%83%BC%E3%83%9E&src=%E3%81%AB%E3%81%A3%E3%81%93%E3%82%8A%5E%5E%E8%AA%BF%E6%9F%BB%E9%9A%8A%E3%81%AE%E3%83%86%E3%83%BC%E3%83%9E.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -7998,6 +8154,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-01-21",
     "defaultOrder": 157,
     "defaultSort": 25009,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%88%E3%83%AA%E3%82%B3%E3%83%AD%E3%83%BC%E3%82%B8%E3%83%A5&src=%E3%83%88%E3%83%AA%E3%82%B3%E3%83%AD%E3%83%BC%E3%82%B8%E3%83%A5.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -8059,6 +8216,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-01-24",
     "defaultOrder": 158,
     "defaultSort": 11017,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%BF%83%E6%8B%8D%E6%95%B0%E2%99%AF0822&src=%E5%BF%83%E6%8B%8D%E6%95%B0%E2%99%AF0822.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -8115,6 +8273,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-01-31",
     "defaultOrder": 159,
     "defaultSort": 15014,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%86%E3%81%A3%E3%81%9B%E3%81%87%E3%82%8F&src=%E3%81%86%E3%81%A3%E3%81%9B%E3%81%87%E3%82%8F.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -8170,6 +8329,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-02-04",
     "defaultOrder": 160,
     "defaultSort": 13015,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E8%B8%8A&src=%E8%B8%8A.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -8227,6 +8387,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-02-05",
     "defaultOrder": 161,
     "defaultSort": 10042,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%90%9B%E8%89%B2%E3%83%9E%E3%83%AA%E3%83%B3%E3%82%B9%E3%83%8E%E3%82%A6&src=%E5%90%9B%E8%89%B2%E3%83%9E%E3%83%AA%E3%83%B3%E3%82%B9%E3%83%8E%E3%82%A6.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -8255,6 +8416,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-02-07",
     "defaultOrder": 162,
     "defaultSort": 15015,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%84%9B%E3%81%97%E3%81%A6%E6%84%9B%E3%81%97%E3%81%A6%E6%84%9B%E3%81%97%E3%81%A6&src=%E6%84%9B%E3%81%97%E3%81%A6%E6%84%9B%E3%81%97%E3%81%A6%E6%84%9B%E3%81%97%E3%81%A6.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -8311,6 +8473,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-02-16",
     "defaultOrder": 163,
     "defaultSort": 23007,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Flyer%21&src=Flyer%21.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -8381,6 +8544,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-02-18",
     "defaultOrder": 164,
     "defaultSort": 21008,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Peaky%20Peaky&src=Peaky%20Peaky.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -8469,6 +8633,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-02-21",
     "defaultOrder": 165,
     "defaultSort": 10043,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B8%E3%82%A6%E3%83%80%E3%82%B9&src=%E3%82%B8%E3%82%A6%E3%83%80%E3%82%B9.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -8497,6 +8662,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-02-24",
     "defaultOrder": 166,
     "defaultSort": 14013,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%8A%E3%83%B3%E3%82%BB%E3%83%B3%E3%82%B9%E6%96%87%E5%AD%A6&src=%E3%83%8A%E3%83%B3%E3%82%BB%E3%83%B3%E3%82%B9%E6%96%87%E5%AD%A6.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -8563,6 +8729,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-03-02",
     "defaultOrder": 167,
     "defaultSort": 12016,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%BF%83%E4%BA%88%E5%A0%B1&src=%E5%BF%83%E4%BA%88%E5%A0%B1.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -8634,6 +8801,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-03-04",
     "defaultOrder": 168,
     "defaultSort": 11018,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%83%95%E3%82%89%E3%81%BE%E3%81%A0%E3%82%A2%E3%83%B3%E3%83%80%E3%83%BC%E3%82%B0%E3%83%A9%E3%82%A6%E3%83%B3%E3%83%89&src=%E5%83%95%E3%82%89%E3%81%BE%E3%81%A0%E3%82%A2%E3%83%B3%E3%83%80%E3%83%BC%E3%82%B0%E3%83%A9%E3%82%A6%E3%83%B3%E3%83%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -8693,6 +8861,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-03-09",
     "defaultOrder": 169,
     "defaultSort": 10044,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Miku&src=Miku.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -8721,6 +8890,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-03-11",
     "defaultOrder": 170,
     "defaultSort": 22008,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A1%E3%82%BF%E3%83%A2%E3%83%AA%E3%83%9C%E3%83%B3&src=%E3%83%A1%E3%82%BF%E3%83%A2%E3%83%AA%E3%83%9C%E3%83%B3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -8773,6 +8943,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-03-14",
     "defaultOrder": 171,
     "defaultSort": 14014,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%84%E3%83%BC%E3%81%82%E3%82%8B%E3%81%B5%E3%81%81%E3%82%93%E3%81%8F%E3%82%89%E3%81%B6&src=%E3%81%84%E3%83%BC%E3%81%82%E3%82%8B%E3%81%B5%E3%81%81%E3%82%93%E3%81%8F%E3%82%89%E3%81%B6.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -8828,6 +8999,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-03-22",
     "defaultOrder": 172,
     "defaultSort": 13016,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E9%9B%A8%E3%81%A8%E3%83%9A%E3%83%88%E3%83%A9&src=%E9%9B%A8%E3%81%A8%E3%83%9A%E3%83%88%E3%83%A9_%E3%82%BB%E3%82%AB%E3%82%A4ver.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -8895,6 +9067,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-03-28",
     "defaultOrder": 173,
     "defaultSort": 25010,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%8E%E3%83%9E%E3%83%89&src=%E3%83%8E%E3%83%9E%E3%83%89_%E3%82%BB%E3%82%AB%E3%82%A4ver.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -8965,6 +9138,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-03-30",
     "defaultOrder": 174,
     "defaultSort": 10045,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%9E%E3%83%88%E3%83%AA%E3%83%A7%E3%82%B7%E3%82%AB&src=%E3%83%9E%E3%83%88%E3%83%AA%E3%83%A7%E3%82%B7%E3%82%AB.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -8995,6 +9169,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-03-31",
     "defaultOrder": 175,
     "defaultSort": 10046,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%89%E3%83%BC%E3%83%8A%E3%83%84%E3%83%9B%E3%83%BC%E3%83%AB%202024&src=%E3%83%89%E3%83%BC%E3%83%8A%E3%83%84%E3%83%9B%E3%83%BC%E3%83%AB%202024.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -9023,6 +9198,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-04-01",
     "defaultOrder": 176,
     "defaultSort": 10047,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%A0%82%E3%81%AE%E6%83%91%E6%98%9F&src=%E7%A0%82%E3%81%AE%E6%83%91%E6%98%9F.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -9051,6 +9227,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-04-02",
     "defaultOrder": 177,
     "defaultSort": 10048,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AB%E3%82%AB%E3%83%AB%E3%82%AB%E2%98%85%E3%83%8A%E3%82%A4%E3%83%88%E3%83%95%E3%82%A3%E3%83%BC%E3%83%90%E3%83%BC&src=%E3%83%AB%E3%82%AB%E3%83%AB%E3%82%AB%E2%98%85%E3%83%8A%E3%82%A4%E3%83%88%E3%83%95%E3%82%A3%E3%83%BC%E3%83%90%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -9079,6 +9256,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-04-03",
     "defaultOrder": 178,
     "defaultSort": 10049,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%94%E3%82%A2%E3%83%8E%C3%97%E3%83%95%E3%82%A9%E3%83%AB%E3%83%86%C3%97%E3%82%B9%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%80%E3%83%AB&src=%E3%83%94%E3%82%A2%E3%83%8E%C3%97%E3%83%95%E3%82%A9%E3%83%AB%E3%83%86%C3%97%E3%82%B9%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%80%E3%83%AB.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -9107,6 +9285,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-04-04",
     "defaultOrder": 179,
     "defaultSort": 10050,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%8D%83%E5%B9%B4%E3%81%AE%E7%8B%AC%E5%A5%8F%E6%AD%8C&src=%E5%8D%83%E5%B9%B4%E3%81%AE%E7%8B%AC%E5%A5%8F%E6%AD%8C.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -9135,6 +9314,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-04-11",
     "defaultOrder": 180,
     "defaultSort": 24009,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=88%E2%98%86%E5%BD%A1&src=88%E2%98%86%E5%BD%A1.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -9209,6 +9389,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-04-15",
     "defaultOrder": 181,
     "defaultSort": 10051,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=ONESELF&src=ONESELF.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -9237,6 +9418,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-04-18",
     "defaultOrder": 182,
     "defaultSort": 13017,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Pa%E2%85%A2.SENSATION&src=Pa%E2%85%A2-SENSATION.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -9290,6 +9472,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-04-25",
     "defaultOrder": 183,
     "defaultSort": 12017,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%80%E3%83%BC%E3%83%AA%E3%83%B3%E3%83%80%E3%83%B3%E3%82%B9&src=%E3%83%80%E3%83%BC%E3%83%AA%E3%83%B3%E3%83%80%E3%83%B3%E3%82%B9.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -9330,6 +9513,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-04-28",
     "defaultOrder": 184,
     "defaultSort": 21009,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%E3%83%A1%E3%82%A4%E3%83%89&src=%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%E3%83%A1%E3%82%A4%E3%83%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -9390,6 +9574,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-05-01",
     "defaultOrder": 185,
     "defaultSort": 19001,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%82%A4%E3%83%87%E3%83%B3%E3%83%86%E3%82%A3%E3%83%86%E3%82%A3&src=%E3%82%A2%E3%82%A4%E3%83%87%E3%83%B3%E3%83%86%E3%82%A3%E3%83%86%E3%82%A3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -9430,6 +9615,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-05-02",
     "defaultOrder": 186,
     "defaultSort": 19002,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E9%9D%92%E8%89%B2%E7%B5%B5%E5%85%B7&src=%E9%9D%92%E8%89%B2%E7%B5%B5%E5%85%B7.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -9474,6 +9660,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-05-03",
     "defaultOrder": 187,
     "defaultSort": 19003,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B3%E3%82%B9%E3%83%A2%E3%82%B9%E3%83%91%E3%82%A4%E3%82%B9&src=%E3%82%B3%E3%82%B9%E3%83%A2%E3%82%B9%E3%83%91%E3%82%A4%E3%82%B9.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -9518,6 +9705,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-05-04",
     "defaultOrder": 188,
     "defaultSort": 19004,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%BE%B3%E5%B7%9D%E3%82%AB%E3%83%83%E3%83%97%E3%83%8C%E3%83%BC%E3%83%89%E3%83%AB%E7%A6%81%E6%AD%A2%E4%BB%A4&src=%E5%BE%B3%E5%B7%9D%E3%82%AB%E3%83%83%E3%83%97%E3%83%8C%E3%83%BC%E3%83%89%E3%83%AB%E7%A6%81%E6%AD%A2%E4%BB%A4.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": false,
@@ -9554,6 +9742,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-05-05",
     "defaultOrder": 189,
     "defaultSort": 19005,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B5%E3%83%A9%E3%83%9E%E3%83%B3%E3%83%80%E3%83%BC&src=%E3%82%B5%E3%83%A9%E3%83%9E%E3%83%B3%E3%83%80%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -9594,6 +9783,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-05-08",
     "defaultOrder": 190,
     "defaultSort": 22009,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A4%E3%83%95&src=%E3%82%A4%E3%83%95.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -9654,6 +9844,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-05-10",
     "defaultOrder": 191,
     "defaultSort": 10052,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E2%98%85%E3%83%AD%E3%83%83%E3%82%AF%E3%82%B7%E3%83%A5%E3%83%BC%E3%82%BF%E3%83%BC&src=%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E2%98%85%E3%83%AD%E3%83%83%E3%82%AF%E3%82%B7%E3%83%A5%E3%83%BC%E3%82%BF%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -9682,6 +9873,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-05-13",
     "defaultOrder": 192,
     "defaultSort": 15016,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%A6%84%E6%83%B3%E6%84%9F%E5%82%B7%E4%BB%A3%E5%84%9F%E9%80%A3%E7%9B%9F&src=%E5%A6%84%E6%83%B3%E6%84%9F%E5%82%B7%E4%BB%A3%E5%84%9F%E9%80%A3%E7%9B%9F.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -9756,6 +9948,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-05-16",
     "defaultOrder": 193,
     "defaultSort": 14015,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AA%E3%83%A2%E3%82%B3%E3%83%B3&src=%E3%83%AA%E3%83%A2%E3%82%B3%E3%83%B3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -9799,6 +9992,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-05-20",
     "defaultOrder": 194,
     "defaultSort": 23008,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%9C%88%E5%85%89&src=%E6%9C%88%E5%85%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -9870,6 +10064,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-05-30",
     "defaultOrder": 195,
     "defaultSort": 14016,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%A5%9E%E3%81%AE%E3%81%BE%E3%81%AB%E3%81%BE%E3%81%AB&src=%E7%A5%9E%E3%81%AE%E3%81%BE%E3%81%AB%E3%81%BE%E3%81%AB.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -9963,6 +10158,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-05-31",
     "defaultOrder": 196,
     "defaultSort": 23009,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Awake%20Now&src=Awake%20Now.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -10023,6 +10219,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-06-06",
     "defaultOrder": 197,
     "defaultSort": 13018,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E9%98%BF%E5%90%BD%E3%81%AE%E3%83%93%E3%83%BC%E3%83%84&src=%E9%98%BF%E5%90%BD%E3%81%AE%E3%83%93%E3%83%BC%E3%83%84.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -10062,6 +10259,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-06-10",
     "defaultOrder": 198,
     "defaultSort": 25011,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%90%E3%82%B0&src=%E3%83%90%E3%82%B0.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -10141,6 +10339,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-06-13",
     "defaultOrder": 199,
     "defaultSort": 14017,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B0%E3%83%83%E3%83%90%E3%82%A4%E5%AE%A3%E8%A8%80&src=%E3%82%B0%E3%83%83%E3%83%90%E3%82%A4%E5%AE%A3%E8%A8%80.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -10204,6 +10403,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-06-20",
     "defaultOrder": 200,
     "defaultSort": 12018,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%B4%E3%82%A1%E3%83%B3%E3%83%91%E3%82%A4%E3%82%A2&src=%E3%83%B4%E3%82%A1%E3%83%B3%E3%83%91%E3%82%A4%E3%82%A2.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -10291,6 +10491,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-06-24",
     "defaultOrder": 201,
     "defaultSort": 10053,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%9C%AA%E5%AE%8C%E6%88%90%E8%AE%83%E6%AD%8C&src=%E6%9C%AA%E5%AE%8C%E6%88%90%E8%AE%83%E6%AD%8C.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -10319,6 +10520,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-06-28",
     "defaultOrder": 202,
     "defaultSort": 24010,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%98%9F%E7%A9%BA%E3%81%AE%E3%83%A1%E3%83%AD%E3%83%87%E3%82%A3%E3%83%BC&src=%E6%98%9F%E7%A9%BA%E3%81%AE%E3%83%A1%E3%83%AD%E3%83%87%E3%82%A3%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -10387,6 +10589,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-06-30",
     "defaultOrder": 203,
     "defaultSort": 10054,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E8%84%B3%E6%BC%BF%E7%82%B8%E8%A3%82%E3%82%AC%E3%83%BC%E3%83%AB&src=%E8%84%B3%E6%BC%BF%E7%82%B8%E8%A3%82%E3%82%AC%E3%83%BC%E3%83%AB.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -10430,6 +10633,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-07-01",
     "defaultOrder": 204,
     "defaultSort": 10055,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%BC%E3%81%8F%E3%82%89%E3%81%AE16bit%E6%88%A6%E4%BA%89&src=%E3%81%BC%E3%81%8F%E3%82%89%E3%81%AE16bit%E6%88%A6%E4%BA%89.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -10458,6 +10662,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-07-04",
     "defaultOrder": 205,
     "defaultSort": 15017,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A1%E3%83%AA%E3%83%A5%E3%83%BC&src=%E3%83%A1%E3%83%AA%E3%83%A5%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -10514,6 +10719,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-07-11",
     "defaultOrder": 206,
     "defaultSort": 14018,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A8%E3%82%A4%E3%83%AA%E3%82%A2%E3%83%B3%E3%82%A8%E3%82%A4%E3%83%AA%E3%82%A2%E3%83%B3&src=%E3%82%A8%E3%82%A4%E3%83%AA%E3%82%A2%E3%83%B3%E3%82%A8%E3%82%A4%E3%83%AA%E3%82%A2%E3%83%B3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -10562,6 +10768,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-07-19",
     "defaultOrder": 207,
     "defaultSort": 23010,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E8%A1%97&src=%E8%A1%97.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -10623,6 +10830,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-07-21",
     "defaultOrder": 208,
     "defaultSort": 21010,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%A6%E3%82%89%E3%81%A6%E3%82%89&src=%E3%81%A6%E3%82%89%E3%81%A6%E3%82%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -10675,6 +10883,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-07-30",
     "defaultOrder": 209,
     "defaultSort": 10056,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%95%E3%83%AD%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%B3%EF%BC%9D%E3%83%93%E3%83%96%E3%83%AA%E3%82%A9%E3%83%81%E3%82%AB&src=%E3%83%95%E3%83%AD%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%B3%EF%BC%9D%E3%83%93%E3%83%96%E3%83%AA%E3%82%A9%E3%83%81%E3%82%AB.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -10703,6 +10912,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-08-08",
     "defaultOrder": 210,
     "defaultSort": 14019,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E8%B8%8A%E3%82%8C%E3%82%AA%E3%83%BC%E3%82%B1%E3%82%B9%E3%83%88%E3%83%A9&src=%E8%B8%8A%E3%82%8C%E3%82%AA%E3%83%BC%E3%82%B1%E3%82%B9%E3%83%88%E3%83%A9.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -10790,6 +11000,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-08-10",
     "defaultOrder": 211,
     "defaultSort": 22010,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%91%E3%83%A9%E3%82%BD%E3%83%AB%E3%82%B5%E3%82%A4%E3%83%80%E3%83%BC&src=%E3%83%91%E3%83%A9%E3%82%BD%E3%83%AB%E3%82%B5%E3%82%A4%E3%83%80%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -10853,6 +11064,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-08-15",
     "defaultOrder": 212,
     "defaultSort": 11019,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AD%E3%82%B9%E3%83%88%E3%82%A8%E3%83%B3%E3%83%95%E3%82%A1%E3%82%A6%E3%83%B3%E3%83%89&src=%E3%83%AD%E3%82%B9%E3%83%88%E3%82%A8%E3%83%B3%E3%83%95%E3%82%A1%E3%82%A6%E3%83%B3%E3%83%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -10913,6 +11125,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-08-22",
     "defaultOrder": 213,
     "defaultSort": 13019,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=YY&src=YY.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -10965,6 +11178,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-08-26",
     "defaultOrder": 214,
     "defaultSort": 10057,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%9D%E3%82%8C%E3%81%A7%E3%82%82%E3%81%84%E3%81%84%E3%82%93%E3%81%A0%E3%82%88&src=%E3%81%9D%E3%82%8C%E3%81%A7%E3%82%82%E3%81%84%E3%81%84%E3%82%93%E3%81%A0%E3%82%88.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -10993,6 +11207,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-08-29",
     "defaultOrder": 215,
     "defaultSort": 25012,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%90%9B%E3%81%AE%E5%A4%9C%E3%82%92%E3%81%8F%E3%82%8C&src=%E5%90%9B%E3%81%AE%E5%A4%9C%E3%82%92%E3%81%8F%E3%82%8C.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -11047,6 +11262,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-09-02",
     "defaultOrder": 216,
     "defaultSort": 10058,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%95%E3%83%A5%E3%83%BC%E3%83%81%E3%83%A3%E3%83%BC%E3%83%BB%E3%82%A4%E3%83%B4&src=%E3%83%95%E3%83%A5%E3%83%BC%E3%83%81%E3%83%A3%E3%83%BC%E3%83%BB%E3%82%A4%E3%83%B4.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -11075,6 +11291,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-09-07",
     "defaultOrder": 217,
     "defaultSort": 21011,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Voices&src=Voices.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -11136,6 +11353,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-09-12",
     "defaultOrder": 218,
     "defaultSort": 15018,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B8%E3%82%A7%E3%83%98%E3%83%8A&src=%E3%82%B8%E3%82%A7%E3%83%98%E3%83%8A.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -11184,6 +11402,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-09-16",
     "defaultOrder": 219,
     "defaultSort": 11020,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Calc.&src=Calc-.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -11240,6 +11459,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-09-20",
     "defaultOrder": 220,
     "defaultSort": 23011,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E8%99%9A%E3%82%8D%E3%82%92%E6%89%87%E3%81%90&src=%E8%99%9A%E3%82%8D%E3%82%92%E6%89%87%E3%81%90.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -11293,6 +11513,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-09-30",
     "defaultOrder": 221,
     "defaultSort": 29004,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Journey&src=Journey.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -11397,6 +11618,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-10-01",
     "defaultOrder": 222,
     "defaultSort": 11021,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%A4%A9%E3%83%8E%E5%BC%B1&src=%E5%A4%A9%E3%83%8E%E5%BC%B1.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -11466,6 +11688,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-10-02",
     "defaultOrder": 223,
     "defaultSort": 10059,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%83%B3%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%83%AA%E3%83%95%E3%83%AC%E3%82%A4%E3%83%B3&src=%E3%82%A2%E3%83%B3%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%83%AA%E3%83%95%E3%83%AC%E3%82%A4%E3%83%B3.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -11494,6 +11717,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-10-03",
     "defaultOrder": 224,
     "defaultSort": 15019,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%95%E3%82%A9%E3%83%8B%E3%82%A4&src=%E3%83%95%E3%82%A9%E3%83%8B%E3%82%A4.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -11581,6 +11805,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-10-04",
     "defaultOrder": 225,
     "defaultSort": 10060,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%80%E3%83%96%E3%83%AB%E3%83%A9%E3%83%AA%E3%82%A2%E3%83%83%E3%83%88&src=%E3%83%80%E3%83%96%E3%83%AB%E3%83%A9%E3%83%AA%E3%82%A2%E3%83%83%E3%83%88.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -11609,6 +11834,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-10-05",
     "defaultOrder": 226,
     "defaultSort": 10061,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A4%E3%83%B3%E3%83%93%E3%82%B8%E3%83%96%E3%83%AB&src=%E3%82%A4%E3%83%B3%E3%83%93%E3%82%B8%E3%83%96%E3%83%AB.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -11639,6 +11865,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-10-06",
     "defaultOrder": 227,
     "defaultSort": 14020,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A8%E3%82%B4%E3%83%AD%E3%83%83%E3%82%AF&src=%E3%82%A8%E3%82%B4%E3%83%AD%E3%83%83%E3%82%AF.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -11700,6 +11927,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-10-07",
     "defaultOrder": 228,
     "defaultSort": 10062,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Bad%20%E2%88%9E%20End%20%E2%88%9E%20Night&src=Bad%20%E2%88%9E%20End%20%E2%88%9E%20Night.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -11742,6 +11970,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-10-08",
     "defaultOrder": 229,
     "defaultSort": 12019,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%88%E3%83%AA%E3%83%8E%E3%82%B3%E3%82%B7%E3%83%86%E3%82%A3&src=%E3%83%88%E3%83%AA%E3%83%8E%E3%82%B3%E3%82%B7%E3%83%86%E3%82%A3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -11812,6 +12041,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-10-09",
     "defaultOrder": 230,
     "defaultSort": 10063,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%93%E3%81%A1%E3%82%89%E3%80%81%E5%B9%B8%E7%A6%8F%E5%AE%89%E5%BF%83%E5%A7%94%E5%93%A1%E4%BC%9A%E3%81%A7%E3%81%99%E3%80%82&src=%E3%81%93%E3%81%A1%E3%82%89%E3%80%81%E5%B9%B8%E7%A6%8F%E5%AE%89%E5%BF%83%E5%A7%94%E5%93%A1%E4%BC%9A%E3%81%A7%E3%81%99%E3%80%82.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -11840,6 +12070,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-10-10",
     "defaultOrder": 231,
     "defaultSort": 13020,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=DAYBREAK%20FRONTLINE&src=DAYBREAK%20FRONTLINE.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -11905,6 +12136,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-10-11",
     "defaultOrder": 232,
     "defaultSort": 20004,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%C3%85MARA%28%E5%A4%A7%E6%9C%AA%E6%9D%A5%E9%9B%BB%E8%84%B3%29&src=%C3%85MARA%28%E5%A4%A7%E6%9C%AA%E6%9D%A5%E9%9B%BB%E8%84%B3%29.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -11935,6 +12167,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-10-19",
     "defaultOrder": 233,
     "defaultSort": 22011,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=DREAM%20PLACE&src=DREAM%20PLACE.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -11992,6 +12225,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-10-28",
     "defaultOrder": 234,
     "defaultSort": 15020,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%B3%A5%E4%B8%AD%E3%81%AB%E5%92%B2%E3%81%8F&src=%E6%B3%A5%E4%B8%AD%E3%81%AB%E5%92%B2%E3%81%8F.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -12032,6 +12266,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-10-31",
     "defaultOrder": 235,
     "defaultSort": 10064,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%84%E3%81%A1%E3%81%AB%E3%81%AE%E3%81%95%E3%82%93%E3%81%A7&src=%E3%81%84%E3%81%A1%E3%81%AB%E3%81%AE%E3%81%95%E3%82%93%E3%81%A7.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -12060,6 +12295,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-11-01",
     "defaultOrder": 236,
     "defaultSort": 13021,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%B8%9D%E5%9B%BD%E5%B0%91%E5%A5%B3&src=%E5%B8%9D%E5%9B%BD%E5%B0%91%E5%A5%B3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -12116,6 +12352,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-11-04",
     "defaultOrder": 237,
     "defaultSort": 10065,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Change%20me&src=Change%20me.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -12144,6 +12381,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-11-14",
     "defaultOrder": 238,
     "defaultSort": 14021,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A9%E3%83%96%E3%82%AB%EF%BC%9F&src=%E3%83%A9%E3%83%96%E3%82%AB%EF%BC%9F.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -12205,6 +12443,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-11-18",
     "defaultOrder": 239,
     "defaultSort": 21012,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=the%20WALL&src=the%20WALL.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -12257,6 +12496,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-11-20",
     "defaultOrder": 240,
     "defaultSort": 25013,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=I%E3%81%AA%E3%82%93%E3%81%A7%E3%81%99&src=I%E3%81%AA%E3%82%93%E3%81%A7%E3%81%99.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -12309,6 +12549,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-11-21",
     "defaultOrder": 241,
     "defaultSort": 10066,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%91%E3%83%A9%E3%82%B8%E3%82%AF%E3%83%AD%E3%83%AD%E3%83%99%E3%83%B3%E3%82%BC%E3%83%B3&src=%E3%83%8F%E3%82%9A%E3%83%A9%E3%82%B7%E3%82%99%E3%82%AF%E3%83%AD%E3%83%AD%E3%83%98%E3%82%99%E3%83%B3%E3%82%BB%E3%82%99%E3%83%B3.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -12339,6 +12580,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-11-25",
     "defaultOrder": 242,
     "defaultSort": 10067,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%98%9F%E5%B1%91%E3%83%A6%E3%83%BC%E3%83%88%E3%83%94%E3%82%A2&src=%E6%98%9F%E5%B1%91%E3%83%A6%E3%83%BC%E3%83%88%E3%83%94%E3%82%A2.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -12367,6 +12609,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-11-26",
     "defaultOrder": 243,
     "defaultSort": 21013,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%95%E3%83%AC%E3%83%BC&src=%E3%83%95%E3%83%AC%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -12409,6 +12652,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-11-28",
     "defaultOrder": 244,
     "defaultSort": 10068,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%82%E3%81%A3%E3%81%9F%E3%81%8B%E3%81%84%E3%81%A8&src=%E3%81%82%E3%81%A3%E3%81%9F%E3%81%8B%E3%81%84%E3%81%A8.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -12437,6 +12681,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-11-30",
     "defaultOrder": 245,
     "defaultSort": 22012,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%95%E3%83%AD%E3%83%BC%E3%83%88%E3%83%BB%E3%83%97%E3%83%A9%E3%83%B3%E3%83%8A%E3%83%BC&src=%E3%83%95%E3%83%AD%E3%83%BC%E3%83%88%E3%83%BB%E3%83%97%E3%83%A9%E3%83%B3%E3%83%8A%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -12499,6 +12744,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-12-05",
     "defaultOrder": 246,
     "defaultSort": 15021,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%8E%E3%83%B3%E3%83%96%E3%83%AC%E3%82%B9%E3%83%BB%E3%82%AA%E3%83%96%E3%83%AA%E3%83%BC%E3%82%B8%E3%83%A5&src=%E3%83%8E%E3%83%B3%E3%83%96%E3%83%AC%E3%82%B9%E3%83%BB%E3%82%AA%E3%83%96%E3%83%AA%E3%83%BC%E3%82%B8%E3%83%A5.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -12543,6 +12789,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-12-09",
     "defaultOrder": 247,
     "defaultSort": 12020,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AD%E3%83%B3%E3%83%AA%E3%83%BC%E3%83%A6%E3%83%8B%E3%83%90%E3%83%BC%E3%82%B9&src=%E3%83%AD%E3%83%B3%E3%83%AA%E3%83%BC%E3%83%A6%E3%83%8B%E3%83%90%E3%83%BC%E3%82%B9.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -12601,6 +12848,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-12-12",
     "defaultOrder": 248,
     "defaultSort": 10069,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E9%99%BD%E3%81%A0%E3%81%BE%E3%82%8A%E3%81%AE%E3%82%BB%E3%83%84%E3%83%8A&src=%E9%99%BD%E3%81%A0%E3%81%BE%E3%82%8A%E3%81%AE%E3%82%BB%E3%83%84%E3%83%8A.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -12631,6 +12879,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-12-19",
     "defaultOrder": 249,
     "defaultSort": 23012,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E4%BB%AE%E6%AD%BB%E5%8C%96&src=%E4%BB%AE%E6%AD%BB%E5%8C%96.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -12686,6 +12935,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-12-23",
     "defaultOrder": 250,
     "defaultSort": 10070,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=What%27s%20up%3F%20Pop%21&src=What%27s%20up_%20Pop%21.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -12714,6 +12964,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-12-25",
     "defaultOrder": 251,
     "defaultSort": 10071,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E8%85%90%E3%82%8C%E5%A4%96%E9%81%93%E3%81%A8%E3%83%81%E3%83%A7%E3%82%B3%E3%83%AC%E3%82%90%E3%83%88&src=%E8%85%90%E3%82%8C%E5%A4%96%E9%81%93%E3%81%A8%E3%83%81%E3%83%A7%E3%82%B3%E3%83%AC%E3%82%90%E3%83%88.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -12742,6 +12993,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-12-29",
     "defaultOrder": 252,
     "defaultSort": 11022,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%A4%9C%E3%82%82%E3%81%99%E3%81%8C%E3%82%89%E5%90%9B%E6%83%B3%E3%81%B5&src=%E5%A4%9C%E3%82%82%E3%81%99%E3%81%8C%E3%82%89%E5%90%9B%E6%83%B3%E3%81%B5.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -12811,6 +13063,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-12-30",
     "defaultOrder": 253,
     "defaultSort": 14022,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%8D%E3%83%88%E3%82%B2%E5%BB%83%E4%BA%BA%E3%82%B7%E3%83%A5%E3%83%97%E3%83%AC%E3%83%92%E3%82%B3%E3%83%BC%E3%83%AB&src=%E3%83%8D%E3%83%88%E3%82%B2%E5%BB%83%E4%BA%BA%E3%82%B7%E3%83%A5%E3%83%97%E3%83%AC%E3%83%92%E3%82%B3%E3%83%BC%E3%83%AB.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -12867,6 +13120,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2022-12-31",
     "defaultOrder": 254,
     "defaultSort": 10072,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AB%E3%83%B3%E3%82%BF%E3%83%AC%E3%83%A9&src=%E3%82%AB%E3%83%B3%E3%82%BF%E3%83%AC%E3%83%A9.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -12897,6 +13151,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-01-01",
     "defaultOrder": 255,
     "defaultSort": 10073,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=FREELY%20TOMORROW&src=FREELY%20TOMORROW.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -12925,6 +13180,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-01-02",
     "defaultOrder": 256,
     "defaultSort": 12021,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%B0%97%E3%81%BE%E3%81%90%E3%82%8C%E3%83%A1%E3%83%AB%E3%82%B7%E3%82%A3&src=%E6%B0%97%E3%81%BE%E3%81%90%E3%82%8C%E3%83%A1%E3%83%AB%E3%82%B7%E3%82%A3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -12977,6 +13233,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-01-03",
     "defaultOrder": 257,
     "defaultSort": 15022,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%9D%E3%82%8C%E3%81%8C%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AE%E5%B9%B8%E3%81%9B%E3%81%A8%E3%81%97%E3%81%A6%E3%82%82&src=%E3%81%9D%E3%82%8C%E3%81%8C%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AE%E5%B9%B8%E3%81%9B%E3%81%A8%E3%81%97%E3%81%A6%E3%82%82.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -13033,6 +13290,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-01-04",
     "defaultOrder": 258,
     "defaultSort": 10074,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AA%E3%83%B3%E3%81%A1%E3%82%83%E3%82%93%E3%81%AA%E3%81%86%EF%BC%81&src=%E3%83%AA%E3%83%B3%E3%81%A1%E3%82%83%E3%82%93%E3%81%AA%E3%81%86%EF%BC%81.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -13063,6 +13321,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-01-05",
     "defaultOrder": 259,
     "defaultSort": 13022,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%95%E3%82%A7%E3%83%AC%E3%82%B9&src=%E3%83%95%E3%82%A7%E3%83%AC%E3%82%B9.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -13106,6 +13365,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-01-10",
     "defaultOrder": 260,
     "defaultSort": 10075,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%A4%9C%E6%98%8E%E3%81%91%E3%81%A8%E8%9B%8D&src=%E5%A4%9C%E6%98%8E%E3%81%91%E3%81%A8%E8%9B%8D.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -13134,6 +13394,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-01-19",
     "defaultOrder": 261,
     "defaultSort": 24011,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%98%9F%E7%A9%BA%E3%82%AA%E3%83%BC%E3%82%B1%E3%82%B9%E3%83%88%E3%83%A9&src=%E6%98%9F%E7%A9%BA%E3%82%AA%E3%83%BC%E3%82%B1%E3%82%B9%E3%83%88%E3%83%A9.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -13195,6 +13456,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-01-21",
     "defaultOrder": 262,
     "defaultSort": 21014,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Flyway&src=Flyway.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -13249,6 +13511,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-01-23",
     "defaultOrder": 263,
     "defaultSort": 10076,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=p.h.&src=p-h-.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -13277,6 +13540,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-02-01",
     "defaultOrder": 264,
     "defaultSort": 10077,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Goodbye&src=Goodbye.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -13305,6 +13569,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-02-04",
     "defaultOrder": 265,
     "defaultSort": 10078,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=SnowMix%E2%99%AA&src=SnowMix%E2%99%AA.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -13333,6 +13598,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-02-06",
     "defaultOrder": 266,
     "defaultSort": 10079,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%98%9F%E7%95%8C%E3%81%A1%E3%82%83%E3%82%93%E3%81%A8%E5%8F%AF%E4%B8%8D%E3%81%A1%E3%82%83%E3%82%93%E3%81%AE%E3%81%8A%E3%81%A4%E3%81%8B%E3%81%84%E5%90%88%E9%A8%92%E6%9B%B2&src=%E6%98%9F%E7%95%8C%E3%81%A1%E3%82%83%E3%82%93%E3%81%A8%E5%8F%AF%E4%B8%8D%E3%81%A1%E3%82%83%E3%82%93%E3%81%AE%E3%81%8A%E3%81%A4%E3%81%8B%E3%81%84%E5%90%88%E9%A8%92%E6%9B%B2.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -13365,6 +13631,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-02-07",
     "defaultOrder": 267,
     "defaultSort": 10080,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%A4%A9%E4%BD%BF%E3%81%AE%E7%BF%BC%E3%80%82&src=%E5%A4%A9%E4%BD%BF%E3%81%AE%E7%BF%BC%E3%80%82.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -13395,6 +13662,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-02-10",
     "defaultOrder": 268,
     "defaultSort": 10081,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Copycat&src=Copycat.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -13423,6 +13691,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-02-11",
     "defaultOrder": 269,
     "defaultSort": 10082,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AC%E3%82%A4%E3%83%8B%E3%83%BC%E3%82%B9%E3%83%8E%E3%83%BC%E3%83%89%E3%83%AD%E3%83%83%E3%83%97&src=%E3%83%AC%E3%82%A4%E3%83%8B%E3%83%BC%E3%82%B9%E3%83%8E%E3%83%BC%E3%83%89%E3%83%AD%E3%83%83%E3%83%97.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -13451,6 +13720,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-02-13",
     "defaultOrder": 270,
     "defaultSort": 15023,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%82%A4%E3%83%AD%E3%83%8B&src=%E3%82%A2%E3%82%A4%E3%83%AD%E3%83%8B.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -13512,6 +13782,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-02-15",
     "defaultOrder": 271,
     "defaultSort": 14023,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=1925&src=1925.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -13572,6 +13843,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-02-17",
     "defaultOrder": 272,
     "defaultSort": 22013,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%A7%81%E3%81%AF%E3%80%81%E7%A7%81%E9%81%94%E3%81%AF&src=%E7%A7%81%E3%81%AF%E3%80%81%E7%A7%81%E9%81%94%E3%81%AF.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -13634,6 +13906,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-02-19",
     "defaultOrder": 273,
     "defaultSort": 23013,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%B2%E3%81%A4%E3%81%98%E3%81%8C%E3%81%84%E3%81%A3%E3%81%B4%E3%81%8D&src=%E3%81%B2%E3%81%A4%E3%81%98%E3%81%8C%E3%81%84%E3%81%A3%E3%81%B4%E3%81%8D.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -13695,6 +13968,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-02-20",
     "defaultOrder": 274,
     "defaultSort": 11023,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Hello%2C%20Worker&src=Hello_%20Worker.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -13747,6 +14021,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-02-24",
     "defaultOrder": 275,
     "defaultSort": 10083,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Where%20shall%20we%20go%3F&src=Where%20shall%20we%20go_.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -13777,6 +14052,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-02-27",
     "defaultOrder": 276,
     "defaultSort": 10084,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B3%E3%82%B3%E3%83%AD&src=%E3%82%B3%E3%82%B3%E3%83%AD.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -13805,6 +14081,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-02-28",
     "defaultOrder": 277,
     "defaultSort": 10085,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B9%E3%83%88%E3%83%AD%E3%83%9C%E3%83%A9%E3%82%B9%E3%83%88&src=%E3%82%B9%E3%83%88%E3%83%AD%E3%83%9C%E3%83%A9%E3%82%B9%E3%83%88.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -13833,6 +14110,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-03-01",
     "defaultOrder": 278,
     "defaultSort": 10086,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%91%E3%83%AC%E3%83%83%E3%83%88%E3%81%AB%E3%81%AF%E5%90%9B%E3%81%8C%E3%81%84%E3%81%A3%E3%81%B1%E3%81%84&src=%E3%83%91%E3%83%AC%E3%83%83%E3%83%88%E3%81%AB%E3%81%AF%E5%90%9B%E3%81%8C%E3%81%84%E3%81%A3%E3%81%B1%E3%81%84.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -13861,6 +14139,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-03-02",
     "defaultOrder": 279,
     "defaultSort": 10087,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Q&src=Q.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -13889,6 +14168,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-03-04",
     "defaultOrder": 280,
     "defaultSort": 10088,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A4%E3%83%9F%E3%83%8A%E3%83%99%21%21%21%21&src=%E3%83%A4%E3%83%9F%E3%83%8A%E3%83%99%21%21%21%21.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -13917,6 +14197,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-03-07",
     "defaultOrder": 281,
     "defaultSort": 12022,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Booo%21&src=Booo%21.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -13978,6 +14259,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-03-09",
     "defaultOrder": 282,
     "defaultSort": 10089,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=39&src=39.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -14024,6 +14306,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-03-11",
     "defaultOrder": 283,
     "defaultSort": 24012,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Mr.%20Showtime&src=Mr-%20Showtime.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -14087,6 +14370,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-03-13",
     "defaultOrder": 284,
     "defaultSort": 13023,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A8%E3%82%B4%E3%82%A4%E3%82%B9%E3%83%88&src=%E3%82%A8%E3%82%B4%E3%82%A4%E3%82%B9%E3%83%88.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -14141,6 +14425,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-03-16",
     "defaultOrder": 285,
     "defaultSort": 10090,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A8%E3%83%94%E3%83%AD%E3%83%BC%E3%82%B0%E3%81%AB%E5%90%9B%E3%81%AF%E3%81%84%E3%81%AA%E3%81%84&src=%E3%82%A8%E3%83%94%E3%83%AD%E3%83%BC%E3%82%B0%E3%81%AB%E5%90%9B%E3%81%AF%E3%81%84%E3%81%AA%E3%81%84.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -14169,6 +14454,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-03-20",
     "defaultOrder": 286,
     "defaultSort": 10091,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Highlight&src=Highlight.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -14197,6 +14483,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-03-24",
     "defaultOrder": 287,
     "defaultSort": 11024,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%83%88%E3%83%A9%E3%82%AF%E3%83%88%E3%83%A9%E3%82%A4%E3%83%88&src=%E3%82%A2%E3%83%88%E3%83%A9%E3%82%AF%E3%83%88%E3%83%A9%E3%82%A4%E3%83%88.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -14258,6 +14545,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-03-28",
     "defaultOrder": 288,
     "defaultSort": 25014,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B6%E3%83%A0%E3%82%B6&src=%E3%82%B6%E3%83%A0%E3%82%B6.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -14319,6 +14607,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-03-30",
     "defaultOrder": 289,
     "defaultSort": 10092,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%88%E3%83%A9%E3%83%83%E3%82%B7%E3%83%A5%E3%83%BB%E3%82%A2%E3%83%B3%E3%83%89%E3%83%BB%E3%83%88%E3%83%A9%E3%83%83%E3%82%B7%E3%83%A5%EF%BC%81&src=%E3%83%88%E3%83%A9%E3%83%83%E3%82%B7%E3%83%A5%E3%83%BB%E3%82%A2%E3%83%B3%E3%83%89%E3%83%BB%E3%83%88%E3%83%A9%E3%83%83%E3%82%B7%E3%83%A5%EF%BC%81.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -14347,6 +14636,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-03-31",
     "defaultOrder": 290,
     "defaultSort": 10093,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Vampire%27s%20%E2%88%9E%20pathoS&src=Vampire%27s%20%E2%88%9E%20pathoS.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -14375,6 +14665,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-04-01",
     "defaultOrder": 291,
     "defaultSort": 29005,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Be%20The%20MUSIC%21&src=Be%20The%20MUSIC%21.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -14445,6 +14736,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-04-01",
     "defaultOrder": 292,
     "defaultSort": 10094,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=METEOR&src=METEOR.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -14473,6 +14765,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-04-02",
     "defaultOrder": 293,
     "defaultSort": 10095,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%93%E3%83%A5%E3%82%A2&src=%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%93%E3%83%A5%E3%82%A2.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -14501,6 +14794,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-04-03",
     "defaultOrder": 294,
     "defaultSort": 10096,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%A7%81%E3%81%AE%E6%81%8B%E3%81%AF%E3%83%98%E3%83%AB%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2&src=%E7%A7%81%E3%81%AE%E6%81%8B%E3%81%AF%E3%83%98%E3%83%AB%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -14529,6 +14823,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-04-04",
     "defaultOrder": 295,
     "defaultSort": 10097,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B9%E3%83%8E%E3%83%BC%E3%83%9E%E3%83%B3&src=%E3%82%B9%E3%83%8E%E3%83%BC%E3%83%9E%E3%83%B3.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -14557,6 +14852,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-04-07",
     "defaultOrder": 296,
     "defaultSort": 12023,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%B7%B1%E6%B5%B7%E5%B0%91%E5%A5%B3&src=%E6%B7%B1%E6%B5%B7%E5%B0%91%E5%A5%B3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -14626,6 +14922,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-04-10",
     "defaultOrder": 297,
     "defaultSort": 10098,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E9%AD%94%E6%B3%95%E3%81%BF%E3%81%9F%E3%81%84%E3%81%AA%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%83%83%E3%82%AF%EF%BC%81&src=%E9%AD%94%E6%B3%95%E3%81%BF%E3%81%9F%E3%81%84%E3%81%AA%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%83%83%E3%82%AF%EF%BC%81.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -14654,6 +14951,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-04-11",
     "defaultOrder": 298,
     "defaultSort": 21015,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%9B%B8%E7%94%9F&src=%E7%9B%B8%E7%94%9F.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -14715,6 +15013,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-04-14",
     "defaultOrder": 299,
     "defaultSort": 10099,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%90%8D%E3%82%82%E7%84%A1%E3%81%8D%E9%9D%A9%E5%91%BD&src=%E5%90%8D%E3%82%82%E7%84%A1%E3%81%8D%E9%9D%A9%E5%91%BD.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -14743,6 +15042,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-04-17",
     "defaultOrder": 300,
     "defaultSort": 14024,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%8A%E3%81%93%E3%81%A1%E3%82%83%E3%81%BE%E6%88%A6%E4%BA%89&src=%E3%81%8A%E3%81%93%E3%81%A1%E3%82%83%E3%81%BE%E6%88%A6%E4%BA%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -14795,6 +15095,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-04-21",
     "defaultOrder": 301,
     "defaultSort": 13024,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%B5%B6%E3%81%88%E9%96%93%E3%81%AA%E3%81%8F%E8%97%8D%E8%89%B2&src=%E7%B5%B6%E3%81%88%E9%96%93%E3%81%AA%E3%81%8F%E8%97%8D%E8%89%B2.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -14860,6 +15161,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-04-24",
     "defaultOrder": 302,
     "defaultSort": 15024,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%91%BD%E3%81%B0%E3%81%A3%E3%81%8B%E3%82%8A&src=%E5%91%BD%E3%81%B0%E3%81%A3%E3%81%8B%E3%82%8A_%E3%82%BB%E3%82%AB%E3%82%A4ver.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -14931,6 +15233,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-04-28",
     "defaultOrder": 303,
     "defaultSort": 22014,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%82%E3%82%82%E3%81%84%E3%82%8D%E3%81%AE%E9%8D%B5&src=%E3%82%82%E3%82%82%E3%81%84%E3%82%8D%E3%81%AE%E9%8D%B5.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -14992,6 +15295,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-04-30",
     "defaultOrder": 304,
     "defaultSort": 25015,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AD%E3%83%86%E3%82%A3&src=%E3%82%AD%E3%83%86%E3%82%A3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -15053,6 +15357,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-05-01",
     "defaultOrder": 305,
     "defaultSort": 11025,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%BF%AB%E6%99%B4&src=%E5%BF%AB%E6%99%B4.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -15123,6 +15428,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-05-03",
     "defaultOrder": 306,
     "defaultSort": 10100,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%82%AA%E9%A3%9F%E5%A8%98%E3%82%B3%E3%83%B3%E3%83%81%E3%83%BC%E3%82%BF&src=%E6%82%AA%E9%A3%9F%E5%A8%98%E3%82%B3%E3%83%B3%E3%83%81%E3%83%BC%E3%82%BF.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -15155,6 +15461,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-05-04",
     "defaultOrder": 307,
     "defaultSort": 10101,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%9C%A0%E3%82%89%E3%81%9B%E5%A7%AB%E3%81%8B%E3%82%89%E3%81%AE%E8%B4%88%E3%82%8A%E7%89%A9&src=%E7%9C%A0%E3%82%89%E3%81%9B%E5%A7%AB%E3%81%8B%E3%82%89%E3%81%AE%E8%B4%88%E3%82%8A%E7%89%A9.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -15183,6 +15490,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-05-05",
     "defaultOrder": 308,
     "defaultSort": 10102,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%86%86%E5%B0%BE%E5%9D%82%E3%81%AE%E4%BB%95%E7%AB%8B%E5%B1%8B&src=%E5%86%86%E5%B0%BE%E5%9D%82%E3%81%AE%E4%BB%95%E7%AB%8B%E5%B1%8B.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -15211,6 +15519,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-05-06",
     "defaultOrder": 309,
     "defaultSort": 10103,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%82%AA%E5%BE%B3%E3%81%AE%E3%82%B8%E3%83%A3%E3%83%83%E3%82%B8%E3%83%A1%E3%83%B3%E3%83%88&src=%E6%82%AA%E5%BE%B3%E3%81%AE%E3%82%B8%E3%83%A3%E3%83%83%E3%82%B8%E3%83%A1%E3%83%B3%E3%83%88.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -15239,6 +15548,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-05-12",
     "defaultOrder": 310,
     "defaultSort": 10104,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Sharing%20The%20World&src=Sharing%20The%20World.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -15267,6 +15577,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-05-15",
     "defaultOrder": 311,
     "defaultSort": 12024,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%BB%E3%83%84%E3%83%8A%E3%83%88%E3%83%AA%E3%83%83%E3%83%97&src=%E3%82%BB%E3%83%84%E3%83%8A%E3%83%88%E3%83%AA%E3%83%83%E3%83%97.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -15324,6 +15635,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-05-19",
     "defaultOrder": 312,
     "defaultSort": 13025,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B7%E3%83%A3%E3%83%B3%E3%83%86%E3%82%A3&src=%E3%82%B7%E3%83%A3%E3%83%B3%E3%83%86%E3%82%A3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -15384,6 +15696,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-05-22",
     "defaultOrder": 313,
     "defaultSort": 10105,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A8%E3%82%BF%E3%83%BC%E3%83%8A%E3%83%AB%E3%82%A2%E3%83%AA%E3%82%A2&src=%E3%82%A8%E3%82%BF%E3%83%BC%E3%83%8A%E3%83%AB%E3%82%A2%E3%83%AA%E3%82%A2.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -15412,6 +15725,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-05-26",
     "defaultOrder": 314,
     "defaultSort": 10106,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Blue%20Star&src=Blue%20Star.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -15440,6 +15754,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-05-29",
     "defaultOrder": 315,
     "defaultSort": 24013,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%AE%B1%E5%BA%AD%E3%81%AE%E3%82%B3%E3%83%A9%E3%83%AB&src=%E7%AE%B1%E5%BA%AD%E3%81%AE%E3%82%B3%E3%83%A9%E3%83%AB.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -15501,6 +15816,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-06-02",
     "defaultOrder": 316,
     "defaultSort": 10107,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E4%BA%BA%E7%94%9F&src=%E4%BA%BA%E7%94%9F.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -15539,6 +15855,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-06-07",
     "defaultOrder": 317,
     "defaultSort": 10108,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Wonder%20Style&src=Wonder%20Style.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -15567,6 +15884,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-06-10",
     "defaultOrder": 318,
     "defaultSort": 23014,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E4%B8%8B%E5%89%8B%E4%B8%8A&src=%E4%B8%8B%E5%89%8B%E4%B8%8A.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -15628,6 +15946,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-06-12",
     "defaultOrder": 319,
     "defaultSort": 14025,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%97%9A%E5%91%BC%E3%80%81%E7%B4%A0%E6%99%B4%E3%82%89%E3%81%97%E3%81%8D%E3%83%8B%E3%83%A3%E3%83%B3%E7%94%9F&src=%E5%97%9A%E5%91%BC%E3%80%81%E7%B4%A0%E6%99%B4%E3%82%89%E3%81%97%E3%81%8D%E3%83%8B%E3%83%A3%E3%83%B3%E7%94%9F.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -15674,6 +15993,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-06-16",
     "defaultOrder": 320,
     "defaultSort": 10109,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%80%E3%82%B9%E3%83%88%E3%83%A1%E3%83%89%E3%83%AC%E3%83%BC&src=%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%80%E3%82%B9%E3%83%88%E3%83%A1%E3%83%89%E3%83%AC%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -15702,6 +16022,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-06-20",
     "defaultOrder": 321,
     "defaultSort": 22015,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%81%E3%83%BC%E3%83%A0%E3%83%A1%E3%82%A4%E3%83%88&src=%E3%83%81%E3%83%BC%E3%83%A0%E3%83%A1%E3%82%A4%E3%83%88.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -15763,6 +16084,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-06-23",
     "defaultOrder": 322,
     "defaultSort": 11026,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=glow&src=glow.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -15823,6 +16145,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-06-26",
     "defaultOrder": 323,
     "defaultSort": 15025,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%A8%E3%81%A6%E3%82%82%E7%B4%A0%E6%95%B5%E3%81%AA%E5%85%AD%E6%9C%88%E3%81%A7%E3%81%97%E3%81%9F&src=%E3%81%A8%E3%81%A6%E3%82%82%E7%B4%A0%E6%95%B5%E3%81%AA%E5%85%AD%E6%9C%88%E3%81%A7%E3%81%97%E3%81%9F.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -15883,6 +16206,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-06-28",
     "defaultOrder": 324,
     "defaultSort": 10110,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=UNDERWATER&src=UNDERWATER.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -15911,6 +16235,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-07-03",
     "defaultOrder": 325,
     "defaultSort": 12025,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%8D%E3%82%85%E3%81%86%E3%81%8F%E3%82%89%E3%82%8A%E3%82%93&src=%E3%81%8D%E3%82%85%E3%81%86%E3%81%8F%E3%82%89%E3%82%8A%E3%82%93.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -15981,6 +16306,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-07-07",
     "defaultOrder": 326,
     "defaultSort": 10111,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Afterglow&src=Afterglow.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -16009,6 +16335,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-07-12",
     "defaultOrder": 327,
     "defaultSort": 14026,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%A4%AA%E9%99%BD%E7%B3%BB%E3%83%87%E3%82%B9%E3%82%B3&src=%E5%A4%AA%E9%99%BD%E7%B3%BB%E3%83%87%E3%82%B9%E3%82%B3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -16068,6 +16395,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-07-14",
     "defaultOrder": 328,
     "defaultSort": 10112,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%BF%83%E6%8B%8D%E3%83%9A%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0&src=%E5%BF%83%E6%8B%8D%E3%83%9A%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -16096,6 +16424,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-07-19",
     "defaultOrder": 329,
     "defaultSort": 25016,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%BC%94%E5%8A%87&src=%E6%BC%94%E5%8A%87.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -16149,6 +16478,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-07-21",
     "defaultOrder": 330,
     "defaultSort": 21016,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%98%9F%E3%82%92%E7%B9%8B%E3%81%90&src=%E6%98%9F%E3%82%92%E7%B9%8B%E3%81%90.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -16202,6 +16532,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-07-24",
     "defaultOrder": 331,
     "defaultSort": 13026,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E8%84%B3%E5%86%85%E9%9D%A9%E5%91%BD%E3%82%AC%E3%83%BC%E3%83%AB&src=%E8%84%B3%E5%86%85%E9%9D%A9%E5%91%BD%E3%82%AC%E3%83%BC%E3%83%AB.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -16278,6 +16609,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-07-28",
     "defaultOrder": 332,
     "defaultSort": 10113,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Decade&src=Decade.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -16306,6 +16638,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-08-01",
     "defaultOrder": 333,
     "defaultSort": 22016,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%88%91%E3%82%89%E3%82%B9%E3%83%86%E3%82%A4%E3%83%B3%E3%83%90%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%BA%EF%BC%81&src=%E6%88%91%E3%82%89%E3%82%B9%E3%83%86%E3%82%A4%E3%83%B3%E3%83%90%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%BA%EF%BC%81.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -16353,6 +16686,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-08-03",
     "defaultOrder": 334,
     "defaultSort": 10114,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%96%B0%E4%BA%BA%E9%A1%9E&src=%E6%96%B0%E4%BA%BA%E9%A1%9E.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -16381,6 +16715,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-08-04",
     "defaultOrder": 335,
     "defaultSort": 10115,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%9A%E3%82%93%E3%81%A0%E3%83%91%E3%83%BC%E3%83%AA%E3%83%8A%E3%82%A4&src=%E3%81%9A%E3%82%93%E3%81%A0%E3%83%91%E3%83%BC%E3%83%AA%E3%83%8A%E3%82%A4.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -16409,6 +16744,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-08-10",
     "defaultOrder": 336,
     "defaultSort": 10116,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Disco%20No.39&src=Disco%20No-39.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -16437,6 +16773,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-08-15",
     "defaultOrder": 337,
     "defaultSort": 11027,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B5%E3%83%9E%E3%83%BC%E3%82%BF%E3%82%A4%E3%83%A0%E3%83%AC%E3%82%B3%E3%83%BC%E3%83%89&src=%E3%82%B5%E3%83%9E%E3%83%BC%E3%82%BF%E3%82%A4%E3%83%A0%E3%83%AC%E3%82%B3%E3%83%BC%E3%83%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -16494,6 +16831,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-08-19",
     "defaultOrder": 338,
     "defaultSort": 23015,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AA%E3%82%A2%E3%83%A9%E3%82%A4%E3%82%BA&src=%E3%83%AA%E3%82%A2%E3%83%A9%E3%82%A4%E3%82%BA.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -16546,6 +16884,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-08-21",
     "defaultOrder": 339,
     "defaultSort": 24014,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AD%E3%83%A9%E3%83%94%E3%83%94%E2%98%85%E3%82%AD%E3%83%A9%E3%83%94%E3%82%AB&src=%E3%82%AD%E3%83%A9%E3%83%94%E3%83%94%E2%98%85%E3%82%AD%E3%83%A9%E3%83%94%E3%82%AB.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -16600,6 +16939,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-08-25",
     "defaultOrder": 340,
     "defaultSort": 20005,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%9C%E3%83%88%E3%83%AB%E3%82%B1%E3%83%BC%E3%82%AD&src=%E3%83%9C%E3%83%88%E3%83%AB%E3%82%B1%E3%83%BC%E3%82%AD.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -16628,6 +16968,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-08-28",
     "defaultOrder": 341,
     "defaultSort": 15026,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%BF%83%E5%81%9A%E3%81%97&src=%E5%BF%83%E5%81%9A%E3%81%97.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -16685,6 +17026,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-08-31",
     "defaultOrder": 342,
     "defaultSort": 10117,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%96%E3%83%AB%E3%83%BC%E3%83%97%E3%83%A9%E3%83%8D%E3%83%83%E3%83%88&src=%E3%83%96%E3%83%AB%E3%83%BC%E3%83%97%E3%83%A9%E3%83%8D%E3%83%83%E3%83%88.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -16713,6 +17055,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-09-01",
     "defaultOrder": 343,
     "defaultSort": 10118,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=HERO&src=HERO.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -16741,6 +17084,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-09-04",
     "defaultOrder": 344,
     "defaultSort": 10119,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=CIRCUS%20PANIC%21%21%21&src=CIRCUS%20PANIC%21%21%21.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -16787,6 +17131,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-09-11",
     "defaultOrder": 345,
     "defaultSort": 12026,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%99%BD%E3%81%84%E9%9B%AA%E3%81%AE%E3%83%97%E3%83%AA%E3%83%B3%E3%82%BB%E3%82%B9%E3%81%AF&src=%E7%99%BD%E3%81%84%E9%9B%AA%E3%81%AE%E3%83%97%E3%83%AA%E3%83%B3%E3%82%BB%E3%82%B9%E3%81%AF.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -16863,6 +17208,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-09-19",
     "defaultOrder": 346,
     "defaultSort": 20006,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Un-Lock&src=Un-Lock.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -16891,6 +17237,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-09-25",
     "defaultOrder": 347,
     "defaultSort": 10120,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A9%E3%83%83%E3%82%AD%E3%83%BC%E2%98%86%E3%82%AA%E3%83%BC%E3%83%96&src=%E3%83%A9%E3%83%83%E3%82%AD%E3%83%BC%E2%98%86%E3%82%AA%E3%83%BC%E3%83%96.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -16919,6 +17266,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-09-30",
     "defaultOrder": 348,
     "defaultSort": 29006,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=NEO&src=NEO.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -17023,6 +17371,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-10-01",
     "defaultOrder": 349,
     "defaultSort": 20007,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%82%A4%E3%83%A0%E3%83%9E%E3%82%A4%E3%83%B3&src=%E3%82%A2%E3%82%A4%E3%83%A0%E3%83%9E%E3%82%A4%E3%83%B3.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -17061,6 +17410,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-10-02",
     "defaultOrder": 350,
     "defaultSort": 11028,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%A4%A9%E6%A8%82&src=%E5%A4%A9%E6%A8%82.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -17109,6 +17459,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-10-03",
     "defaultOrder": 351,
     "defaultSort": 10121,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%BE%E3%81%AB%E3%81%BE%E3%81%AB&src=%E3%81%BE%E3%81%AB%E3%81%BE%E3%81%AB.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -17137,6 +17488,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-10-04",
     "defaultOrder": 352,
     "defaultSort": 12027,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A1%E3%83%A9%E3%83%B3%E3%82%B3%E3%83%AA%E3%83%83%E3%82%AF&src=%E3%83%A1%E3%83%A9%E3%83%B3%E3%82%B3%E3%83%AA%E3%83%83%E3%82%AF.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -17201,6 +17553,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-10-05",
     "defaultOrder": 353,
     "defaultSort": 10122,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E8%B1%9A%E3%81%AB%E3%81%AA%E3%81%A3%E3%81%A6yeah%20yeah&src=%E8%B1%9A%E3%81%AB%E3%81%AA%E3%81%A3%E3%81%A6yeah%20yeah.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -17229,6 +17582,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-10-06",
     "defaultOrder": 354,
     "defaultSort": 13027,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%81%8B%E3%81%AF%E6%88%A6%E4%BA%89&src=%E6%81%8B%E3%81%AF%E6%88%A6%E4%BA%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -17269,6 +17623,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-10-07",
     "defaultOrder": 355,
     "defaultSort": 10123,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%87%E3%83%93%E3%83%AB%E3%81%98%E3%82%83%E3%81%AA%E3%81%84%E3%82%82%E3%82%93&src=%E3%83%87%E3%83%93%E3%83%AB%E3%81%98%E3%82%83%E3%81%AA%E3%81%84%E3%82%82%E3%82%93.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -17297,6 +17652,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-10-08",
     "defaultOrder": 356,
     "defaultSort": 14027,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%99%E3%81%8D%E3%81%AA%E3%81%93%E3%81%A8%E3%81%A0%E3%81%91%E3%81%A7%E3%81%84%E3%81%84%E3%81%A7%E3%81%99&src=%E3%81%99%E3%81%8D%E3%81%AA%E3%81%93%E3%81%A8%E3%81%A0%E3%81%91%E3%81%A7%E3%81%84%E3%81%84%E3%81%A7%E3%81%99.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -17353,6 +17709,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-10-09",
     "defaultOrder": 357,
     "defaultSort": 10124,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%95%AA%E5%87%A9&src=%E7%95%AA%E5%87%A9.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -17383,6 +17740,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-10-10",
     "defaultOrder": 358,
     "defaultSort": 15027,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%A5%9E%E3%81%A3%E3%81%BD%E3%81%84%E3%81%AA&src=%E7%A5%9E%E3%81%A3%E3%81%BD%E3%81%84%E3%81%AA.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -17443,6 +17801,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-10-11",
     "defaultOrder": 359,
     "defaultSort": 10125,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Dear&src=Dear.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -17471,6 +17830,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-10-12",
     "defaultOrder": 360,
     "defaultSort": 23016,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=CR%E8%A9%A0ZY&src=CR%E8%A9%A0ZY.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -17531,6 +17891,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-10-16",
     "defaultOrder": 361,
     "defaultSort": 10126,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Cool%20Me%20Down&src=Cool%20Me%20Down.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -17559,6 +17920,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-10-23",
     "defaultOrder": 362,
     "defaultSort": 12028,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%82%AA%E5%BD%B9%E3%81%AB%E3%82%AD%E3%82%B9%E3%82%B7%E3%83%BC%E3%83%B3%E3%82%92&src=%E6%82%AA%E5%BD%B9%E3%81%AB%E3%82%AD%E3%82%B9%E3%82%B7%E3%83%BC%E3%83%B3%E3%82%92.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -17604,6 +17966,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-10-25",
     "defaultOrder": 363,
     "defaultSort": 14028,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%88%91%E5%84%98%E5%A7%AB&src=%E6%88%91%E5%84%98%E5%A7%AB.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -17644,6 +18007,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-10-29",
     "defaultOrder": 364,
     "defaultSort": 21017,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=purpose&src=purpose.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -17705,6 +18069,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-10-31",
     "defaultOrder": 365,
     "defaultSort": 22017,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%AF%E3%81%90&src=%E3%81%AF%E3%81%90.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -17776,6 +18141,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-11-01",
     "defaultOrder": 366,
     "defaultSort": 25017,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%88%E3%83%AF%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%88%E3%83%A9%E3%82%A4%E3%83%88&src=%E3%83%88%E3%83%AF%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%88%E3%83%A9%E3%82%A4%E3%83%88.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -17822,6 +18188,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-11-06",
     "defaultOrder": 367,
     "defaultSort": 13028,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%98%A5%E5%B5%90&src=%E6%98%A5%E5%B5%90.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -17875,6 +18242,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-11-10",
     "defaultOrder": 368,
     "defaultSort": 20008,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=ARQETYPE&src=ARQETYPE.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -17903,6 +18271,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-11-13",
     "defaultOrder": 369,
     "defaultSort": 10127,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=On%EF%BC%86On&src=On%26On.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -17931,6 +18300,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-11-22",
     "defaultOrder": 370,
     "defaultSort": 15028,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AD%E3%83%A5%E3%83%BC%E3%83%88%E3%81%AA%E3%82%AB%E3%83%8E%E3%82%B8%E3%83%A7&src=%E3%82%AD%E3%83%A5%E3%83%BC%E3%83%88%E3%81%AA%E3%82%AB%E3%83%8E%E3%82%B8%E3%83%A7.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -17980,6 +18350,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-11-28",
     "defaultOrder": 371,
     "defaultSort": 24015,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%95%E3%82%A3%E3%83%A9%E3%83%A1%E3%83%B3%E3%83%88%E3%83%95%E3%82%A3%E3%83%BC%E3%83%90%E3%83%BC&src=%E3%83%95%E3%82%A3%E3%83%A9%E3%83%A1%E3%83%B3%E3%83%88%E3%83%95%E3%82%A3%E3%83%BC%E3%83%90%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -18042,6 +18413,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-12-04",
     "defaultOrder": 372,
     "defaultSort": 12029,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%95%E3%82%88%E3%81%AA%E3%82%89%E3%83%97%E3%83%AA%E3%83%B3%E3%82%BB%E3%82%B9&src=%E3%81%95%E3%82%88%E3%81%AA%E3%82%89%E3%83%97%E3%83%AA%E3%83%B3%E3%82%BB%E3%82%B9.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -18102,6 +18474,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-12-08",
     "defaultOrder": 373,
     "defaultSort": 23017,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Beyond%20the%20way&src=Beyond%20the%20way.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -18150,6 +18523,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-12-11",
     "defaultOrder": 374,
     "defaultSort": 20009,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B7%E3%83%A7%E3%82%A6%E3%82%BF%E3%82%A4%E3%83%A0%C3%97%E3%82%AA%E3%83%BC%E3%83%87%E3%82%A3%E3%82%A8%E3%83%B3%E3%82%B9&src=%E3%82%B7%E3%83%A7%E3%82%A6%E3%82%BF%E3%82%A4%E3%83%A0%C3%97%E3%82%AA%E3%83%BC%E3%83%87%E3%82%A3%E3%82%A8%E3%83%B3%E3%82%B9.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -18178,6 +18552,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-12-18",
     "defaultOrder": 375,
     "defaultSort": 10128,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E9%9B%A3%E8%81%B4%E7%B3%BB%E7%94%B7%E5%AD%90%E3%81%8C%E5%80%92%E3%81%9B%E3%81%AA%E3%81%84&src=%E9%9B%A3%E8%81%B4%E7%B3%BB%E7%94%B7%E5%AD%90%E3%81%8C%E5%80%92%E3%81%9B%E3%81%AA%E3%81%84.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -18206,6 +18581,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-12-22",
     "defaultOrder": 376,
     "defaultSort": 10129,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AA%E3%83%BC%E3%83%90%E3%83%BC%E3%82%B3%E3%83%BC%E3%83%89&src=%E3%82%AA%E3%83%BC%E3%83%90%E3%83%BC%E3%82%B3%E3%83%BC%E3%83%89.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -18234,6 +18610,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-12-25",
     "defaultOrder": 377,
     "defaultSort": 15029,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B9%E3%83%AD%E3%82%A6%E3%83%80%E3%82%A6%E3%83%8A%E3%83%BC&src=%E3%82%B9%E3%83%AD%E3%82%A6%E3%83%80%E3%82%A6%E3%83%8A%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -18288,6 +18665,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-12-28",
     "defaultOrder": 378,
     "defaultSort": 11029,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E6%81%8B%E3%81%8C%E7%B5%82%E3%82%8F%E3%82%8B%E6%99%82&src=%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E6%81%8B%E3%81%8C%E7%B5%82%E3%82%8F%E3%82%8B%E6%99%82.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -18332,6 +18710,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-12-29",
     "defaultOrder": 379,
     "defaultSort": 25018,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=25%E6%99%82%E3%81%AE%E6%83%85%E7%86%B1&src=25%E6%99%82%E3%81%AE%E6%83%85%E7%86%B1.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -18394,6 +18773,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-12-30",
     "defaultOrder": 380,
     "defaultSort": 13029,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E9%87%91%E6%9C%A8%E7%8A%80&src=%E9%87%91%E6%9C%A8%E7%8A%80.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -18455,6 +18835,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2023-12-31",
     "defaultOrder": 381,
     "defaultSort": 10130,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E4%B8%80%E5%8D%83%E5%85%89%E5%B9%B4&src=%E4%B8%80%E5%8D%83%E5%85%89%E5%B9%B4.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -18503,6 +18884,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-01-01",
     "defaultOrder": 382,
     "defaultSort": 14029,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%BC%B7%E9%A2%A8%E3%82%AA%E3%83%BC%E3%83%AB%E3%83%90%E3%83%83%E3%82%AF&src=%E5%BC%B7%E9%A2%A8%E3%82%AA%E3%83%BC%E3%83%AB%E3%83%90%E3%83%83%E3%82%AF.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -18573,6 +18955,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-01-02",
     "defaultOrder": 383,
     "defaultSort": 10131,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%92%E3%82%A2%E3%82%BD%E3%83%93&src=%E3%83%92%E3%82%A2%E3%82%BD%E3%83%93.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -18601,6 +18984,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-01-03",
     "defaultOrder": 384,
     "defaultSort": 15030,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A8%E3%83%B3%E3%83%B4%E3%82%A3%E3%83%BC%E3%83%99%E3%82%A4%E3%83%93%E3%83%BC&src=%E3%82%A8%E3%83%B3%E3%83%B4%E3%82%A3%E3%83%BC%E3%83%99%E3%82%A4%E3%83%93%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -18679,6 +19063,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-01-04",
     "defaultOrder": 385,
     "defaultSort": 10132,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%80%8E%E3%82%93%E3%81%A3%E3%81%82%E3%81%A3%E3%81%82%E3%81%A3%E3%80%82%E3%80%8F&src=%E3%80%8E%E3%82%93%E3%81%A3%E3%81%82%E3%81%A3%E3%81%82%E3%81%A3%E3%80%82%E3%80%8F.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -18707,6 +19092,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-01-05",
     "defaultOrder": 386,
     "defaultSort": 12030,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%8F%E3%81%86%E3%81%AB%E3%81%AA%E3%82%8B&src=%E3%81%8F%E3%81%86%E3%81%AB%E3%81%AA%E3%82%8B.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -18770,6 +19156,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-01-09",
     "defaultOrder": 387,
     "defaultSort": 11030,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%8F%E3%82%A4%E3%83%89%E3%82%A2%E3%83%B3%E3%83%89%E3%83%BB%E3%82%B7%E3%83%BC%E3%82%AF&src=%E3%83%8F%E3%82%A4%E3%83%89%E3%82%A2%E3%83%B3%E3%83%89%E3%83%BB%E3%82%B7%E3%83%BC%E3%82%AF.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -18818,6 +19205,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-01-11",
     "defaultOrder": 388,
     "defaultSort": 39004,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=folern&src=folern.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": false,
@@ -18835,6 +19223,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-01-15",
     "defaultOrder": 389,
     "defaultSort": 22018,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=MOTTO%21%21%21&src=MOTTO%21%21%21.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": false,
@@ -18879,6 +19268,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-01-18",
     "defaultOrder": 390,
     "defaultSort": 39005,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Sage&src=Sage.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": false,
@@ -18896,6 +19286,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-01-22",
     "defaultOrder": 391,
     "defaultSort": 10133,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%BF%83%E6%B3%A5%E5%A4%A2%28syndrome%29&src=%E5%BF%83%E6%B3%A5%E5%A4%A2%28syndrome%29.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -18924,6 +19315,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-01-23",
     "defaultOrder": 392,
     "defaultSort": 24016,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B5%E3%82%A4%E3%83%90%E3%83%BC%E3%83%91%E3%83%B3%E3%82%AF%E3%83%87%E3%83%83%E3%83%89%E3%83%9C%E3%83%BC%E3%82%A4&src=%E3%82%B5%E3%82%A4%E3%83%90%E3%83%BC%E3%83%91%E3%83%B3%E3%82%AF%E3%83%87%E3%83%83%E3%83%89%E3%83%9C%E3%83%BC%E3%82%A4.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -18985,6 +19377,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-01-25",
     "defaultOrder": 393,
     "defaultSort": 39006,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=MarbleBlue.&src=MarbleBlue-.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": false,
@@ -19002,6 +19395,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-01-29",
     "defaultOrder": 394,
     "defaultSort": 13030,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%9E%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB%E3%83%BB%E3%83%9E%E3%82%AD%E3%82%B7%E3%83%9E%E3%82%A4%E3%82%B6%E3%83%BC&src=%E3%83%9E%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB%E3%83%BB%E3%83%9E%E3%82%AD%E3%82%B7%E3%83%9E%E3%82%A4%E3%82%B6%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -19067,6 +19461,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-02-01",
     "defaultOrder": 395,
     "defaultSort": 13031,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%88%EF%BC%9F%E3%81%82%E3%81%81%E3%80%81%E3%81%9D%E3%81%86%E3%80%82&src=%E3%81%88%EF%BC%9F%E3%81%82%E3%81%81%E3%80%81%E3%81%9D%E3%81%86%E3%80%82.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -19111,6 +19506,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-02-03",
     "defaultOrder": 396,
     "defaultSort": 10134,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AA%E3%83%AC%E3%82%A4%E3%82%A2%E3%82%A6%E3%82%BF%E3%83%BC&src=%E3%83%AA%E3%83%AC%E3%82%A4%E3%82%A2%E3%82%A6%E3%82%BF%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -19139,6 +19535,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-02-04",
     "defaultOrder": 397,
     "defaultSort": 10135,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%8A%E3%81%A9%E3%83%AD%E3%83%9C&src=%E3%81%8A%E3%81%A9%E3%83%AD%E3%83%9C.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -19171,6 +19568,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-02-09",
     "defaultOrder": 398,
     "defaultSort": 24017,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E4%B8%96%E7%95%8C%E3%82%92%E7%85%A7%E3%82%89%E3%81%99%E3%83%86%E3%83%88%E3%83%A9%E3%83%83%E3%83%89&src=%E4%B8%96%E7%95%8C%E3%82%92%E7%85%A7%E3%82%89%E3%81%99%E3%83%86%E3%83%88%E3%83%A9%E3%83%83%E3%83%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -19225,6 +19623,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-02-10",
     "defaultOrder": 399,
     "defaultSort": 10136,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%83%81%E3%83%BC%E3%83%88%E3%83%87%E3%83%BC&src=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%83%81%E3%83%BC%E3%83%88%E3%83%87%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -19253,6 +19652,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-02-13",
     "defaultOrder": 400,
     "defaultSort": 10137,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%8D%81%E5%85%AD%E6%AD%B3%E3%81%AE%E5%BF%83%E8%87%93&src=%E5%8D%81%E5%85%AD%E6%AD%B3%E3%81%AE%E5%BF%83%E8%87%93.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -19281,6 +19681,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-02-16",
     "defaultOrder": 401,
     "defaultSort": 20010,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=limbo&src=limbo.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -19309,6 +19710,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-02-18",
     "defaultOrder": 402,
     "defaultSort": 21018,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AC%E3%82%B0%E3%83%AB%E3%82%B9&src=%E3%83%AC%E3%82%B0%E3%83%AB%E3%82%B9.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -19370,6 +19772,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-02-22",
     "defaultOrder": 403,
     "defaultSort": 14030,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%8F%A4%E6%9B%B8%E5%B1%8B%E6%95%B7%E6%AE%BA%E4%BA%BA%E4%BA%8B%E4%BB%B6&src=%E5%8F%A4%E6%9B%B8%E5%B1%8B%E6%95%B7%E6%AE%BA%E4%BA%BA%E4%BA%8B%E4%BB%B6.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -19415,6 +19818,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-02-27",
     "defaultOrder": 404,
     "defaultSort": 22019,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=JUMPIN%E2%80%99%20OVER%20%21&src=JUMPIN%E2%80%99%20OVER%20%21.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -19459,6 +19863,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-02-29",
     "defaultOrder": 405,
     "defaultSort": 15031,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A9%E3%82%B0%E3%83%88%E3%83%AC%E3%82%A4%E3%83%B3&src=%E3%83%A9%E3%82%B0%E3%83%88%E3%83%AC%E3%82%A4%E3%83%B3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -19508,6 +19913,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-03-01",
     "defaultOrder": 406,
     "defaultSort": 21019,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A4%E3%83%B3%E3%83%86%E3%82%B0%E3%83%A9%E3%83%AB&src=%E3%82%A4%E3%83%B3%E3%83%86%E3%82%B0%E3%83%A9%E3%83%AB.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -19552,6 +19958,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-03-04",
     "defaultOrder": 407,
     "defaultSort": 15032,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%89%E5%B1%91&src=%E3%83%89%E5%B1%91.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -19609,6 +20016,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-03-08",
     "defaultOrder": 408,
     "defaultSort": 10138,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%98%8E%E9%8F%A1%E6%AD%A2%E6%B0%B4&src=%E6%98%8E%E9%8F%A1%E6%AD%A2%E6%B0%B4.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -19637,6 +20045,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-03-09",
     "defaultOrder": 409,
     "defaultSort": 10139,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%8F%E3%82%B8%E3%83%A1%E3%83%86%E3%83%8E%E3%82%AA%E3%83%88&src=%E3%83%8F%E3%82%B8%E3%83%A1%E3%83%86%E3%83%8E%E3%82%AA%E3%83%88.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -19665,6 +20074,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-03-11",
     "defaultOrder": 410,
     "defaultSort": 12031,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=flos&src=flos.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -19725,6 +20135,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-03-15",
     "defaultOrder": 411,
     "defaultSort": 10140,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%82%B3%E3%83%88%E3%83%90&src=%E3%82%A2%E3%82%B3%E3%83%88%E3%83%90.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -19753,6 +20164,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-03-18",
     "defaultOrder": 412,
     "defaultSort": 20011,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%B9%BD%E5%85%89%E3%80%811%2Ff%E3%81%AE%E3%82%86%E3%82%89%E3%82%81%E3%81%8D&src=%E5%B9%BD%E5%85%89%E3%80%811_f%E3%81%AE%E3%82%86%E3%82%89%E3%82%81%E3%81%8D.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -19781,6 +20193,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-03-22",
     "defaultOrder": 413,
     "defaultSort": 20012,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%AC%A2%E7%8E%8B&src=%E5%AC%A2%E7%8E%8B.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -19809,6 +20222,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-03-25",
     "defaultOrder": 414,
     "defaultSort": 14031,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=1000%E5%B9%B4%E7%94%9F%E3%81%8D%E3%81%A6%E3%82%8B&src=1000%E5%B9%B4%E7%94%9F%E3%81%8D%E3%81%A6%E3%82%8B.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -19870,6 +20284,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-03-27",
     "defaultOrder": 415,
     "defaultSort": 11031,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%B9%BE%E6%9C%9B%E3%81%AE%E6%9C%88&src=%E5%B9%BE%E6%9C%9B%E3%81%AE%E6%9C%88.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -19931,6 +20346,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-03-28",
     "defaultOrder": 416,
     "defaultSort": 23018,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=blender&src=blender.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -19985,6 +20401,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-03-30",
     "defaultOrder": 417,
     "defaultSort": 10141,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%88%E3%82%8C%E3%81%8F%E3%81%A8%E3%82%8A%E3%81%A3%E3%81%8F%E3%83%BB%E3%81%88%E3%82%93%E3%81%98%E3%81%87%E3%81%85&src=%E3%81%88%E3%82%8C%E3%81%8F%E3%81%A8%E3%82%8A%E3%81%A3%E3%81%8F%E3%83%BB%E3%81%88%E3%82%93%E3%81%98%E3%81%87%E3%81%85.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -20013,6 +20430,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-03-31",
     "defaultOrder": 418,
     "defaultSort": 10142,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AC%E3%83%83%E3%83%89%E3%83%A9%E3%83%B3%E3%83%89%E3%83%9E%E3%83%BC%E3%82%AB%E3%83%BC&src=%E3%83%AC%E3%83%83%E3%83%89%E3%83%A9%E3%83%B3%E3%83%89%E3%83%9E%E3%83%BC%E3%82%AB%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -20041,6 +20459,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-04-02",
     "defaultOrder": 419,
     "defaultSort": 10143,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%82%E3%81%84%E3%81%AE%E3%81%86%E3%81%9F&src=%E3%81%82%E3%81%84%E3%81%AE%E3%81%86%E3%81%9F.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -20071,6 +20490,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-04-03",
     "defaultOrder": 420,
     "defaultSort": 10144,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AC%E3%83%BC%E3%83%8D%E3%83%83%E3%83%88%E3%81%AE%E6%B6%99&src=%E3%82%AC%E3%83%BC%E3%83%8D%E3%83%83%E3%83%88%E3%81%AE%E6%B6%99.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -20099,6 +20519,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-04-04",
     "defaultOrder": 421,
     "defaultSort": 10145,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%A0%E3%82%93%E3%81%A0%E3%82%93%E6%97%A9%E3%81%8F%E3%81%AA%E3%82%8B&src=%E3%81%A0%E3%82%93%E3%81%A0%E3%82%93%E6%97%A9%E3%81%8F%E3%81%AA%E3%82%8B.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -20127,6 +20548,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-04-10",
     "defaultOrder": 422,
     "defaultSort": 25019,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%A7%81%E3%81%AF%E9%9B%A8&src=%E7%A7%81%E3%81%AF%E9%9B%A8.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -20191,6 +20613,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-04-15",
     "defaultOrder": 423,
     "defaultSort": 13032,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E9%85%94%E3%81%84%E3%81%A9%E3%82%8C%E7%9F%A5%E3%82%89%E3%81%9A&src=%E9%85%94%E3%81%84%E3%81%A9%E3%82%8C%E7%9F%A5%E3%82%89%E3%81%9A.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -20269,6 +20692,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-04-19",
     "defaultOrder": 424,
     "defaultSort": 10146,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%8A%E3%81%8E%E3%82%83%E3%82%8A%E3%81%AA%E3%81%84%E3%81%96%E3%83%BC&src=%E3%81%8A%E3%81%8E%E3%82%83%E3%82%8A%E3%81%AA%E3%81%84%E3%81%96%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -20297,6 +20721,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-04-22",
     "defaultOrder": 425,
     "defaultSort": 10147,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B7%E3%83%AB%E3%83%90%E3%83%BC%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%BF%E3%83%BC&src=%E3%82%B7%E3%83%AB%E3%83%90%E3%83%BC%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%BF%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -20325,6 +20750,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-04-28",
     "defaultOrder": 426,
     "defaultSort": 21020,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%99%E3%82%8C%E3%81%99%E3%82%8C&src=%E3%81%99%E3%82%8C%E3%81%99%E3%82%8C.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -20386,6 +20812,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-04-30",
     "defaultOrder": 427,
     "defaultSort": 23019,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%83%88%E7%81%AB&src=%E7%83%88%E7%81%AB.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -20449,6 +20876,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-05-03",
     "defaultOrder": 428,
     "defaultSort": 39007,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E8%B6%85%E6%9C%80%E7%B5%82%E9%AC%BC%E7%95%9C%E5%A6%B9%E3%83%95%E3%83%A9%E3%83%B3%E3%83%89%E3%83%BC%E3%83%AB%E3%83%BB%EF%BC%B3&src=%E8%B6%85%E6%9C%80%E7%B5%82%E9%AC%BC%E7%95%9C%E5%A6%B9%E3%83%95%E3%83%A9%E3%83%B3%E3%83%89%E3%83%BC%E3%83%AB%E3%83%BB%EF%BC%B3.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": false,
@@ -20466,6 +20894,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-05-04",
     "defaultOrder": 429,
     "defaultSort": 15033,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Bad%20Apple%21%21%20feat.SEKAI&src=Bad%20Apple%21%21%20feat-SEKAI.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -20510,6 +20939,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-05-05",
     "defaultOrder": 430,
     "defaultSort": 10148,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Help%20me%2C%20ERINNNNNN%21%21&src=Help%20me_%20ERINNNNNN%21%21.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -20548,6 +20978,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-05-07",
     "defaultOrder": 431,
     "defaultSort": 14032,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%8A%E3%81%A1%E3%82%83%E3%82%81%E6%A9%9F%E8%83%BD&src=%E3%81%8A%E3%81%A1%E3%82%83%E3%82%81%E6%A9%9F%E8%83%BD.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -20621,6 +21052,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-05-10",
     "defaultOrder": 432,
     "defaultSort": 20013,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%A8%E3%81%8D%E3%82%81%E3%81%8D%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88%E3%82%B3%E3%83%BC%E3%82%B9%E3%82%BF%E3%83%BC&src=%E3%81%A8%E3%81%8D%E3%82%81%E3%81%8D%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88%E3%82%B3%E3%83%BC%E3%82%B9%E3%82%BF%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -20649,6 +21081,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-05-13",
     "defaultOrder": 433,
     "defaultSort": 11032,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%9D%B1%E4%BA%AC%E3%83%86%E3%83%87%E3%82%A3%E3%83%99%E3%82%A2&src=%E6%9D%B1%E4%BA%AC%E3%83%86%E3%83%87%E3%82%A3%E3%83%99%E3%82%A2.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -20709,6 +21142,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-05-17",
     "defaultOrder": 434,
     "defaultSort": 15034,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%86%B1%E7%95%B0%E5%B8%B8&src=%E7%86%B1%E7%95%B0%E5%B8%B8.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -20754,6 +21188,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-05-20",
     "defaultOrder": 435,
     "defaultSort": 10149,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=I%20know%20%E6%84%9B%E8%84%B3.&src=I%20know%20%E6%84%9B%E8%84%B3-.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -20782,6 +21217,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-05-24",
     "defaultOrder": 436,
     "defaultSort": 12032,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%A0%E3%82%81%E3%81%AB%E3%82%93%E3%81%92%E3%82%93%E3%81%A0%21&src=%E3%81%A0%E3%82%81%E3%81%AB%E3%82%93%E3%81%92%E3%82%93%E3%81%A0%21.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -20827,6 +21263,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-05-29",
     "defaultOrder": 437,
     "defaultSort": 24018,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AA%E3%83%9A%E3%83%A9%EF%BC%81%E3%82%B9%E3%83%9A%E3%83%BC%E3%82%B9%E3%82%AA%E3%83%9A%E3%83%A9%EF%BC%81&src=%E3%82%AA%E3%83%9A%E3%83%A9%EF%BC%81%E3%82%B9%E3%83%9A%E3%83%BC%E3%82%B9%E3%82%AA%E3%83%9A%E3%83%A9%EF%BC%81.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -20890,6 +21327,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-06-03",
     "defaultOrder": 438,
     "defaultSort": 11033,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%8A%9C%E9%8C%A8&src=%E6%8A%9C%E9%8C%A8.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -20954,6 +21392,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-06-10",
     "defaultOrder": 439,
     "defaultSort": 14033,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%8D%E3%82%87%E3%81%86%E3%82%82%E3%83%8F%E3%83%AC%E3%83%90%E3%83%AC&src=%E3%81%8D%E3%82%87%E3%81%86%E3%82%82%E3%83%8F%E3%83%AC%E3%83%90%E3%83%AC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -21021,6 +21460,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-06-18",
     "defaultOrder": 440,
     "defaultSort": 22020,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Supernova&src=Supernova.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -21090,6 +21530,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-06-20",
     "defaultOrder": 441,
     "defaultSort": 25020,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A8%E3%83%B3%E3%83%91%E3%83%BC%E3%83%97%E3%83%AB&src=%E3%82%A8%E3%83%B3%E3%83%91%E3%83%BC%E3%83%97%E3%83%AB.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -21151,6 +21592,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-06-24",
     "defaultOrder": 442,
     "defaultSort": 10150,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%90%88%E6%88%90%E3%81%99%E3%82%8B%E3%83%9F%E3%83%A9%E3%82%A4&src=%E5%90%88%E6%88%90%E3%81%99%E3%82%8B%E3%83%9F%E3%83%A9%E3%82%A4.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -21179,6 +21621,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-06-28",
     "defaultOrder": 443,
     "defaultSort": 20014,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=LEADER&src=LEADER.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -21207,6 +21650,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-07-01",
     "defaultOrder": 444,
     "defaultSort": 12033,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%9D%E3%83%83%E3%83%94%E3%83%B3%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%87%E3%82%A3%E2%98%86%E3%83%95%E3%82%A3%E3%83%BC%E3%83%90%E3%83%BC%EF%BC%81&src=%E3%83%9D%E3%83%83%E3%83%94%E3%83%B3%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%87%E3%82%A3%E2%98%86%E3%83%95%E3%82%A3%E3%83%BC%E3%83%90%E3%83%BC%EF%BC%81.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -21266,6 +21710,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-07-07",
     "defaultOrder": 445,
     "defaultSort": 23020,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=ULTRA%20C&src=ULTRA%20C.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -21331,6 +21776,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-07-09",
     "defaultOrder": 446,
     "defaultSort": 10151,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%80%E3%82%A4%E3%82%B8%E3%83%A7%E3%83%96%E3%81%A7%E3%81%99%E3%81%8B%EF%BC%9F&src=%E3%83%80%E3%82%A4%E3%82%B8%E3%83%A7%E3%83%96%E3%81%A7%E3%81%99%E3%81%8B%EF%BC%9F.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -21359,6 +21805,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-07-15",
     "defaultOrder": 447,
     "defaultSort": 24019,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%88%90%E6%95%97%E3%81%84%E3%81%9FAAAAA%E3%81%99%EF%BC%81&src=%E6%88%90%E6%95%97%E3%81%84%E3%81%9FAAAAA%E3%81%99%EF%BC%81.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -21414,6 +21861,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-07-17",
     "defaultOrder": 448,
     "defaultSort": 11034,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%9E%97%E6%AA%8E%E5%A3%B2%E3%82%8A%E3%81%AE%E6%B3%A1%E6%B2%AB%E5%B0%91%E5%A5%B3&src=%E6%9E%97%E6%AA%8E%E5%A3%B2%E3%82%8A%E3%81%AE%E6%B3%A1%E6%B2%AB%E5%B0%91%E5%A5%B3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -21455,6 +21903,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-07-22",
     "defaultOrder": 449,
     "defaultSort": 10152,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A1%E3%83%AA%E3%83%BC%E3%82%B4%E3%83%BC%E3%83%A9%E3%82%A6%E3%83%B3%E3%83%89&src=%E3%83%A1%E3%83%AA%E3%83%BC%E3%82%B4%E3%83%BC%E3%83%A9%E3%82%A6%E3%83%B3%E3%83%89.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -21485,6 +21934,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-07-29",
     "defaultOrder": 450,
     "defaultSort": 15035,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%9E%E3%82%A4%E3%83%B3%E3%83%89%E3%83%96%E3%83%A9%E3%83%B3%E3%83%89&src=%E3%83%9E%E3%82%A4%E3%83%B3%E3%83%89%E3%83%96%E3%83%A9%E3%83%B3%E3%83%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -21529,6 +21979,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-08-03",
     "defaultOrder": 451,
     "defaultSort": 10153,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A4%E3%82%AC%E3%82%AF&src=%E3%82%A4%E3%82%AC%E3%82%AF.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -21557,6 +22008,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-08-04",
     "defaultOrder": 452,
     "defaultSort": 10154,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%82%E3%81%A1%E3%81%93%E3%81%A1%E3%83%87%E3%83%BC%E3%83%88%E3%81%95%E3%82%93&src=%E3%81%82%E3%81%A1%E3%81%93%E3%81%A1%E3%83%87%E3%83%BC%E3%83%88%E3%81%95%E3%82%93.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -21585,6 +22037,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-08-07",
     "defaultOrder": 453,
     "defaultSort": 22021,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AD%E3%83%A9%E3%83%BC&src=%E3%82%AD%E3%83%A9%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -21646,6 +22099,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-08-13",
     "defaultOrder": 454,
     "defaultSort": 13033,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=WAVE&src=WAVE.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -21699,6 +22153,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-08-19",
     "defaultOrder": 455,
     "defaultSort": 10155,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%BD%97%E6%98%9F%E3%83%8E%E9%8A%80%E6%B2%B3&src=%E5%BD%97%E6%98%9F%E3%83%8E%E9%8A%80%E6%B2%B3.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -21727,6 +22182,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-08-23",
     "defaultOrder": 456,
     "defaultSort": 20015,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%A4%8F%E5%A4%9C%E3%83%8E%E5%94%84&src=%E5%A4%8F%E5%A4%9C%E3%83%8E%E5%94%84.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -21755,6 +22211,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-08-26",
     "defaultOrder": 457,
     "defaultSort": 14034,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=QUEEN&src=QUEEN.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -21829,6 +22286,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-08-30",
     "defaultOrder": 458,
     "defaultSort": 10156,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%83%B3%E3%83%86%E3%83%8A39&src=%E3%82%A2%E3%83%B3%E3%83%86%E3%83%8A39.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -21857,6 +22315,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-09-02",
     "defaultOrder": 459,
     "defaultSort": 14035,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%A1%E3%81%8C%E3%81%86%21%21%21&src=%E3%81%A1%E3%81%8C%E3%81%86%21%21%21.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -21903,6 +22362,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-09-09",
     "defaultOrder": 460,
     "defaultSort": 12034,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%92%E3%83%BC%E3%83%AD%E3%83%BC&src=%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%92%E3%83%BC%E3%83%AD%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -21960,6 +22420,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-09-13",
     "defaultOrder": 461,
     "defaultSort": 10157,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AB%E3%83%AB%E3%83%81%E3%83%A3&src=%E3%82%AB%E3%83%AB%E3%83%81%E3%83%A3.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -21988,6 +22449,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-09-17",
     "defaultOrder": 462,
     "defaultSort": 10158,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AC%E3%82%A4%E3%83%A4%E3%83%BC%E3%83%8E%E3%83%BC%E3%83%88&src=%E3%83%AC%E3%82%A4%E3%83%A4%E3%83%BC%E3%83%8E%E3%83%BC%E3%83%88.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -22016,6 +22478,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-09-20",
     "defaultOrder": 463,
     "defaultSort": 21021,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%9D%E3%82%8C%E3%81%A7%E3%82%82%E5%83%95%E3%82%89%E3%81%AF%E6%AD%8C%E3%81%86%E3%81%93%E3%81%A8%E3%82%92%E3%82%84%E3%82%81%E3%81%AA%E3%81%84&src=%E3%81%9D%E3%82%8C%E3%81%A7%E3%82%82%E5%83%95%E3%82%89%E3%81%AF%E6%AD%8C%E3%81%86%E3%81%93%E3%81%A8%E3%82%92%E3%82%84%E3%82%81%E3%81%AA%E3%81%84.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -22077,6 +22540,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-09-24",
     "defaultOrder": 464,
     "defaultSort": 20016,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Unpoison&src=Unpoison.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -22105,6 +22569,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-09-30",
     "defaultOrder": 465,
     "defaultSort": 29007,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%86%B1%E9%A2%A8&src=%E7%86%B1%E9%A2%A8.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -22209,6 +22674,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-10-01",
     "defaultOrder": 466,
     "defaultSort": 11035,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A2%E3%82%B6%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%20%28Reloaded%29&src=%E3%83%A2%E3%82%B6%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%20%28Reloaded%29.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -22286,6 +22752,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-10-02",
     "defaultOrder": 467,
     "defaultSort": 10159,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A1%E3%82%BA%E3%83%9E%E3%83%A9%E3%82%A4%E3%82%B6%E3%83%BC&src=%E3%83%A1%E3%82%BA%E3%83%9E%E3%83%A9%E3%82%A4%E3%82%B6%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -22316,6 +22783,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-10-03",
     "defaultOrder": 468,
     "defaultSort": 12035,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%A6%82%E6%9C%88%E3%82%A2%E3%83%86%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%B3&src=%E5%A6%82%E6%9C%88%E3%82%A2%E3%83%86%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%B3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -22377,6 +22845,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-10-04",
     "defaultOrder": 469,
     "defaultSort": 10160,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BC&src=%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -22405,6 +22874,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-10-05",
     "defaultOrder": 470,
     "defaultSort": 13034,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B3%E3%83%BC%E3%83%AB%E3%83%9C%E3%83%BC%E3%82%A4&src=%E3%82%B3%E3%83%BC%E3%83%AB%E3%83%9C%E3%83%BC%E3%82%A4.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -22445,6 +22915,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-10-06",
     "defaultOrder": 471,
     "defaultSort": 10161,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%8D%E3%81%BF%E3%81%A8%E3%81%BC%E3%81%8F%E3%81%AE%E3%83%AC%E3%82%BE%E3%83%8A%E3%83%B3%E3%82%B9&src=%E3%81%8D%E3%81%BF%E3%81%A8%E3%81%BC%E3%81%8F%E3%81%AE%E3%83%AC%E3%82%BE%E3%83%8A%E3%83%B3%E3%82%B9.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -22473,6 +22944,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-10-07",
     "defaultOrder": 472,
     "defaultSort": 14036,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E8%BB%A2%E7%94%9F%E6%9E%97%E6%AA%8E&src=%E8%BB%A2%E7%94%9F%E6%9E%97%E6%AA%8E.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -22534,6 +23006,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-10-08",
     "defaultOrder": 473,
     "defaultSort": 10162,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Blackjack&src=Blackjack.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -22562,6 +23035,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-10-09",
     "defaultOrder": 474,
     "defaultSort": 15036,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Shadow%20Shadow&src=Shadow%20Shadow.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -22623,6 +23097,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-10-10",
     "defaultOrder": 475,
     "defaultSort": 20017,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%94%9F%E5%91%BD%E6%80%A7%E3%82%B7%E3%83%B3%E3%83%89%E3%83%AD%E3%82%A6%E3%83%A0&src=%E7%94%9F%E5%91%BD%E6%80%A7%E3%82%B7%E3%83%B3%E3%83%89%E3%83%AD%E3%82%A6%E3%83%A0.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -22651,6 +23126,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-10-12",
     "defaultOrder": 476,
     "defaultSort": 25021,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%8C%96%E3%81%91%E3%81%AE%E8%8A%B1&src=%E5%8C%96%E3%81%91%E3%81%AE%E8%8A%B1.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -22712,6 +23188,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-10-15",
     "defaultOrder": 477,
     "defaultSort": 12036,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AD%E3%83%A3%E3%83%83%E3%83%88%E3%83%95%E3%83%BC%E3%83%89&src=%E3%82%AD%E3%83%A3%E3%83%83%E3%83%88%E3%83%95%E3%83%BC%E3%83%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -22756,6 +23233,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-10-21",
     "defaultOrder": 478,
     "defaultSort": 10163,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A1%E3%83%A2%E3%83%AA%E3%82%A2&src=%E3%83%A1%E3%83%A2%E3%83%AA%E3%82%A2.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -22784,6 +23262,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-10-28",
     "defaultOrder": 479,
     "defaultSort": 10164,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E8%84%B3%E5%A4%A9&src=%E8%84%B3%E5%A4%A9.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -22812,6 +23291,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-10-29",
     "defaultOrder": 480,
     "defaultSort": 23021,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%95%E3%83%A5%E3%83%BC%E3%82%A8%E3%83%AB&src=%E3%83%95%E3%83%A5%E3%83%BC%E3%82%A8%E3%83%AB.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -22865,6 +23345,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-10-31",
     "defaultOrder": 481,
     "defaultSort": 21022,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%9D%E3%81%AE%E9%9F%B3%E3%81%8C%E9%B3%B4%E3%82%8B%E3%81%AA%E3%82%89&src=%E3%81%9D%E3%81%AE%E9%9F%B3%E3%81%8C%E9%B3%B4%E3%82%8B%E3%81%AA%E3%82%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -22926,6 +23407,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-11-05",
     "defaultOrder": 482,
     "defaultSort": 12037,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%A6%84%E6%83%B3%E3%82%A2%E3%82%B9%E3%83%91%E3%83%AB%E3%83%86%E3%83%BC%E3%83%A0&src=%E5%A6%84%E6%83%B3%E3%82%A2%E3%82%B9%E3%83%91%E3%83%AB%E3%83%86%E3%83%BC%E3%83%A0.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -22979,6 +23461,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-11-13",
     "defaultOrder": 483,
     "defaultSort": 15037,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AD%E3%83%A3%E3%83%83%E3%83%88%E3%83%A9%E3%83%93%E3%83%B3%E3%82%B0&src=%E3%82%AD%E3%83%A3%E3%83%83%E3%83%88%E3%83%A9%E3%83%93%E3%83%B3%E3%82%B0.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -23033,6 +23516,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-11-20",
     "defaultOrder": 484,
     "defaultSort": 24020,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%BC%E3%81%8F%E3%81%AE%E3%81%8B%E3%81%BF%E3%81%95%E3%81%BE&src=%E3%81%BC%E3%81%8F%E3%81%AE%E3%81%8B%E3%81%BF%E3%81%95%E3%81%BE.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -23086,6 +23570,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-11-25",
     "defaultOrder": 485,
     "defaultSort": 10165,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%91%E3%83%AA%E3%82%A3&src=%E3%83%91%E3%83%AA%E3%82%A3.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -23116,6 +23601,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-12-02",
     "defaultOrder": 486,
     "defaultSort": 10166,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%BF%E3%81%8B%E3%81%BC%E3%81%97&src=%E3%81%BF%E3%81%8B%E3%81%BC%E3%81%97.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -23144,6 +23630,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-12-09",
     "defaultOrder": 487,
     "defaultSort": 25022,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E4%BD%99%E8%8A%B1%E3%81%AB%E3%81%BF%E3%81%A8%E3%82%8C%E3%81%A6&src=%E4%BD%99%E8%8A%B1%E3%81%AB%E3%81%BF%E3%81%A8%E3%82%8C%E3%81%A6.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -23205,6 +23692,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-12-16",
     "defaultOrder": 488,
     "defaultSort": 10167,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B7%E3%83%BC%E3%82%AF%E3%83%AC%E3%83%83%E3%83%88%E3%83%BB%E3%82%B7%E3%83%BC%E3%82%AB%E3%83%BC&src=%E3%82%B7%E3%83%BC%E3%82%AF%E3%83%AC%E3%83%83%E3%83%88%E3%83%BB%E3%82%B7%E3%83%BC%E3%82%AB%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -23233,6 +23721,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-12-19",
     "defaultOrder": 489,
     "defaultSort": 22022,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%AF%E3%81%97%E3%82%8B%21%20%E3%81%A8%E3%81%8A%E3%81%8F%21%20%E3%81%A8%E3%81%A9%E3%81%8F%21&src=%E3%81%AF%E3%81%97%E3%82%8B%21%20%E3%81%A8%E3%81%8A%E3%81%8F%21%20%E3%81%A8%E3%81%A9%E3%81%8F%21.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -23295,6 +23784,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-12-23",
     "defaultOrder": 490,
     "defaultSort": 13035,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E8%8A%B1%E6%BA%BA%E3%82%8C&src=%E8%8A%B1%E6%BA%BA%E3%82%8C.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -23341,6 +23831,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-12-28",
     "defaultOrder": 491,
     "defaultSort": 20018,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%AF%E3%81%98%E3%81%BE%E3%82%8A%E3%81%AE%E6%9C%AA%E6%9D%A5&src=%E3%81%AF%E3%81%98%E3%81%BE%E3%82%8A%E3%81%AE%E6%9C%AA%E6%9D%A5.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -23369,6 +23860,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-12-29",
     "defaultOrder": 492,
     "defaultSort": 14037,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%B7%B7%E6%B2%8C%E3%83%96%E3%82%AE&src=%E6%B7%B7%E6%B2%8C%E3%83%96%E3%82%AE.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -23414,6 +23906,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-12-30",
     "defaultOrder": 493,
     "defaultSort": 10168,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%83%B3%E3%83%98%E3%83%AB&src=%E3%82%A2%E3%83%B3%E3%83%98%E3%83%AB.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -23442,6 +23935,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2024-12-31",
     "defaultOrder": 494,
     "defaultSort": 10169,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%97%E3%83%AD%E3%83%88%E3%83%87%E3%82%A3%E3%82%B9%E3%82%B3&src=%E3%83%97%E3%83%AD%E3%83%88%E3%83%87%E3%82%A3%E3%82%B9%E3%82%B3.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -23470,6 +23964,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-01-01",
     "defaultOrder": 495,
     "defaultSort": 13036,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=CH4NGE&src=CH4NGE.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -23531,6 +24026,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-01-02",
     "defaultOrder": 496,
     "defaultSort": 12038,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=snooze&src=snooze.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -23576,6 +24072,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-01-03",
     "defaultOrder": 497,
     "defaultSort": 11036,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%BB%E3%83%A9%E3%83%B3%E3%83%97%E3%82%B7%E3%82%A7%E3%83%BC%E3%83%89%20%EF%BC%BBreunion%EF%BC%BD&src=%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%BB%E3%83%A9%E3%83%B3%E3%83%97%E3%82%B7%E3%82%A7%E3%83%BC%E3%83%89%20%5Breunion%5D.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -23637,6 +24134,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-01-04",
     "defaultOrder": 498,
     "defaultSort": 10170,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%AE%E3%81%A0&src=%E3%81%AE%E3%81%A0.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -23669,6 +24167,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-01-05",
     "defaultOrder": 499,
     "defaultSort": 15038,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B5%E3%82%A4%E3%83%8F%E3%83%86&src=%E3%82%B5%E3%82%A4%E3%83%8F%E3%83%86.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -23713,6 +24212,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-01-10",
     "defaultOrder": 500,
     "defaultSort": 11037,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Henceforth&src=Henceforth.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -23782,6 +24282,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-01-14",
     "defaultOrder": 501,
     "defaultSort": 14038,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%8E%A8%E7%97%85%E6%BF%80%E7%99%BA%E3%83%9C%E3%83%BC%E3%82%A4&src=%E5%8E%A8%E7%97%85%E6%BF%80%E7%99%BA%E3%83%9C%E3%83%BC%E3%82%A4.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -23838,6 +24339,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-01-19",
     "defaultOrder": 502,
     "defaultSort": 23022,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%98%E3%82%A4%E3%83%B4%E3%83%B3&src=%E3%83%98%E3%82%A4%E3%83%B4%E3%83%B3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -23899,6 +24401,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-01-21",
     "defaultOrder": 503,
     "defaultSort": 10171,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%A4%8F%E3%81%AB%E9%80%8F%E6%98%8E&src=%E5%A4%8F%E3%81%AB%E9%80%8F%E6%98%8E.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -23927,6 +24430,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-01-22",
     "defaultOrder": 504,
     "defaultSort": 10172,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%91%E3%83%B3%E3%83%80%E3%83%92%E3%83%BC%E3%83%AD%E3%83%BC&src=%E3%83%91%E3%83%B3%E3%83%80%E3%83%92%E3%83%BC%E3%83%AD%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -23955,6 +24459,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-01-23",
     "defaultOrder": 505,
     "defaultSort": 10173,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%B5%90%E3%83%B3%E3%83%87%E9%96%8B%E3%82%A4%E3%83%86%E7%BE%85%E5%88%B9%E3%83%88%E9%AA%B8&src=%E7%B5%90%E3%83%B3%E3%83%87%E9%96%8B%E3%82%A4%E3%83%86%E7%BE%85%E5%88%B9%E3%83%88%E9%AA%B8.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -23983,6 +24488,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-01-25",
     "defaultOrder": 506,
     "defaultSort": 23023,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%83%80%E3%83%B3%E3%82%B9&src=%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%83%80%E3%83%B3%E3%82%B9.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -24032,6 +24538,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-01-28",
     "defaultOrder": 507,
     "defaultSort": 25023,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%9D%E3%81%93%E3%81%AB%E5%9C%A8%E3%82%8B%E3%80%81%E5%85%89%E3%80%82&src=%E3%81%9D%E3%81%93%E3%81%AB%E5%9C%A8%E3%82%8B%E3%80%81%E5%85%89%E3%80%82.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -24081,6 +24588,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-01-29",
     "defaultOrder": 508,
     "defaultSort": 29008,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Worlders&src=Worlders_%E3%82%BB%E3%82%AB%E3%82%A4ver.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -24118,6 +24626,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-01-31",
     "defaultOrder": 509,
     "defaultSort": 22023,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=FUN%21%21&src=FUN%21%21.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -24167,6 +24676,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-02-01",
     "defaultOrder": 510,
     "defaultSort": 11038,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%B5%82%E7%84%89%E9%80%83%E9%81%BF%E8%A1%8C&src=%E7%B5%82%E7%84%89%E9%80%83%E9%81%BF%E8%A1%8C.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -24220,6 +24730,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-02-03",
     "defaultOrder": 511,
     "defaultSort": 24021,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B9%E3%83%9E%E3%82%A4%E3%83%AB%2A%E3%82%B7%E3%83%B3%E3%83%95%E3%82%A9%E3%83%8B%E3%83%BC&src=%E3%82%B9%E3%83%9E%E3%82%A4%E3%83%AB_%E3%82%B7%E3%83%B3%E3%83%95%E3%82%A9%E3%83%8B%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -24269,6 +24780,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-02-06",
     "defaultOrder": 512,
     "defaultSort": 21023,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=SToRY&src=SToRY.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -24318,6 +24830,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-02-08",
     "defaultOrder": 513,
     "defaultSort": 10174,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AF%E3%83%AA%E3%82%B9%E3%82%BF%E3%83%AB%E3%82%B9%E3%83%8E%E3%82%A6&src=%E3%82%AF%E3%83%AA%E3%82%B9%E3%82%BF%E3%83%AB%E3%82%B9%E3%83%8E%E3%82%A6.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -24346,6 +24859,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-02-09",
     "defaultOrder": 514,
     "defaultSort": 20019,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%8F%E3%83%AD%E3%83%BC%E3%82%BB%E3%82%AB%E3%82%A4&src=%E3%83%8F%E3%83%AD%E3%83%BC%E3%82%BB%E3%82%AB%E3%82%A4.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -24392,6 +24906,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-02-10",
     "defaultOrder": 515,
     "defaultSort": 22024,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%83%B3%E3%83%81%E3%83%A6%E3%83%BC&src=%E3%82%A2%E3%83%B3%E3%83%81%E3%83%A6%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -24453,6 +24968,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-02-12",
     "defaultOrder": 516,
     "defaultSort": 10175,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AB%E3%83%AB%E3%83%96&src=%E3%83%AB%E3%83%AB%E3%83%96.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -24481,6 +24997,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-02-15",
     "defaultOrder": 517,
     "defaultSort": 29009,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%95%E3%83%A5%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3&src=%E3%83%95%E3%83%A5%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -24602,6 +25119,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-02-21",
     "defaultOrder": 518,
     "defaultSort": 13037,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AB%E3%83%BC%E3%83%9E%E3%83%BC&src=%E3%83%AB%E3%83%BC%E3%83%9E%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -24655,6 +25173,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-03-02",
     "defaultOrder": 519,
     "defaultSort": 39008,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Fire%E2%97%8EFlower%20%28Rerec%29&src=Fire%E2%97%8EFlower%20%28Rerec%29.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -24701,6 +25220,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-03-03",
     "defaultOrder": 520,
     "defaultSort": 13038,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E4%B8%89%E6%97%A5%E6%9C%88%E3%82%B9%E3%83%86%E3%83%83%E3%83%97&src=%E4%B8%89%E6%97%A5%E6%9C%88%E3%82%B9%E3%83%86%E3%83%83%E3%83%97.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -24758,6 +25278,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-03-07",
     "defaultOrder": 521,
     "defaultSort": 12039,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AA%E3%83%BC%E3%83%90%E3%83%BC%E3%83%A9%E3%82%A4%E3%83%89&src=%E3%82%AA%E3%83%BC%E3%83%90%E3%83%BC%E3%83%A9%E3%82%A4%E3%83%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -24824,6 +25345,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-03-09",
     "defaultOrder": 522,
     "defaultSort": 10176,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Packaged&src=Packaged.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -24852,6 +25374,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-03-10",
     "defaultOrder": 523,
     "defaultSort": 14039,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%BC%E3%83%80%E3%83%B3%E3%82%B5%E3%83%BC&src=%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%BC%E3%83%80%E3%83%B3%E3%82%B5%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -24913,6 +25436,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-03-14",
     "defaultOrder": 524,
     "defaultSort": 10177,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%97%E3%83%A9%E3%83%8D%E3%83%83%E3%83%88%E3%83%92%E3%83%BC%E3%83%AD%E3%83%BC&src=%E3%83%97%E3%83%A9%E3%83%8D%E3%83%83%E3%83%88%E3%83%92%E3%83%BC%E3%83%AD%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -24941,6 +25465,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-03-17",
     "defaultOrder": 525,
     "defaultSort": 11039,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E9%80%8F%E6%98%8E%E3%82%A8%E3%83%AC%E3%82%B8%E3%83%BC&src=%E9%80%8F%E6%98%8E%E3%82%A8%E3%83%AC%E3%82%B8%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -25002,6 +25527,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-03-20",
     "defaultOrder": 526,
     "defaultSort": 25024,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=D%2FN%2FA&src=D_N_A.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -25071,6 +25597,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-03-24",
     "defaultOrder": 527,
     "defaultSort": 14040,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%89%E3%83%AC%E3%83%9F%E3%83%95%E3%82%A1%E3%83%AD%E3%83%B3%E3%83%89&src=%E3%83%89%E3%83%AC%E3%83%9F%E3%83%95%E3%82%A1%E3%83%AD%E3%83%B3%E3%83%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -25132,6 +25659,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-03-30",
     "defaultOrder": 528,
     "defaultSort": 21024,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Sympathy&src=Sympathy.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -25176,6 +25704,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-03-31",
     "defaultOrder": 529,
     "defaultSort": 10178,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Call%21%21&src=Call%21%21.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -25204,6 +25733,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-04-02",
     "defaultOrder": 530,
     "defaultSort": 10179,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%90%89%E5%8E%9F%E3%83%A9%E3%83%A1%E3%83%B3%E3%83%88%20%E5%86%8D%E6%9D%A5%E7%9B%A4&src=%E5%90%89%E5%8E%9F%E3%83%A9%E3%83%A1%E3%83%B3%E3%83%88%20%E5%86%8D%E6%9D%A5%E7%9B%A4.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -25232,6 +25762,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-04-03",
     "defaultOrder": 531,
     "defaultSort": 10180,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%9E%E3%83%B3%E3%83%8F%E3%83%83%E3%82%BF%E3%83%B3&src=%E3%83%9E%E3%83%B3%E3%83%8F%E3%83%83%E3%82%BF%E3%83%B3.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -25260,6 +25791,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-04-04",
     "defaultOrder": 532,
     "defaultSort": 10181,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AF%E3%82%A4%E3%83%BC%E3%83%B3%E3%82%AA%E3%83%96%E3%83%8F%E3%83%BC%E3%83%88&src=%E3%82%AF%E3%82%A4%E3%83%BC%E3%83%B3%E3%82%AA%E3%83%96%E3%83%8F%E3%83%BC%E3%83%88.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -25288,6 +25820,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-04-05",
     "defaultOrder": 533,
     "defaultSort": 10182,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%90%E3%83%AC%E3%83%AA%E3%83%BC%E3%82%B3&src=%E3%83%90%E3%83%AC%E3%83%AA%E3%83%BC%E3%82%B3.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -25316,6 +25849,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-04-08",
     "defaultOrder": 534,
     "defaultSort": 13039,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E8%8A%B1%E3%81%AB%E9%A2%A8&src=%E8%8A%B1%E3%81%AB%E9%A2%A8_%E3%82%BB%E3%82%AB%E3%82%A4ver.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -25360,6 +25894,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-04-14",
     "defaultOrder": 535,
     "defaultSort": 15039,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B9%E3%83%BC%E3%82%B5%E3%82%A4%E3%83%89%E3%83%91%E3%83%AC%E3%83%B1%E3%83%89&src=%E3%82%B9%E3%83%BC%E3%82%B5%E3%82%A4%E3%83%89%E3%83%91%E3%83%AC%E3%83%B1%E3%83%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -25421,6 +25956,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-04-18",
     "defaultOrder": 536,
     "defaultSort": 10183,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%98%9F%E5%AE%99%E3%83%A1%E3%83%A9%E3%83%B3%E3%82%B3%E3%83%AA%E3%82%A2&src=%E6%98%9F%E5%AE%99%E3%83%A1%E3%83%A9%E3%83%B3%E3%82%B3%E3%83%AA%E3%82%A2.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -25449,6 +25985,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-04-22",
     "defaultOrder": 537,
     "defaultSort": 12040,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%9B%9E%E3%82%8B%E7%A9%BA%E3%81%86%E3%81%95%E3%81%8E&src=%E5%9B%9E%E3%82%8B%E7%A9%BA%E3%81%86%E3%81%95%E3%81%8E.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -25498,6 +26035,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-04-28",
     "defaultOrder": 538,
     "defaultSort": 24022,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AA%E3%83%BC%E3%83%AB%E3%82%BB%E3%83%BC%E3%83%96%E3%83%81%E3%83%A3%E3%83%AC%E3%83%B3%E3%82%B8&src=%E3%82%AA%E3%83%BC%E3%83%AB%E3%82%BB%E3%83%BC%E3%83%96%E3%83%81%E3%83%A3%E3%83%AC%E3%83%B3%E3%82%B8.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -25559,6 +26097,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-05-03",
     "defaultOrder": 539,
     "defaultSort": 10184,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%81%E3%83%AB%E3%83%8E%E3%81%AE%E3%83%91%E3%83%BC%E3%83%95%E3%82%A7%E3%82%AF%E3%83%88%E3%81%95%E3%82%93%E3%81%99%E3%81%86%E5%AD%A6%E5%9C%92&src=%E3%83%81%E3%83%AB%E3%83%8E%E3%81%AE%E3%83%91%E3%83%BC%E3%83%95%E3%82%A7%E3%82%AF%E3%83%88%E3%81%95%E3%82%93%E3%81%99%E3%81%86%E5%AD%A6%E5%9C%92.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -25597,6 +26136,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-05-04",
     "defaultOrder": 540,
     "defaultSort": 14041,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%A8%E3%81%86%E3%81%BB%E3%81%86%E2%98%86%E3%83%AF%E3%83%B3%E3%83%80%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89&src=%E3%81%A8%E3%81%86%E3%81%BB%E3%81%86%E2%98%86%E3%83%AF%E3%83%B3%E3%83%80%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -25652,6 +26192,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-05-05",
     "defaultOrder": 541,
     "defaultSort": 39009,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E8%B6%85%E3%83%8A%E3%82%A4%E3%83%88%E3%83%BB%E3%82%AA%E3%83%96%E3%83%BB%E3%83%8A%E3%82%A4%E3%83%84&src=%E8%B6%85%E3%83%8A%E3%82%A4%E3%83%88%E3%83%BB%E3%82%AA%E3%83%96%E3%83%BB%E3%83%8A%E3%82%A4%E3%83%84.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": false,
@@ -25669,6 +26210,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-05-06",
     "defaultOrder": 542,
     "defaultSort": 25025,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E8%99%9A%E7%84%A1%E3%81%95%E3%82%93&src=%E8%99%9A%E7%84%A1%E3%81%95%E3%82%93.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -25730,6 +26272,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-05-09",
     "defaultOrder": 543,
     "defaultSort": 13040,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%B4%97%E7%97%B2&src=%E7%B4%97%E7%97%B2.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -25791,6 +26334,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-05-12",
     "defaultOrder": 544,
     "defaultSort": 15040,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%A4%B1%E6%95%97%E4%BD%9C%E5%B0%91%E5%A5%B3&src=%E5%A4%B1%E6%95%97%E4%BD%9C%E5%B0%91%E5%A5%B3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -25852,6 +26396,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-05-19",
     "defaultOrder": 545,
     "defaultSort": 10185,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%95%E3%82%A3%E3%83%83%E3%82%B7%E3%83%A5%E3%82%A2%E3%83%B3%E3%83%89Tips&src=%E3%83%95%E3%82%A3%E3%83%83%E3%82%B7%E3%83%A5%E3%82%A2%E3%83%B3%E3%83%89Tips.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -25880,6 +26425,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-05-23",
     "defaultOrder": 546,
     "defaultSort": 10186,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Connecting&src=Connecting.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -25918,6 +26464,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-05-26",
     "defaultOrder": 547,
     "defaultSort": 11040,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A8%E3%83%B3%E3%83%B4%E3%82%A3%E3%82%AD%E3%83%A3%E3%83%83%E3%83%88%E3%82%A6%E3%82%A9%E3%83%BC%E3%82%AF&src=%E3%82%A8%E3%83%B3%E3%83%B4%E3%82%A3%E3%82%AD%E3%83%A3%E3%83%83%E3%83%88%E3%82%A6%E3%82%A9%E3%83%BC%E3%82%AF.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -25962,6 +26509,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-05-29",
     "defaultOrder": 548,
     "defaultSort": 22025,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A4%E3%83%AC%E3%83%B4%E3%83%B3%E3%82%B9&src=%E3%82%A4%E3%83%AC%E3%83%B4%E3%83%B3%E3%82%B9.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -26023,6 +26571,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-05-31",
     "defaultOrder": 549,
     "defaultSort": 23024,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%85%89%E7%B7%9A%E6%AD%8C&src=%E5%85%89%E7%B7%9A%E6%AD%8C.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -26084,6 +26633,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-06-02",
     "defaultOrder": 550,
     "defaultSort": 10187,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%86%E3%83%88%E3%83%AA%E3%82%B9&src=%E3%83%86%E3%83%88%E3%83%AA%E3%82%B9.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -26112,6 +26662,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-06-09",
     "defaultOrder": 551,
     "defaultSort": 14042,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%93%E3%81%AE%E3%81%B5%E3%81%96%E3%81%91%E3%81%9F%E7%B4%A0%E6%99%B4%E3%82%89%E3%81%97%E3%81%8D%E4%B8%96%E7%95%8C%E3%81%AF%E3%80%81%E5%83%95%E3%81%AE%E7%82%BA%E3%81%AB%E3%81%82%E3%82%8B&src=%E3%81%93%E3%81%AE%E3%81%B5%E3%81%96%E3%81%91%E3%81%9F%E7%B4%A0%E6%99%B4%E3%82%89%E3%81%97%E3%81%8D%E4%B8%96%E7%95%8C%E3%81%AF%E5%83%95%E3%81%AE%E7%82%BA%E3%81%AB%E3%81%82%E3%82%8B.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -26157,6 +26708,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-06-16",
     "defaultOrder": 552,
     "defaultSort": 10188,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%AA%E3%83%B3%E3%82%B0&src=%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%AA%E3%83%B3%E3%82%B0.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -26185,6 +26737,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-06-23",
     "defaultOrder": 553,
     "defaultSort": 10189,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%BA%AD%E5%B8%AB%E3%81%AE%E3%81%8A%E3%81%AF%E3%81%AA%E3%81%97%E3%81%AB%E3%82%88%E3%82%8B%E3%81%A8&src=%E5%BA%AD%E5%B8%AB%E3%81%AE%E3%81%8A%E3%81%AF%E3%81%AA%E3%81%97%E3%81%AB%E3%82%88%E3%82%8B%E3%81%A8.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -26213,6 +26766,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-06-30",
     "defaultOrder": 554,
     "defaultSort": 20020,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Twilight%20Melody&src=Twilight%20Melody.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -26241,6 +26795,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-07-01",
     "defaultOrder": 555,
     "defaultSort": 10190,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=M%40GICAL%E2%98%86CURE%21%20LOVE%20%E2%99%A5%20SHOT%21&src=M%40GICAL%E2%98%86CURE%21%20LOVE%20%E2%99%A5%20SHOT%21.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -26269,6 +26824,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-07-02",
     "defaultOrder": 556,
     "defaultSort": 10191,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Hello%20Builder&src=Hello%20Builder.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -26297,6 +26853,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-07-03",
     "defaultOrder": 557,
     "defaultSort": 10192,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=imaginary%20love%20story&src=imaginary%20love%20story.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -26325,6 +26882,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-07-04",
     "defaultOrder": 558,
     "defaultSort": 10193,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Intergalactic%20Bound&src=Intergalactic%20Bound.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -26353,6 +26911,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-07-07",
     "defaultOrder": 559,
     "defaultSort": 10194,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%AC%91%E3%81%88%E3%81%9F%E3%82%89%E3%81%88%E3%83%BC%E3%82%84%E3%82%93%EF%BC%81&src=%E7%AC%91%E3%81%88%E3%81%9F%E3%82%89%E3%81%88%E3%83%BC%E3%82%84%E3%82%93%EF%BC%81.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -26383,6 +26942,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-07-13",
     "defaultOrder": 560,
     "defaultSort": 24023,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%82%A4%E3%83%AA%E3%83%83%E3%83%89&src=%E3%82%A2%E3%82%A4%E3%83%AA%E3%83%83%E3%83%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": false,
@@ -26435,6 +26995,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-07-15",
     "defaultOrder": 561,
     "defaultSort": 21025,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E9%80%8F%E6%98%8E%E3%81%AA%E3%83%91%E3%83%AC%E3%83%83%E3%83%88&src=%E9%80%8F%E6%98%8E%E3%81%AA%E3%83%91%E3%83%AC%E3%83%83%E3%83%88.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -26496,6 +27057,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-07-18",
     "defaultOrder": 562,
     "defaultSort": 10195,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%97%E3%83%AD%E3%82%A6%E3%83%AB&src=%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%97%E3%83%AD%E3%82%A6%E3%83%AB.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -26524,6 +27086,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-07-23",
     "defaultOrder": 563,
     "defaultSort": 22026,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%82%E3%82%8A%E3%81%AE%E3%81%BE%E3%81%BE%E3%81%AE%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC%E3%82%92&src=%E3%81%82%E3%82%8A%E3%81%AE%E3%81%BE%E3%81%BE%E3%81%AE%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC%E3%82%92.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -26591,6 +27154,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-07-28",
     "defaultOrder": 564,
     "defaultSort": 15041,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%94%9F%E3%81%8D%E3%82%8B&src=%E7%94%9F%E3%81%8D%E3%82%8B.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -26632,6 +27196,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-08-02",
     "defaultOrder": 565,
     "defaultSort": 10196,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E8%8A%B1%E5%BC%81%E3%80%81%E3%81%9D%E3%82%8C%E3%81%AB%E3%81%BE%E3%81%A4%E3%82%8F%E3%82%8B%E9%9F%B3%E5%A3%B0&src=%E8%8A%B1%E5%BC%81%E3%80%81%E3%81%9D%E3%82%8C%E3%81%AB%E3%81%BE%E3%81%A4%E3%82%8F%E3%82%8B%E9%9F%B3%E5%A3%B0.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -26660,6 +27225,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-08-03",
     "defaultOrder": 566,
     "defaultSort": 10197,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%9E%E3%83%AA%E3%82%AA%E3%83%8D%E3%83%83%E3%83%88%E3%83%80%E3%83%B3%E3%82%B5%E3%83%BC&src=%E3%83%9E%E3%83%AA%E3%82%AA%E3%83%8D%E3%83%83%E3%83%88%E3%83%80%E3%83%B3%E3%82%B5%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -26688,6 +27254,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-08-04",
     "defaultOrder": 567,
     "defaultSort": 10198,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Life%20Will%20Change&src=Life%20Will%20Change.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -26720,6 +27287,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-08-06",
     "defaultOrder": 568,
     "defaultSort": 23025,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%82%AF%E3%82%BB%E3%83%A9%E3%83%AC%E3%82%A4%E3%83%88&src=%E3%82%A2%E3%82%AF%E3%82%BB%E3%83%A9%E3%83%AC%E3%82%A4%E3%83%88.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -26781,6 +27349,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-08-12",
     "defaultOrder": 569,
     "defaultSort": 13041,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Surges&src=Surges.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -26828,6 +27397,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-08-18",
     "defaultOrder": 570,
     "defaultSort": 10199,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AA%E3%83%AA%E3%82%A3%E3%83%A9%E3%83%A9&src=%E3%83%AA%E3%83%AA%E3%82%A3%E3%83%A9%E3%83%A9.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -26856,6 +27426,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-08-22",
     "defaultOrder": 571,
     "defaultSort": 10200,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=SAN%E5%80%A4%E7%9B%B4%E8%91%AC&src=SAN%E5%80%A4%E7%9B%B4%E8%91%AC.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -26884,6 +27455,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-08-28",
     "defaultOrder": 572,
     "defaultSort": 25026,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E9%A3%BE%E3%81%A3%E3%81%A6&src=%E9%A3%BE%E3%81%A3%E3%81%A6.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -26945,6 +27517,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-08-29",
     "defaultOrder": 573,
     "defaultSort": 10201,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A9%E3%82%B9%E3%83%88%E3%83%A9%E3%82%B9&src=%E3%83%A9%E3%82%B9%E3%83%88%E3%83%A9%E3%82%B9.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -26973,6 +27546,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-08-30",
     "defaultOrder": 574,
     "defaultSort": 24024,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B5%E3%83%A8%E3%83%8A%E3%83%A9%E5%A4%A9%E5%9B%BD%E3%81%BE%E3%81%9F%E6%9D%A5%E3%81%A6%E5%9C%B0%E7%8D%84&src=%E3%82%B5%E3%83%A8%E3%83%8A%E3%83%A9%E5%A4%A9%E5%9B%BD%E3%81%BE%E3%81%9F%E6%9D%A5%E3%81%A6%E5%9C%B0%E7%8D%84.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": false,
@@ -27017,6 +27591,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-09-01",
     "defaultOrder": 575,
     "defaultSort": 12041,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=8.32&src=8-32.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -27070,6 +27645,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-09-08",
     "defaultOrder": 576,
     "defaultSort": 15042,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%82%E3%81%AE%E5%A4%8F%E3%81%8C%E9%A3%BD%E5%92%8C%E3%81%99%E3%82%8B%E3%80%82&src=%E3%81%82%E3%81%AE%E5%A4%8F%E3%81%8C%E9%A3%BD%E5%92%8C%E3%81%99%E3%82%8B%E3%80%82.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -27113,6 +27689,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-09-16",
     "defaultOrder": 577,
     "defaultSort": 11041,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%B7%B1%E6%B5%B7%E3%82%B7%E3%83%86%E3%82%A3%E3%82%A2%E3%83%B3%E3%83%80%E3%83%BC%E3%82%B0%E3%83%A9%E3%82%A6%E3%83%B3%E3%83%89&src=%E6%B7%B1%E6%B5%B7%E3%82%B7%E3%83%86%E3%82%A3%E3%82%A2%E3%83%B3%E3%83%80%E3%83%BC%E3%82%B0%E3%83%A9%E3%82%A6%E3%83%B3%E3%83%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -27157,6 +27734,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-09-22",
     "defaultOrder": 578,
     "defaultSort": 10202,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%96%E3%83%A9%E3%83%83%E3%83%89%E3%83%89%E3%83%BC%E3%83%AB&src=%E3%83%96%E3%83%A9%E3%83%83%E3%83%89%E3%83%89%E3%83%BC%E3%83%AB.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -27185,6 +27763,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-09-24",
     "defaultOrder": 579,
     "defaultSort": 13042,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%81%BD%E7%89%A9%E4%BA%BA%E9%96%9340%E5%8F%B7&src=%E5%81%BD%E7%89%A9%E4%BA%BA%E9%96%9340%E5%8F%B7.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -27257,6 +27836,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-09-30",
     "defaultOrder": 580,
     "defaultSort": 29010,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%9A%E3%83%B3%E3%82%BF%E3%83%88%E3%83%8B%E3%83%83%E3%82%AF&src=%E3%83%9A%E3%83%B3%E3%82%BF%E3%83%88%E3%83%8B%E3%83%83%E3%82%AF_%E3%82%BB%E3%82%AB%E3%82%A4ver.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -27433,6 +28013,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-10-01",
     "defaultOrder": 581,
     "defaultSort": 11042,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%8A%E3%81%A9%E3%82%8A%E3%82%83%E3%82%93%E3%81%9B&src=%E3%81%8A%E3%81%A9%E3%82%8A%E3%82%83%E3%82%93%E3%81%9B.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -27490,6 +28071,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-10-02",
     "defaultOrder": 582,
     "defaultSort": 10203,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%B0%91%E5%A5%B3A&src=%E5%B0%91%E5%A5%B3A.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -27518,6 +28100,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-10-03",
     "defaultOrder": 583,
     "defaultSort": 12042,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%9D%B1%E4%BA%AC%E3%82%B5%E3%83%9E%E3%83%BC%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3&src=%E6%9D%B1%E4%BA%AC%E3%82%B5%E3%83%9E%E3%83%BC%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -27565,6 +28148,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-10-04",
     "defaultOrder": 584,
     "defaultSort": 10204,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%B4%E3%82%A3%E3%83%BC%E3%83%8A%E3%82%B9&src=%E3%83%B4%E3%82%A3%E3%83%BC%E3%83%8A%E3%82%B9.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -27593,6 +28177,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-10-05",
     "defaultOrder": 585,
     "defaultSort": 13043,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%8F%E3%82%A6%E3%83%88%E3%82%A5%E3%83%BC%E4%B8%96%E7%95%8C%E5%BE%81%E6%9C%8D&src=%E3%83%8F%E3%82%A6%E3%83%88%E3%82%A5%E3%83%BC%E4%B8%96%E7%95%8C%E5%BE%81%E6%9C%8D.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -27636,6 +28221,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-10-06",
     "defaultOrder": 586,
     "defaultSort": 10205,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%92%E3%82%93%E3%81%A6%E3%82%93&src=%E3%81%92%E3%82%93%E3%81%A6%E3%82%93.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -27664,6 +28250,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-10-07",
     "defaultOrder": 587,
     "defaultSort": 14043,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E4%BA%BA%E3%83%9E%E3%83%8B%E3%82%A2&src=%E4%BA%BA%E3%83%9E%E3%83%8B%E3%82%A2.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -27709,6 +28296,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-10-08",
     "defaultOrder": 588,
     "defaultSort": 10206,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%8B%B0%E8%B2%AC%E4%BB%BB%E9%9B%86%E5%90%88%E4%BD%93&src=%E3%8B%B0%E8%B2%AC%E4%BB%BB%E9%9B%86%E5%90%88%E4%BD%93.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -27750,6 +28338,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-10-09",
     "defaultOrder": 589,
     "defaultSort": 15043,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AD%E3%82%B9%E3%83%88%E3%82%A2%E3%83%B3%E3%83%96%E3%83%AC%E3%83%A9&src=%E3%83%AD%E3%82%B9%E3%83%88%E3%82%A2%E3%83%B3%E3%83%96%E3%83%AC%E3%83%A9.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -27811,6 +28400,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-10-10",
     "defaultOrder": 590,
     "defaultSort": 10207,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC&src=%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -27839,6 +28429,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-10-11",
     "defaultOrder": 591,
     "defaultSort": 20021,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%8D%E3%82%AF%E3%83%A9%E3%83%81%E3%83%A5%E3%83%BC%E3%83%B3%E3%82%B5%E3%83%BC%E3%82%AB%E3%82%B9&src=%E3%83%8D%E3%82%AF%E3%83%A9%E3%83%81%E3%83%A5%E3%83%BC%E3%83%B3%E3%82%B5%E3%83%BC%E3%82%AB%E3%82%B9.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -27867,6 +28458,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-10-14",
     "defaultOrder": 592,
     "defaultSort": 10208,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AB%E3%83%AC%E3%82%B7%E3%81%AE%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%89&src=%E3%82%AB%E3%83%AC%E3%82%B7%E3%81%AE%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%89.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -27895,6 +28487,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-10-15",
     "defaultOrder": 593,
     "defaultSort": 10209,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%91%E3%83%A1%E3%83%A9&src=%E3%83%91%E3%83%A1%E3%83%A9.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -27923,6 +28516,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-10-19",
     "defaultOrder": 594,
     "defaultSort": 21026,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B9%E3%82%BF%E3%83%BC&src=%E3%82%B9%E3%82%BF%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -27977,6 +28571,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-10-21",
     "defaultOrder": 595,
     "defaultSort": 22027,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AE%E7%A9%BA%E3%81%8C%E6%B3%A3%E3%81%8F%E3%81%AE%E3%81%AA%E3%82%89&src=%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AE%E7%A9%BA%E3%81%8C%E6%B3%A3%E3%81%8F%E3%81%AE%E3%81%AA%E3%82%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -28038,6 +28633,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-10-27",
     "defaultOrder": 596,
     "defaultSort": 10210,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%83%99%E3%83%AA%E3%82%A2&src=%E3%82%A2%E3%83%99%E3%83%AA%E3%82%A2.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -28066,6 +28662,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-11-04",
     "defaultOrder": 597,
     "defaultSort": 12043,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AB%E3%83%9E&src=%E3%83%AB%E3%83%9E.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -28111,6 +28708,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-11-07",
     "defaultOrder": 598,
     "defaultSort": 11043,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AD%E3%82%B1%E3%83%83%E3%83%88%E3%82%B5%E3%82%A4%E3%83%80%E3%83%BC&src=%E3%83%AD%E3%82%B1%E3%83%83%E3%83%88%E3%82%B5%E3%82%A4%E3%83%80%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -28155,6 +28753,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-11-08",
     "defaultOrder": 599,
     "defaultSort": 25027,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%9D%E3%81%AE%E7%B5%B5%E3%81%AE%E5%90%8D%E5%89%8D%E3%81%AF&src=%E3%81%9D%E3%81%AE%E7%B5%B5%E3%81%AE%E5%90%8D%E5%89%8D%E3%81%AF.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -28207,6 +28806,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-11-12",
     "defaultOrder": 600,
     "defaultSort": 10211,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E9%87%91%E6%99%82%E8%A8%88&src=%E9%87%91%E6%99%82%E8%A8%88.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -28235,6 +28835,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-11-17",
     "defaultOrder": 601,
     "defaultSort": 24025,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%BE%81%E3%81%91&src=%E5%BE%81%E3%81%91.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -28289,6 +28890,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-11-20",
     "defaultOrder": 602,
     "defaultSort": 23026,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%95%E3%82%A1%E3%82%A4%E3%82%BF%E3%83%BC&src=%E3%83%95%E3%82%A1%E3%82%A4%E3%82%BF%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -28350,6 +28952,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-11-22",
     "defaultOrder": 603,
     "defaultSort": 10212,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=IMAWANOKIWA&src=IMAWANOKIWA.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -28378,6 +28981,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-11-23",
     "defaultOrder": 604,
     "defaultSort": 20022,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%80%AA%E7%8D%A3%E3%81%AB%E3%81%AA%E3%82%8A%E3%81%9F%E3%81%84&src=%E6%80%AA%E7%8D%A3%E3%81%AB%E3%81%AA%E3%82%8A%E3%81%9F%E3%81%84.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -28406,6 +29010,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-11-24",
     "defaultOrder": 605,
     "defaultSort": 10213,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=0.0000034&src=0-0000034.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -28434,6 +29039,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-11-30",
     "defaultOrder": 606,
     "defaultSort": 21027,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E8%8A%B1%E7%B5%90%E3%81%B3&src=%E8%8A%B1%E7%B5%90%E3%81%B3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -28481,6 +29087,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-12-06",
     "defaultOrder": 607,
     "defaultSort": 10214,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E9%9B%BB%E5%85%89%E5%88%B9%E6%AD%8C&src=%E9%9B%BB%E5%85%89%E5%88%B9%E6%AD%8C.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -28509,6 +29116,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-12-07",
     "defaultOrder": 608,
     "defaultSort": 10215,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A6%E3%82%A3%E3%83%BC%E3%82%A2%E3%83%BC%E3%83%94%E3%82%B3%E3%83%94%E3%82%B3%E3%83%8F%E3%83%B3%E3%83%9E%E3%83%BC%E3%82%BA%21%21%21%21&src=%E3%82%A6%E3%82%A3%E3%83%BC%E3%82%A2%E3%83%BC%E3%83%94%E3%82%B3%E3%83%94%E3%82%B3%E3%83%8F%E3%83%B3%E3%83%9E%E3%83%BC%E3%82%BA%21%21%21%21.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -28537,6 +29145,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-12-08",
     "defaultOrder": 609,
     "defaultSort": 10216,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF&src=%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -28565,6 +29174,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-12-09",
     "defaultOrder": 610,
     "defaultSort": 10217,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%88%E3%83%AC%E3%82%B8%E3%83%A3%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%87%E3%83%B3&src=%E3%83%88%E3%83%AC%E3%82%B8%E3%83%A3%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%87%E3%83%B3.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -28593,6 +29203,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-12-10",
     "defaultOrder": 611,
     "defaultSort": 10218,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%9C%80%E6%84%9B%E4%BA%BA%E7%94%9F%E3%83%A9%E3%83%B3%E3%83%8A%E3%83%BC&src=%E6%9C%80%E6%84%9B%E4%BA%BA%E7%94%9F%E3%83%A9%E3%83%B3%E3%83%8A%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -28621,6 +29232,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-12-15",
     "defaultOrder": 612,
     "defaultSort": 14044,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%84%E3%80%9C%E3%82%84%E3%81%84%E3%80%9C%E3%82%84%E3%81%84%E3%80%9C%E3%82%84&src=%E3%81%84%E3%80%9C%E3%82%84%E3%81%84%E3%80%9C%E3%82%84%E3%81%84%E3%80%9C%E3%82%84.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -28667,6 +29279,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-12-22",
     "defaultOrder": 613,
     "defaultSort": 10219,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%89%E3%83%AA%E3%83%BC%E3%83%A0%E3%83%BB%E3%82%AD%E3%82%B9&src=%E3%83%89%E3%83%AA%E3%83%BC%E3%83%A0%E3%83%BB%E3%82%AD%E3%82%B9.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -28695,6 +29308,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-12-29",
     "defaultOrder": 614,
     "defaultSort": 22028,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Polar%20Star&src=Polar%20Star.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": false,
@@ -28739,6 +29353,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-12-30",
     "defaultOrder": 615,
     "defaultSort": 10220,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%BC%E3%81%8B%E3%82%8D%E3%81%93%E3%82%8D%E3%81%97%E3%81%82%E3%82%80&src=%E3%81%BC%E3%81%8B%E3%82%8D%E3%81%93%E3%82%8D%E3%81%97%E3%81%82%E3%82%80.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -28767,6 +29382,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2025-12-31",
     "defaultOrder": 616,
     "defaultSort": 13044,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A4%E3%83%B3%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%82%A4%E3%83%BB%E3%83%A4%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB&src=%E3%83%A4%E3%83%B3%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%82%A4%E3%83%BB%E3%83%A4%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -28812,6 +29428,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-01-01",
     "defaultOrder": 617,
     "defaultSort": 12044,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E9%AD%94%E6%B3%95%E5%B0%91%E5%A5%B3%E3%81%A8%E3%83%81%E3%83%A7%E3%82%B3%E3%83%AC%E3%82%90%E3%83%88&src=%E9%AD%94%E6%B3%95%E5%B0%91%E5%A5%B3%E3%81%A8%E3%83%81%E3%83%A7%E3%82%B3%E3%83%AC%E3%82%90%E3%83%88.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -28864,6 +29481,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-01-02",
     "defaultOrder": 618,
     "defaultSort": 10221,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E4%B8%8A%E5%BC%A6%E3%81%AE%E6%9C%88&src=%E4%B8%8A%E5%BC%A6%E3%81%AE%E6%9C%88.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -28892,6 +29510,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-01-03",
     "defaultOrder": 619,
     "defaultSort": 14045,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%83%91%E6%98%9F%E3%83%AB%E3%83%BC%E3%83%97&src=%E6%83%91%E6%98%9F%E3%83%AB%E3%83%BC%E3%83%97.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -28949,6 +29568,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-01-04",
     "defaultOrder": 620,
     "defaultSort": 10222,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E9%BB%92%E5%A1%97%E3%82%8A%E4%B8%96%E7%95%8C%E5%AE%9B%E3%81%A6%E6%9B%B8%E7%B0%A1&src=%E9%BB%92%E5%A1%97%E3%82%8A%E4%B8%96%E7%95%8C%E5%AE%9B%E3%81%A6%E6%9B%B8%E7%B0%A1.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -28977,6 +29597,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-01-05",
     "defaultOrder": 621,
     "defaultSort": 11044,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%90%9B%E3%81%8C%E9%A3%9B%E3%81%B3%E9%99%8D%E3%82%8A%E3%82%8B%E3%81%AE%E3%81%AA%E3%82%89%E3%81%B0&src=%E5%90%9B%E3%81%8C%E9%A3%9B%E3%81%B3%E9%99%8D%E3%82%8A%E3%82%8B%E3%81%AE%E3%81%AA%E3%82%89%E3%81%B0.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -29022,6 +29643,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-01-06",
     "defaultOrder": 622,
     "defaultSort": 15044,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E9%8E%96%E3%81%AE%E5%B0%91%E5%A5%B3-Re%20Alive-&src=%E9%8E%96%E3%81%AE%E5%B0%91%E5%A5%B3-Re%20Alive-.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -29066,6 +29688,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-01-12",
     "defaultOrder": 623,
     "defaultSort": 10223,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Internet%20Junk%20Junkie&src=Internet%20Junk%20Junkie.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -29094,6 +29717,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-01-19",
     "defaultOrder": 624,
     "defaultSort": 25028,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%B9%B8%E7%A6%8F%E5%88%91&src=%E5%B9%B8%E7%A6%8F%E5%88%91.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -29155,6 +29779,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-01-21",
     "defaultOrder": 625,
     "defaultSort": 23027,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E9%80%8F%E9%81%8E%E3%81%99%E3%82%8B%E6%B8%A9%E5%BA%A6&src=%E9%80%8F%E9%81%8E%E3%81%99%E3%82%8B%E6%B8%A9%E5%BA%A6.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -29208,6 +29833,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-01-31",
     "defaultOrder": 626,
     "defaultSort": 10224,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%A5%BD%E3%81%8D%EF%BC%81%E9%9B%AA%EF%BC%81%E6%9C%AC%E6%B0%97%E3%83%9E%E3%82%B8%E3%83%83%E3%82%AF&src=%E5%A5%BD%E3%81%8D%EF%BC%81%E9%9B%AA%EF%BC%81%E6%9C%AC%E6%B0%97%E3%83%9E%E3%82%B8%E3%83%83%E3%82%AF.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -29236,6 +29862,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-02-01",
     "defaultOrder": 627,
     "defaultSort": 10225,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Snow%20Fairy%20Story&src=Snow%20Fairy%20Story.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -29264,6 +29891,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-02-02",
     "defaultOrder": 628,
     "defaultSort": 10226,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E9%9B%AA%E3%81%8C%E3%81%A8%E3%81%91%E3%82%8B%E5%89%8D%E3%81%AB&src=%E9%9B%AA%E3%81%8C%E3%81%A8%E3%81%91%E3%82%8B%E5%89%8D%E3%81%AB.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -29292,6 +29920,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-02-03",
     "defaultOrder": 629,
     "defaultSort": 10227,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%8A%E3%82%A4%E3%83%88%E3%82%B9%E3%83%8E%E3%82%A6&src=%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%8A%E3%82%A4%E3%83%88%E3%82%B9%E3%83%8E%E3%82%A6.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -29320,6 +29949,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-02-04",
     "defaultOrder": 630,
     "defaultSort": 10228,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%9B%9B%E8%A7%92%E3%81%84%E5%9C%B0%E7%90%83%E3%82%92%E4%B8%B8%E3%81%8F%E3%81%99%E3%82%8B&src=%E5%9B%9B%E8%A7%92%E3%81%84%E5%9C%B0%E7%90%83%E3%82%92%E4%B8%B8%E3%81%8F%E3%81%99%E3%82%8B.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -29348,6 +29978,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-02-05",
     "defaultOrder": 631,
     "defaultSort": 10229,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%82%A4&src=%E3%82%A2%E3%82%A4.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -29376,6 +30007,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-02-06",
     "defaultOrder": 632,
     "defaultSort": 10230,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%BD%E3%81%8B%E3%81%BD%E3%81%8B%E3%81%AE%E6%98%9F&src=%E3%81%BD%E3%81%8B%E3%81%BD%E3%81%8B%E3%81%AE%E6%98%9F.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -29404,6 +30036,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-02-07",
     "defaultOrder": 633,
     "defaultSort": 10231,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Fondant%20Step&src=Fondant%20Step.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -29432,6 +30065,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-02-08",
     "defaultOrder": 634,
     "defaultSort": 10232,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=SHIAWASE%20FOR%20YOU%21&src=SHIAWASE%20FOR%20YOU%21.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -29460,6 +30094,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-02-13",
     "defaultOrder": 635,
     "defaultSort": 10233,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%83%AA%E3%82%A2&src=%E3%82%A2%E3%83%AA%E3%82%A2.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -29488,6 +30123,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-02-14",
     "defaultOrder": 636,
     "defaultSort": 10234,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%B9%95%E3%82%92%E4%B8%8B%E3%82%8D%E3%81%9D%E3%81%86%E3%80%81%E3%83%91%E3%83%AC%E3%83%BC%E3%83%89%E3%81%B8&src=%E5%B9%95%E3%82%92%E4%B8%8B%E3%82%8D%E3%81%9D%E3%81%86%E3%80%81%E3%83%91%E3%83%AC%E3%83%BC%E3%83%89%E3%81%B8.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -29518,6 +30154,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-02-15",
     "defaultOrder": 637,
     "defaultSort": 10235,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Ribbon&src=Ribbon.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -29546,6 +30183,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-02-16",
     "defaultOrder": 638,
     "defaultSort": 10236,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%8F%E3%82%AA&src=%E3%83%8F%E3%82%AA.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -29574,6 +30212,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-02-17",
     "defaultOrder": 639,
     "defaultSort": 21028,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%93%E3%81%AE%E3%81%BE%E3%82%93%E3%81%BE%E3%81%A7%E3%81%84%E3%81%93%E3%81%86&src=%E3%81%93%E3%81%AE%E3%81%BE%E3%82%93%E3%81%BE%E3%81%A7%E3%81%84%E3%81%93%E3%81%86.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -29628,6 +30267,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-02-19",
     "defaultOrder": 640,
     "defaultSort": 24026,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%A8%E3%81%B3%E3%81%A0%E3%81%9B%EF%BC%81%E3%82%8F%E3%82%93%E3%81%A0%E3%81%B4%E3%82%87%E3%81%84&src=%E3%81%A8%E3%81%B3%E3%81%A0%E3%81%9B%EF%BC%81%E3%82%8F%E3%82%93%E3%81%A0%E3%81%B4%E3%82%87%E3%81%84.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -29674,6 +30314,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-02-28",
     "defaultOrder": 641,
     "defaultSort": 12045,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=erase%20or%20zero&src=erase%20or%20zero.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -29717,6 +30358,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-03-01",
     "defaultOrder": 642,
     "defaultSort": 13045,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=About%20me&src=About%20me.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -29762,6 +30404,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-03-06",
     "defaultOrder": 643,
     "defaultSort": 11045,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A9%E3%83%A0%E3%83%8D&src=%E3%83%A9%E3%83%A0%E3%83%8D.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -29811,6 +30454,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-03-09",
     "defaultOrder": 644,
     "defaultSort": 10237,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Catch%20the%20Wave&src=Catch%20the%20Wave.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -29839,6 +30483,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-03-10",
     "defaultOrder": 645,
     "defaultSort": 22029,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AB%E3%83%A9%E3%83%95%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%83%87%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3&src=%E3%82%AB%E3%83%A9%E3%83%95%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%83%87%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -29900,6 +30545,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-03-14",
     "defaultOrder": 646,
     "defaultSort": 13046,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%90%E3%82%A4%E3%82%AA%E3%83%AC%E3%83%B3%E3%82%B9%E3%83%88%E3%83%AA%E3%82%AC%E3%83%BC&src=%E3%83%90%E3%82%A4%E3%82%AA%E3%83%AC%E3%83%B3%E3%82%B9%E3%83%88%E3%83%AA%E3%82%AC%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -29944,6 +30590,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-03-15",
     "defaultOrder": 647,
     "defaultSort": 15045,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A9%E3%83%B4%E3%82%A3&src=%E3%83%A9%E3%83%B4%E3%82%A3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -29998,6 +30645,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-03-16",
     "defaultOrder": 648,
     "defaultSort": 10238,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%83%AB%E3%82%AB%E3%83%AA%E3%83%AC%E3%83%83%E3%83%88%E3%82%A6%E3%82%BB%E3%82%A4&src=%E3%82%A2%E3%83%AB%E3%82%AB%E3%83%AA%E3%83%AC%E3%83%83%E3%83%88%E3%82%A6%E3%82%BB%E3%82%A4.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -30026,6 +30674,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-03-23",
     "defaultOrder": 649,
     "defaultSort": 10239,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%A4%A9%E8%97%8D%E3%81%AE%E3%82%A2%E3%82%A4%E3%82%B9%E3%83%98%E3%83%B4%E3%83%B3&src=%E5%A4%A9%E8%97%8D%E3%81%AE%E3%82%A2%E3%82%A4%E3%82%B9%E3%83%98%E3%83%B4%E3%83%B3.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -30054,6 +30703,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-03-28",
     "defaultOrder": 650,
     "defaultSort": 25029,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%91%8A%E7%99%BD&src=%E5%91%8A%E7%99%BD.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -30099,6 +30749,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-03-30",
     "defaultOrder": 651,
     "defaultSort": 24027,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%82%80%E5%84%A1%E3%81%AE%E3%81%86%E3%81%A4%E3%81%A4&src=%E5%82%80%E5%84%A1%E3%81%AE%E3%81%86%E3%81%A4%E3%81%A4.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": false,
@@ -30135,6 +30786,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-03-31",
     "defaultOrder": 652,
     "defaultSort": 10240,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%80%E3%82%A4%E3%83%80%E3%82%A4%E3%83%80%E3%82%A4%E3%83%80%E3%82%A4%E3%83%80%E3%82%A4%E3%82%AD%E3%83%A9%E3%82%A4&src=%E3%83%80%E3%82%A4%E3%83%80%E3%82%A4%E3%83%80%E3%82%A4%E3%83%80%E3%82%A4%E3%83%80%E3%82%A4%E3%82%AD%E3%83%A9%E3%82%A4.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -30165,6 +30817,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-04-02",
     "defaultOrder": 653,
     "defaultSort": 10241,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AF%E3%83%B3%E3%83%80%E3%83%BC%E3%83%A9%E3%82%B9%E3%83%88&src=%E3%83%AF%E3%83%B3%E3%83%80%E3%83%BC%E3%83%A9%E3%82%B9%E3%83%88.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -30193,6 +30846,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-04-03",
     "defaultOrder": 654,
     "defaultSort": 10242,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%82%E3%81%84%E3%81%97%E3%81%A6%E3%81%84%E3%81%9F%E3%81%AE%E3%81%AB&src=%E3%81%82%E3%81%84%E3%81%97%E3%81%A6%E3%81%84%E3%81%9F%E3%81%AE%E3%81%AB.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -30221,6 +30875,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-04-04",
     "defaultOrder": 655,
     "defaultSort": 10243,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%95%E3%83%AD%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%B3%EF%BC%9D%E3%82%AA%E3%82%B8%E3%83%A7%E3%82%A6%E3%82%B5%E3%83%9E&src=%E3%83%95%E3%83%AD%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%B3%EF%BC%9D%E3%82%AA%E3%82%B8%E3%83%A7%E3%82%A6%E3%82%B5%E3%83%9E.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -30249,6 +30904,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-04-05",
     "defaultOrder": 656,
     "defaultSort": 10244,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Nyanyanyanyanyanyanya%21&src=Nyanyanyanyanyanyanya%21.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -30277,6 +30933,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-04-06",
     "defaultOrder": 657,
     "defaultSort": 10245,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=T%E6%B0%8F%E3%81%AE%E8%A9%B1%E3%82%92%E4%BF%A1%E3%81%98%E3%82%8B%E3%81%AA&src=T%E6%B0%8F%E3%81%AE%E8%A9%B1%E3%82%92%E4%BF%A1%E3%81%98%E3%82%8B%E3%81%AA.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -30307,6 +30964,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-04-13",
     "defaultOrder": 658,
     "defaultSort": 11046,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%98%E3%83%83%E3%82%B8%E3%83%9B%E3%83%83%E3%82%B0&src=%E3%83%98%E3%83%83%E3%82%B8%E3%83%9B%E3%83%83%E3%82%B0.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -30351,6 +31009,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-04-16",
     "defaultOrder": 659,
     "defaultSort": 23028,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=CRASH%20THE%20PARTY&src=CRASH%20THE%20PARTY.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -30416,6 +31075,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-04-20",
     "defaultOrder": 660,
     "defaultSort": 15046,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Who%3F&src=Who_.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -30463,6 +31123,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-04-24",
     "defaultOrder": 661,
     "defaultSort": 10246,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%B0%8E%E7%81%AB%E6%84%9B&src=%E5%B0%8E%E7%81%AB%E6%84%9B.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -30491,6 +31152,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-04-28",
     "defaultOrder": 662,
     "defaultSort": 29011,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E4%B8%96%E7%95%8C%E3%81%AE%E6%AD%A9%E3%81%8D%E6%96%B9&src=%E4%B8%96%E7%95%8C%E3%81%AE%E6%AD%A9%E3%81%8D%E6%96%B9.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": false,
@@ -30527,6 +31189,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-05-02",
     "defaultOrder": 663,
     "defaultSort": 14046,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E9%AD%94%E6%B3%95%E5%B0%91%E5%A5%B3%E5%B9%B8%E7%A6%8F%E8%AB%96&src=%E9%AD%94%E6%B3%95%E5%B0%91%E5%A5%B3%E5%B9%B8%E7%A6%8F%E8%AB%96.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -30568,6 +31231,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-05-06",
     "defaultOrder": 664,
     "defaultSort": 21029,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%98%9F%E3%81%AB%E4%B8%80%E7%95%AA%E8%BF%91%E3%81%84%E5%A0%B4%E6%89%80&src=%E6%98%9F%E3%81%AB%E4%B8%80%E7%95%AA%E8%BF%91%E3%81%84%E5%A0%B4%E6%89%80.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -30614,6 +31278,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-05-08",
     "defaultOrder": 665,
     "defaultSort": 23029,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%BE%BD%E6%AD%8C&src=%E7%BE%BD%E6%AD%8C.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -30659,6 +31324,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-05-11",
     "defaultOrder": 666,
     "defaultSort": 14047,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%8D%91%E6%80%AF%E6%88%A6%E9%9A%8A%E3%81%86%E3%82%8D%E3%81%9F%E3%82%93%E3%81%A0%E3%83%BC&src=%E5%8D%91%E6%80%AF%E6%88%A6%E9%9A%8A%E3%81%86%E3%82%8D%E3%81%9F%E3%82%93%E3%81%A0%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -30707,6 +31373,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-05-18",
     "defaultOrder": 667,
     "defaultSort": 12046,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%82%E3%81%AA%E3%81%9F%E3%81%97%E3%81%8B%E8%A6%8B%E3%81%88%E3%81%AA%E3%81%84%E3%81%AE&src=%E3%81%82%E3%81%AA%E3%81%9F%E3%81%97%E3%81%8B%E8%A6%8B%E3%81%88%E3%81%AA%E3%81%84%E3%81%AE.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -30762,6 +31429,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-05-22",
     "defaultOrder": 668,
     "defaultSort": 15047,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%AF%94%E8%BC%83%E7%97%87%E5%80%99%E7%BE%A4&src=%E6%AF%94%E8%BC%83%E7%97%87%E5%80%99%E7%BE%A4.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -30803,6 +31471,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-05-25",
     "defaultOrder": 669,
     "defaultSort": 10247,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B9%E3%83%88%E3%83%A9%E3%82%BF%E3%81%A7%E3%81%BE%E3%81%A1%E3%81%82%E3%82%8F%E3%81%9B&src=%E3%82%B9%E3%83%88%E3%83%A9%E3%82%BF%E3%81%A7%E3%81%BE%E3%81%A1%E3%81%82%E3%82%8F%E3%81%9B.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -30831,6 +31500,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-05-29",
     "defaultOrder": 670,
     "defaultSort": 29012,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%89%E3%83%AA%E3%83%BC%E3%83%9E%E3%83%BC%E3%82%BA%E3%83%93%E3%83%BC%E3%83%88&src=%E3%83%89%E3%83%AA%E3%83%BC%E3%83%9E%E3%83%BC%E3%82%BA%E3%83%93%E3%83%BC%E3%83%88.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -30878,6 +31548,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-06-01",
     "defaultOrder": 671,
     "defaultSort": 15048,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%97%E3%83%AD%E3%83%9D%E3%83%BC%E3%82%BA&src=%E3%83%97%E3%83%AD%E3%83%9D%E3%83%BC%E3%82%BA.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -30919,6 +31590,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-06-05",
     "defaultOrder": 672,
     "defaultSort": 11047,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A9%E3%82%BA%E3%83%99%E3%83%AA%E3%83%BC%EF%BC%8A%E3%83%A2%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC&src=%E3%83%A9%E3%82%BA%E3%83%99%E3%83%AA%E3%83%BC%EF%BC%8A%E3%83%A2%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -30973,6 +31645,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-06-08",
     "defaultOrder": 673,
     "defaultSort": 10248,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%84%E3%81%BE%E3%81%99%E3%81%90%E8%BC%AA%E5%BB%BB&src=%E3%81%84%E3%81%BE%E3%81%99%E3%81%90%E8%BC%AA%E5%BB%BB.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -31001,6 +31674,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-06-09",
     "defaultOrder": 674,
     "defaultSort": 10249,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%88%9D%E9%9F%B3%E7%8B%82%E5%A5%8F%E6%9B%B2%E7%AC%AC01%E7%95%AA%E3%80%8C%E5%BD%97%E6%83%BA%E3%80%8D&src=%E5%88%9D%E9%9F%B3%E7%8B%82%E5%A5%8F%E6%9B%B2%E7%AC%AC01%E7%95%AA%E3%80%8C%E5%BD%97%E6%83%BA%E3%80%8D.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -31029,6 +31703,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-06-12",
     "defaultOrder": 675,
     "defaultSort": 13047,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%B0%B8%E9%81%A0%E7%94%9A%E3%81%A0%E3%81%97%E3%81%84&src=%E6%B0%B8%E9%81%A0%E7%94%9A%E3%81%A0%E3%81%97%E3%81%84.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -31074,6 +31749,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-06-15",
     "defaultOrder": 676,
     "defaultSort": 10250,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%B2%E3%81%8B%E3%82%8A%E3%81%AE%E3%81%82%E3%81%A4%E3%82%81%E3%81%8B%E3%81%9F&src=%E3%81%B2%E3%81%8B%E3%82%8A%E3%81%AE%E3%81%82%E3%81%A4%E3%82%81%E3%81%8B%E3%81%9F.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -31102,6 +31778,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-06-18",
     "defaultOrder": 677,
     "defaultSort": 29013,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%97%85%E3%81%AB%E5%B8%B0%E3%82%8B&src=%E6%97%85%E3%81%AB%E5%B8%B0%E3%82%8B.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -31149,6 +31826,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-06-20",
     "defaultOrder": 678,
     "defaultSort": 24028,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AA%E3%83%BC%E3%83%AB%E3%82%A4%E3%83%B3%E3%83%BB%E3%83%AF%E3%83%B3&src=%E3%82%AA%E3%83%BC%E3%83%AB%E3%82%A4%E3%83%B3%E3%83%BB%E3%83%AF%E3%83%B3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -31194,6 +31872,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-06-21",
     "defaultOrder": 679,
     "defaultSort": 39010,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=SAIRAI&src=SAIRAI.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": false,
@@ -31211,6 +31890,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-06-22",
     "defaultOrder": 680,
     "defaultSort": 39011,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=CHAOS&src=CHAOS.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": false,
@@ -31228,6 +31908,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-06-23",
     "defaultOrder": 681,
     "defaultSort": 39012,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Saika&src=Saika.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": false,
@@ -31245,6 +31926,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-06-24",
     "defaultOrder": 682,
     "defaultSort": 39013,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=99%20Glooms&src=99%20Glooms.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": false,
@@ -31262,6 +31944,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-06-25",
     "defaultOrder": 683,
     "defaultSort": 39014,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=ANiMA&src=ANiMA.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": false,
@@ -31279,6 +31962,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-06-26",
     "defaultOrder": 684,
     "defaultSort": 39015,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Masquerade&src=Masquerade.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": false,
@@ -31296,6 +31980,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-06-30",
     "defaultOrder": 685,
     "defaultSort": 22030,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Gimme%20more%21&src=Gimme%20more%21.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -31346,6 +32031,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-07-01",
     "defaultOrder": 686,
     "defaultSort": 14048,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%A4%A9%E6%89%8D%E3%83%AD%E3%83%83%E3%82%AF&src=%E5%A4%A9%E6%89%8D%E3%83%AD%E3%83%83%E3%82%AF.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -31390,6 +32076,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-07-06",
     "defaultOrder": 687,
     "defaultSort": 10251,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%82%A4%E3%83%BB%E3%83%A1%E3%82%A4%E3%82%AB%E3%83%BC%EF%BC%81&src=%E3%82%A2%E3%82%A4%E3%83%BB%E3%83%A1%E3%82%A4%E3%82%AB%E3%83%BC%EF%BC%81.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -31418,6 +32105,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-07-09",
     "defaultOrder": 688,
     "defaultSort": 25030,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%85%89&src=%E5%85%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -31463,6 +32151,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-07-13",
     "defaultOrder": 689,
     "defaultSort": 13048,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%8F%E3%83%8A%E3%82%BF%E3%83%90&src=%E3%83%8F%E3%83%8A%E3%82%BF%E3%83%90.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -31504,6 +32193,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-07-17",
     "defaultOrder": 690,
     "defaultSort": 10252,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A9%E3%83%97%E3%82%B9&src=%E3%83%A9%E3%83%97%E3%82%B9.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -31532,6 +32222,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-07-21",
     "defaultOrder": 691,
     "defaultSort": 10253,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%82%B9%E3%83%88%E3%83%AD%E3%83%8E%E3%83%BC%E3%83%84&src=%E3%82%A2%E3%82%B9%E3%83%88%E3%83%AD%E3%83%8E%E3%83%BC%E3%83%84.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -31560,6 +32251,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-07-22",
     "defaultOrder": 692,
     "defaultSort": 10254,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B7%E3%83%86%E3%82%A3%E3%83%A9%E3%82%A4%E3%83%84&src=%E3%82%B7%E3%83%86%E3%82%A3%E3%83%A9%E3%82%A4%E3%83%84.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -31588,6 +32280,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-07-23",
     "defaultOrder": 693,
     "defaultSort": 10255,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%94%E3%83%83%E3%82%B3%E3%83%BC%E3%83%B3%EF%BC%81%EF%BC%81&src=%E3%83%94%E3%83%83%E3%82%B3%E3%83%BC%E3%83%B3%EF%BC%81%EF%BC%81.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -31616,6 +32309,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-07-29",
     "defaultOrder": 694,
     "defaultSort": 29014,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AC%E3%83%A0&src=%E3%83%AC%E3%83%A0_%E3%82%BB%E3%82%AB%E3%82%A4ver.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -31663,6 +32357,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-07-31",
     "defaultOrder": 695,
     "defaultSort": 21030,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%A4%A9%E7%A7%A4%E3%80%81%E6%8C%87%E5%85%88%E3%81%A7%E8%A7%A6%E3%82%8C%E3%81%A6&src=%E5%A4%A9%E7%A7%A4%E3%80%81%E6%8C%87%E5%85%88%E3%81%A7%E8%A7%A6%E3%82%8C%E3%81%A6.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -31732,6 +32427,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-08-03",
     "defaultOrder": 696,
     "defaultSort": 10256,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%87%E3%83%AD%E3%82%B9%E3%82%B5%E3%83%B3%E3%83%88%E3%82%B9&src=%E3%83%87%E3%83%AD%E3%82%B9%E3%82%B5%E3%83%B3%E3%83%88%E3%82%B9.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -31760,6 +32456,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-08-04",
     "defaultOrder": 697,
     "defaultSort": 10257,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E4%B8%80%E5%84%84%E5%B9%B4%E6%81%8B%E3%81%97%E3%81%A6%E3%82%8B&src=%E4%B8%80%E5%84%84%E5%B9%B4%E6%81%8B%E3%81%97%E3%81%A6%E3%82%8B.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -31788,6 +32485,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-08-10",
     "defaultOrder": 698,
     "defaultSort": 11048,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%83%87%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%8A%E3%83%AB%E3%83%A1%E3%83%A2%E3%83%AA%E3%83%BC&src=%E3%82%A2%E3%83%87%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%8A%E3%83%AB%E3%83%A1%E3%83%A2%E3%83%AA%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -31833,6 +32531,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-08-11",
     "defaultOrder": 699,
     "defaultSort": 12047,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AA%E3%83%84%E3%82%AD%E3%83%9F%E3%83%AA%E3%82%B5%E3%82%A4%E3%82%BF%E3%83%AB&src=%E3%82%AA%E3%83%84%E3%82%AD%E3%83%9F%E3%83%AA%E3%82%B5%E3%82%A4%E3%82%BF%E3%83%AB.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -31878,6 +32577,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-08-12",
     "defaultOrder": 700,
     "defaultSort": 13049,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%AD%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%A0%E3%83%A1%E3%83%A2%E3%83%AA%E3%83%BC&src=%E3%83%AD%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%A0%E3%83%A1%E3%83%A2%E3%83%AA%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -31923,6 +32623,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-08-13",
     "defaultOrder": 701,
     "defaultSort": 14049,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%A9%BA%E6%83%B3%E3%83%95%E3%82%A9%E3%83%AC%E3%82%B9%E3%83%88&src=%E7%A9%BA%E6%83%B3%E3%83%95%E3%82%A9%E3%83%AC%E3%82%B9%E3%83%88.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -31968,6 +32669,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-08-14",
     "defaultOrder": 702,
     "defaultSort": 15049,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%83%A4%E3%83%8E%E3%81%AE%E5%B9%B8%E7%A6%8F%E7%90%86%E8%AB%96&src=%E3%82%A2%E3%83%A4%E3%83%8E%E3%81%AE%E5%B9%B8%E7%A6%8F%E7%90%86%E8%AB%96.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -32013,6 +32715,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-08-15",
     "defaultOrder": 703,
     "defaultSort": 22031,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%80%E3%82%B9%E3%83%88%E3%83%AC%E3%82%A4%E3%83%B3&src=%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%80%E3%82%B9%E3%83%88%E3%83%AC%E3%82%A4%E3%83%B3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -32058,6 +32761,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-08-24",
     "defaultOrder": 704,
     "defaultSort": 10258,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E5%90%9B%E3%81%AB%E8%B4%88%E3%82%8B%E6%9C%AA%E6%9D%A5&src=%E5%90%9B%E3%81%AB%E8%B4%88%E3%82%8B%E6%9C%AA%E6%9D%A5.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -32088,6 +32792,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-08-27",
     "defaultOrder": 705,
     "defaultSort": 29015,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%83%B3%E3%83%81%E3%82%B5%E3%82%A4%E3%83%8E%E3%82%A6&src=%E3%82%A2%E3%83%B3%E3%83%81%E3%82%B5%E3%82%A4%E3%83%8E%E3%82%A6.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -32133,6 +32838,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-08-28",
     "defaultOrder": 706,
     "defaultSort": 10259,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E7%A9%BA%E3%81%AB%E5%85%8D%E3%81%98%E3%81%A6&src=%E7%A9%BA%E3%81%AB%E5%85%8D%E3%81%98%E3%81%A6.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -32161,6 +32867,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-09-01",
     "defaultOrder": 707,
     "defaultSort": 12048,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=shake%20it%21&src=shake%20it%21.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -32209,6 +32916,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-09-06",
     "defaultOrder": 708,
     "defaultSort": 23030,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%AD%A3%E8%A7%A3&src=%E6%AD%A3%E8%A7%A3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -32254,6 +32962,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-09-14",
     "defaultOrder": 709,
     "defaultSort": 24029,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%98%E3%83%AC%E3%83%87%E3%82%A3%E3%83%86%E3%82%A3&src=%E3%83%98%E3%83%AC%E3%83%87%E3%82%A3%E3%83%86%E3%82%A3.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -32309,6 +33018,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-09-19",
     "defaultOrder": 710,
     "defaultSort": 10260,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%95%97%E8%B5%B0&src=%E6%95%97%E8%B5%B0.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -32337,6 +33047,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-09-22",
     "defaultOrder": 711,
     "defaultSort": 10261,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%93%E3%82%8F%E3%82%8C%E3%81%A1%E3%82%83%E3%81%A3%E3%81%9F%EF%BC%81%EF%BC%81&src=%E3%81%93%E3%82%8F%E3%82%8C%E3%81%A1%E3%82%83%E3%81%A3%E3%81%9F%EF%BC%81%EF%BC%81.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -32365,6 +33076,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-09-23",
     "defaultOrder": 712,
     "defaultSort": 10262,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%81%8D%E3%81%AE%E3%81%9B%E3%81%84&src=%E3%81%8D%E3%81%AE%E3%81%9B%E3%81%84.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -32403,6 +33115,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-09-30",
     "defaultOrder": 713,
     "defaultSort": 29016,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A8%E3%83%A1%E3%83%A9%E3%83%AB%E3%83%89&src=%E3%82%A8%E3%83%A1%E3%83%A9%E3%83%AB%E3%83%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -32507,6 +33220,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-10-01",
     "defaultOrder": 714,
     "defaultSort": 10263,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%AA%E3%83%96%E3%82%BD%E3%83%9F%E3%83%BC%E3%83%88&src=%E3%82%AA%E3%83%96%E3%82%BD%E3%83%9F%E3%83%BC%E3%83%88.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -32537,6 +33251,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-10-02",
     "defaultOrder": 715,
     "defaultSort": 11049,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%83%96%E3%83%8E%E3%83%BC%E3%83%9E%E3%83%AA%E3%83%86%E3%82%A3%EF%BD%A5%E3%83%80%E3%83%B3%E3%82%B7%E3%83%B3%E3%82%AC%E3%83%BC%E3%83%AB&src=%E3%82%A2%E3%83%96%E3%83%8E%E3%83%BC%E3%83%9E%E3%83%AA%E3%83%86%E3%82%A3%EF%BD%A5%E3%83%80%E3%83%B3%E3%82%B7%E3%83%B3%E3%82%AC%E3%83%BC%E3%83%AB.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -32582,6 +33297,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-10-03",
     "defaultOrder": 716,
     "defaultSort": 10264,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%A9%E3%83%93%E3%83%83%E3%83%88%E3%83%9B%E3%83%BC%E3%83%AB&src=%E3%83%A9%E3%83%93%E3%83%83%E3%83%88%E3%83%9B%E3%83%BC%E3%83%AB.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -32610,6 +33326,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-10-04",
     "defaultOrder": 717,
     "defaultSort": 12049,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=LEMON%20MELON%20COOKIE&src=LEMON%20MELON%20COOKIE.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -32654,6 +33371,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-10-05",
     "defaultOrder": 718,
     "defaultSort": 10265,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%89%E3%82%A5%E3%83%BC%E3%83%9E%E3%83%BC&src=%E3%83%89%E3%82%A5%E3%83%BC%E3%83%9E%E3%83%BC.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -32682,6 +33400,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-10-06",
     "defaultOrder": 719,
     "defaultSort": 13050,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%87%E3%83%BC%E3%83%A2%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89&src=%E3%83%87%E3%83%BC%E3%83%A2%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -32727,6 +33446,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-10-07",
     "defaultOrder": 720,
     "defaultSort": 10266,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%8E%A8%E5%AE%9A%E3%83%A9%E3%83%96%E3%82%BD%E3%83%B3%E3%82%B0&src=%E6%8E%A8%E5%AE%9A%E3%83%A9%E3%83%96%E3%82%BD%E3%83%B3%E3%82%B0.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -32755,6 +33475,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-10-08",
     "defaultOrder": 721,
     "defaultSort": 14050,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%82%A2%E3%83%AB%E3%83%86%E3%82%A3%E3%83%A1%E3%83%83%E3%83%88%E3%82%BB%E3%83%B3%E3%83%91%E3%82%A4&src=%E3%82%A2%E3%83%AB%E3%83%86%E3%82%A3%E3%83%A1%E3%83%83%E3%83%88%E3%82%BB%E3%83%B3%E3%83%91%E3%82%A4.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -32799,6 +33520,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-10-09",
     "defaultOrder": 722,
     "defaultSort": 10267,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%80%E3%83%BC%E3%83%AA%E3%83%B3&src=%E3%83%80%E3%83%BC%E3%83%AA%E3%83%B3.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -32827,6 +33549,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-10-10",
     "defaultOrder": 723,
     "defaultSort": 15050,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%8F%E3%82%A4%E3%83%89%E3%83%AC%E3%83%B3%E3%82%B8%E3%82%A2&src=%E3%83%8F%E3%82%A4%E3%83%89%E3%83%AC%E3%83%B3%E3%82%B8%E3%82%A2.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -32872,6 +33595,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-10-11",
     "defaultOrder": 724,
     "defaultSort": 20023,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=at&src=at.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -32900,6 +33624,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-10-12",
     "defaultOrder": 725,
     "defaultSort": 21031,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%98%9F%E3%80%81%E3%81%A8%E3%81%8D%E3%81%A9%E3%81%8D%E5%85%89&src=%E6%98%9F%E3%80%81%E3%81%A8%E3%81%8D%E3%81%A9%E3%81%8D%E5%85%89.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
@@ -32945,6 +33670,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-10-16",
     "defaultOrder": 726,
     "defaultSort": 10268,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=Palette&src=Palette.jpg",
     "vocalVersions": {
       "sekai": false,
       "virtualSinger": true,
@@ -32973,6 +33699,7 @@ export const ALL_RECORDS: RecordItem[] = [
     "releaseDate": "2026-10-19",
     "defaultOrder": 727,
     "defaultSort": 14051,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%90%E3%82%AB%E9%80%9A%E4%BF%A1&src=%E3%83%90%E3%82%AB%E9%80%9A%E4%BF%A1.jpg",
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,

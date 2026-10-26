@@ -210,7 +210,58 @@ function parseSongDetail(html) {
     });
   });
 
-  return { vocalTracks, vocalVersions };
+  // ジャケット画像URL抽出（複数ある場合はセカイverを優先採用）
+  const candidates = [];
+  $('img').each((_, el) => {
+    const width = $(el).attr('width');
+    const alt = $(el).attr('alt') || '';
+    const title = $(el).attr('title') || '';
+    const dataSrc = $(el).attr('data-src') || '';
+    const src = $(el).attr('src') || '';
+
+    const isJacketCandidate =
+      (width === '350' || width === '300' || width === '320') ||
+      alt.includes('ジャケット') ||
+      alt.includes('jacket') ||
+      dataSrc.includes('jacket') ||
+      src.includes('jacket');
+
+    if (isJacketCandidate) {
+      let rawUrl = dataSrc || src;
+      if (!rawUrl || rawUrl === 'image/spacer.png') return;
+
+      let fullUrl = rawUrl;
+      if (rawUrl.startsWith('./')) {
+        fullUrl = `https://pjsekai.com/${rawUrl.slice(2)}`;
+      } else if (rawUrl.startsWith('/')) {
+        fullUrl = `https://pjsekai.com${rawUrl}`;
+      } else if (!rawUrl.startsWith('http')) {
+        fullUrl = `https://pjsekai.com/${rawUrl}`;
+      }
+
+      const isSekai =
+        alt.includes('セカイver') ||
+        alt.includes('セカイ') ||
+        title.includes('セカイver') ||
+        title.includes('セカイ') ||
+        decodeURIComponent(fullUrl).includes('セカイver') ||
+        decodeURIComponent(fullUrl).includes('セカイ');
+
+      candidates.push({
+        url: fullUrl,
+        alt,
+        isSekai,
+      });
+    }
+  });
+
+  let jacketUrl = '';
+  if (candidates.length > 0) {
+    const sekai = candidates.find((c) => c.isSekai);
+    jacketUrl = sekai ? sekai.url : candidates[0].url;
+  }
+
+  return { vocalTracks, vocalVersions, jacketUrl };
 }
 
 async function main() {
@@ -282,10 +333,12 @@ async function main() {
       const detail = parseSongDetail(html);
       song.vocalTracks = detail.vocalTracks;
       song.vocalVersions = detail.vocalVersions;
+      song.jacketUrl = detail.jacketUrl;
     } catch (err) {
       console.error(`Error fetching song ${song.no} (${song.title}):`, err.message);
       song.vocalTracks = [];
       song.vocalVersions = { sekai: false, virtualSinger: false, connectLive: false, anotherVocal: false };
+      song.jacketUrl = '';
     }
 
     completed++;
@@ -312,6 +365,7 @@ async function main() {
     'No.(実装順)',
     'デフォ(並び替え用)',
     '楽曲名',
+    'ジャケット画像URL(セカイver優先)',
     'ユニット(変換後)',
     'ユニット(元コード)',
     '配信日',
@@ -357,6 +411,7 @@ async function main() {
       s.no,
       s.defaultSort,
       s.title,
+      s.jacketUrl || '',
       s.unitName,
       s.unitRaw,
       s.releaseDate,

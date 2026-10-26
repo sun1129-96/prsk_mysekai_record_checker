@@ -1,11 +1,12 @@
 import fs from 'fs';
 import path from 'path';
+import * as cheerio from 'cheerio';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// 既存の読み仮名マップ（mockRecords等から抽出）
+// 既存の読み仮名マップ
 const EXISTING_READINGS = {
   'Tell Your World': 'てるゆあわーるど',
   'ネクストネスト': 'ねくすとねすと',
@@ -52,6 +53,63 @@ const rawData = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
 
 console.log(`Loaded ${rawData.length} imported records.`);
 
+// ジャケットURL抽出関数（複数ある場合はセカイverを優先採用）
+function extractJacketUrl(html) {
+  const $ = cheerio.load(html);
+  const candidates = [];
+
+  $('img').each((_, el) => {
+    const width = $(el).attr('width');
+    const alt = $(el).attr('alt') || '';
+    const title = $(el).attr('title') || '';
+    const dataSrc = $(el).attr('data-src') || '';
+    const src = $(el).attr('src') || '';
+
+    const isJacketCandidate =
+      (width === '350' || width === '300' || width === '320') ||
+      alt.includes('ジャケット') ||
+      alt.includes('jacket') ||
+      dataSrc.includes('jacket') ||
+      src.includes('jacket');
+
+    if (isJacketCandidate) {
+      let rawUrl = dataSrc || src;
+      if (!rawUrl || rawUrl === 'image/spacer.png') return;
+
+      let fullUrl = rawUrl;
+      if (rawUrl.startsWith('./')) {
+        fullUrl = `https://pjsekai.com/${rawUrl.slice(2)}`;
+      } else if (rawUrl.startsWith('/')) {
+        fullUrl = `https://pjsekai.com${rawUrl}`;
+      } else if (!rawUrl.startsWith('http')) {
+        fullUrl = `https://pjsekai.com/${rawUrl}`;
+      }
+
+      const isSekai =
+        alt.includes('セカイver') ||
+        alt.includes('セカイ') ||
+        title.includes('セカイver') ||
+        title.includes('セカイ') ||
+        decodeURIComponent(fullUrl).includes('セカイver') ||
+        decodeURIComponent(fullUrl).includes('セカイ');
+
+      candidates.push({
+        url: fullUrl,
+        alt,
+        isSekai,
+      });
+    }
+  });
+
+  if (candidates.length === 0) return '';
+
+  // 複数ある場合はセカイverを最優先
+  const sekaiCandidate = candidates.find((c) => c.isSekai);
+  if (sekaiCandidate) return sekaiCandidate.url;
+
+  return candidates[0].url;
+}
+
 const records = rawData.map((item) => {
   // 配信日のフォーマット正規化 (YYYY/MM/DD -> YYYY-MM-DD)
   const formattedDate = item.releaseDate ? item.releaseDate.replace(/\//g, '-') : '';
@@ -83,6 +141,17 @@ const records = rawData.map((item) => {
     };
   });
 
+  // ジャケットURLをキャッシュHTMLから取得
+  let jacketUrl = '';
+  if (item.detailUrl) {
+    const safeName = encodeURIComponent(item.detailUrl.replace('https://pjsekai.com/', '').replace('?', ''));
+    const cachePath = path.join(__dirname, 'cache', `${safeName}.html`);
+    if (fs.existsSync(cachePath)) {
+      const html = fs.readFileSync(cachePath, 'utf8');
+      jacketUrl = extractJacketUrl(html);
+    }
+  }
+
   return {
     id: `rec_${item.no}`,
     title: item.title,
@@ -91,6 +160,7 @@ const records = rawData.map((item) => {
     releaseDate: formattedDate,
     defaultOrder: item.no, // 実装順
     defaultSort: item.defaultSort, // デフォルト順コード (並び替え用)
+    jacketUrl, // セカイver優先ジャケット画像URL
     vocalVersions: item.vocalVersions || {
       virtualSinger: false,
       sekai: false,
@@ -102,7 +172,10 @@ const records = rawData.map((item) => {
   };
 });
 
-const tsContent = `// 自動生成ファイル (pjsekai.com より全727曲インポート)
+const withJackets = records.filter((r) => r.jacketUrl).length;
+console.log(`Jacket extracted: ${withJackets} / ${records.length} records.`);
+
+const tsContent = `// 自動生成ファイル (pjsekai.com より全727曲インポート・ジャケット画像URL対応)
 import type { RecordItem } from '../types/record';
 
 export const ALL_RECORDS: RecordItem[] = ${JSON.stringify(records, null, 2)};

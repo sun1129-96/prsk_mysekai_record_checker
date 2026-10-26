@@ -325,13 +325,24 @@ export const ListView: React.FC<ListViewProps> = ({
                 {/* ジャケット画像（表示設定による） */}
                 {displaySettings.showJacket && (
                   <div
-                    className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl shrink-0 flex items-center justify-center shadow-2xs"
+                    className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl shrink-0 flex items-center justify-center shadow-2xs overflow-hidden relative bg-slate-100"
                     style={{
-                      background: `linear-gradient(135deg, ${unitMeta.themeColor}22, ${unitMeta.themeColor}08)`,
                       border: `1px solid ${unitMeta.borderColor}`,
                     }}
                   >
-                    <Music className="w-5 h-5" style={{ color: unitMeta.themeColor }} />
+                    {record.jacketUrl ? (
+                      <img
+                        src={record.jacketUrl}
+                        alt={record.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = 'none';
+                        }}
+                      />
+                    ) : (
+                      <Music className="w-5 h-5" style={{ color: unitMeta.themeColor }} />
+                    )}
                   </div>
                 )}
 
