@@ -2,6 +2,8 @@
 
 「プロジェクトセカイ カラフルステージ！ feat. 初音ミク」のゲーム内コンテンツ「マイセカイ」における**楽曲レコード（BGMアイテム）の所持状況を直感的に記録・管理し、ユニット別・周年別の達成率を自動で可視化するWebアプリケーション**です。
 
+- **ソースコードリポジトリ**: [https://github.com/sun1129-96/prsk_mysekai_record_checker](https://github.com/sun1129-96/prsk_mysekai_record_checker)
+
 ---
 
 ## 1. 解決する課題と中核的価値
