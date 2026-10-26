@@ -72,7 +72,7 @@ export const MOCK_RECORDS: RecordItem[] = [
       { id: 'ln_01_sekai', name: 'セカイver', type: 'sekai', singers: ['ichika', 'rin'] },
       { id: 'ln_01_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['rin'] },
       { id: 'ln_01_cl', name: 'コネクトライブver', type: 'connect_live', singers: ['ichika', 'rin'] },
-      { id: 'ln_01_av1', name: 'アナザーボーカルver (一歌 & 咲希)', type: 'another_vocal', singers: ['ichika', 'saki'] },
+      { id: 'ln_01_av1', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['ichika', 'saki'] },
     ],
   },
   {
@@ -87,8 +87,8 @@ export const MOCK_RECORDS: RecordItem[] = [
     vocalTracks: [
       { id: 'ln_02_sekai', name: 'セカイver', type: 'sekai', singers: ['ichika', 'saki', 'honami', 'shiho', 'miku'] },
       { id: 'ln_02_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['miku'] },
-      { id: 'ln_02_av1', name: 'アナザーボーカルver (一歌)', type: 'another_vocal', singers: ['ichika'] },
-      { id: 'ln_02_av2', name: 'アナザーボーカルver (咲希)', type: 'another_vocal', singers: ['saki'] },
+      { id: 'ln_02_av1', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['ichika'] },
+      { id: 'ln_02_av2', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['saki'] },
     ],
   },
   {
@@ -117,8 +117,8 @@ export const MOCK_RECORDS: RecordItem[] = [
     vocalTracks: [
       { id: 'ln_04_sekai', name: 'セカイver', type: 'sekai', singers: ['ichika', 'saki', 'honami', 'shiho', 'meiko'] },
       { id: 'ln_04_cl', name: 'コネクトライブver', type: 'connect_live', singers: ['ichika', 'saki', 'honami', 'shiho'] },
-      { id: 'ln_04_av1', name: 'アナザーボーカルver (穂波)', type: 'another_vocal', singers: ['honami'] },
-      { id: 'ln_04_av2', name: 'アナザーボーカルver (志歩)', type: 'another_vocal', singers: ['shiho'] },
+      { id: 'ln_04_av1', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['honami'] },
+      { id: 'ln_04_av2', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['shiho'] },
     ],
   },
 
@@ -136,7 +136,7 @@ export const MOCK_RECORDS: RecordItem[] = [
       { id: 'mmj_01_sekai', name: 'セカイver', type: 'sekai', singers: ['minori', 'shizuku', 'luka'] },
       { id: 'mmj_01_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['luka', 'gumi'] },
       { id: 'mmj_01_cl', name: 'コネクトライブver', type: 'connect_live', singers: ['minori', 'shizuku'] },
-      { id: 'mmj_01_av1', name: 'アナザーボーカルver (みのり & 雫)', type: 'another_vocal', singers: ['minori', 'shizuku'] },
+      { id: 'mmj_01_av1', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['minori', 'shizuku'] },
     ],
   },
   {
@@ -151,8 +151,8 @@ export const MOCK_RECORDS: RecordItem[] = [
     vocalTracks: [
       { id: 'mmj_02_sekai', name: 'セカイver', type: 'sekai', singers: ['minori', 'haruka', 'airi', 'shizuku', 'miku'] },
       { id: 'mmj_02_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['miku', 'rin', 'luka', 'meiko'] },
-      { id: 'mmj_02_av1', name: 'アナザーボーカルver (みのり)', type: 'another_vocal', singers: ['minori'] },
-      { id: 'mmj_02_av2', name: 'アナザーボーカルver (遥)', type: 'another_vocal', singers: ['haruka'] },
+      { id: 'mmj_02_av1', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['minori'] },
+      { id: 'mmj_02_av2', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['haruka'] },
     ],
   },
   {
@@ -181,8 +181,8 @@ export const MOCK_RECORDS: RecordItem[] = [
     vocalTracks: [
       { id: 'mmj_04_sekai', name: 'セカイver', type: 'sekai', singers: ['minori', 'haruka', 'airi', 'shizuku', 'miku'] },
       { id: 'mmj_04_cl', name: 'コネクトライブver', type: 'connect_live', singers: ['minori', 'haruka', 'airi', 'shizuku'] },
-      { id: 'mmj_04_av1', name: 'アナザーボーカルver (愛莉)', type: 'another_vocal', singers: ['airi'] },
-      { id: 'mmj_04_av2', name: 'アナザーボーカルver (雫)', type: 'another_vocal', singers: ['shizuku'] },
+      { id: 'mmj_04_av1', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['airi'] },
+      { id: 'mmj_04_av2', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['shizuku'] },
     ],
   },
 
@@ -200,7 +200,7 @@ export const MOCK_RECORDS: RecordItem[] = [
       { id: 'vbs_01_sekai', name: 'セカイver', type: 'sekai', singers: ['kohane', 'an', 'akito', 'toya', 'miku'] },
       { id: 'vbs_01_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['miku'] },
       { id: 'vbs_01_cl', name: 'コネクトライブver', type: 'connect_live', singers: ['kohane', 'an', 'akito', 'toya'] },
-      { id: 'vbs_01_av1', name: 'アナザーボーカルver (こはね & 杏)', type: 'another_vocal', singers: ['kohane', 'an'] },
+      { id: 'vbs_01_av1', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['kohane', 'an'] },
     ],
   },
   {
@@ -214,8 +214,8 @@ export const MOCK_RECORDS: RecordItem[] = [
     characters: ['akito', 'toya'],
     vocalTracks: [
       { id: 'vbs_02_sekai', name: 'セカイver', type: 'sekai', singers: ['akito', 'toya'] },
-      { id: 'vbs_02_av1', name: 'アナザーボーカルver (彰人)', type: 'another_vocal', singers: ['akito'] },
-      { id: 'vbs_02_av2', name: 'アナザーボーカルver (冬弥)', type: 'another_vocal', singers: ['toya'] },
+      { id: 'vbs_02_av1', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['akito'] },
+      { id: 'vbs_02_av2', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['toya'] },
     ],
   },
   {
@@ -230,7 +230,7 @@ export const MOCK_RECORDS: RecordItem[] = [
     vocalTracks: [
       { id: 'vbs_03_sekai', name: 'セカイver', type: 'sekai', singers: ['kohane', 'an', 'rin', 'len'] },
       { id: 'vbs_03_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['rin', 'len'] },
-      { id: 'vbs_03_av1', name: 'アナザーボーカルver (こはね & 杏)', type: 'another_vocal', singers: ['kohane', 'an'] },
+      { id: 'vbs_03_av1', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['kohane', 'an'] },
     ],
   },
   {
@@ -245,7 +245,7 @@ export const MOCK_RECORDS: RecordItem[] = [
     vocalTracks: [
       { id: 'vbs_04_sekai', name: 'セカイver', type: 'sekai', singers: ['kohane', 'an', 'akito', 'toya', 'kaito'] },
       { id: 'vbs_04_cl', name: 'コネクトライブver', type: 'connect_live', singers: ['kohane', 'an', 'akito', 'toya'] },
-      { id: 'vbs_04_av1', name: 'アナザーボーカルver (彰人)', type: 'another_vocal', singers: ['akito'] },
+      { id: 'vbs_04_av1', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['akito'] },
     ],
   },
 
@@ -263,7 +263,7 @@ export const MOCK_RECORDS: RecordItem[] = [
       { id: 'ws_01_sekai', name: 'セカイver', type: 'sekai', singers: ['tsukasa', 'emu', 'nene', 'rui', 'miku'] },
       { id: 'ws_01_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['miku'] },
       { id: 'ws_01_cl', name: 'コネクトライブver', type: 'connect_live', singers: ['tsukasa', 'emu', 'nene', 'rui'] },
-      { id: 'ws_01_av1', name: 'アナザーボーカルver (司 & えむ)', type: 'another_vocal', singers: ['tsukasa', 'emu'] },
+      { id: 'ws_01_av1', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['tsukasa', 'emu'] },
     ],
   },
   {
@@ -278,7 +278,7 @@ export const MOCK_RECORDS: RecordItem[] = [
     vocalTracks: [
       { id: 'ws_02_sekai', name: 'セカイver', type: 'sekai', singers: ['tsukasa', 'rui', 'len'] },
       { id: 'ws_02_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['len'] },
-      { id: 'ws_02_av1', name: 'アナザーボーカルver (類)', type: 'another_vocal', singers: ['rui'] },
+      { id: 'ws_02_av1', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['rui'] },
     ],
   },
   {
@@ -306,8 +306,8 @@ export const MOCK_RECORDS: RecordItem[] = [
     vocalTracks: [
       { id: 'ws_04_sekai', name: 'セカイver', type: 'sekai', singers: ['tsukasa', 'emu', 'nene', 'rui', 'kaito'] },
       { id: 'ws_04_cl', name: 'コネクトライブver', type: 'connect_live', singers: ['tsukasa', 'emu', 'nene', 'rui'] },
-      { id: 'ws_04_av1', name: 'アナザーボーカルver (寧々)', type: 'another_vocal', singers: ['nene'] },
-      { id: 'ws_04_av2', name: 'アナザーボーカルver (えむ)', type: 'another_vocal', singers: ['emu'] },
+      { id: 'ws_04_av1', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['nene'] },
+      { id: 'ws_04_av2', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['emu'] },
     ],
   },
 
@@ -325,7 +325,7 @@ export const MOCK_RECORDS: RecordItem[] = [
       { id: '25_01_sekai', name: 'セカイver', type: 'sekai', singers: ['kanade', 'mafuyu', 'ena', 'mizuki', 'miku'] },
       { id: '25_01_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['miku'] },
       { id: '25_01_cl', name: 'コネクトライブver', type: 'connect_live', singers: ['kanade', 'mafuyu', 'ena', 'mizuki'] },
-      { id: '25_01_av1', name: 'アナザーボーカルver (奏)', type: 'another_vocal', singers: ['kanade'] },
+      { id: '25_01_av1', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['kanade'] },
     ],
   },
   {
@@ -340,7 +340,7 @@ export const MOCK_RECORDS: RecordItem[] = [
     vocalTracks: [
       { id: '25_02_sekai', name: 'セカイver', type: 'sekai', singers: ['kanade', 'mafuyu', 'miku'] },
       { id: '25_02_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['miku'] },
-      { id: '25_02_av1', name: 'アナザーボーカルver (まふゆ)', type: 'another_vocal', singers: ['mafuyu'] },
+      { id: '25_02_av1', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['mafuyu'] },
     ],
   },
   {
@@ -354,7 +354,7 @@ export const MOCK_RECORDS: RecordItem[] = [
     characters: ['ena', 'mizuki'],
     vocalTracks: [
       { id: '25_03_sekai', name: 'セカイver', type: 'sekai', singers: ['ena', 'mizuki'] },
-      { id: '25_03_av1', name: 'アナザーボーカルver (絵名 & 瑞希)', type: 'another_vocal', singers: ['ena', 'mizuki'] },
+      { id: '25_03_av1', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['ena', 'mizuki'] },
     ],
   },
   {
@@ -369,8 +369,8 @@ export const MOCK_RECORDS: RecordItem[] = [
     vocalTracks: [
       { id: '25_04_sekai', name: 'セカイver', type: 'sekai', singers: ['kanade', 'mafuyu', 'ena', 'mizuki', 'meiko'] },
       { id: '25_04_cl', name: 'コネクトライブver', type: 'connect_live', singers: ['kanade', 'mafuyu', 'ena', 'mizuki'] },
-      { id: '25_04_av1', name: 'アナザーボーカルver (絵名)', type: 'another_vocal', singers: ['ena'] },
-      { id: '25_04_av2', name: 'アナザーボーカルver (瑞希)', type: 'another_vocal', singers: ['mizuki'] },
+      { id: '25_04_av1', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['ena'] },
+      { id: '25_04_av2', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['mizuki'] },
     ],
   },
 

@@ -393,104 +393,150 @@ export const ListView: React.FC<ListViewProps> = ({
                   {displaySettings.showVocalBadges && (() => {
                     const vsMeta = UNIT_METAS.virtual_singer;
 
-                    // アナザーボーカルの歌唱者取得
-                    const anotherTracks = record.vocalTracks?.filter((t) => t.type === 'another_vocal') || [];
-                    const anotherSingers = Array.from(
-                      new Set(anotherTracks.flatMap((t) => t.singers))
-                    )
-                      .map((id) => CHARACTERS.find((c) => c.id === id))
-                      .filter(Boolean);
+                    // 複数歌唱者の滑らかなグラデーション背景スタイル生成
+                    const getAnotherVocalStyle = (singers: typeof CHARACTERS) => {
+                      if (singers.length >= 2) {
+                        const stops = singers
+                          .map((c, i) => {
+                            const pct = Math.round((i / (singers.length - 1)) * 100);
+                            return `${c.color}35 ${pct}%`;
+                          })
+                          .join(', ');
+                        return {
+                          background: `linear-gradient(135deg, ${stops})`,
+                          borderColor: `${singers[0].color}66`,
+                          color: '#1e293b',
+                        };
+                      } else if (singers.length === 1) {
+                        const c1 = singers[0];
+                        return {
+                          backgroundColor: `${c1.color}20`,
+                          borderColor: `${c1.color}66`,
+                          color: '#1e293b',
+                        };
+                      }
+                      return {
+                        backgroundColor: '#fffbeb',
+                        borderColor: '#fde68a',
+                        color: '#b45309',
+                      };
+                    };
+
+                    const tracks = record.vocalTracks || [];
 
                     return (
                       <div className="flex flex-wrap gap-1 mt-1 text-[10px]">
-                        {/* セカイver: 楽曲のユニット色に合わせる */}
-                        {record.vocalVersions.sekai && (
-                          <span
-                            className="px-1.5 py-0.5 rounded-md font-bold border transition-colors"
-                            style={{
-                              backgroundColor: unitMeta.bgColor,
-                              borderColor: unitMeta.borderColor,
-                              color: unitMeta.themeColor,
-                            }}
-                          >
-                            セカイ
-                          </span>
-                        )}
-
-                        {/* バチャシンver: バーチャル・シンガーユニット色に合わせる（名称も「バチャシン」） */}
-                        {record.vocalVersions.virtualSinger && (
-                          <span
-                            className="px-1.5 py-0.5 rounded-md font-bold border transition-colors"
-                            style={{
-                              backgroundColor: vsMeta.bgColor,
-                              borderColor: vsMeta.borderColor,
-                              color: vsMeta.themeColor,
-                            }}
-                          >
-                            バチャシン
-                          </span>
-                        )}
-
-                        {/* コネクトライブver */}
-                        {record.vocalVersions.connectLive && (
-                          <span className="px-1.5 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-200/60 font-bold">
-                            コネライ
-                          </span>
-                        )}
-
-                        {/* アナザーボーカルver: キャラクター色連動（1人は単色、2人は2色スプリット背景） */}
-                        {record.vocalVersions.anotherVocal && (() => {
-                          if (anotherSingers.length >= 2) {
-                            const c1 = anotherSingers[0]!;
-                            const c2 = anotherSingers[1]!;
-                            return (
-                              <span
-                                className="px-1.5 py-0.5 rounded-md font-bold border flex items-center gap-1 shadow-2xs"
-                                style={{
-                                  background: `linear-gradient(to right, ${c1.color}25 50%, ${c2.color}25 50%)`,
-                                  borderColor: `${c1.color}66`,
-                                  color: '#1e293b',
-                                }}
-                              >
-                                <span className="flex items-center -space-x-1">
-                                  <span
-                                    className="w-1.5 h-1.5 rounded-full ring-1 ring-white"
-                                    style={{ backgroundColor: c1.color }}
-                                  />
-                                  <span
-                                    className="w-1.5 h-1.5 rounded-full ring-1 ring-white"
-                                    style={{ backgroundColor: c2.color }}
-                                  />
-                                </span>
-                                <span>アナボ</span>
-                              </span>
-                            );
-                          } else if (anotherSingers.length === 1) {
-                            const c1 = anotherSingers[0]!;
-                            return (
-                              <span
-                                className="px-1.5 py-0.5 rounded-md font-bold border flex items-center gap-1 shadow-2xs"
-                                style={{
-                                  backgroundColor: `${c1.color}20`,
-                                  borderColor: `${c1.color}66`,
-                                  color: '#1e293b',
-                                }}
-                              >
+                        {tracks.length > 0 ? (
+                          // トラック情報が存在する場合はトラックごとに個別にバッジを表示（同一ver複数トラックにも対応）
+                          tracks.map((track) => {
+                            if (track.type === 'sekai') {
+                              return (
                                 <span
-                                  className="w-1.5 h-1.5 rounded-full"
-                                  style={{ backgroundColor: c1.color }}
-                                />
-                                <span>アナボ</span>
+                                  key={track.id}
+                                  className="px-1.5 py-0.5 rounded-md font-bold border transition-colors shadow-2xs"
+                                  style={{
+                                    backgroundColor: unitMeta.bgColor,
+                                    borderColor: unitMeta.borderColor,
+                                    color: unitMeta.themeColor,
+                                  }}
+                                >
+                                  セカイ
+                                </span>
+                              );
+                            }
+                            if (track.type === 'virtual_singer') {
+                              return (
+                                <span
+                                  key={track.id}
+                                  className="px-1.5 py-0.5 rounded-md font-bold border transition-colors shadow-2xs"
+                                  style={{
+                                    backgroundColor: vsMeta.bgColor,
+                                    borderColor: vsMeta.borderColor,
+                                    color: vsMeta.themeColor,
+                                  }}
+                                >
+                                  バチャシン
+                                </span>
+                              );
+                            }
+                            if (track.type === 'connect_live') {
+                              return (
+                                <span
+                                  key={track.id}
+                                  className="px-1.5 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-200/60 font-bold shadow-2xs"
+                                >
+                                  コネライ
+                                </span>
+                              );
+                            }
+                            if (track.type === 'another_vocal') {
+                              const trackSingers = track.singers
+                                .map((id) => CHARACTERS.find((c) => c.id === id))
+                                .filter((c): c is typeof CHARACTERS[number] => Boolean(c));
+                              const badgeStyle = getAnotherVocalStyle(trackSingers);
+
+                              return (
+                                <span
+                                  key={track.id}
+                                  className="px-1.5 py-0.5 rounded-md font-bold border flex items-center gap-1 shadow-2xs transition-all"
+                                  style={badgeStyle}
+                                >
+                                  {trackSingers.length > 0 && (
+                                    <span className="flex items-center -space-x-1">
+                                      {trackSingers.map((s) => (
+                                        <span
+                                          key={s.id}
+                                          className="w-1.5 h-1.5 rounded-full ring-1 ring-white"
+                                          style={{ backgroundColor: s.color }}
+                                        />
+                                      ))}
+                                    </span>
+                                  )}
+                                  <span>アナボ</span>
+                                </span>
+                              );
+                            }
+                            return null;
+                          })
+                        ) : (
+                          // トラック情報がない場合のフォールバック（旧フラグベース）
+                          <>
+                            {record.vocalVersions.sekai && (
+                              <span
+                                className="px-1.5 py-0.5 rounded-md font-bold border transition-colors shadow-2xs"
+                                style={{
+                                  backgroundColor: unitMeta.bgColor,
+                                  borderColor: unitMeta.borderColor,
+                                  color: unitMeta.themeColor,
+                                }}
+                              >
+                                セカイ
                               </span>
-                            );
-                          } else {
-                            return (
-                              <span className="px-1.5 py-0.5 rounded-md bg-amber-50 text-amber-700 border border-amber-200/60 font-bold">
+                            )}
+                            {record.vocalVersions.virtualSinger && (
+                              <span
+                                className="px-1.5 py-0.5 rounded-md font-bold border transition-colors shadow-2xs"
+                                style={{
+                                  backgroundColor: vsMeta.bgColor,
+                                  borderColor: vsMeta.borderColor,
+                                  color: vsMeta.themeColor,
+                                }}
+                              >
+                                バチャシン
+                              </span>
+                            )}
+                            {record.vocalVersions.connectLive && (
+                              <span className="px-1.5 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-200/60 font-bold shadow-2xs">
+                                コネライ
+                              </span>
+                            )}
+                            {record.vocalVersions.anotherVocal && (
+                              <span className="px-1.5 py-0.5 rounded-md bg-amber-50 text-amber-700 border border-amber-200/60 font-bold shadow-2xs">
                                 アナボ
                               </span>
-                            );
-                          }
-                        })()}
+                            )}
+                          </>
+                        )}
                       </div>
                     );
                   })()}

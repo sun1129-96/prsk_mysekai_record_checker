@@ -123,6 +123,12 @@ export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
                     .map((id) => CHARACTERS.find((c) => c.id === id))
                     .filter(Boolean);
 
+                  // アナザーボーカルverの場合はタイトルに(キャラ名)を表示しない
+                  const displayTrackName =
+                    track.type === 'another_vocal'
+                      ? track.name.replace(/\s*\([^)]*\)/g, '').trim() || 'アナザーボーカルver'
+                      : track.name;
+
                   return (
                     <div
                       key={track.id}
@@ -130,7 +136,7 @@ export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
                     >
                       <div className="flex items-center justify-between">
                         <span className="font-bold text-slate-800 text-xs">
-                          {track.name}
+                          {displayTrackName}
                         </span>
                         <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                       </div>
