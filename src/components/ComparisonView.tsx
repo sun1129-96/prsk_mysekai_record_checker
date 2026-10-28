@@ -51,6 +51,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
         themeColor: meta.themeColor,
         bgColor: meta.bgColor,
         borderColor: meta.borderColor,
+        iconUrl: meta.iconUrl,
         total,
         owned,
         percentage,
@@ -160,6 +161,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
         key: unitKey,
         name: meta.name,
         themeColor: meta.themeColor,
+        iconUrl: meta.iconUrl,
         total,
         owned,
         percentage,
@@ -326,10 +328,18 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                             : 'bg-white/50 border-slate-200/60 text-slate-400 opacity-60'
                         }`}
                       >
-                        <div
-                          className="w-2.5 h-2.5 rounded-full"
-                          style={{ backgroundColor: meta.themeColor }}
-                        />
+                        {meta.iconUrl ? (
+                          <img
+                            src={meta.iconUrl}
+                            alt={meta.shortName}
+                            className="w-3.5 h-3.5 object-contain shrink-0 drop-shadow-2xs"
+                          />
+                        ) : (
+                          <div
+                            className="w-2.5 h-2.5 rounded-full border border-slate-300/80 shadow-2xs"
+                            style={{ backgroundColor: meta.themeColor }}
+                          />
+                        )}
                         <span>{meta.shortName}</span>
                       </button>
                     );
@@ -358,10 +368,18 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
               >
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
-                    <div
-                      className="w-3.5 h-3.5 rounded-full"
-                      style={{ backgroundColor: item.themeColor }}
-                    />
+                    {'iconUrl' in item && item.iconUrl ? (
+                      <img
+                        src={item.iconUrl as string}
+                        alt={item.name}
+                        className="w-4 h-4 object-contain shrink-0 drop-shadow-2xs"
+                      />
+                    ) : (
+                      <div
+                        className="w-3.5 h-3.5 rounded-full border border-slate-300/80 shadow-2xs"
+                        style={{ backgroundColor: item.themeColor }}
+                      />
+                    )}
                     <span className="font-bold text-xs sm:text-sm text-slate-800">
                       {item.name}
                     </span>
@@ -376,7 +394,10 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                   <div className="flex items-baseline gap-1.5 font-bold">
                     <span
                       className="text-base sm:text-lg"
-                      style={{ color: item.themeColor }}
+                      style={{
+                        color:
+                          item.themeColor === '#FFFFFF' ? '#475569' : item.themeColor,
+                      }}
                     >
                       {item.percentage.toFixed(1)}%
                     </span>
@@ -392,7 +413,8 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                     className="h-full rounded-full transition-all duration-500"
                     style={{
                       width: `${item.percentage}%`,
-                      backgroundColor: item.themeColor,
+                      backgroundColor:
+                        item.themeColor === '#FFFFFF' ? '#94a3b8' : item.themeColor,
                     }}
                   />
                 </div>

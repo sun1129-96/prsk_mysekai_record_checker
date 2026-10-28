@@ -20,56 +20,70 @@ export interface UnitMeta {
   themeColor: string;
   bgColor: string;
   borderColor: string;
+  textColor?: string;
+  iconUrl?: string;
 }
 
 export const UNIT_METAS: Record<UnitType, UnitMeta> = {
   virtual_singer: {
     id: 'virtual_singer',
-    name: 'バーチャル・シンガー',
+    name: 'VIRTUAL SINGER',
     shortName: 'バチャシン',
-    themeColor: '#33ccbb',
-    bgColor: '#ecfdf5',
-    borderColor: '#a7f3d0',
+    themeColor: '#FFFFFF',
+    bgColor: '#ffffff',
+    borderColor: '#cbd5e1',
+    textColor: '#334155',
+    iconUrl: '/assets/units/virtual_singer.svg',
   },
   leo_need: {
     id: 'leo_need',
     name: 'Leo/need',
     shortName: 'レオニ',
-    themeColor: '#3b82f6',
-    bgColor: '#eff6ff',
-    borderColor: '#bfdbfe',
+    themeColor: '#4455DD',
+    bgColor: '#eef2ff',
+    borderColor: '#c7d2fe',
+    textColor: '#4455DD',
+    iconUrl: '/assets/units/leo_need.svg',
   },
   more_more_jump: {
     id: 'more_more_jump',
     name: 'MORE MORE JUMP!',
     shortName: 'モモジャン',
-    themeColor: '#84cc16',
+    themeColor: '#88DD44',
     bgColor: '#f7fee7',
-    borderColor: '#d9f99d',
+    borderColor: '#bef264',
+    textColor: '#4d7c0f',
+    iconUrl: '/assets/units/more_more_jump.svg',
   },
   vivid_bad_squad: {
     id: 'vivid_bad_squad',
     name: 'Vivid BAD SQUAD',
     shortName: 'ビビバス',
-    themeColor: '#f43f5e',
+    themeColor: '#EE1166',
     bgColor: '#fff1f2',
     borderColor: '#fecdd3',
+    textColor: '#EE1166',
+    iconUrl: '/assets/units/vivid_bad_squad.svg',
   },
   wonderlands_showtime: {
     id: 'wonderlands_showtime',
     name: 'ワンダーランズ×ショウタイム',
     shortName: 'ワンダショ',
-    themeColor: '#f97316',
+    themeColor: '#FF9900',
     bgColor: '#fff7ed',
     borderColor: '#fed7aa',
+    textColor: '#ea580c',
+    iconUrl: '/assets/units/wonderlands_showtime.svg',
   },
   nightcord_at_25: {
     id: 'nightcord_at_25',
     name: '25時、ナイトコードで。',
     shortName: 'ニーゴ',
-    themeColor: '#a855f7',
+    themeColor: '#884499',
     bgColor: '#faf5ff',
     borderColor: '#e9d5ff',
+    textColor: '#884499',
+    iconUrl: '/assets/units/nightcord_at_25.svg',
   },
   other: {
     id: 'other',
@@ -78,6 +92,7 @@ export const UNIT_METAS: Record<UnitType, UnitMeta> = {
     themeColor: '#64748b',
     bgColor: '#f8fafc',
     borderColor: '#cbd5e1',
+    textColor: '#64748b',
   },
 };
 
@@ -93,42 +108,42 @@ export interface CharacterMeta {
 
 export const CHARACTERS: CharacterMeta[] = [
   // バーチャル・シンガー
-  { id: 'miku', name: '初音ミク', unit: 'virtual_singer', color: '#33ccbb' },
-  { id: 'rin', name: '鏡音リン', unit: 'virtual_singer', color: '#ffcc11' },
-  { id: 'len', name: '鏡音レン', unit: 'virtual_singer', color: '#ffee11' },
-  { id: 'luka', name: '巡音ルカ', unit: 'virtual_singer', color: '#ffbbcc' },
-  { id: 'meiko', name: 'MEIKO', unit: 'virtual_singer', color: '#dd4444' },
-  { id: 'kaito', name: 'KAITO', unit: 'virtual_singer', color: '#3366cc' },
+  { id: 'miku', name: '初音ミク', unit: 'virtual_singer', color: '#33CCBB' },
+  { id: 'rin', name: '鏡音リン', unit: 'virtual_singer', color: '#FFCC11' },
+  { id: 'len', name: '鏡音レン', unit: 'virtual_singer', color: '#FFEE11' },
+  { id: 'luka', name: '巡音ルカ', unit: 'virtual_singer', color: '#FFBBCC' },
+  { id: 'meiko', name: 'MEIKO', unit: 'virtual_singer', color: '#DD4444' },
+  { id: 'kaito', name: 'KAITO', unit: 'virtual_singer', color: '#3366CC' },
 
   // Leo/need
-  { id: 'ichika', name: '星乃一歌', unit: 'leo_need', color: '#33aaee' },
-  { id: 'saki', name: '天馬咲希', unit: 'leo_need', color: '#f5b026' },
-  { id: 'honami', name: '望月穂波', unit: 'leo_need', color: '#ee6666' },
-  { id: 'shiho', name: '日野森志歩', unit: 'leo_need', color: '#99cc66' },
+  { id: 'ichika', name: '星乃一歌', unit: 'leo_need', color: '#33AAEE' },
+  { id: 'saki', name: '天馬咲希', unit: 'leo_need', color: '#FFDD44' },
+  { id: 'honami', name: '望月穂波', unit: 'leo_need', color: '#FF6666' },
+  { id: 'shiho', name: '日野森志歩', unit: 'leo_need', color: '#BBDD22' },
 
   // MORE MORE JUMP!
-  { id: 'minori', name: '花里みのり', unit: 'more_more_jump', color: '#ff9999' },
-  { id: 'haruka', name: '桐谷遥', unit: 'more_more_jump', color: '#6699ee' },
-  { id: 'airi', name: '桃井愛莉', unit: 'more_more_jump', color: '#ff77aa' },
-  { id: 'shizuku', name: '日野森雫', unit: 'more_more_jump', color: '#99eedd' },
+  { id: 'minori', name: '花里みのり', unit: 'more_more_jump', color: '#FFCCAA' },
+  { id: 'haruka', name: '桐谷遥', unit: 'more_more_jump', color: '#99CCFF' },
+  { id: 'airi', name: '桃井愛莉', unit: 'more_more_jump', color: '#FFAACC' },
+  { id: 'shizuku', name: '日野森雫', unit: 'more_more_jump', color: '#99EEDD' },
 
   // Vivid BAD SQUAD
-  { id: 'kohane', name: '小豆沢こはね', unit: 'vivid_bad_squad', color: '#ff6699' },
-  { id: 'an', name: '白石杏', unit: 'vivid_bad_squad', color: '#00bbdd' },
-  { id: 'akito', name: '東雲彰人', unit: 'vivid_bad_squad', color: '#ff7722' },
-  { id: 'toya', name: '青柳冬弥', unit: 'vivid_bad_squad', color: '#0077dd' },
+  { id: 'kohane', name: '小豆沢こはね', unit: 'vivid_bad_squad', color: '#FF6699' },
+  { id: 'an', name: '白石杏', unit: 'vivid_bad_squad', color: '#00BBDD' },
+  { id: 'akito', name: '東雲彰人', unit: 'vivid_bad_squad', color: '#FF7722' },
+  { id: 'toya', name: '青柳冬弥', unit: 'vivid_bad_squad', color: '#0077DD' },
 
   // ワンダーランズ×ショウタイム
-  { id: 'tsukasa', name: '天馬司', unit: 'wonderlands_showtime', color: '#ffbb00' },
-  { id: 'emu', name: '鳳えむ', unit: 'wonderlands_showtime', color: '#ff66bb' },
-  { id: 'nene', name: '草薙寧々', unit: 'wonderlands_showtime', color: '#33dd99' },
-  { id: 'rui', name: '神代類', unit: 'wonderlands_showtime', color: '#aa44bb' },
+  { id: 'tsukasa', name: '天馬司', unit: 'wonderlands_showtime', color: '#FFBB00' },
+  { id: 'emu', name: '鳳えむ', unit: 'wonderlands_showtime', color: '#FF66BB' },
+  { id: 'nene', name: '草薙寧々', unit: 'wonderlands_showtime', color: '#33DD99' },
+  { id: 'rui', name: '神代類', unit: 'wonderlands_showtime', color: '#BB88EE' },
 
   // 25時、ナイトコードで。
-  { id: 'kanade', name: '宵崎奏', unit: 'nightcord_at_25', color: '#bb6688' },
-  { id: 'mafuyu', name: '朝比奈まふゆ', unit: 'nightcord_at_25', color: '#7777aa' },
-  { id: 'ena', name: '東雲絵名', unit: 'nightcord_at_25', color: '#cc8844' },
-  { id: 'mizuki', name: '暁山瑞希', unit: 'nightcord_at_25', color: '#dd88aa' },
+  { id: 'kanade', name: '宵崎奏', unit: 'nightcord_at_25', color: '#BB6688' },
+  { id: 'mafuyu', name: '朝比奈まふゆ', unit: 'nightcord_at_25', color: '#8888CC' },
+  { id: 'ena', name: '東雲絵名', unit: 'nightcord_at_25', color: '#CCAA88' },
+  { id: 'mizuki', name: '暁山瑞希', unit: 'nightcord_at_25', color: '#DDAACC' },
 
   // その他バーチャル・シンガー / VOCALOID・音声合成
   { id: 'gumi', name: 'GUMI', unit: 'virtual_singer', color: '#74d32e' },

@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import type {
   RecordItem,
+  UnitType,
   SortType,
   SortDirection,
   FilterOptions,
@@ -67,6 +68,14 @@ export const ListView: React.FC<ListViewProps> = ({
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
   const [isDisplayModalOpen, setIsDisplayModalOpen] = useState(false);
   const [selectedRecordForDetail, setSelectedRecordForDetail] = useState<RecordItem | null>(null);
+  const [selectedTrackIdForDetail, setSelectedTrackIdForDetail] = useState<string | null>(null);
+
+  // 歌唱バージョンバッジをクリックした際にそのトラックを指定して詳細を開く
+  const handleBadgeClick = (record: RecordItem, trackId: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setSelectedRecordForDetail(record);
+    setSelectedTrackIdForDetail(trackId);
+  };
 
   // フィルタリング & ソート処理
   const filteredAndSortedRecords = useMemo(() => {
@@ -131,6 +140,7 @@ export const ListView: React.FC<ListViewProps> = ({
     if (tapMode === 'quick_check') {
       onToggleOwned(record.id);
     } else {
+      setSelectedTrackIdForDetail(null);
       setSelectedRecordForDetail(record);
     }
   };
@@ -341,19 +351,22 @@ export const ListView: React.FC<ListViewProps> = ({
                         }}
                       />
                     ) : (
-                      <Music className="w-5 h-5" style={{ color: unitMeta.themeColor }} />
+                      <Music className="w-5 h-5" style={{ color: unitMeta.textColor || unitMeta.themeColor }} />
                     )}
                   </div>
                 )}
 
                 {/* 曲情報 */}
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1 flex-wrap">
+                  <div className="flex items-center gap-1.5 mb-1 flex-wrap">
+                    <span className="text-[10px] font-bold text-slate-400 shrink-0">
+                      ユニット
+                    </span>
                     <span
                       className="px-2 py-0.5 rounded-md text-[10px] font-bold shrink-0 truncate max-w-[120px]"
                       style={{
                         backgroundColor: unitMeta.bgColor,
-                        color: unitMeta.themeColor,
+                        color: unitMeta.textColor || unitMeta.themeColor,
                         border: `1px solid ${unitMeta.borderColor}`,
                       }}
                     >
@@ -361,7 +374,7 @@ export const ListView: React.FC<ListViewProps> = ({
                     </span>
 
                     {displaySettings.showReleaseDate && (
-                      <span className="text-[11px] text-slate-400 flex items-center gap-1 shrink-0">
+                      <span className="text-[11px] text-slate-400 flex items-center gap-1 shrink-0 ml-1">
                         <Calendar className="w-3 h-3" />
                         {record.releaseDate}
                       </span>
@@ -382,13 +395,25 @@ export const ListView: React.FC<ListViewProps> = ({
                     const vsMeta = UNIT_METAS.virtual_singer;
 
                     // 歌唱者の境界のみグラデーションする背景スタイル生成（元の色を分かりやすく保持）
-                    const getAnotherVocalStyle = (singers: typeof CHARACTERS) => {
+                    // 枠線は歌唱キャラクターの所属ユニットカラーを設定
+                    const getAnotherVocalStyle = (singers: typeof CHARACTERS, fallbackUnit?: UnitType) => {
+                      const getUnitBorderColor = () => {
+                        const unitKey = singers[0]?.unit || fallbackUnit;
+                        if (!unitKey) return '#cbd5e1';
+                        if (unitKey === 'virtual_singer') {
+                          return '#94a3b8'; // VIRTUAL SINGER(#FFFFFF)は白背景での視認性維持のためスレート枠線
+                        }
+                        return UNIT_METAS[unitKey]?.themeColor || '#cbd5e1';
+                      };
+
+                      const borderColor = getUnitBorderColor();
+
                       if (singers.length === 2) {
                         const c1 = singers[0];
                         const c2 = singers[1];
                         return {
                           background: `linear-gradient(105deg, ${c1.color}3d 0%, ${c1.color}3d 40%, ${c2.color}3d 60%, ${c2.color}3d 100%)`,
-                          borderColor: `${c1.color}77`,
+                          borderColor,
                           color: '#1e293b',
                         };
                       } else if (singers.length > 2) {
@@ -404,20 +429,20 @@ export const ListView: React.FC<ListViewProps> = ({
                         });
                         return {
                           background: `linear-gradient(105deg, ${stops.join(', ')})`,
-                          borderColor: `${singers[0].color}77`,
+                          borderColor,
                           color: '#1e293b',
                         };
                       } else if (singers.length === 1) {
                         const c1 = singers[0];
                         return {
                           backgroundColor: `${c1.color}28`,
-                          borderColor: `${c1.color}77`,
+                          borderColor,
                           color: '#1e293b',
                         };
                       }
                       return {
                         backgroundColor: '#fffbeb',
-                        borderColor: '#fde68a',
+                        borderColor,
                         color: '#b45309',
                       };
                     };
@@ -425,74 +450,121 @@ export const ListView: React.FC<ListViewProps> = ({
                     const tracks = record.vocalTracks || [];
 
                     return (
-                      <div className="flex flex-wrap gap-1 mt-1 text-[10px]">
+                      <div className="flex flex-wrap items-center gap-1 mt-1 text-[10px]">
+                        <span className="text-[10px] font-bold text-slate-400 shrink-0 mr-0.5">
+                          歌唱ver
+                        </span>
                         {tracks.length > 0 ? (
                           // トラック情報が存在する場合はトラックごとに個別にバッジを表示（同一ver複数トラックにも対応）
                           tracks.map((track) => {
                             if (track.type === 'sekai') {
                               return (
-                                <span
+                                <button
+                                  type="button"
                                   key={track.id}
-                                  className="px-1.5 py-0.5 rounded-md font-bold border transition-colors shadow-2xs"
+                                  onClick={(e) => handleBadgeClick(record, track.id, e)}
+                                  className="px-1.5 py-0.5 rounded-md font-bold border transition-all shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
                                   style={{
                                     backgroundColor: unitMeta.bgColor,
                                     borderColor: unitMeta.borderColor,
-                                    color: unitMeta.themeColor,
+                                    color: unitMeta.textColor || unitMeta.themeColor,
                                   }}
+                                  title={`${track.name} を詳細表示`}
                                 >
                                   セカイ
-                                </span>
+                                </button>
                               );
                             }
                             if (track.type === 'virtual_singer') {
                               return (
-                                <span
+                                <button
+                                  type="button"
                                   key={track.id}
-                                  className="px-1.5 py-0.5 rounded-md font-bold border transition-colors shadow-2xs"
+                                  onClick={(e) => handleBadgeClick(record, track.id, e)}
+                                  className="px-1.5 py-0.5 rounded-md font-bold border transition-all shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
                                   style={{
                                     backgroundColor: vsMeta.bgColor,
                                     borderColor: vsMeta.borderColor,
-                                    color: vsMeta.themeColor,
+                                    color: vsMeta.textColor || vsMeta.themeColor,
                                   }}
+                                  title={`${track.name} を詳細表示`}
                                 >
                                   バチャシン
-                                </span>
+                                </button>
                               );
                             }
                             if (track.type === 'connect_live') {
                               return (
-                                <span
+                                <button
+                                  type="button"
                                   key={track.id}
-                                  className="px-1.5 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-200/60 font-bold shadow-2xs"
+                                  onClick={(e) => handleBadgeClick(record, track.id, e)}
+                                  className="px-1.5 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-200/60 font-bold shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
+                                  title={`${track.name} を詳細表示`}
                                 >
                                   コネライ
-                                </span>
+                                </button>
                               );
                             }
                             if (track.type === 'another_vocal') {
                               const trackSingers = track.singers
                                 .map((id) => CHARACTERS.find((c) => c.id === id))
                                 .filter((c): c is typeof CHARACTERS[number] => Boolean(c));
-                              const badgeStyle = getAnotherVocalStyle(trackSingers);
+                              const badgeStyle = getAnotherVocalStyle(trackSingers, record.unit);
+
+                              // 歌唱キャラクターの所属ユニットを取得（重複排除）
+                              const singerUnits = Array.from(
+                                new Set(trackSingers.map((s) => s.unit).filter(Boolean))
+                              );
+                              if (singerUnits.length === 0 && record.unit) {
+                                singerUnits.push(record.unit);
+                              }
 
                               return (
-                                <span
+                                <button
+                                  type="button"
                                   key={track.id}
-                                  className="px-1.5 py-0.5 rounded-md font-bold border transition-colors shadow-2xs"
+                                  onClick={(e) => handleBadgeClick(record, track.id, e)}
+                                  className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md font-bold border transition-all shadow-2xs text-[10px] cursor-pointer hover:opacity-80 active:scale-95"
                                   style={badgeStyle}
+                                  title={`${track.name} を詳細表示`}
                                 >
-                                  アナボ
-                                </span>
+                                  {/* ユニットのマーク（公式ユニットシンボルアイコン） */}
+                                  {singerUnits.map((uKey) => {
+                                    const uMeta = UNIT_METAS[uKey];
+                                    if (!uMeta) return null;
+                                    return uMeta.iconUrl ? (
+                                      <img
+                                        key={uKey}
+                                        src={uMeta.iconUrl}
+                                        alt={uMeta.name}
+                                        className="w-3.5 h-3.5 object-contain shrink-0 drop-shadow-2xs"
+                                        title={uMeta.name}
+                                      />
+                                    ) : (
+                                      <span
+                                        key={uKey}
+                                        className="w-2 h-2 rounded-full shrink-0 border border-black/20 shadow-2xs"
+                                        style={{ backgroundColor: uMeta.themeColor }}
+                                        title={uMeta.name}
+                                      />
+                                    );
+                                  })}
+                                  <span>アナボ</span>
+                                </button>
                               );
                             }
                             if (track.type === 'other') {
                               return (
-                                <span
+                                <button
+                                  type="button"
                                   key={track.id}
-                                  className="px-1.5 py-0.5 rounded-md bg-purple-50 text-purple-700 border border-purple-200/60 font-bold shadow-2xs"
+                                  onClick={(e) => handleBadgeClick(record, track.id, e)}
+                                  className="px-1.5 py-0.5 rounded-md bg-purple-50 text-purple-700 border border-purple-200/60 font-bold shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
+                                  title={`${track.name} を詳細表示`}
                                 >
                                   {track.name.includes('コラボ') ? 'コラボ' : 'その他'}
-                                </span>
+                                </button>
                               );
                             }
                             return null;
@@ -501,38 +573,50 @@ export const ListView: React.FC<ListViewProps> = ({
                           // トラック情報がない場合のフォールバック（旧フラグベース）
                           <>
                             {record.vocalVersions.sekai && (
-                              <span
-                                className="px-1.5 py-0.5 rounded-md font-bold border transition-colors shadow-2xs"
+                              <button
+                                type="button"
+                                onClick={(e) => handleBadgeClick(record, 'sekai', e)}
+                                className="px-1.5 py-0.5 rounded-md font-bold border transition-all shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
                                 style={{
                                   backgroundColor: unitMeta.bgColor,
                                   borderColor: unitMeta.borderColor,
-                                  color: unitMeta.themeColor,
+                                  color: unitMeta.textColor || unitMeta.themeColor,
                                 }}
                               >
                                 セカイ
-                              </span>
+                              </button>
                             )}
                             {record.vocalVersions.virtualSinger && (
-                              <span
-                                className="px-1.5 py-0.5 rounded-md font-bold border transition-colors shadow-2xs"
+                              <button
+                                type="button"
+                                onClick={(e) => handleBadgeClick(record, 'vs', e)}
+                                className="px-1.5 py-0.5 rounded-md font-bold border transition-all shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
                                 style={{
                                   backgroundColor: vsMeta.bgColor,
                                   borderColor: vsMeta.borderColor,
-                                  color: vsMeta.themeColor,
+                                  color: vsMeta.textColor || vsMeta.themeColor,
                                 }}
                               >
                                 バチャシン
-                              </span>
+                              </button>
                             )}
                             {record.vocalVersions.connectLive && (
-                              <span className="px-1.5 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-200/60 font-bold shadow-2xs">
+                              <button
+                                type="button"
+                                onClick={(e) => handleBadgeClick(record, 'cl', e)}
+                                className="px-1.5 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-200/60 font-bold shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
+                              >
                                 コネライ
-                              </span>
+                              </button>
                             )}
                             {record.vocalVersions.anotherVocal && (
-                              <span className="px-1.5 py-0.5 rounded-md bg-amber-50 text-amber-700 border border-amber-200/60 font-bold shadow-2xs">
+                              <button
+                                type="button"
+                                onClick={(e) => handleBadgeClick(record, 'av', e)}
+                                className="px-1.5 py-0.5 rounded-md bg-amber-50 text-amber-700 border border-amber-200/60 font-bold shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
+                              >
                                 アナボ
-                              </span>
+                              </button>
                             )}
                           </>
                         )}
@@ -578,9 +662,13 @@ export const ListView: React.FC<ListViewProps> = ({
       <RecordDetailModal
         record={selectedRecordForDetail}
         isOpen={!!selectedRecordForDetail}
-        onClose={() => setSelectedRecordForDetail(null)}
+        onClose={() => {
+          setSelectedRecordForDetail(null);
+          setSelectedTrackIdForDetail(null);
+        }}
         isOwned={selectedRecordForDetail ? !!ownedRecordIds[selectedRecordForDetail.id] : false}
         onToggleOwned={onToggleOwned}
+        initialTrackId={selectedTrackIdForDetail}
       />
     </div>
   );

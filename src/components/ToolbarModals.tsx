@@ -237,17 +237,27 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                     key={unitKey}
                     type="button"
                     onClick={() => handleUnitToggle(unitKey)}
-                    className={`flex items-center gap-2 px-3 py-2 rounded-xl border text-left text-xs font-medium transition-all ${
+                    className={`flex items-center gap-2 px-2.5 py-2 rounded-xl border text-left min-h-[42px] transition-all ${
                       isSelected
                         ? 'border-slate-400/80 bg-white shadow-2xs text-slate-800'
-                        : 'border-slate-200/70 bg-slate-50/60 text-slate-400 opacity-60'
+                        : 'border-slate-200/70 bg-slate-50/60 text-slate-400 opacity-60 hover:opacity-80'
                     }`}
                   >
-                    <div
-                      className="w-3 h-3 rounded-full shrink-0"
-                      style={{ backgroundColor: meta.themeColor }}
-                    />
-                    <span className="truncate flex-1">{meta.name}</span>
+                    {meta.iconUrl ? (
+                      <img
+                        src={meta.iconUrl}
+                        alt={meta.name}
+                        className="w-4 h-4 object-contain shrink-0 drop-shadow-2xs"
+                      />
+                    ) : (
+                      <div
+                        className="w-3.5 h-3.5 rounded-full shrink-0 border border-slate-300/80 shadow-2xs"
+                        style={{ backgroundColor: meta.themeColor }}
+                      />
+                    )}
+                    <span className="flex-1 text-[11px] sm:text-xs font-bold leading-tight break-words">
+                      {meta.name}
+                    </span>
                     {isSelected && <Check className="w-3.5 h-3.5 text-slate-600 shrink-0" />}
                   </button>
                 );
@@ -285,9 +295,21 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                   const unitMeta = UNIT_METAS[unitKey];
                   const unitChars = CHARACTERS.filter((c) => c.unit === unitKey);
                   return (
-                    <div key={unitKey} className="space-y-1">
-                      <div className="text-[10px] font-bold text-slate-400 px-1">
-                        {unitMeta.shortName}
+                    <div key={unitKey} className="space-y-1.5">
+                      <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-600 px-1 pt-1">
+                        {unitMeta.iconUrl ? (
+                          <img
+                            src={unitMeta.iconUrl}
+                            alt={unitMeta.name}
+                            className="w-3.5 h-3.5 object-contain shrink-0 drop-shadow-2xs"
+                          />
+                        ) : (
+                          <div
+                            className="w-2.5 h-2.5 rounded-full shrink-0 border border-slate-300"
+                            style={{ backgroundColor: unitMeta.themeColor }}
+                          />
+                        )}
+                        <span>{unitMeta.name}</span>
                       </div>
                       <div className="grid grid-cols-2 gap-1.5">
                         {unitChars.map((char) => {
@@ -304,7 +326,7 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                               }`}
                             >
                               <div
-                                className="w-2.5 h-2.5 rounded-full shrink-0"
+                                className="w-2.5 h-2.5 rounded-full shrink-0 border border-slate-300/80 shadow-2xs"
                                 style={{ backgroundColor: char.color }}
                               />
                               <span className="truncate flex-1">{char.name}</span>

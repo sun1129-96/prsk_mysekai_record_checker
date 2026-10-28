@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { X, Calendar, Hash, Music, Check } from 'lucide-react';
 import type { RecordItem } from '../types/record';
 import { UNIT_METAS, CHARACTERS } from '../types/record';
@@ -9,6 +9,7 @@ interface RecordDetailModalProps {
   onClose: () => void;
   isOwned: boolean;
   onToggleOwned: (id: string) => void;
+  initialTrackId?: string | null;
 }
 
 export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
@@ -17,7 +18,23 @@ export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
   onClose,
   isOwned,
   onToggleOwned,
+  initialTrackId,
 }) => {
+  const tracksListRef = useRef<HTMLDivElement>(null);
+
+  // 指定された歌唱verが見えるように自動スクロール
+  useEffect(() => {
+    if (isOpen && initialTrackId) {
+      const timer = setTimeout(() => {
+        const targetEl = document.getElementById(`modal-track-${initialTrackId}`);
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen, initialTrackId, record?.id]);
+
   if (!isOpen || !record) return null;
 
   const unitMeta = UNIT_METAS[record.unit];
@@ -70,7 +87,7 @@ export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
                 }}
               />
             ) : (
-              <Music className="w-10 h-10" style={{ color: unitMeta.themeColor }} />
+              <Music className="w-10 h-10" style={{ color: unitMeta.textColor || (unitMeta.themeColor === '#FFFFFF' ? '#94a3b8' : unitMeta.themeColor) }} />
             )}
           </div>
 
@@ -79,7 +96,7 @@ export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
             className="px-2.5 py-0.5 rounded-full text-[11px] font-bold mb-1.5"
             style={{
               backgroundColor: unitMeta.bgColor,
-              color: unitMeta.themeColor,
+              color: unitMeta.textColor || unitMeta.themeColor,
               border: `1px solid ${unitMeta.borderColor}`,
             }}
           >
@@ -122,7 +139,7 @@ export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
               </span>
             </div>
 
-            <div className="space-y-2 max-h-52 overflow-y-auto pr-1">
+            <div ref={tracksListRef} className="space-y-2 max-h-52 overflow-y-auto pr-1">
               {tracks.length === 0 ? (
                 <div className="p-3 text-center text-slate-400 bg-slate-50 rounded-xl">
                   歌唱トラック情報がありません
@@ -146,13 +163,20 @@ export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
                       ? track.name.replace(/\s*\([^)]*\)/g, '').trim() || 'アナザーボーカルver'
                       : track.name;
 
+                  const isTargetTrack = track.id === initialTrackId;
+
                   return (
                     <div
                       key={track.id}
-                      className="p-2.5 rounded-xl border border-slate-200/80 bg-slate-50/60 hover:bg-slate-50 transition-colors space-y-1.5"
+                      id={`modal-track-${track.id}`}
+                      className={`p-2.5 rounded-xl border transition-all space-y-1.5 ${
+                        isTargetTrack
+                          ? 'border-[#33ccbb] bg-teal-50/70 shadow-xs ring-2 ring-[#33ccbb]/30'
+                          : 'border-slate-200/80 bg-slate-50/60 hover:bg-slate-50'
+                      }`}
                     >
                       <div className="flex items-center justify-between">
-                        <span className="font-bold text-slate-800 text-xs">
+                        <span className={`font-bold text-xs ${isTargetTrack ? 'text-[#0d9488]' : 'text-slate-800'}`}>
                           {displayTrackName}
                         </span>
                         <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
