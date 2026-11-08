@@ -117,25 +117,92 @@ export const filterAndSortRecords = (
 };
 
 /**
- * 所持リストをURL共有用文字列（Base64）にエンコードする
+ * 所持リストをURL共有・共有コード用文字列（BitSet Base64URL、約122文字）に圧縮エンコードする
  */
-export const encodeShareData = (ownedRecordIds: Record<string, boolean>): string => {
-  const ownedList = Object.keys(ownedRecordIds).filter((id) => ownedRecordIds[id]);
-  const json = JSON.stringify(ownedList);
-  return btoa(encodeURIComponent(json));
+export const encodeShareData = (
+  ownedRecordIds: Record<string, boolean>,
+  totalCount: number = 727
+): string => {
+  // レコードIDから最大番号を特定（デフォルト727以上ならそれに合わせる）
+  let maxOrder = totalCount;
+  for (const id of Object.keys(ownedRecordIds)) {
+    if (ownedRecordIds[id] && id.startsWith('rec_')) {
+      const order = parseInt(id.replace('rec_', ''), 10);
+      if (!isNaN(order) && order > maxOrder) {
+        maxOrder = order;
+      }
+    }
+  }
+
+  const byteLength = Math.ceil(maxOrder / 8);
+  const bytes = new Uint8Array(byteLength);
+
+  for (let order = 1; order <= maxOrder; order++) {
+    if (ownedRecordIds[`rec_${order}`]) {
+      const byteIdx = Math.floor((order - 1) / 8);
+      const bitIdx = (order - 1) % 8;
+      bytes[byteIdx] |= 1 << bitIdx;
+    }
+  }
+
+  // Uint8Array を Base64URL 文字列に変換
+  let binary = '';
+  for (let i = 0; i < bytes.length; i++) {
+    binary += String.fromCharCode(bytes[i]);
+  }
+  const base64 = btoa(binary)
+    .replace(/\+/g, '-')
+    .replace(/\//g, '_')
+    .replace(/=+$/, '');
+
+  return `b1_${base64}`;
 };
 
 /**
- * URL共有用文字列（Base64）から所持マップを復元する
+ * 共有文字列（BitSet または 旧形式JSON Base64）から所持マップを復元する
  */
 export const decodeShareData = (shareString: string): Record<string, boolean> => {
+  if (!shareString) return {};
+  const trimmed = shareString.trim();
+
+  // 新形式: BitSet (プレフィックス b1_)
+  if (trimmed.startsWith('b1_')) {
+    try {
+      const b64 = trimmed
+        .slice(3)
+        .replace(/-/g, '+')
+        .replace(/_/g, '/');
+      // パディング復元
+      const padLen = (4 - (b64.length % 4)) % 4;
+      const paddedB64 = b64 + '='.repeat(padLen);
+      const binary = atob(paddedB64);
+      const map: Record<string, boolean> = {};
+
+      for (let byteIdx = 0; byteIdx < binary.length; byteIdx++) {
+        const byteVal = binary.charCodeAt(byteIdx);
+        for (let bitIdx = 0; bitIdx < 8; bitIdx++) {
+          if ((byteVal & (1 << bitIdx)) !== 0) {
+            const order = byteIdx * 8 + bitIdx + 1;
+            map[`rec_${order}`] = true;
+          }
+        }
+      }
+      return map;
+    } catch {
+      return {};
+    }
+  }
+
+  // 旧形式: JSON配列のBase64エンコード（後方互換性）
   try {
-    const decoded = decodeURIComponent(atob(shareString));
+    const decoded = decodeURIComponent(atob(trimmed));
     const list: string[] = JSON.parse(decoded);
     const map: Record<string, boolean> = {};
     if (Array.isArray(list)) {
       list.forEach((id) => {
-        map[id] = true;
+        if (typeof id === 'string') {
+          map[id] = true;
+        }
       });
     }
     return map;

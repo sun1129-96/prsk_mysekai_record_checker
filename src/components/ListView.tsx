@@ -1,27 +1,26 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef, useCallback } from 'react';
 import {
   Search,
   SlidersHorizontal,
   Eye,
-  Music,
-  Check,
-  Calendar,
   X,
   Disc3,
   Zap,
 } from 'lucide-react';
+import { useWindowVirtualizer } from '@tanstack/react-virtual';
 import type {
   RecordItem,
-  UnitType,
   SortType,
   SortDirection,
   FilterOptions,
   DisplaySettings,
   TapActionMode,
 } from '../types/record';
-import { UNIT_METAS, CHARACTERS } from '../types/record';
+import { UNIT_METAS } from '../types/record';
 import { FilterSortModal, DisplaySettingsModal } from './ToolbarModals';
 import { RecordDetailModal } from './RecordDetailModal';
+import { filterAndSortRecords } from '../utils/recordUtils';
+import { RecordRow } from './RecordRow';
 
 interface ListViewProps {
   records: RecordItem[];
@@ -34,6 +33,8 @@ export const ListView: React.FC<ListViewProps> = ({
   ownedRecordIds,
   onToggleOwned,
 }) => {
+  const listRef = useRef<HTMLDivElement>(null);
+
   // 並び替え状態（初期値: 実装順 昇順）
   const [sortType, setSortType] = useState<SortType>('defaultOrder');
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
@@ -71,60 +72,30 @@ export const ListView: React.FC<ListViewProps> = ({
   const [selectedTrackIdForDetail, setSelectedTrackIdForDetail] = useState<string | null>(null);
 
   // 歌唱バージョンバッジをクリックした際にそのトラックを指定して詳細を開く
-  const handleBadgeClick = (record: RecordItem, trackId: string, e: React.MouseEvent) => {
+  const handleBadgeClick = useCallback((record: RecordItem, trackId: string, e: React.MouseEvent) => {
     e.stopPropagation();
     setSelectedRecordForDetail(record);
     setSelectedTrackIdForDetail(trackId);
-  };
+  }, []);
 
-  // フィルタリング & ソート処理
+  const handleRowClick = useCallback((record: RecordItem) => {
+    if (tapMode === 'quick_check') {
+      onToggleOwned(record.id);
+    } else {
+      setSelectedTrackIdForDetail(null);
+      setSelectedRecordForDetail(record);
+    }
+  }, [tapMode, onToggleOwned]);
+
+  // フィルタリング & ソート処理（recordUtilsにロジックを集約）
   const filteredAndSortedRecords = useMemo(() => {
-    return records
-      .filter((record) => {
-        const isOwned = !!ownedRecordIds[record.id];
-
-        // 1. 所持状態フィルタ
-        if (filterOptions.ownership === 'owned' && !isOwned) return false;
-        if (filterOptions.ownership === 'unowned' && isOwned) return false;
-
-        // 2. ユニットフィルタ
-        if (!filterOptions.units.includes(record.unit)) return false;
-
-        // 3. キャラクターフィルタ（選択されている場合、その中のいずれかのキャラが歌唱しているか）
-        if (filterOptions.characters.length > 0) {
-          const hasSelectedChar = filterOptions.characters.some((charId) =>
-            record.characters.includes(charId)
-          );
-          if (!hasSelectedChar) return false;
-        }
-
-        // 4. 歌唱verフィルタ
-        if (filterOptions.vocalVersions.sekai && !record.vocalVersions.sekai) return false;
-        if (filterOptions.vocalVersions.virtualSinger && !record.vocalVersions.virtualSinger) return false;
-        if (filterOptions.vocalVersions.connectLive && !record.vocalVersions.connectLive) return false;
-        if (filterOptions.vocalVersions.anotherVocal && !record.vocalVersions.anotherVocal) return false;
-
-        // 5. 検索クエリ（曲名または読み仮名）
-        if (filterOptions.searchQuery.trim() !== '') {
-          const query = filterOptions.searchQuery.toLowerCase();
-          const matchTitle = record.title.toLowerCase().includes(query);
-          const matchReading = record.reading.toLowerCase().includes(query);
-          if (!matchTitle && !matchReading) return false;
-        }
-
-        return true;
-      })
-      .sort((a, b) => {
-        let compare = 0;
-        if (sortType === 'releaseDate') {
-          compare = a.releaseDate.localeCompare(b.releaseDate);
-        } else if (sortType === 'defaultOrder') {
-          compare = a.defaultOrder - b.defaultOrder;
-        } else if (sortType === 'reading') {
-          compare = a.reading.localeCompare(b.reading, 'ja');
-        }
-        return sortDirection === 'asc' ? compare : -compare;
-      });
+    return filterAndSortRecords(
+      records,
+      ownedRecordIds,
+      sortType,
+      sortDirection,
+      filterOptions
+    );
   }, [records, ownedRecordIds, sortType, sortDirection, filterOptions]);
 
   // 全体所持率
@@ -136,14 +107,13 @@ export const ListView: React.FC<ListViewProps> = ({
   const filteredCount = filteredAndSortedRecords.length;
   const filteredOwnedCount = filteredAndSortedRecords.filter((r) => ownedRecordIds[r.id]).length;
 
-  const handleRowClick = (record: RecordItem) => {
-    if (tapMode === 'quick_check') {
-      onToggleOwned(record.id);
-    } else {
-      setSelectedTrackIdForDetail(null);
-      setSelectedRecordForDetail(record);
-    }
-  };
+  // 仮想スクロール設定（画面内に見える要素のみを描画してパフォーマンス最大化）
+  const virtualizer = useWindowVirtualizer({
+    count: filteredAndSortedRecords.length,
+    estimateSize: () => (displaySettings.compactMode ? 74 : 96),
+    overscan: 6,
+    scrollMargin: listRef.current?.offsetTop ?? 0,
+  });
 
   const handleResetFilter = () => {
     setFilterOptions({
@@ -294,348 +264,44 @@ export const ListView: React.FC<ListViewProps> = ({
         )}
       </div>
 
-      {/* 3. レコード一覧リスト */}
-      <div className="space-y-2">
-        {filteredAndSortedRecords.length === 0 ? (
-          <div className="bg-white/80 rounded-3xl p-10 text-center border border-dashed border-slate-200 text-slate-400 text-xs sm:text-sm">
-            条件に一致する楽曲レコードが見つかりません。
-          </div>
-        ) : (
-          filteredAndSortedRecords.map((record) => {
-            const isOwned = !!ownedRecordIds[record.id];
-            const unitMeta = UNIT_METAS[record.unit];
-
+      {/* 3. レコード一覧リスト（仮想スクロール Windowing） */}
+      {filteredAndSortedRecords.length === 0 ? (
+        <div className="bg-white/80 rounded-3xl p-10 text-center border border-dashed border-slate-200 text-slate-400 text-xs sm:text-sm">
+          条件に一致する楽曲レコードが見つかりません。
+        </div>
+      ) : (
+        <div
+          ref={listRef}
+          className="relative w-full"
+          style={{ height: `${virtualizer.getTotalSize()}px` }}
+        >
+          {virtualizer.getVirtualItems().map((virtualItem) => {
+            const record = filteredAndSortedRecords[virtualItem.index];
+            if (!record) return null;
             return (
               <div
                 key={record.id}
-                onClick={() => handleRowClick(record)}
-                className={`group rounded-2xl border transition-all cursor-pointer select-none flex items-center gap-3 p-3 sm:p-3.5 ${
-                  isOwned
-                    ? 'bg-emerald-50/60 border-emerald-200/90 shadow-2xs'
-                    : 'bg-white/90 border-slate-200/80 hover:border-slate-300 shadow-xs'
-                } ${displaySettings.compactMode ? 'py-2' : ''}`}
+                data-index={virtualItem.index}
+                ref={virtualizer.measureElement}
+                className="absolute top-0 left-0 w-full pb-2"
+                style={{
+                  transform: `translateY(${virtualItem.start - virtualizer.options.scrollMargin}px)`,
+                }}
               >
-                {/* チェックボックスボタン */}
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onToggleOwned(record.id);
-                  }}
-                  className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl shrink-0 flex items-center justify-center border-2 transition-all ${
-                    isOwned
-                      ? 'bg-emerald-500 border-emerald-500 text-white shadow-xs'
-                      : 'bg-white border-slate-300 text-transparent hover:border-[#33ccbb]'
-                  }`}
-                  aria-label={isOwned ? '所持チェック解除' : '所持チェック'}
-                >
-                  <Check className={`w-4 h-4 sm:w-5 sm:h-5 ${isOwned ? 'block' : 'opacity-0'}`} />
-                </button>
-
-                {/* ジャケット画像（表示設定による） */}
-                {displaySettings.showJacket && (
-                  <div
-                    className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl shrink-0 flex items-center justify-center shadow-2xs overflow-hidden relative bg-slate-100"
-                    style={{
-                      border: `1px solid ${unitMeta.borderColor}`,
-                    }}
-                  >
-                    {record.jacketUrl ? (
-                      <img
-                        src={record.jacketUrl}
-                        alt={record.title}
-                        loading="lazy"
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).style.display = 'none';
-                        }}
-                      />
-                    ) : (
-                      <Music className="w-5 h-5" style={{ color: unitMeta.textColor || unitMeta.themeColor }} />
-                    )}
-                  </div>
-                )}
-
-                {/* 曲情報 */}
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-1.5 mb-1 flex-wrap">
-                    <span className="text-[10px] font-bold text-slate-400 shrink-0">
-                      ユニット
-                    </span>
-                    <span
-                      className="px-2 py-0.5 rounded-md text-[10px] font-bold shrink-0 truncate max-w-[120px]"
-                      style={{
-                        backgroundColor: unitMeta.bgColor,
-                        color: unitMeta.textColor || unitMeta.themeColor,
-                        border: `1px solid ${unitMeta.borderColor}`,
-                      }}
-                    >
-                      {unitMeta.shortName}
-                    </span>
-
-                    {displaySettings.showReleaseDate && (
-                      <span className="text-[11px] text-slate-400 flex items-center gap-1 shrink-0 ml-1">
-                        <Calendar className="w-3 h-3" />
-                        {record.releaseDate}
-                      </span>
-                    )}
-
-                    <span className="text-[10px] text-slate-300 font-mono">
-                      #{record.defaultOrder}
-                    </span>
-                  </div>
-
-                  {/* 曲名（取り消し線 line-through は一切使用しない規律を徹底） */}
-                  <h4 className="text-xs sm:text-sm font-bold text-slate-800 truncate tracking-tight">
-                    {record.title}
-                  </h4>
-
-                  {/* 歌唱verバッジ（表示設定による） */}
-                  {displaySettings.showVocalBadges && (() => {
-                    const vsMeta = UNIT_METAS.virtual_singer;
-
-                    // 歌唱者の境界のみグラデーションする背景スタイル生成（元の色を分かりやすく保持）
-                    // 枠線は歌唱キャラクターの所属ユニットカラーを設定
-                    const getAnotherVocalStyle = (singers: typeof CHARACTERS, fallbackUnit?: UnitType) => {
-                      const getUnitBorderColor = () => {
-                        const unitKey = singers[0]?.unit || fallbackUnit;
-                        if (!unitKey) return '#cbd5e1';
-                        if (unitKey === 'virtual_singer') {
-                          return '#94a3b8'; // VIRTUAL SINGER(#FFFFFF)は白背景での視認性維持のためスレート枠線
-                        }
-                        return UNIT_METAS[unitKey]?.themeColor || '#cbd5e1';
-                      };
-
-                      const borderColor = getUnitBorderColor();
-
-                      if (singers.length === 2) {
-                        const c1 = singers[0];
-                        const c2 = singers[1];
-                        return {
-                          background: `linear-gradient(105deg, ${c1.color}3d 0%, ${c1.color}3d 40%, ${c2.color}3d 60%, ${c2.color}3d 100%)`,
-                          borderColor,
-                          color: '#1e293b',
-                        };
-                      } else if (singers.length > 2) {
-                        // 3人以上の場合は各キャラの領域を確保しつつ境界のみグラデーション
-                        const n = singers.length;
-                        const stops: string[] = [];
-                        singers.forEach((c, i) => {
-                          const startPct = Math.round((i / n) * 100);
-                          const endPct = Math.round(((i + 1) / n) * 100);
-                          const pad = Math.min(6, Math.floor(100 / n / 3));
-                          stops.push(`${c.color}3d ${startPct + (i === 0 ? 0 : pad)}%`);
-                          stops.push(`${c.color}3d ${endPct - (i === n - 1 ? 0 : pad)}%`);
-                        });
-                        return {
-                          background: `linear-gradient(105deg, ${stops.join(', ')})`,
-                          borderColor,
-                          color: '#1e293b',
-                        };
-                      } else if (singers.length === 1) {
-                        const c1 = singers[0];
-                        return {
-                          backgroundColor: `${c1.color}28`,
-                          borderColor,
-                          color: '#1e293b',
-                        };
-                      }
-                      return {
-                        backgroundColor: '#fffbeb',
-                        borderColor,
-                        color: '#b45309',
-                      };
-                    };
-
-                    const tracks = record.vocalTracks || [];
-
-                    return (
-                      <div className="flex flex-wrap items-center gap-1 mt-1 text-[10px]">
-                        <span className="text-[10px] font-bold text-slate-400 shrink-0 mr-0.5">
-                          歌唱ver
-                        </span>
-                        {tracks.length > 0 ? (
-                          // トラック情報が存在する場合はトラックごとに個別にバッジを表示（同一ver複数トラックにも対応）
-                          tracks.map((track) => {
-                            if (track.type === 'sekai') {
-                              return (
-                                <button
-                                  type="button"
-                                  key={track.id}
-                                  onClick={(e) => handleBadgeClick(record, track.id, e)}
-                                  className="px-1.5 py-0.5 rounded-md font-bold border transition-all shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
-                                  style={{
-                                    backgroundColor: unitMeta.bgColor,
-                                    borderColor: unitMeta.borderColor,
-                                    color: unitMeta.textColor || unitMeta.themeColor,
-                                  }}
-                                  title={`${track.name} を詳細表示`}
-                                >
-                                  セカイ
-                                </button>
-                              );
-                            }
-                            if (track.type === 'virtual_singer') {
-                              return (
-                                <button
-                                  type="button"
-                                  key={track.id}
-                                  onClick={(e) => handleBadgeClick(record, track.id, e)}
-                                  className="px-1.5 py-0.5 rounded-md font-bold border transition-all shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
-                                  style={{
-                                    backgroundColor: vsMeta.bgColor,
-                                    borderColor: vsMeta.borderColor,
-                                    color: vsMeta.textColor || vsMeta.themeColor,
-                                  }}
-                                  title={`${track.name} を詳細表示`}
-                                >
-                                  バチャシン
-                                </button>
-                              );
-                            }
-                            if (track.type === 'connect_live') {
-                              return (
-                                <button
-                                  type="button"
-                                  key={track.id}
-                                  onClick={(e) => handleBadgeClick(record, track.id, e)}
-                                  className="px-1.5 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-200/60 font-bold shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
-                                  title={`${track.name} を詳細表示`}
-                                >
-                                  コネライ
-                                </button>
-                              );
-                            }
-                            if (track.type === 'another_vocal') {
-                              const trackSingers = track.singers
-                                .map((id) => CHARACTERS.find((c) => c.id === id))
-                                .filter((c): c is typeof CHARACTERS[number] => Boolean(c));
-                              const badgeStyle = getAnotherVocalStyle(trackSingers, record.unit);
-
-                              // 歌唱キャラクターの所属ユニットを取得（重複排除）
-                              const singerUnits = Array.from(
-                                new Set(trackSingers.map((s) => s.unit).filter(Boolean))
-                              );
-                              if (singerUnits.length === 0 && record.unit) {
-                                singerUnits.push(record.unit);
-                              }
-
-                              return (
-                                <button
-                                  type="button"
-                                  key={track.id}
-                                  onClick={(e) => handleBadgeClick(record, track.id, e)}
-                                  className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md font-bold border transition-all shadow-2xs text-[10px] cursor-pointer hover:opacity-80 active:scale-95"
-                                  style={badgeStyle}
-                                  title={`${track.name} を詳細表示`}
-                                >
-                                  {/* ユニットのマーク（公式ユニットシンボルアイコン） */}
-                                  {singerUnits.map((uKey) => {
-                                    const uMeta = UNIT_METAS[uKey];
-                                    if (!uMeta) return null;
-                                    return uMeta.iconUrl ? (
-                                      <img
-                                        key={uKey}
-                                        src={uMeta.iconUrl}
-                                        alt={uMeta.name}
-                                        className="w-3.5 h-3.5 object-contain shrink-0 drop-shadow-2xs"
-                                        title={uMeta.name}
-                                      />
-                                    ) : (
-                                      <span
-                                        key={uKey}
-                                        className="w-2 h-2 rounded-full shrink-0 border border-black/20 shadow-2xs"
-                                        style={{ backgroundColor: uMeta.themeColor }}
-                                        title={uMeta.name}
-                                      />
-                                    );
-                                  })}
-                                  <span>アナボ</span>
-                                </button>
-                              );
-                            }
-                            if (track.type === 'other') {
-                              return (
-                                <button
-                                  type="button"
-                                  key={track.id}
-                                  onClick={(e) => handleBadgeClick(record, track.id, e)}
-                                  className="px-1.5 py-0.5 rounded-md bg-purple-50 text-purple-700 border border-purple-200/60 font-bold shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
-                                  title={`${track.name} を詳細表示`}
-                                >
-                                  {track.name.includes('コラボ') ? 'コラボ' : 'その他'}
-                                </button>
-                              );
-                            }
-                            return null;
-                          })
-                        ) : (
-                          // トラック情報がない場合のフォールバック（旧フラグベース）
-                          <>
-                            {record.vocalVersions.sekai && (
-                              <button
-                                type="button"
-                                onClick={(e) => handleBadgeClick(record, 'sekai', e)}
-                                className="px-1.5 py-0.5 rounded-md font-bold border transition-all shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
-                                style={{
-                                  backgroundColor: unitMeta.bgColor,
-                                  borderColor: unitMeta.borderColor,
-                                  color: unitMeta.textColor || unitMeta.themeColor,
-                                }}
-                              >
-                                セカイ
-                              </button>
-                            )}
-                            {record.vocalVersions.virtualSinger && (
-                              <button
-                                type="button"
-                                onClick={(e) => handleBadgeClick(record, 'vs', e)}
-                                className="px-1.5 py-0.5 rounded-md font-bold border transition-all shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
-                                style={{
-                                  backgroundColor: vsMeta.bgColor,
-                                  borderColor: vsMeta.borderColor,
-                                  color: vsMeta.textColor || vsMeta.themeColor,
-                                }}
-                              >
-                                バチャシン
-                              </button>
-                            )}
-                            {record.vocalVersions.connectLive && (
-                              <button
-                                type="button"
-                                onClick={(e) => handleBadgeClick(record, 'cl', e)}
-                                className="px-1.5 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-200/60 font-bold shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
-                              >
-                                コネライ
-                              </button>
-                            )}
-                            {record.vocalVersions.anotherVocal && (
-                              <button
-                                type="button"
-                                onClick={(e) => handleBadgeClick(record, 'av', e)}
-                                className="px-1.5 py-0.5 rounded-md bg-amber-50 text-amber-700 border border-amber-200/60 font-bold shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
-                              >
-                                アナボ
-                              </button>
-                            )}
-                          </>
-                        )}
-                      </div>
-                    );
-                  })()}
-                </div>
-
-                {/* モード表示ガイド */}
-                {tapMode === 'detail' && (
-                  <span className="text-slate-300 group-hover:text-slate-500 text-xs hidden sm:inline">
-                    詳細 →
-                  </span>
-                )}
+                <RecordRow
+                  record={record}
+                  isOwned={!!ownedRecordIds[record.id]}
+                  displaySettings={displaySettings}
+                  tapMode={tapMode}
+                  onRowClick={handleRowClick}
+                  onToggleOwned={onToggleOwned}
+                  onBadgeClick={handleBadgeClick}
+                />
               </div>
             );
-          })
-        )}
-      </div>
+          })}
+        </div>
+      )}
 
       {/* モーダル群 */}
       <FilterSortModal

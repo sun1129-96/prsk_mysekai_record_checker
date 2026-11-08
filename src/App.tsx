@@ -4,6 +4,7 @@ import { ListView } from './components/ListView';
 import { ComparisonView } from './components/ComparisonView';
 import { MenuView } from './components/MenuView';
 import { MOCK_RECORDS } from './data/mockRecords';
+import { decodeShareData } from './utils/recordUtils';
 
 const STORAGE_KEY = 'mysekai_owned_record_ids_v1';
 
@@ -12,18 +13,15 @@ export const App: React.FC = () => {
 
   // 所持状態管理（localStorage + URL共有デコード）
   const [ownedRecordIds, setOwnedRecordIds] = useState<Record<string, boolean>>(() => {
-    // 1. URL共有パラメータがあるか確認
+    // 1. URL共有パラメータがあるか確認（BitSetおよび旧形式両対応）
     try {
       const params = new URLSearchParams(window.location.search);
       const shareData = params.get('share');
       if (shareData) {
-        const decoded = decodeURIComponent(atob(shareData));
-        const list: string[] = JSON.parse(decoded);
-        const map: Record<string, boolean> = {};
-        list.forEach((id) => {
-          map[id] = true;
-        });
-        return map;
+        const decoded = decodeShareData(shareData);
+        if (Object.keys(decoded).length > 0) {
+          return decoded;
+        }
       }
     } catch {
       // ignore

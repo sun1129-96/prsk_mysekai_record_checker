@@ -1,5 +1,14 @@
-import React from 'react';
-import { X, ArrowUpDown, Filter, Eye, Check, Users } from 'lucide-react';
+import React, { useState } from 'react';
+import {
+  X,
+  ArrowUpDown,
+  Filter,
+  Eye,
+  Check,
+  Users,
+  ChevronDown,
+  ChevronUp,
+} from 'lucide-react';
 import type {
   SortType,
   SortDirection,
@@ -7,7 +16,7 @@ import type {
   DisplaySettings,
   UnitType,
 } from '../types/record';
-import { UNIT_METAS, CHARACTERS } from '../types/record';
+import { UNIT_METAS, CHARACTERS, GAME_VIRTUAL_SINGER_IDS } from '../types/record';
 
 interface FilterSortModalProps {
   isOpen: boolean;
@@ -30,6 +39,9 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
   onFilterChange,
   onResetFilter,
 }) => {
+  // ゲーム未登場のバーチャル・シンガー折りたたみ状態（デフォルトは折りたたみ）
+  const [showNonGameSingers, setShowNonGameSingers] = useState(false);
+
   if (!isOpen) return null;
 
   // ユニットトグル
@@ -288,15 +300,56 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
               )}
             </div>
 
-            <div className="max-h-48 overflow-y-auto p-1 space-y-3 bg-slate-50/60 rounded-2xl border border-slate-200/80">
-              {(Object.keys(UNIT_METAS) as UnitType[])
-                .filter((u) => u !== 'other')
-                .map((unitKey) => {
-                  const unitMeta = UNIT_METAS[unitKey];
-                  const unitChars = CHARACTERS.filter((c) => c.unit === unitKey);
+            <div className="max-h-60 sm:max-h-72 overflow-y-auto p-1 space-y-3 bg-slate-50/60 rounded-2xl border border-slate-200/80">
+              {(Object.keys(UNIT_METAS) as UnitType[]).map((unitKey) => {
+                const unitMeta = UNIT_METAS[unitKey];
+                const unitChars = CHARACTERS.filter((c) => c.unit === unitKey);
+                if (unitChars.length === 0) return null;
+
+                const displayName =
+                  unitKey === 'other' ? 'その他（コラボ・ゲスト）' : unitMeta.name;
+
+                // 単一キャラクターボタン描画ヘルパー
+                const renderCharButton = (char: (typeof CHARACTERS)[number]) => {
+                  const isSelected = filterOptions.characters.includes(char.id);
+                  return (
+                    <button
+                      key={char.id}
+                      type="button"
+                      onClick={() => handleCharacterToggle(char.id)}
+                      className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs text-left transition-all ${
+                        isSelected
+                          ? 'bg-white border-[#33ccbb] text-[#0d9488] font-bold shadow-2xs'
+                          : 'bg-white/80 border-slate-200/70 text-slate-600 hover:bg-white'
+                      }`}
+                    >
+                      <div
+                        className="w-2.5 h-2.5 rounded-full shrink-0 border border-slate-300/80 shadow-2xs"
+                        style={{ backgroundColor: char.color }}
+                      />
+                      <span className="truncate flex-1">{char.name}</span>
+                      {isSelected && (
+                        <Check className="w-3 h-3 text-[#0d9488] shrink-0" />
+                      )}
+                    </button>
+                  );
+                };
+
+                // バーチャル・シンガーの場合：ゲーム内登場（6人）とゲーム未登場（30人）を分離
+                if (unitKey === 'virtual_singer') {
+                  const mainChars = unitChars.filter((c) =>
+                    GAME_VIRTUAL_SINGER_IDS.includes(c.id as any)
+                  );
+                  const extraChars = unitChars.filter(
+                    (c) => !GAME_VIRTUAL_SINGER_IDS.includes(c.id as any)
+                  );
+                  const selectedExtraCount = extraChars.filter((c) =>
+                    filterOptions.characters.includes(c.id)
+                  ).length;
+
                   return (
                     <div key={unitKey} className="space-y-1.5">
-                      <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-600 px-1 pt-1">
+                      <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-700 px-1 pt-1">
                         {unitMeta.iconUrl ? (
                           <img
                             src={unitMeta.iconUrl}
@@ -309,37 +362,79 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                             style={{ backgroundColor: unitMeta.themeColor }}
                           />
                         )}
-                        <span>{unitMeta.name}</span>
+                        <span>{displayName}</span>
                       </div>
+
+                      {/* ゲーム内登場の6人（初音ミク、鏡音リン、鏡音レン、巡音ルカ、MEIKO、KAITO） */}
                       <div className="grid grid-cols-2 gap-1.5">
-                        {unitChars.map((char) => {
-                          const isSelected = filterOptions.characters.includes(char.id);
-                          return (
-                            <button
-                              key={char.id}
-                              type="button"
-                              onClick={() => handleCharacterToggle(char.id)}
-                              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs text-left transition-all ${
-                                isSelected
-                                  ? 'bg-white border-[#33ccbb] text-[#0d9488] font-bold shadow-2xs'
-                                  : 'bg-white/80 border-slate-200/70 text-slate-600 hover:bg-white'
-                              }`}
-                            >
-                              <div
-                                className="w-2.5 h-2.5 rounded-full shrink-0 border border-slate-300/80 shadow-2xs"
-                                style={{ backgroundColor: char.color }}
-                              />
-                              <span className="truncate flex-1">{char.name}</span>
-                              {isSelected && (
-                                <Check className="w-3 h-3 text-[#0d9488] shrink-0" />
-                              )}
-                            </button>
-                          );
-                        })}
+                        {mainChars.map(renderCharButton)}
                       </div>
+
+                      {/* ゲーム未登場シンガー（折りたたみ表示） */}
+                      {extraChars.length > 0 && (
+                        <div className="pt-1">
+                          <button
+                            type="button"
+                            onClick={() => setShowNonGameSingers(!showNonGameSingers)}
+                            className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-left text-xs font-bold transition-all border ${
+                              showNonGameSingers
+                                ? 'bg-slate-200/80 border-slate-300 text-slate-800'
+                                : 'bg-slate-100/90 hover:bg-slate-200/60 border-slate-200 text-slate-600'
+                            }`}
+                          >
+                            <span className="flex items-center gap-1.5 text-[11px]">
+                              <span>ゲーム未登場シンガー ({extraChars.length}人)</span>
+                              {selectedExtraCount > 0 && (
+                                <span className="bg-[#33ccbb] text-white px-1.5 py-0.5 rounded-full text-[10px] font-bold leading-none shadow-2xs">
+                                  {selectedExtraCount}人選択中
+                                </span>
+                              )}
+                            </span>
+                            <span className="flex items-center gap-1 text-[11px] text-slate-500">
+                              <span>{showNonGameSingers ? '閉じる' : '表示する'}</span>
+                              {showNonGameSingers ? (
+                                <ChevronUp className="w-3.5 h-3.5 text-slate-500" />
+                              ) : (
+                                <ChevronDown className="w-3.5 h-3.5 text-slate-500" />
+                              )}
+                            </span>
+                          </button>
+
+                          {showNonGameSingers && (
+                            <div className="grid grid-cols-2 gap-1.5 mt-1.5 pt-1.5 pl-2 border-l-2 border-slate-200 animate-in fade-in duration-150">
+                              {extraChars.map(renderCharButton)}
+                            </div>
+                          )}
+                        </div>
+                      )}
                     </div>
                   );
-                })}
+                }
+
+                // その他のユニット（レオニ、モモジャン、ビビバス、ワンダショ、ニーゴ、その他）
+                return (
+                  <div key={unitKey} className="space-y-1.5">
+                    <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-700 px-1 pt-1">
+                      {unitMeta.iconUrl ? (
+                        <img
+                          src={unitMeta.iconUrl}
+                          alt={unitMeta.name}
+                          className="w-3.5 h-3.5 object-contain shrink-0 drop-shadow-2xs"
+                        />
+                      ) : (
+                        <div
+                          className="w-2.5 h-2.5 rounded-full shrink-0 border border-slate-300"
+                          style={{ backgroundColor: unitMeta.themeColor }}
+                        />
+                      )}
+                      <span>{displayName}</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-1.5">
+                      {unitChars.map(renderCharButton)}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
 

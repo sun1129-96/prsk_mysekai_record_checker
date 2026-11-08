@@ -9921,6 +9921,16 @@
         "rawType": "アナザーボーカルver.",
         "type": "another_vocal",
         "rawSingers": [
+          "東雲彰人"
+        ],
+        "singers": [
+          "akito"
+        ]
+      },
+      {
+        "rawType": "アナザーボーカルver.",
+        "type": "another_vocal",
+        "rawSingers": [
           "青柳冬弥"
         ],
         "singers": [
@@ -32169,13 +32179,23 @@
         "singers": [
           "miku"
         ]
+      },
+      {
+        "rawType": "アナザーボーカルver.",
+        "type": "another_vocal",
+        "rawSingers": [
+          "朝比奈まふゆ"
+        ],
+        "singers": [
+          "mafuyu"
+        ]
       }
     ],
     "vocalVersions": {
       "sekai": true,
       "virtualSinger": true,
       "connectLive": false,
-      "anotherVocal": false
+      "anotherVocal": true
     },
     "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E9%8E%96%E3%81%AE%E5%B0%91%E5%A5%B3-Re%20Alive-&src=%E9%8E%96%E3%81%AE%E5%B0%91%E5%A5%B3-Re%20Alive-.jpg"
   },
@@ -36446,5 +36466,139 @@
       "anotherVocal": false
     },
     "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%90%E3%82%AB%E9%80%9A%E4%BF%A1&src=%E3%83%90%E3%82%AB%E9%80%9A%E4%BF%A1.jpg"
+  },
+  {
+    "no": 728,
+    "defaultSort": 10269,
+    "category": "公",
+    "title": "ディスコティックブルー",
+    "unitRaw": "0_VS",
+    "unitId": "virtual_singer",
+    "unitName": "バーチャル・シンガー",
+    "releaseDate": "2026/10/26",
+    "detailUrl": "https://pjsekai.com/?1706fae6aa",
+    "vocalTracks": [
+      {
+        "rawType": "バーチャル・シンガーver.",
+        "type": "virtual_singer",
+        "rawSingers": [
+          "初音ミク"
+        ],
+        "singers": [
+          "miku"
+        ]
+      }
+    ],
+    "vocalVersions": {
+      "sekai": false,
+      "virtualSinger": true,
+      "connectLive": false,
+      "anotherVocal": false
+    },
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%87%E3%82%A3%E3%82%B9%E3%82%B3%E3%83%86%E3%82%A3%E3%83%83%E3%82%AF%E3%83%96%E3%83%AB%E3%83%BC&src=%E3%83%87%E3%82%A3%E3%82%B9%E3%82%B3%E3%83%86%E3%82%A3%E3%83%83%E3%82%AF%E3%83%96%E3%83%AB%E3%83%BC.jpg"
+  },
+  {
+    "no": 729,
+    "defaultSort": 20024,
+    "category": "書",
+    "title": "ULTIM@TE☆BE∀M!!",
+    "unitRaw": "0_VS",
+    "unitId": "virtual_singer",
+    "unitName": "バーチャル・シンガー",
+    "releaseDate": "2026/10/31",
+    "detailUrl": "https://pjsekai.com/?a0b3a4ba8c",
+    "vocalTracks": [
+      {
+        "rawType": "バーチャル・シンガーver.",
+        "type": "virtual_singer",
+        "rawSingers": [
+          "初音ミク"
+        ],
+        "singers": [
+          "miku"
+        ]
+      }
+    ],
+    "vocalVersions": {
+      "sekai": false,
+      "virtualSinger": true,
+      "connectLive": false,
+      "anotherVocal": false
+    },
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=ULTIM%40TE%E2%98%86BE%E2%88%80M%21%21&src=ULTIM%40TE%E2%98%86BE%E2%88%80M%21%21.jpg"
+  },
+  {
+    "no": 730,
+    "defaultSort": 13051,
+    "category": "既",
+    "title": "プレデター",
+    "unitRaw": "3_VBS",
+    "unitId": "vivid_bad_squad",
+    "unitName": "Vivid BAD SQUAD",
+    "releaseDate": "2026/11/02",
+    "detailUrl": "https://pjsekai.com/?efcad3fa10",
+    "vocalTracks": [
+      {
+        "rawType": "セカイver.",
+        "type": "sekai",
+        "rawSingers": [
+          "KAITO",
+          "東雲彰人",
+          "青柳冬弥"
+        ],
+        "singers": [
+          "kaito",
+          "akito",
+          "toya"
+        ]
+      },
+      {
+        "rawType": "バーチャル・シンガーver.",
+        "type": "virtual_singer",
+        "rawSingers": [
+          "flower"
+        ],
+        "singers": [
+          "flower"
+        ]
+      }
+    ],
+    "vocalVersions": {
+      "sekai": true,
+      "virtualSinger": true,
+      "connectLive": false,
+      "anotherVocal": false
+    },
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%97%E3%83%AC%E3%83%87%E3%82%BF%E3%83%BC&src=%E3%83%97%E3%83%AC%E3%83%87%E3%82%BF%E3%83%BC.jpg"
+  },
+  {
+    "no": 731,
+    "defaultSort": 10270,
+    "category": "既",
+    "title": "プシ",
+    "unitRaw": "0_VS",
+    "unitId": "virtual_singer",
+    "unitName": "バーチャル・シンガー",
+    "releaseDate": "2026/11/06",
+    "detailUrl": "https://pjsekai.com/?f2d0ef9975",
+    "vocalTracks": [
+      {
+        "rawType": "バーチャル・シンガーver.",
+        "type": "virtual_singer",
+        "rawSingers": [
+          "初音ミク"
+        ],
+        "singers": [
+          "miku"
+        ]
+      }
+    ],
+    "vocalVersions": {
+      "sekai": false,
+      "virtualSinger": true,
+      "connectLive": false,
+      "anotherVocal": false
+    },
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%97%E3%82%B7&src=%E3%83%97%E3%82%B7.jpg"
   }
 ]

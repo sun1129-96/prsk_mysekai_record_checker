@@ -106,6 +106,16 @@ export interface CharacterMeta {
   color: string;
 }
 
+/** ゲーム内に登場するバーチャル・シンガーのID一覧 */
+export const GAME_VIRTUAL_SINGER_IDS = [
+  'miku',
+  'rin',
+  'len',
+  'luka',
+  'meiko',
+  'kaito',
+] as const;
+
 export const CHARACTERS: CharacterMeta[] = [
   // バーチャル・シンガー
   { id: 'miku', name: '初音ミク', unit: 'virtual_singer', color: '#33CCBB' },
@@ -176,6 +186,16 @@ export const CHARACTERS: CharacterMeta[] = [
   { id: 'solaria', name: 'SOLARIA', unit: 'virtual_singer', color: '#eedd66' },
   { id: 'vy1', name: 'VY1', unit: 'virtual_singer', color: '#ee66aa' },
   { id: 'vy2', name: 'VY2V3', unit: 'virtual_singer', color: '#ff8833' },
+
+  // コラボ・ゲストキャラクター（その他）
+  { id: 'nenerobo', name: 'ネネロボ', unit: 'other', color: '#33dd99' },
+  { id: 'mikudayo', name: 'ミクダヨー', unit: 'other', color: '#33ccbb' },
+  { id: 'alkaloid', name: 'ALKALOID', unit: 'other', color: '#00b06b' },
+  { id: 'crazy_b', name: 'Crazy:B', unit: 'other', color: '#ffd700' },
+  { id: 'jun', name: '漣 ジュン', unit: 'other', color: '#4169e1' },
+  { id: 'izumi', name: '瀬名 泉', unit: 'other', color: '#87ceeb' },
+  { id: 'chiaki', name: '守沢 千秋', unit: 'other', color: '#ff4500' },
+  { id: 'natsume', name: '逆先 夏目', unit: 'other', color: '#ba55d3' },
 ];
 
 /**

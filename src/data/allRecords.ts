@@ -1,4 +1,4 @@
-// 自動生成ファイル (pjsekai.com より全727曲インポート・ジャケット画像URL対応)
+// 自動生成ファイル (pjsekai.com より全731曲インポート・公式pronunciation読み仮名適用済み・シンガーID正規化済み)
 import type { RecordItem } from '../types/record';
 
 export const ALL_RECORDS: RecordItem[] = [
@@ -140,8 +140,10 @@ export const ALL_RECORDS: RecordItem[] = [
       "luka",
       "meiko",
       "kaito",
-      "25時",
-      "ナイトコードで。"
+      "kanade",
+      "mafuyu",
+      "ena",
+      "mizuki"
     ],
     "vocalTracks": [
       {
@@ -162,8 +164,10 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "コネクトライブver",
         "type": "connect_live",
         "singers": [
-          "25時",
-          "ナイトコードで。",
+          "kanade",
+          "mafuyu",
+          "ena",
+          "mizuki",
           "miku",
           "rin",
           "len",
@@ -323,7 +327,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_9",
     "title": "ヒバナ -Reloaded-",
-    "reading": "ひばな",
+    "reading": "ひばなりろーでっど",
     "unit": "leo_need",
     "releaseDate": "2020-09-30",
     "defaultOrder": 9,
@@ -340,8 +344,13 @@ export const ALL_RECORDS: RecordItem[] = [
       "ichika",
       "rin",
       "meiko",
-      "Leo/need",
-      "Vivid BAD SQUAD"
+      "saki",
+      "honami",
+      "shiho",
+      "kohane",
+      "an",
+      "akito",
+      "toya"
     ],
     "vocalTracks": [
       {
@@ -391,8 +400,14 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "connect_live",
         "singers": [
           "miku",
-          "Leo/need",
-          "Vivid BAD SQUAD"
+          "ichika",
+          "saki",
+          "honami",
+          "shiho",
+          "kohane",
+          "an",
+          "akito",
+          "toya"
         ]
       }
     ]
@@ -700,7 +715,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "gumi",
       "len",
       "kaito",
-      "ALKALOID"
+      "alkaloid"
     ],
     "vocalTracks": [
       {
@@ -752,7 +767,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "singers": [
           "akito",
           "toya",
-          "ALKALOID"
+          "alkaloid"
         ]
       }
     ]
@@ -1512,7 +1527,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_29",
     "title": "アスノヨゾラ哨戒班",
-    "reading": "アスノヨゾラ哨戒班",
+    "reading": "あすのよぞらしょうかいはん",
     "unit": "leo_need",
     "releaseDate": "2020-10-01",
     "defaultOrder": 29,
@@ -1541,7 +1556,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_30",
     "title": "ニア",
-    "reading": "ニア",
+    "reading": "にあ",
     "unit": "more_more_jump",
     "releaseDate": "2020-10-02",
     "defaultOrder": 30,
@@ -1590,7 +1605,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_31",
     "title": "Just Be Friends",
-    "reading": "Just Be Friends",
+    "reading": "じゃすとびーふれんず",
     "unit": "vivid_bad_squad",
     "releaseDate": "2020-10-03",
     "defaultOrder": 31,
@@ -1647,7 +1662,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_32",
     "title": "脱法ロック",
-    "reading": "脱法ロック",
+    "reading": "だっぽうろっく",
     "unit": "wonderlands_showtime",
     "releaseDate": "2020-10-04",
     "defaultOrder": 32,
@@ -1697,7 +1712,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_33",
     "title": "命に嫌われている",
-    "reading": "命に嫌われている",
+    "reading": "いのちにきらわれている",
     "unit": "nightcord_at_25",
     "releaseDate": "2020-10-05",
     "defaultOrder": 33,
@@ -1762,7 +1777,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_34",
     "title": "ワールドイズマイン",
-    "reading": "ワールドイズマイン",
+    "reading": "わーるどいずまいん",
     "unit": "virtual_singer",
     "releaseDate": "2020-10-06",
     "defaultOrder": 34,
@@ -1791,7 +1806,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_35",
     "title": "ダンスロボットダンス",
-    "reading": "ダンスロボットダンス",
+    "reading": "だんすろぼっとだんす",
     "unit": "wonderlands_showtime",
     "releaseDate": "2020-10-07",
     "defaultOrder": 35,
@@ -1852,7 +1867,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_36",
     "title": "Hand in Hand",
-    "reading": "Hand in Hand",
+    "reading": "はんどいんはんど",
     "unit": "virtual_singer",
     "releaseDate": "2020-10-08",
     "defaultOrder": 36,
@@ -1881,7 +1896,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_37",
     "title": "夜咄ディセイブ",
-    "reading": "夜咄ディセイブ",
+    "reading": "よばなしでぃせいぶ",
     "unit": "vivid_bad_squad",
     "releaseDate": "2020-10-09",
     "defaultOrder": 37,
@@ -1947,7 +1962,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_38",
     "title": "Gimme×Gimme",
-    "reading": "Gimme×Gimme",
+    "reading": "ぎみぎみ",
     "unit": "virtual_singer",
     "releaseDate": "2020-10-10",
     "defaultOrder": 38,
@@ -1978,7 +1993,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_39",
     "title": "ビバハピ",
-    "reading": "ビバハピ",
+    "reading": "びばはぴ",
     "unit": "more_more_jump",
     "releaseDate": "2020-10-11",
     "defaultOrder": 39,
@@ -2032,7 +2047,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_40",
     "title": "ジャンキーナイトタウンオーケストラ",
-    "reading": "ジャンキーナイトタウンオーケストラ",
+    "reading": "じゃんきーないとたうんおーけすとら",
     "unit": "virtual_singer",
     "releaseDate": "2020-10-12",
     "defaultOrder": 40,
@@ -2061,7 +2076,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_41",
     "title": "ミラクルペイント",
-    "reading": "ミラクルペイント",
+    "reading": "みらくるぺいんと",
     "unit": "wonderlands_showtime",
     "releaseDate": "2020-10-13",
     "defaultOrder": 41,
@@ -2106,7 +2121,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_42",
     "title": "on the rocks",
-    "reading": "on the rocks",
+    "reading": "おんざろっくす",
     "unit": "virtual_singer",
     "releaseDate": "2020-10-14",
     "defaultOrder": 42,
@@ -2137,7 +2152,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_43",
     "title": "携帯恋話",
-    "reading": "携帯恋話",
+    "reading": "けいたいれんわ",
     "unit": "nightcord_at_25",
     "releaseDate": "2020-10-15",
     "defaultOrder": 43,
@@ -2186,7 +2201,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_44",
     "title": "39みゅーじっく！",
-    "reading": "39みゅーじっく！",
+    "reading": "さんきゅーみゅーじっく",
     "unit": "virtual_singer",
     "releaseDate": "2020-10-16",
     "defaultOrder": 44,
@@ -2215,7 +2230,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_45",
     "title": "青く駆けろ！",
-    "reading": "青く駆けろ！",
+    "reading": "あおくかけろ",
     "unit": "leo_need",
     "releaseDate": "2020-10-17",
     "defaultOrder": 45,
@@ -2315,7 +2330,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_47",
     "title": "Leia - Remind",
-    "reading": "Leia - Remind",
+    "reading": "れいありまいんど",
     "unit": "virtual_singer",
     "releaseDate": "2020-10-19",
     "defaultOrder": 47,
@@ -2344,7 +2359,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_48",
     "title": "ジャックポットサッドガール",
-    "reading": "ジャックポットサッドガール",
+    "reading": "じゃっくぽっとさっどがーる",
     "unit": "nightcord_at_25",
     "releaseDate": "2020-10-20",
     "defaultOrder": 48,
@@ -2415,7 +2430,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_49",
     "title": "メルティランドナイトメア",
-    "reading": "メルティランドナイトメア",
+    "reading": "めるてぃらんどないとめあ",
     "unit": "more_more_jump",
     "releaseDate": "2020-10-25",
     "defaultOrder": 49,
@@ -2460,7 +2475,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_50",
     "title": "乙女解剖",
-    "reading": "乙女解剖",
+    "reading": "おとめかいぼう",
     "unit": "nightcord_at_25",
     "releaseDate": "2020-11-01",
     "defaultOrder": 50,
@@ -2517,7 +2532,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_51",
     "title": "potatoになっていく",
-    "reading": "potatoになっていく",
+    "reading": "ぽてとになっていく",
     "unit": "wonderlands_showtime",
     "releaseDate": "2020-11-07",
     "defaultOrder": 51,
@@ -2580,7 +2595,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_52",
     "title": "ローリンガール",
-    "reading": "ローリンガール",
+    "reading": "ろーりんがーる",
     "unit": "virtual_singer",
     "releaseDate": "2020-11-14",
     "defaultOrder": 52,
@@ -2654,7 +2669,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_54",
     "title": "裏表ラバーズ",
-    "reading": "裏表ラバーズ",
+    "reading": "うらおもてらばーず",
     "unit": "virtual_singer",
     "releaseDate": "2020-11-21",
     "defaultOrder": 54,
@@ -2683,7 +2698,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_55",
     "title": "アンノウン・マザーグース",
-    "reading": "アンノウン・マザーグース",
+    "reading": "あんのうんまざーぐーす",
     "unit": "virtual_singer",
     "releaseDate": "2020-11-23",
     "defaultOrder": 55,
@@ -2712,7 +2727,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_56",
     "title": "愛されなくても君がいる",
-    "reading": "愛されなくても君がいる",
+    "reading": "あいされなくてもきみがいる",
     "unit": "virtual_singer",
     "releaseDate": "2020-11-30",
     "defaultOrder": 56,
@@ -2741,7 +2756,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_57",
     "title": "ウミユリ海底譚",
-    "reading": "ウミユリ海底譚",
+    "reading": "うみゆりかいていたん",
     "unit": "leo_need",
     "releaseDate": "2020-12-01",
     "defaultOrder": 57,
@@ -2790,7 +2805,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_58",
     "title": "Forward",
-    "reading": "Forward",
+    "reading": "ふぉわーど",
     "unit": "vivid_bad_squad",
     "releaseDate": "2020-12-08",
     "defaultOrder": 58,
@@ -2860,7 +2875,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_59",
     "title": "独りんぼエンヴィー",
-    "reading": "独りんぼエンヴィー",
+    "reading": "ひとりんぼえんヴぃー",
     "unit": "nightcord_at_25",
     "releaseDate": "2020-12-14",
     "defaultOrder": 59,
@@ -2929,7 +2944,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_60",
     "title": "ニジイロストーリーズ",
-    "reading": "ニジイロストーリーズ",
+    "reading": "にじいろすとーりーず",
     "unit": "wonderlands_showtime",
     "releaseDate": "2020-12-20",
     "defaultOrder": 60,
@@ -2999,7 +3014,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_61",
     "title": "ODDS＆ENDS",
-    "reading": "ODDS＆ENDS",
+    "reading": "おっずあんどえんず",
     "unit": "virtual_singer",
     "releaseDate": "2020-12-24",
     "defaultOrder": 61,
@@ -3028,7 +3043,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_62",
     "title": "ドラマツルギー",
-    "reading": "ドラマツルギー",
+    "reading": "どらまつるぎー",
     "unit": "leo_need",
     "releaseDate": "2020-12-28",
     "defaultOrder": 62,
@@ -3075,7 +3090,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_63",
     "title": "グリーンライツ・セレナーデ",
-    "reading": "グリーンライツ・セレナーデ",
+    "reading": "ぐりーんらいつせれなーで",
     "unit": "virtual_singer",
     "releaseDate": "2020-12-29",
     "defaultOrder": 63,
@@ -3104,7 +3119,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_64",
     "title": "恋愛裁判",
-    "reading": "恋愛裁判",
+    "reading": "れんあいさいばん",
     "unit": "more_more_jump",
     "releaseDate": "2020-12-30",
     "defaultOrder": 64,
@@ -3161,7 +3176,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_65",
     "title": "＊ハロー、プラネット。",
-    "reading": "＊ハロー、プラネット。",
+    "reading": "はろーぷらねっと",
     "unit": "virtual_singer",
     "releaseDate": "2020-12-31",
     "defaultOrder": 65,
@@ -3190,7 +3205,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_66",
     "title": "千本桜",
-    "reading": "千本桜",
+    "reading": "せんぼんざくら",
     "unit": "virtual_singer",
     "releaseDate": "2021-01-01",
     "defaultOrder": 66,
@@ -3250,7 +3265,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_67",
     "title": "ECHO",
-    "reading": "ECHO",
+    "reading": "えこー",
     "unit": "vivid_bad_squad",
     "releaseDate": "2021-01-02",
     "defaultOrder": 67,
@@ -3358,7 +3373,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_69",
     "title": "ブレス・ユア・ブレス",
-    "reading": "ブレス・ユア・ブレス",
+    "reading": "ぶれすゆあぶれす",
     "unit": "virtual_singer",
     "releaseDate": "2021-01-04",
     "defaultOrder": 69,
@@ -3387,7 +3402,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_70",
     "title": "とても痛い痛がりたい",
-    "reading": "とても痛い痛がりたい",
+    "reading": "とてもいたいいたがりたい",
     "unit": "nightcord_at_25",
     "releaseDate": "2021-01-05",
     "defaultOrder": 70,
@@ -3429,7 +3444,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_71",
     "title": "霽れを待つ",
-    "reading": "霽れを待つ",
+    "reading": "はれをまつ",
     "unit": "leo_need",
     "releaseDate": "2021-01-10",
     "defaultOrder": 71,
@@ -3490,7 +3505,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_72",
     "title": "ワールズエンド・ダンスホール",
-    "reading": "ワールズエンド・ダンスホール",
+    "reading": "わーるずえんどだんすほーる",
     "unit": "virtual_singer",
     "releaseDate": "2021-01-14",
     "defaultOrder": 72,
@@ -3521,7 +3536,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_73",
     "title": "ヒビカセ",
-    "reading": "ヒビカセ",
+    "reading": "ひびかせ",
     "unit": "virtual_singer",
     "releaseDate": "2021-01-18",
     "defaultOrder": 73,
@@ -3550,7 +3565,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_74",
     "title": "Color of Drops",
-    "reading": "Color of Drops",
+    "reading": "からーおぶどろっ��す",
     "unit": "more_more_jump",
     "releaseDate": "2021-01-29",
     "defaultOrder": 74,
@@ -3620,7 +3635,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_75",
     "title": "RAD DOGS",
-    "reading": "RAD DOGS",
+    "reading": "らっどどっぐす",
     "unit": "vivid_bad_squad",
     "releaseDate": "2021-01-31",
     "defaultOrder": 75,
@@ -3687,7 +3702,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_76",
     "title": "ミルククラウン・オン・ソーネチカ",
-    "reading": "ミルククラウン・オン・ソーネチカ",
+    "reading": "みるくくらうんおんそーねちか",
     "unit": "more_more_jump",
     "releaseDate": "2021-02-06",
     "defaultOrder": 76,
@@ -3744,7 +3759,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_77",
     "title": "タイムマシン",
-    "reading": "タイムマシン",
+    "reading": "たいむまし���",
     "unit": "leo_need",
     "releaseDate": "2021-02-10",
     "defaultOrder": 77,
@@ -3805,7 +3820,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_78",
     "title": "drop pop candy",
-    "reading": "drop pop candy",
+    "reading": "どろっぷぽっぷきゃんでぃ",
     "unit": "vivid_bad_squad",
     "releaseDate": "2021-02-15",
     "defaultOrder": 78,
@@ -3876,7 +3891,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_79",
     "title": "ポジティブ☆ダンスタイム",
-    "reading": "ポジティブ☆ダンスタイム",
+    "reading": "ぽじてぃぶだんすたいむ",
     "unit": "wonderlands_showtime",
     "releaseDate": "2021-02-19",
     "defaultOrder": 79,
@@ -3935,7 +3950,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_80",
     "title": "Brand New Day",
-    "reading": "Brand New Day",
+    "reading": "ぶらんどにゅーでい",
     "unit": "virtual_singer",
     "releaseDate": "2021-02-22",
     "defaultOrder": 80,
@@ -3974,7 +3989,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_81",
     "title": "限りなく灰色へ",
-    "reading": "限りなく灰色へ",
+    "reading": "かぎりなくはいいろへ",
     "unit": "nightcord_at_25",
     "releaseDate": "2021-02-26",
     "defaultOrder": 81,
@@ -4036,7 +4051,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_82",
     "title": "ワンスアポンアドリーム",
-    "reading": "ワンスアポンアドリーム",
+    "reading": "わんすあぽんあどりーむ",
     "unit": "wonderlands_showtime",
     "releaseDate": "2021-02-28",
     "defaultOrder": 82,
@@ -4098,7 +4113,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_83",
     "title": "ボッカデラベリタ",
-    "reading": "ボッカデラベリタ",
+    "reading": "ぼっかでらべりた",
     "unit": "nightcord_at_25",
     "releaseDate": "2021-03-06",
     "defaultOrder": 83,
@@ -4138,7 +4153,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_84",
     "title": "みくみくにしてあげる♪【してやんよ】",
-    "reading": "みくみくにしてあげる♪【してやんよ】",
+    "reading": "みくみくにしてあげるしてやんよ",
     "unit": "virtual_singer",
     "releaseDate": "2021-03-09",
     "defaultOrder": 84,
@@ -4167,7 +4182,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_85",
     "title": "威風堂々",
-    "reading": "威風堂々",
+    "reading": "いふうどうどう",
     "unit": "vivid_bad_squad",
     "releaseDate": "2021-03-15",
     "defaultOrder": 85,
@@ -4241,7 +4256,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_86",
     "title": "from Y to Y",
-    "reading": "from Y to Y",
+    "reading": "ふろむわいとぅわい",
     "unit": "leo_need",
     "releaseDate": "2021-03-22",
     "defaultOrder": 86,
@@ -4304,7 +4319,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_87",
     "title": "初音ミクの激唱",
-    "reading": "初音ミクの激唱",
+    "reading": "はつねみくのげきしょう",
     "unit": "virtual_singer",
     "releaseDate": "2021-03-30",
     "defaultOrder": 87,
@@ -4333,7 +4348,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_88",
     "title": "天使のクローバー",
-    "reading": "天使のクローバー",
+    "reading": "てんしのくろーばー",
     "unit": "more_more_jump",
     "releaseDate": "2021-03-30",
     "defaultOrder": 88,
@@ -4394,7 +4409,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_89",
     "title": "お気に召すまま",
-    "reading": "お気に召すまま",
+    "reading": "おきにめすまま",
     "unit": "wonderlands_showtime",
     "releaseDate": "2021-04-05",
     "defaultOrder": 89,
@@ -4448,7 +4463,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_90",
     "title": "どりーみんチュチュ",
-    "reading": "どりーみんチュチュ",
+    "reading": "どりーみんちゅちゅ",
     "unit": "more_more_jump",
     "releaseDate": "2021-04-12",
     "defaultOrder": 90,
@@ -4517,7 +4532,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_91",
     "title": "アイディスマイル",
-    "reading": "アイディスマイル",
+    "reading": "あいでぃすまいる",
     "unit": "nightcord_at_25",
     "releaseDate": "2021-04-19",
     "defaultOrder": 91,
@@ -4597,7 +4612,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_92",
     "title": "「１」",
-    "reading": "「１」",
+    "reading": "いち",
     "unit": "leo_need",
     "releaseDate": "2021-04-21",
     "defaultOrder": 92,
@@ -4666,7 +4681,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_93",
     "title": "花を唄う",
-    "reading": "花を唄う",
+    "reading": "はなをうたう",
     "unit": "virtual_singer",
     "releaseDate": "2021-04-26",
     "defaultOrder": 93,
@@ -4695,7 +4710,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_94",
     "title": "夜に駆ける",
-    "reading": "夜に駆ける",
+    "reading": "よるにかける",
     "unit": "nightcord_at_25",
     "releaseDate": "2021-05-01",
     "defaultOrder": 94,
@@ -4778,7 +4793,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_95",
     "title": "幽霊東京",
-    "reading": "幽霊東京",
+    "reading": "ゆうれいとうきょう",
     "unit": "vivid_bad_squad",
     "releaseDate": "2021-05-03",
     "defaultOrder": 95,
@@ -4890,7 +4905,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_97",
     "title": "KING",
-    "reading": "KING",
+    "reading": "きんぐ",
     "unit": "wonderlands_showtime",
     "releaseDate": "2021-05-17",
     "defaultOrder": 97,
@@ -4907,7 +4922,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "rui",
       "gumi",
       "kaito",
-      "Crazy:B"
+      "crazy_b"
     ],
     "vocalTracks": [
       {
@@ -4958,7 +4973,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "singers": [
           "tsukasa",
           "rui",
-          "Crazy:B"
+          "crazy_b"
         ]
       }
     ]
@@ -4966,7 +4981,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_98",
     "title": "アイノマテリアル",
-    "reading": "アイノマテリアル",
+    "reading": "あいのまてりある",
     "unit": "more_more_jump",
     "releaseDate": "2021-05-21",
     "defaultOrder": 98,
@@ -5072,7 +5087,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_100",
     "title": "ロミオとシンデレラ",
-    "reading": "ロミオとシンデレラ",
+    "reading": "ろみおとしんでれら",
     "unit": "more_more_jump",
     "releaseDate": "2021-06-07",
     "defaultOrder": 100,
@@ -5142,7 +5157,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_101",
     "title": "泡沫未来",
-    "reading": "泡沫未来",
+    "reading": "うたかたみらい",
     "unit": "virtual_singer",
     "releaseDate": "2021-06-14",
     "defaultOrder": 101,
@@ -5250,7 +5265,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_103",
     "title": "カナデトモスソラ",
-    "reading": "カナデトモスソラ",
+    "reading": "かなでともすそら",
     "unit": "nightcord_at_25",
     "releaseDate": "2021-06-21",
     "defaultOrder": 103,
@@ -5336,7 +5351,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_104",
     "title": "トラフィック・ジャム",
-    "reading": "トラフィック・ジャム",
+    "reading": "とらふぃっくじゃむ",
     "unit": "vivid_bad_squad",
     "releaseDate": "2021-06-30",
     "defaultOrder": 104,
@@ -5408,7 +5423,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_105",
     "title": "フロムトーキョー",
-    "reading": "フロムトーキョー",
+    "reading": "ふろむとーきょー",
     "unit": "leo_need",
     "releaseDate": "2021-07-07",
     "defaultOrder": 105,
@@ -5477,7 +5492,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_106",
     "title": "Beat Eater",
-    "reading": "Beat Eater",
+    "reading": "びーといーたー",
     "unit": "vivid_bad_squad",
     "releaseDate": "2021-07-09",
     "defaultOrder": 106,
@@ -5565,7 +5580,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_107",
     "title": "六兆年と一夜物語",
-    "reading": "六兆年と一夜物語",
+    "reading": "ろくちょうねんといちやものがたり",
     "unit": "leo_need",
     "releaseDate": "2021-07-12",
     "defaultOrder": 107,
@@ -5621,7 +5636,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_108",
     "title": "地球最後の告白を",
-    "reading": "地球最後の告白を",
+    "reading": "ちきゅうさいごのこくはくを",
     "unit": "more_more_jump",
     "releaseDate": "2021-07-19",
     "defaultOrder": 108,
@@ -5699,7 +5714,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_109",
     "title": "ビターチョコデコレーション",
-    "reading": "ビターチョコデコレーション",
+    "reading": "びたーちょこでこれーしょん",
     "unit": "nightcord_at_25",
     "releaseDate": "2021-07-28",
     "defaultOrder": 109,
@@ -5777,7 +5792,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_110",
     "title": "そうだった！！",
-    "reading": "そうだった！！",
+    "reading": "そうだった",
     "unit": "virtual_singer",
     "releaseDate": "2021-08-06",
     "defaultOrder": 110,
@@ -5816,7 +5831,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_111",
     "title": "カゲロウデイズ",
-    "reading": "カゲロウデイズ",
+    "reading": "かげろうでいず",
     "unit": "leo_need",
     "releaseDate": "2021-08-15",
     "defaultOrder": 111,
@@ -5893,7 +5908,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_112",
     "title": "アイスドロップ",
-    "reading": "アイスドロップ",
+    "reading": "あいすどろっぷ",
     "unit": "more_more_jump",
     "releaseDate": "2021-08-18",
     "defaultOrder": 112,
@@ -5947,7 +5962,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_113",
     "title": "Glory Steady Go!",
-    "reading": "Glory Steady Go!",
+    "reading": "ぐろーりーすてでぃごー",
     "unit": "wonderlands_showtime",
     "releaseDate": "2021-08-20",
     "defaultOrder": 113,
@@ -5993,7 +6008,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_114",
     "title": "チルドレンレコード",
-    "reading": "チルドレンレコード",
+    "reading": "ちるどれんれこーど",
     "unit": "vivid_bad_squad",
     "releaseDate": "2021-08-23",
     "defaultOrder": 114,
@@ -6057,7 +6072,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_115",
     "title": "magic number",
-    "reading": "magic number",
+    "reading": "まじっくなんばー",
     "unit": "virtual_singer",
     "releaseDate": "2021-09-01",
     "defaultOrder": 115,
@@ -6157,7 +6172,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_117",
     "title": "カトラリー",
-    "reading": "カトラリー",
+    "reading": "かとらりー",
     "unit": "nightcord_at_25",
     "releaseDate": "2021-09-21",
     "defaultOrder": 117,
@@ -6214,7 +6229,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_118",
     "title": "再生",
-    "reading": "再生",
+    "reading": "さいせい",
     "unit": "nightcord_at_25",
     "releaseDate": "2021-09-29",
     "defaultOrder": 118,
@@ -6308,9 +6323,9 @@ export const ALL_RECORDS: RecordItem[] = [
       "luka",
       "meiko",
       "kaito",
-      "ALL ORIGINAL ユニット",
-      "25時",
-      "ナイトコードで。"
+      "mafuyu",
+      "ena",
+      "mizuki"
     ],
     "vocalTracks": [
       {
@@ -6392,7 +6407,11 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "セカイver",
         "type": "sekai",
         "singers": [
-          "ALL ORIGINAL ユニット"
+          "ichika",
+          "minori",
+          "kohane",
+          "tsukasa",
+          "kanade"
         ]
       },
       {
@@ -6400,8 +6419,10 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "コネクトライブver",
         "type": "connect_live",
         "singers": [
-          "25時",
-          "ナイトコードで。",
+          "kanade",
+          "mafuyu",
+          "ena",
+          "mizuki",
           "miku",
           "rin",
           "len",
@@ -6415,7 +6436,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_120",
     "title": "炉心融解",
-    "reading": "炉心融解",
+    "reading": "ろしんゆうかい",
     "unit": "virtual_singer",
     "releaseDate": "2021-10-01",
     "defaultOrder": 120,
@@ -6444,7 +6465,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_121",
     "title": "ロストワンの号哭",
-    "reading": "ロストワンの号哭",
+    "reading": "ろすとわんのごうこく",
     "unit": "leo_need",
     "releaseDate": "2021-10-02",
     "defaultOrder": 121,
@@ -6523,7 +6544,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_122",
     "title": "マシンガンポエムドール",
-    "reading": "マシンガンポエムドール",
+    "reading": "ましんがんぽえむどーる",
     "unit": "virtual_singer",
     "releaseDate": "2021-10-03",
     "defaultOrder": 122,
@@ -6552,7 +6573,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_123",
     "title": "ベノム",
-    "reading": "ベノム",
+    "reading": "べのむ",
     "unit": "nightcord_at_25",
     "releaseDate": "2021-10-04",
     "defaultOrder": 123,
@@ -6636,7 +6657,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_124",
     "title": "拝啓ドッペルゲンガー",
-    "reading": "拝啓ドッペルゲンガー",
+    "reading": "はいけいどっぺるげんがー",
     "unit": "virtual_singer",
     "releaseDate": "2021-10-05",
     "defaultOrder": 124,
@@ -6665,7 +6686,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_125",
     "title": "テレキャスタービーボーイ",
-    "reading": "テレキャスタービーボーイ",
+    "reading": "てれきゃすたーびーぼーい",
     "unit": "wonderlands_showtime",
     "releaseDate": "2021-10-06",
     "defaultOrder": 125,
@@ -6726,7 +6747,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_126",
     "title": "トキヲ・ファンカ",
-    "reading": "トキヲ・ファンカ",
+    "reading": "ときをふぁんか",
     "unit": "virtual_singer",
     "releaseDate": "2021-10-07",
     "defaultOrder": 126,
@@ -6755,7 +6776,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_127",
     "title": "悪魔の踊り方",
-    "reading": "悪魔の踊り方",
+    "reading": "あくまのおどりかた",
     "unit": "vivid_bad_squad",
     "releaseDate": "2021-10-08",
     "defaultOrder": 127,
@@ -6800,7 +6821,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_128",
     "title": "だれかの心臓になれたなら",
-    "reading": "だれかの心臓になれたなら",
+    "reading": "だれかのしんぞうになれたら",
     "unit": "virtual_singer",
     "releaseDate": "2021-10-09",
     "defaultOrder": 128,
@@ -6829,7 +6850,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_129",
     "title": "マシュマリー",
-    "reading": "マシュマリー",
+    "reading": "ましゅまりー",
     "unit": "more_more_jump",
     "releaseDate": "2021-10-10",
     "defaultOrder": 129,
@@ -6878,7 +6899,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_130",
     "title": "右肩の蝶",
-    "reading": "右肩の蝶",
+    "reading": "みぎかたのちょう",
     "unit": "virtual_singer",
     "releaseDate": "2021-10-11",
     "defaultOrder": 130,
@@ -6907,7 +6928,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_131",
     "title": "ray",
-    "reading": "ray",
+    "reading": "れい",
     "unit": "leo_need",
     "releaseDate": "2021-10-12",
     "defaultOrder": 131,
@@ -6946,7 +6967,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_132",
     "title": "Hello,world!",
-    "reading": "Hello,world!",
+    "reading": "はろーわーるど",
     "unit": "leo_need",
     "releaseDate": "2021-10-13",
     "defaultOrder": 132,
@@ -6991,7 +7012,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_133",
     "title": "しっくおぶはうす！",
-    "reading": "しっくおぶはうす！",
+    "reading": "しっくおぶはうす",
     "unit": "virtual_singer",
     "releaseDate": "2021-10-22",
     "defaultOrder": 133,
@@ -7022,7 +7043,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_134",
     "title": "ショウタイム・ルーラー",
-    "reading": "ショウタイム・ルーラー",
+    "reading": "しょうたいむるーらー",
     "unit": "wonderlands_showtime",
     "releaseDate": "2021-10-29",
     "defaultOrder": 134,
@@ -7083,7 +7104,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_135",
     "title": "Happy Halloween",
-    "reading": "Happy Halloween",
+    "reading": "はっぴーはろうぃん",
     "unit": "more_more_jump",
     "releaseDate": "2021-10-30",
     "defaultOrder": 135,
@@ -7231,7 +7252,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_137",
     "title": "初音天地開闢神話",
-    "reading": "初音天地開闢神話",
+    "reading": "はつねてんちかいびゃくしんわ",
     "unit": "virtual_singer",
     "releaseDate": "2021-11-05",
     "defaultOrder": 137,
@@ -7260,7 +7281,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_138",
     "title": "オルターエゴ",
-    "reading": "オルターエゴ",
+    "reading": "おるたーえご",
     "unit": "vivid_bad_squad",
     "releaseDate": "2021-11-10",
     "defaultOrder": 138,
@@ -7329,7 +7350,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_139",
     "title": "STAGE OF SEKAI",
-    "reading": "STAGE OF SEKAI",
+    "reading": "すてーじおぶせかい",
     "unit": "leo_need",
     "releaseDate": "2021-11-18",
     "defaultOrder": 139,
@@ -7415,7 +7436,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_140",
     "title": "からくりピエロ",
-    "reading": "からくりピエロ",
+    "reading": "からくりぴえろ",
     "unit": "more_more_jump",
     "releaseDate": "2021-11-29",
     "defaultOrder": 140,
@@ -7478,7 +7499,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_141",
     "title": "ワールドワイドワンダー",
-    "reading": "ワールドワイドワンダー",
+    "reading": "わーるどわいどわんだー",
     "unit": "more_more_jump",
     "releaseDate": "2021-12-10",
     "defaultOrder": 141,
@@ -7532,7 +7553,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_142",
     "title": "悪ノ娘",
-    "reading": "悪ノ娘",
+    "reading": "あくのむすめ",
     "unit": "virtual_singer",
     "releaseDate": "2021-12-13",
     "defaultOrder": 142,
@@ -7561,7 +7582,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_143",
     "title": "悪ノ召使",
-    "reading": "悪ノ召使",
+    "reading": "あくのめしつかい",
     "unit": "virtual_singer",
     "releaseDate": "2021-12-14",
     "defaultOrder": 143,
@@ -7590,7 +7611,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_144",
     "title": "去り人達のワルツ",
-    "reading": "去り人達のワルツ",
+    "reading": "さりびとたちのわるつ",
     "unit": "virtual_singer",
     "releaseDate": "2021-12-15",
     "defaultOrder": 144,
@@ -7619,7 +7640,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_145",
     "title": "ラストスコア",
-    "reading": "ラストスコア",
+    "reading": "らすとすこあ",
     "unit": "virtual_singer",
     "releaseDate": "2021-12-20",
     "defaultOrder": 145,
@@ -7648,7 +7669,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_146",
     "title": "フィクサー",
-    "reading": "フィクサー",
+    "reading": "ふぃくさー",
     "unit": "wonderlands_showtime",
     "releaseDate": "2021-12-28",
     "defaultOrder": 146,
@@ -7704,7 +7725,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_147",
     "title": "ミライ",
-    "reading": "ミライ",
+    "reading": "みらい",
     "unit": "vivid_bad_squad",
     "releaseDate": "2021-12-29",
     "defaultOrder": 147,
@@ -7774,7 +7795,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_148",
     "title": "ゴーストルール",
-    "reading": "ゴーストルール",
+    "reading": "ごーすとるーる",
     "unit": "leo_need",
     "releaseDate": "2021-12-30",
     "defaultOrder": 148,
@@ -7835,7 +7856,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_149",
     "title": "ヴィラン",
-    "reading": "ヴィラン",
+    "reading": "ヴぃらん",
     "unit": "nightcord_at_25",
     "releaseDate": "2021-12-31",
     "defaultOrder": 149,
@@ -7891,7 +7912,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_150",
     "title": "サンドリヨン 10th Anniversary",
-    "reading": "サンドリヨン 10th Anniversary",
+    "reading": "さんどりよんてんすあにばーさりー",
     "unit": "virtual_singer",
     "releaseDate": "2022-01-01",
     "defaultOrder": 150,
@@ -7922,7 +7943,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_151",
     "title": "少女レイ",
-    "reading": "少女レイ",
+    "reading": "しょうじょれい",
     "unit": "more_more_jump",
     "releaseDate": "2022-01-02",
     "defaultOrder": 151,
@@ -7979,7 +8000,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_152",
     "title": "ガランド",
-    "reading": "ガランド",
+    "reading": "がらんど",
     "unit": "vivid_bad_squad",
     "releaseDate": "2022-01-03",
     "defaultOrder": 152,
@@ -8037,7 +8058,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_153",
     "title": "エンドマークに希望と涙を添えて",
-    "reading": "エンドマークに希望と涙を添えて",
+    "reading": "えんどまーくにきぼうとなみだをそえて",
     "unit": "other",
     "releaseDate": "2022-01-08",
     "defaultOrder": 153,
@@ -8055,7 +8076,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_154",
     "title": "the EmpErroR",
-    "reading": "the EmpErroR",
+    "reading": "じえんぺらー",
     "unit": "other",
     "releaseDate": "2022-01-09",
     "defaultOrder": 154,
@@ -8073,7 +8094,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_155",
     "title": "Don't Fight The Music",
-    "reading": "Don't Fight The Music",
+    "reading": "どんとふぁいとざみゅーじっく",
     "unit": "other",
     "releaseDate": "2022-01-10",
     "defaultOrder": 155,
@@ -8091,7 +8112,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_156",
     "title": "にっこり^^調査隊のテーマ",
-    "reading": "にっこり^^調査隊のテーマ",
+    "reading": "にっこりちょうさたいのてーま",
     "unit": "wonderlands_showtime",
     "releaseDate": "2022-01-19",
     "defaultOrder": 156,
@@ -8149,7 +8170,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_157",
     "title": "トリコロージュ",
-    "reading": "トリコロージュ",
+    "reading": "とりころーじゅ",
     "unit": "nightcord_at_25",
     "releaseDate": "2022-01-21",
     "defaultOrder": 157,
@@ -8211,7 +8232,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_158",
     "title": "心拍数♯0822",
-    "reading": "心拍数♯0822",
+    "reading": "しんぱくすうしゃーぷぜろはちにーにー",
     "unit": "leo_need",
     "releaseDate": "2022-01-24",
     "defaultOrder": 158,
@@ -8324,7 +8345,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_160",
     "title": "踊",
-    "reading": "踊",
+    "reading": "おど",
     "unit": "vivid_bad_squad",
     "releaseDate": "2022-02-04",
     "defaultOrder": 160,
@@ -8382,7 +8403,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_161",
     "title": "君色マリンスノウ",
-    "reading": "君色マリンスノウ",
+    "reading": "きみいろまりんすのう",
     "unit": "virtual_singer",
     "releaseDate": "2022-02-05",
     "defaultOrder": 161,
@@ -8411,7 +8432,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_162",
     "title": "愛して愛して愛して",
-    "reading": "愛して愛して愛して",
+    "reading": "あいしてあいしてあいして",
     "unit": "nightcord_at_25",
     "releaseDate": "2022-02-07",
     "defaultOrder": 162,
@@ -8468,7 +8489,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_163",
     "title": "Flyer!",
-    "reading": "Flyer!",
+    "reading": "ふらいやー",
     "unit": "vivid_bad_squad",
     "releaseDate": "2022-02-16",
     "defaultOrder": 163,
@@ -8539,7 +8560,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_164",
     "title": "Peaky Peaky",
-    "reading": "Peaky Peaky",
+    "reading": "ぴーきーぴーきー",
     "unit": "leo_need",
     "releaseDate": "2022-02-18",
     "defaultOrder": 164,
@@ -8628,7 +8649,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_165",
     "title": "ジウダス",
-    "reading": "ジウダス",
+    "reading": "じうだす",
     "unit": "virtual_singer",
     "releaseDate": "2022-02-21",
     "defaultOrder": 165,
@@ -8657,7 +8678,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_166",
     "title": "ナンセンス文学",
-    "reading": "ナンセンス文学",
+    "reading": "なんせんすぶんがく",
     "unit": "wonderlands_showtime",
     "releaseDate": "2022-02-24",
     "defaultOrder": 166,
@@ -8724,7 +8745,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_167",
     "title": "心予報",
-    "reading": "心予報",
+    "reading": "こころよほう",
     "unit": "more_more_jump",
     "releaseDate": "2022-03-02",
     "defaultOrder": 167,
@@ -8796,7 +8817,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_168",
     "title": "僕らまだアンダーグラウンド",
-    "reading": "僕らまだアンダーグラウンド",
+    "reading": "ぼくらまだあんだーぐらうんど",
     "unit": "leo_need",
     "releaseDate": "2022-03-04",
     "defaultOrder": 168,
@@ -8856,7 +8877,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_169",
     "title": "Miku",
-    "reading": "Miku",
+    "reading": "みく",
     "unit": "virtual_singer",
     "releaseDate": "2022-03-09",
     "defaultOrder": 169,
@@ -8885,7 +8906,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_170",
     "title": "メタモリボン",
-    "reading": "メタモリボン",
+    "reading": "めたもりぼん",
     "unit": "more_more_jump",
     "releaseDate": "2022-03-11",
     "defaultOrder": 170,
@@ -8994,7 +9015,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_172",
     "title": "雨とペトラ",
-    "reading": "雨とペトラ",
+    "reading": "あめとぺとら",
     "unit": "vivid_bad_squad",
     "releaseDate": "2022-03-22",
     "defaultOrder": 172,
@@ -9038,7 +9059,7 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "アナザーボーカルver",
         "type": "another_vocal",
         "singers": [
-          "toya"
+          "akito"
         ]
       },
       {
@@ -9046,11 +9067,19 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "アナザーボーカルver",
         "type": "another_vocal",
         "singers": [
-          "luka"
+          "toya"
         ]
       },
       {
         "id": "rec_172_t5",
+        "name": "アナザーボーカルver",
+        "type": "another_vocal",
+        "singers": [
+          "luka"
+        ]
+      },
+      {
+        "id": "rec_172_t6",
         "name": "アナザーボーカルver",
         "type": "another_vocal",
         "singers": [
@@ -9062,7 +9091,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_173",
     "title": "ノマド",
-    "reading": "ノマド",
+    "reading": "のまど",
     "unit": "nightcord_at_25",
     "releaseDate": "2022-03-28",
     "defaultOrder": 173,
@@ -9133,7 +9162,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_174",
     "title": "マトリョシカ",
-    "reading": "マトリョシカ",
+    "reading": "まとりょしか",
     "unit": "virtual_singer",
     "releaseDate": "2022-03-30",
     "defaultOrder": 174,
@@ -9164,7 +9193,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_175",
     "title": "ドーナツホール 2024",
-    "reading": "ドーナツホール 2024",
+    "reading": "どーなつほーる　にーまるにーよん",
     "unit": "virtual_singer",
     "releaseDate": "2022-03-31",
     "defaultOrder": 175,
@@ -9193,7 +9222,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_176",
     "title": "砂の惑星",
-    "reading": "砂の惑星",
+    "reading": "すなのわくせい",
     "unit": "virtual_singer",
     "releaseDate": "2022-04-01",
     "defaultOrder": 176,
@@ -9222,7 +9251,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_177",
     "title": "ルカルカ★ナイトフィーバー",
-    "reading": "ルカルカ★ナイトフィーバー",
+    "reading": "るかるかないとふぃーばー",
     "unit": "virtual_singer",
     "releaseDate": "2022-04-02",
     "defaultOrder": 177,
@@ -9251,7 +9280,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_178",
     "title": "ピアノ×フォルテ×スキャンダル",
-    "reading": "ピアノ×フォルテ×スキャンダル",
+    "reading": "ぴあのふぉるてすきゃんだる",
     "unit": "virtual_singer",
     "releaseDate": "2022-04-03",
     "defaultOrder": 178,
@@ -9280,7 +9309,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_179",
     "title": "千年の独奏歌",
-    "reading": "千年の独奏歌",
+    "reading": "せんねんのどくそうか",
     "unit": "virtual_singer",
     "releaseDate": "2022-04-04",
     "defaultOrder": 179,
@@ -9309,7 +9338,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_180",
     "title": "88☆彡",
-    "reading": "88☆彡",
+    "reading": "はちじゅうはち",
     "unit": "wonderlands_showtime",
     "releaseDate": "2022-04-11",
     "defaultOrder": 180,
@@ -9384,7 +9413,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_181",
     "title": "ONESELF",
-    "reading": "ONESELF",
+    "reading": "わんせるふ",
     "unit": "virtual_singer",
     "releaseDate": "2022-04-15",
     "defaultOrder": 181,
@@ -9413,7 +9442,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_182",
     "title": "PaⅢ.SENSATION",
-    "reading": "PaⅢ.SENSATION",
+    "reading": "ぱっしょねーとすりーどっとせんせーしょん",
     "unit": "vivid_bad_squad",
     "releaseDate": "2022-04-18",
     "defaultOrder": 182,
@@ -9467,7 +9496,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_183",
     "title": "ダーリンダンス",
-    "reading": "ダーリンダンス",
+    "reading": "だーりんだんす",
     "unit": "more_more_jump",
     "releaseDate": "2022-04-25",
     "defaultOrder": 183,
@@ -9508,7 +9537,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_184",
     "title": "オーダーメイド",
-    "reading": "オーダーメイド",
+    "reading": "おーだーめいど",
     "unit": "leo_need",
     "releaseDate": "2022-04-28",
     "defaultOrder": 184,
@@ -9569,7 +9598,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_185",
     "title": "アイデンティティ",
-    "reading": "アイデンティティ",
+    "reading": "あいでんてぃてぃ",
     "unit": "other",
     "releaseDate": "2022-05-01",
     "defaultOrder": 185,
@@ -9610,7 +9639,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_186",
     "title": "青色絵具",
-    "reading": "青色絵具",
+    "reading": "あおいろえのぐ",
     "unit": "other",
     "releaseDate": "2022-05-02",
     "defaultOrder": 186,
@@ -9655,7 +9684,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_187",
     "title": "コスモスパイス",
-    "reading": "コスモスパイス",
+    "reading": "こすもすぱいす",
     "unit": "other",
     "releaseDate": "2022-05-03",
     "defaultOrder": 187,
@@ -9700,7 +9729,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_188",
     "title": "徳川カップヌードル禁止令",
-    "reading": "徳川カップヌードル禁止令",
+    "reading": "とくがわかっぷぬーどるきんしれい",
     "unit": "other",
     "releaseDate": "2022-05-04",
     "defaultOrder": 188,
@@ -9716,8 +9745,8 @@ export const ALL_RECORDS: RecordItem[] = [
       "len",
       "kaito",
       "nene",
-      "ネネロボ",
-      "ミクダヨー"
+      "nenerobo",
+      "mikudayo"
     ],
     "vocalTracks": [
       {
@@ -9728,8 +9757,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len",
           "kaito",
           "nene",
-          "ネネロボ",
-          "ミクダヨー"
+          "nenerobo",
+          "mikudayo"
         ]
       }
     ]
@@ -9737,7 +9766,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_189",
     "title": "サラマンダー",
-    "reading": "サラマンダー",
+    "reading": "さらまんだー",
     "unit": "other",
     "releaseDate": "2022-05-05",
     "defaultOrder": 189,
@@ -9778,7 +9807,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_190",
     "title": "イフ",
-    "reading": "イフ",
+    "reading": "いふ",
     "unit": "more_more_jump",
     "releaseDate": "2022-05-08",
     "defaultOrder": 190,
@@ -9839,7 +9868,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_191",
     "title": "ブラック★ロックシューター",
-    "reading": "ブラック★ロックシューター",
+    "reading": "ぶらっくろっくしゅーたー",
     "unit": "virtual_singer",
     "releaseDate": "2022-05-10",
     "defaultOrder": 191,
@@ -9868,7 +9897,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_192",
     "title": "妄想感傷代償連盟",
-    "reading": "妄想感傷代償連盟",
+    "reading": "もうそうかんしょうだいしょうれんめい",
     "unit": "nightcord_at_25",
     "releaseDate": "2022-05-13",
     "defaultOrder": 192,
@@ -9943,7 +9972,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_193",
     "title": "リモコン",
-    "reading": "リモコン",
+    "reading": "りもこん",
     "unit": "wonderlands_showtime",
     "releaseDate": "2022-05-16",
     "defaultOrder": 193,
@@ -9987,7 +10016,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_194",
     "title": "月光",
-    "reading": "月光",
+    "reading": "げっこう",
     "unit": "vivid_bad_squad",
     "releaseDate": "2022-05-20",
     "defaultOrder": 194,
@@ -10059,7 +10088,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_195",
     "title": "神のまにまに",
-    "reading": "神のまにまに",
+    "reading": "かみのまにまに",
     "unit": "wonderlands_showtime",
     "releaseDate": "2022-05-30",
     "defaultOrder": 195,
@@ -10153,7 +10182,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_196",
     "title": "Awake Now",
-    "reading": "Awake Now",
+    "reading": "あうぇいくなう",
     "unit": "vivid_bad_squad",
     "releaseDate": "2022-05-31",
     "defaultOrder": 196,
@@ -10214,7 +10243,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_197",
     "title": "阿吽のビーツ",
-    "reading": "阿吽のビーツ",
+    "reading": "あうんのびーつ",
     "unit": "vivid_bad_squad",
     "releaseDate": "2022-06-06",
     "defaultOrder": 197,
@@ -10254,7 +10283,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_198",
     "title": "バグ",
-    "reading": "バグ",
+    "reading": "ばぐ",
     "unit": "nightcord_at_25",
     "releaseDate": "2022-06-10",
     "defaultOrder": 198,
@@ -10334,7 +10363,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_199",
     "title": "グッバイ宣言",
-    "reading": "グッバイ宣言",
+    "reading": "ぐっばいせんげん",
     "unit": "wonderlands_showtime",
     "releaseDate": "2022-06-13",
     "defaultOrder": 199,
@@ -10398,7 +10427,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_200",
     "title": "ヴァンパイア",
-    "reading": "ヴァンパイア",
+    "reading": "ヴぁんぱいあ",
     "unit": "more_more_jump",
     "releaseDate": "2022-06-20",
     "defaultOrder": 200,
@@ -10486,7 +10515,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_201",
     "title": "未完成讃歌",
-    "reading": "未完成讃歌",
+    "reading": "みかんせいさんか",
     "unit": "virtual_singer",
     "releaseDate": "2022-06-24",
     "defaultOrder": 201,
@@ -10515,7 +10544,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_202",
     "title": "星空のメロディー",
-    "reading": "星空のメロディー",
+    "reading": "ほしぞらのめろでぃー",
     "unit": "wonderlands_showtime",
     "releaseDate": "2022-06-28",
     "defaultOrder": 202,
@@ -10584,7 +10613,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_203",
     "title": "脳漿炸裂ガール",
-    "reading": "脳漿炸裂ガール",
+    "reading": "のうしょうさくれつがーる",
     "unit": "virtual_singer",
     "releaseDate": "2022-06-30",
     "defaultOrder": 203,
@@ -10628,7 +10657,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_204",
     "title": "ぼくらの16bit戦争",
-    "reading": "ぼくらの16bit戦争",
+    "reading": "ぼくらのしっくすてぃーんびっとうぉーず",
     "unit": "virtual_singer",
     "releaseDate": "2022-07-01",
     "defaultOrder": 204,
@@ -10657,7 +10686,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_205",
     "title": "メリュー",
-    "reading": "メリュー",
+    "reading": "めりゅー",
     "unit": "nightcord_at_25",
     "releaseDate": "2022-07-04",
     "defaultOrder": 205,
@@ -10714,7 +10743,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_206",
     "title": "エイリアンエイリアン",
-    "reading": "エイリアンエイリアン",
+    "reading": "えいりあんえいりあん",
     "unit": "wonderlands_showtime",
     "releaseDate": "2022-07-11",
     "defaultOrder": 206,
@@ -10763,7 +10792,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_207",
     "title": "街",
-    "reading": "街",
+    "reading": "まち",
     "unit": "vivid_bad_squad",
     "releaseDate": "2022-07-19",
     "defaultOrder": 207,
@@ -10878,7 +10907,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_209",
     "title": "フロイライン＝ビブリォチカ",
-    "reading": "フロイライン＝ビブリォチカ",
+    "reading": "ふろいらいんびぶりぉちか",
     "unit": "virtual_singer",
     "releaseDate": "2022-07-30",
     "defaultOrder": 209,
@@ -10907,7 +10936,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_210",
     "title": "踊れオーケストラ",
-    "reading": "踊れオーケストラ",
+    "reading": "おどれおーけすとら",
     "unit": "wonderlands_showtime",
     "releaseDate": "2022-08-08",
     "defaultOrder": 210,
@@ -10995,7 +11024,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_211",
     "title": "パラソルサイダー",
-    "reading": "パラソルサイダー",
+    "reading": "ぱらそるさいだー",
     "unit": "more_more_jump",
     "releaseDate": "2022-08-10",
     "defaultOrder": 211,
@@ -11059,7 +11088,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_212",
     "title": "ロストエンファウンド",
-    "reading": "ロストエンファウンド",
+    "reading": "ろすとえんふぁうんど",
     "unit": "leo_need",
     "releaseDate": "2022-08-15",
     "defaultOrder": 212,
@@ -11120,7 +11149,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_213",
     "title": "YY",
-    "reading": "YY",
+    "reading": "わいわい",
     "unit": "vivid_bad_squad",
     "releaseDate": "2022-08-22",
     "defaultOrder": 213,
@@ -11202,7 +11231,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_215",
     "title": "君の夜をくれ",
-    "reading": "君の夜をくれ",
+    "reading": "きみのよるをくれ",
     "unit": "nightcord_at_25",
     "releaseDate": "2022-08-29",
     "defaultOrder": 215,
@@ -11257,7 +11286,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_216",
     "title": "フューチャー・イヴ",
-    "reading": "フューチャー・イヴ",
+    "reading": "ふゅーちゃーいヴ",
     "unit": "virtual_singer",
     "releaseDate": "2022-09-02",
     "defaultOrder": 216,
@@ -11286,7 +11315,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_217",
     "title": "Voices",
-    "reading": "Voices",
+    "reading": "ヴぉいしーず",
     "unit": "leo_need",
     "releaseDate": "2022-09-07",
     "defaultOrder": 217,
@@ -11348,7 +11377,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_218",
     "title": "ジェヘナ",
-    "reading": "ジェヘナ",
+    "reading": "じぇへな",
     "unit": "nightcord_at_25",
     "releaseDate": "2022-09-12",
     "defaultOrder": 218,
@@ -11397,7 +11426,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_219",
     "title": "Calc.",
-    "reading": "Calc.",
+    "reading": "かるく",
     "unit": "leo_need",
     "releaseDate": "2022-09-16",
     "defaultOrder": 219,
@@ -11454,7 +11483,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_220",
     "title": "虚ろを扇ぐ",
-    "reading": "虚ろを扇ぐ",
+    "reading": "うつろをあおぐ",
     "unit": "vivid_bad_squad",
     "releaseDate": "2022-09-20",
     "defaultOrder": 220,
@@ -11508,7 +11537,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_221",
     "title": "Journey",
-    "reading": "Journey",
+    "reading": "じゃーにー",
     "unit": "other",
     "releaseDate": "2022-09-30",
     "defaultOrder": 221,
@@ -11613,7 +11642,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_222",
     "title": "天ノ弱",
-    "reading": "天ノ弱",
+    "reading": "あまのじゃく",
     "unit": "leo_need",
     "releaseDate": "2022-10-01",
     "defaultOrder": 222,
@@ -11683,7 +11712,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_223",
     "title": "アンハッピーリフレイン",
-    "reading": "アンハッピーリフレイン",
+    "reading": "あんはっぴーりふれいん",
     "unit": "virtual_singer",
     "releaseDate": "2022-10-02",
     "defaultOrder": 223,
@@ -11712,7 +11741,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_224",
     "title": "フォニイ",
-    "reading": "フォニイ",
+    "reading": "ふぉにい",
     "unit": "nightcord_at_25",
     "releaseDate": "2022-10-03",
     "defaultOrder": 224,
@@ -11800,7 +11829,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_225",
     "title": "ダブルラリアット",
-    "reading": "ダブルラリアット",
+    "reading": "だぶるらりあっと",
     "unit": "virtual_singer",
     "releaseDate": "2022-10-04",
     "defaultOrder": 225,
@@ -11829,7 +11858,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_226",
     "title": "インビジブル",
-    "reading": "インビジブル",
+    "reading": "いんびじぶる",
     "unit": "virtual_singer",
     "releaseDate": "2022-10-05",
     "defaultOrder": 226,
@@ -11860,7 +11889,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_227",
     "title": "エゴロック",
-    "reading": "エゴロック",
+    "reading": "えごろっく",
     "unit": "wonderlands_showtime",
     "releaseDate": "2022-10-06",
     "defaultOrder": 227,
@@ -11922,7 +11951,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_228",
     "title": "Bad ∞ End ∞ Night",
-    "reading": "Bad ∞ End ∞ Night",
+    "reading": "ばっどえんどないと",
     "unit": "virtual_singer",
     "releaseDate": "2022-10-07",
     "defaultOrder": 228,
@@ -11965,7 +11994,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_229",
     "title": "トリノコシティ",
-    "reading": "トリノコシティ",
+    "reading": "とりのこしてぃ",
     "unit": "more_more_jump",
     "releaseDate": "2022-10-08",
     "defaultOrder": 229,
@@ -12036,7 +12065,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_230",
     "title": "こちら、幸福安心委員会です。",
-    "reading": "こちら、幸福安心委員会です。",
+    "reading": "こちらこうふくあんしんいいんかいです",
     "unit": "virtual_singer",
     "releaseDate": "2022-10-09",
     "defaultOrder": 230,
@@ -12065,7 +12094,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_231",
     "title": "DAYBREAK FRONTLINE",
-    "reading": "DAYBREAK FRONTLINE",
+    "reading": "でいぶれいくふろんとらいん",
     "unit": "vivid_bad_squad",
     "releaseDate": "2022-10-10",
     "defaultOrder": 231,
@@ -12084,8 +12113,10 @@ export const ALL_RECORDS: RecordItem[] = [
       "akito",
       "toya",
       "ia",
-      "Vivid BAD SQUAD",
-      "Leo/need"
+      "ichika",
+      "saki",
+      "honami",
+      "shiho"
     ],
     "vocalTracks": [
       {
@@ -12122,8 +12153,14 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "connect_live",
         "singers": [
           "miku",
-          "Vivid BAD SQUAD",
-          "Leo/need"
+          "kohane",
+          "an",
+          "akito",
+          "toya",
+          "ichika",
+          "saki",
+          "honami",
+          "shiho"
         ]
       }
     ]
@@ -12131,7 +12168,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_232",
     "title": "ÅMARA(大未来電脳)",
-    "reading": "ÅMARA(大未来電脳)",
+    "reading": "あまらだいみらいでんのう",
     "unit": "virtual_singer",
     "releaseDate": "2022-10-11",
     "defaultOrder": 232,
@@ -12162,7 +12199,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_233",
     "title": "DREAM PLACE",
-    "reading": "DREAM PLACE",
+    "reading": "どりーむぷれいす",
     "unit": "more_more_jump",
     "releaseDate": "2022-10-19",
     "defaultOrder": 233,
@@ -12220,7 +12257,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_234",
     "title": "泥中に咲く",
-    "reading": "泥中に咲く",
+    "reading": "でいちゅうにさく",
     "unit": "nightcord_at_25",
     "releaseDate": "2022-10-28",
     "defaultOrder": 234,
@@ -12290,7 +12327,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_236",
     "title": "帝国少女",
-    "reading": "帝国少女",
+    "reading": "ていこくしょうじょ",
     "unit": "vivid_bad_squad",
     "releaseDate": "2022-11-01",
     "defaultOrder": 236,
@@ -12347,7 +12384,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_237",
     "title": "Change me",
-    "reading": "Change me",
+    "reading": "ちぇんじみー",
     "unit": "virtual_singer",
     "releaseDate": "2022-11-04",
     "defaultOrder": 237,
@@ -12376,7 +12413,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_238",
     "title": "ラブカ？",
-    "reading": "ラブカ？",
+    "reading": "らぶか",
     "unit": "wonderlands_showtime",
     "releaseDate": "2022-11-14",
     "defaultOrder": 238,
@@ -12438,7 +12475,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_239",
     "title": "the WALL",
-    "reading": "the WALL",
+    "reading": "ざうぉーる",
     "unit": "leo_need",
     "releaseDate": "2022-11-18",
     "defaultOrder": 239,
@@ -12491,7 +12528,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_240",
     "title": "Iなんです",
-    "reading": "Iなんです",
+    "reading": "あいなんです",
     "unit": "nightcord_at_25",
     "releaseDate": "2022-11-20",
     "defaultOrder": 240,
@@ -12544,7 +12581,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_241",
     "title": "パラジクロロベンゼン",
-    "reading": "パラジクロロベンゼン",
+    "reading": "ぱらじくろろべんぜん",
     "unit": "virtual_singer",
     "releaseDate": "2022-11-21",
     "defaultOrder": 241,
@@ -12575,7 +12612,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_242",
     "title": "星屑ユートピア",
-    "reading": "星屑ユートピア",
+    "reading": "ほしくずゆーとぴあ",
     "unit": "virtual_singer",
     "releaseDate": "2022-11-25",
     "defaultOrder": 242,
@@ -12604,7 +12641,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_243",
     "title": "フレー",
-    "reading": "フレー",
+    "reading": "ふれー",
     "unit": "leo_need",
     "releaseDate": "2022-11-26",
     "defaultOrder": 243,
@@ -12676,7 +12713,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_245",
     "title": "フロート・プランナー",
-    "reading": "フロート・プランナー",
+    "reading": "ふろーとぷらんなー",
     "unit": "more_more_jump",
     "releaseDate": "2022-11-30",
     "defaultOrder": 245,
@@ -12739,7 +12776,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_246",
     "title": "ノンブレス・オブリージュ",
-    "reading": "ノンブレス・オブリージュ",
+    "reading": "のんぶれすおぶりーじゅ",
     "unit": "nightcord_at_25",
     "releaseDate": "2022-12-05",
     "defaultOrder": 246,
@@ -12784,7 +12821,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_247",
     "title": "ロンリーユニバース",
-    "reading": "ロンリーユニバース",
+    "reading": "ろんりーゆにばーす",
     "unit": "more_more_jump",
     "releaseDate": "2022-12-09",
     "defaultOrder": 247,
@@ -12843,7 +12880,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_248",
     "title": "陽だまりのセツナ",
-    "reading": "陽だまりのセツナ",
+    "reading": "ひだまりのせつな",
     "unit": "virtual_singer",
     "releaseDate": "2022-12-12",
     "defaultOrder": 248,
@@ -12874,7 +12911,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_249",
     "title": "仮死化",
-    "reading": "仮死化",
+    "reading": "かしか",
     "unit": "vivid_bad_squad",
     "releaseDate": "2022-12-19",
     "defaultOrder": 249,
@@ -12930,7 +12967,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_250",
     "title": "What's up? Pop!",
-    "reading": "What's up? Pop!",
+    "reading": "わっつあっぷぽっぷ",
     "unit": "virtual_singer",
     "releaseDate": "2022-12-23",
     "defaultOrder": 250,
@@ -12959,7 +12996,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_251",
     "title": "腐れ外道とチョコレゐト",
-    "reading": "腐れ外道とチョコレゐト",
+    "reading": "くされげどうとちょこれいと",
     "unit": "virtual_singer",
     "releaseDate": "2022-12-25",
     "defaultOrder": 251,
@@ -12988,7 +13025,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_252",
     "title": "夜もすがら君想ふ",
-    "reading": "夜もすがら君想ふ",
+    "reading": "よもすがらきみおもう",
     "unit": "leo_need",
     "releaseDate": "2022-12-29",
     "defaultOrder": 252,
@@ -13058,7 +13095,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_253",
     "title": "ネトゲ廃人シュプレヒコール",
-    "reading": "ネトゲ廃人シュプレヒコール",
+    "reading": "ねとげはいじんしゅぷれひこーる",
     "unit": "wonderlands_showtime",
     "releaseDate": "2022-12-30",
     "defaultOrder": 253,
@@ -13115,7 +13152,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_254",
     "title": "カンタレラ",
-    "reading": "カンタレラ",
+    "reading": "かんたれら",
     "unit": "virtual_singer",
     "releaseDate": "2022-12-31",
     "defaultOrder": 254,
@@ -13146,7 +13183,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_255",
     "title": "FREELY TOMORROW",
-    "reading": "FREELY TOMORROW",
+    "reading": "ふりーりーとぅもろー",
     "unit": "virtual_singer",
     "releaseDate": "2023-01-01",
     "defaultOrder": 255,
@@ -13175,7 +13212,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_256",
     "title": "気まぐれメルシィ",
-    "reading": "気まぐれメルシィ",
+    "reading": "きまぐれめるしぃ",
     "unit": "more_more_jump",
     "releaseDate": "2023-01-02",
     "defaultOrder": 256,
@@ -13228,7 +13265,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_257",
     "title": "それがあなたの幸せとしても",
-    "reading": "それがあなたの幸せとしても",
+    "reading": "それがあなたのしあわせとしても",
     "unit": "nightcord_at_25",
     "releaseDate": "2023-01-03",
     "defaultOrder": 257,
@@ -13285,7 +13322,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_258",
     "title": "リンちゃんなう！",
-    "reading": "リンちゃんなう！",
+    "reading": "りんちゃんなう",
     "unit": "virtual_singer",
     "releaseDate": "2023-01-04",
     "defaultOrder": 258,
@@ -13316,7 +13353,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_259",
     "title": "フェレス",
-    "reading": "フェレス",
+    "reading": "ふぇれす",
     "unit": "vivid_bad_squad",
     "releaseDate": "2023-01-05",
     "defaultOrder": 259,
@@ -13360,7 +13397,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_260",
     "title": "夜明けと蛍",
-    "reading": "夜明けと蛍",
+    "reading": "よあけとほたる",
     "unit": "virtual_singer",
     "releaseDate": "2023-01-10",
     "defaultOrder": 260,
@@ -13389,7 +13426,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_261",
     "title": "星空オーケストラ",
-    "reading": "星空オーケストラ",
+    "reading": "ほしぞらおーけすとら",
     "unit": "wonderlands_showtime",
     "releaseDate": "2023-01-19",
     "defaultOrder": 261,
@@ -13451,7 +13488,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_262",
     "title": "Flyway",
-    "reading": "Flyway",
+    "reading": "ふらいうぇい",
     "unit": "leo_need",
     "releaseDate": "2023-01-21",
     "defaultOrder": 262,
@@ -13506,7 +13543,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_263",
     "title": "p.h.",
-    "reading": "p.h.",
+    "reading": "ぺーはー",
     "unit": "virtual_singer",
     "releaseDate": "2023-01-23",
     "defaultOrder": 263,
@@ -13535,7 +13572,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_264",
     "title": "Goodbye",
-    "reading": "Goodbye",
+    "reading": "ぐっどばい",
     "unit": "virtual_singer",
     "releaseDate": "2023-02-01",
     "defaultOrder": 264,
@@ -13564,7 +13601,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_265",
     "title": "SnowMix♪",
-    "reading": "SnowMix♪",
+    "reading": "すのうみっくす",
     "unit": "virtual_singer",
     "releaseDate": "2023-02-04",
     "defaultOrder": 265,
@@ -13593,7 +13630,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_266",
     "title": "星界ちゃんと可不ちゃんのおつかい合騒曲",
-    "reading": "星界ちゃんと可不ちゃんのおつかい合騒曲",
+    "reading": "せかいちゃんとかふちゃんのおつかいがっそうきょく",
     "unit": "virtual_singer",
     "releaseDate": "2023-02-06",
     "defaultOrder": 266,
@@ -13626,7 +13663,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_267",
     "title": "天使の翼。",
-    "reading": "天使の翼。",
+    "reading": "てんしのつばさ",
     "unit": "virtual_singer",
     "releaseDate": "2023-02-07",
     "defaultOrder": 267,
@@ -13657,7 +13694,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_268",
     "title": "Copycat",
-    "reading": "Copycat",
+    "reading": "こぴーきゃっと",
     "unit": "virtual_singer",
     "releaseDate": "2023-02-10",
     "defaultOrder": 268,
@@ -13686,7 +13723,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_269",
     "title": "レイニースノードロップ",
-    "reading": "レイニースノードロップ",
+    "reading": "れいにーすのーどろっぷ",
     "unit": "virtual_singer",
     "releaseDate": "2023-02-11",
     "defaultOrder": 269,
@@ -13715,7 +13752,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_270",
     "title": "アイロニ",
-    "reading": "アイロニ",
+    "reading": "あいろに",
     "unit": "nightcord_at_25",
     "releaseDate": "2023-02-13",
     "defaultOrder": 270,
@@ -13777,7 +13814,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_271",
     "title": "1925",
-    "reading": "1925",
+    "reading": "いちきゅーにーごー",
     "unit": "wonderlands_showtime",
     "releaseDate": "2023-02-15",
     "defaultOrder": 271,
@@ -13838,7 +13875,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_272",
     "title": "私は、私達は",
-    "reading": "私は、私達は",
+    "reading": "わたしはわたしたちは",
     "unit": "more_more_jump",
     "releaseDate": "2023-02-17",
     "defaultOrder": 272,
@@ -13963,7 +14000,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_274",
     "title": "Hello, Worker",
-    "reading": "Hello, Worker",
+    "reading": "はろーわーかー",
     "unit": "leo_need",
     "releaseDate": "2023-02-20",
     "defaultOrder": 274,
@@ -14016,7 +14053,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_275",
     "title": "Where shall we go?",
-    "reading": "Where shall we go?",
+    "reading": "うぇあしゃるうぃーごー",
     "unit": "virtual_singer",
     "releaseDate": "2023-02-24",
     "defaultOrder": 275,
@@ -14047,7 +14084,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_276",
     "title": "ココロ",
-    "reading": "ココロ",
+    "reading": "こころ",
     "unit": "virtual_singer",
     "releaseDate": "2023-02-27",
     "defaultOrder": 276,
@@ -14076,7 +14113,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_277",
     "title": "ストロボラスト",
-    "reading": "ストロボラスト",
+    "reading": "すとろぼらすと",
     "unit": "virtual_singer",
     "releaseDate": "2023-02-28",
     "defaultOrder": 277,
@@ -14105,7 +14142,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_278",
     "title": "パレットには君がいっぱい",
-    "reading": "パレットには君がいっぱい",
+    "reading": "ぱれっとにはきみがいっぱい",
     "unit": "virtual_singer",
     "releaseDate": "2023-03-01",
     "defaultOrder": 278,
@@ -14134,7 +14171,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_279",
     "title": "Q",
-    "reading": "Q",
+    "reading": "きゅー",
     "unit": "virtual_singer",
     "releaseDate": "2023-03-02",
     "defaultOrder": 279,
@@ -14163,7 +14200,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_280",
     "title": "ヤミナベ!!!!",
-    "reading": "ヤミナベ!!!!",
+    "reading": "やみなべ",
     "unit": "virtual_singer",
     "releaseDate": "2023-03-04",
     "defaultOrder": 280,
@@ -14192,7 +14229,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_281",
     "title": "Booo!",
-    "reading": "Booo!",
+    "reading": "ぶー",
     "unit": "more_more_jump",
     "releaseDate": "2023-03-07",
     "defaultOrder": 281,
@@ -14254,7 +14291,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_282",
     "title": "39",
-    "reading": "39",
+    "reading": "さんきゅー",
     "unit": "virtual_singer",
     "releaseDate": "2023-03-09",
     "defaultOrder": 282,
@@ -14301,7 +14338,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_283",
     "title": "Mr. Showtime",
-    "reading": "Mr. Showtime",
+    "reading": "みすたーしょうたいむ",
     "unit": "wonderlands_showtime",
     "releaseDate": "2023-03-11",
     "defaultOrder": 283,
@@ -14365,7 +14402,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_284",
     "title": "エゴイスト",
-    "reading": "エゴイスト",
+    "reading": "えごいすと",
     "unit": "vivid_bad_squad",
     "releaseDate": "2023-03-13",
     "defaultOrder": 284,
@@ -14420,7 +14457,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_285",
     "title": "エピローグに君はいない",
-    "reading": "エピローグに君はいない",
+    "reading": "えぴろーぐにきみはいない",
     "unit": "virtual_singer",
     "releaseDate": "2023-03-16",
     "defaultOrder": 285,
@@ -14449,7 +14486,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_286",
     "title": "Highlight",
-    "reading": "Highlight",
+    "reading": "はいらいと",
     "unit": "virtual_singer",
     "releaseDate": "2023-03-20",
     "defaultOrder": 286,
@@ -14478,7 +14515,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_287",
     "title": "アトラクトライト",
-    "reading": "アトラクトライト",
+    "reading": "あとらくとらいと",
     "unit": "leo_need",
     "releaseDate": "2023-03-24",
     "defaultOrder": 287,
@@ -14540,7 +14577,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_288",
     "title": "ザムザ",
-    "reading": "ザムザ",
+    "reading": "ざむざ",
     "unit": "nightcord_at_25",
     "releaseDate": "2023-03-28",
     "defaultOrder": 288,
@@ -14602,7 +14639,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_289",
     "title": "トラッシュ・アンド・トラッシュ！",
-    "reading": "トラッシュ・アンド・トラッシュ！",
+    "reading": "とらっしゅあんどとらっしゅ",
     "unit": "virtual_singer",
     "releaseDate": "2023-03-30",
     "defaultOrder": 289,
@@ -14631,7 +14668,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_290",
     "title": "Vampire's ∞ pathoS",
-    "reading": "Vampire's ∞ pathoS",
+    "reading": "ヴぁんぱいあずぱとす",
     "unit": "virtual_singer",
     "releaseDate": "2023-03-31",
     "defaultOrder": 290,
@@ -14660,7 +14697,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_291",
     "title": "Be The MUSIC!",
-    "reading": "Be The MUSIC!",
+    "reading": "びーざみゅーじっく",
     "unit": "other",
     "releaseDate": "2023-04-01",
     "defaultOrder": 291,
@@ -14673,7 +14710,11 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "「All Music MIKUdemy」一同",
+      "ichika",
+      "minori",
+      "kohane",
+      "tsukasa",
+      "kanade",
       "miku",
       "rin",
       "len",
@@ -14681,10 +14722,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "meiko",
       "kaito",
       "saki",
-      "minori",
       "airi",
-      "kohane",
-      "tsukasa",
       "emu",
       "mizuki"
     ],
@@ -14694,7 +14732,12 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "セカイver",
         "type": "sekai",
         "singers": [
-          "「All Music MIKUdemy」一同"
+          "ichika",
+          "minori",
+          "kohane",
+          "tsukasa",
+          "kanade",
+          "miku"
         ]
       },
       {
@@ -14731,7 +14774,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_292",
     "title": "METEOR",
-    "reading": "METEOR",
+    "reading": "みーてぃあ",
     "unit": "virtual_singer",
     "releaseDate": "2023-04-01",
     "defaultOrder": 292,
@@ -14760,7 +14803,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_293",
     "title": "インタビュア",
-    "reading": "インタビュア",
+    "reading": "いんたびゅあ",
     "unit": "virtual_singer",
     "releaseDate": "2023-04-02",
     "defaultOrder": 293,
@@ -14789,7 +14832,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_294",
     "title": "私の恋はヘルファイア",
-    "reading": "私の恋はヘルファイア",
+    "reading": "わたしのこいはへるふぁいあ",
     "unit": "virtual_singer",
     "releaseDate": "2023-04-03",
     "defaultOrder": 294,
@@ -14818,7 +14861,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_295",
     "title": "スノーマン",
-    "reading": "スノーマン",
+    "reading": "すのーまん",
     "unit": "virtual_singer",
     "releaseDate": "2023-04-04",
     "defaultOrder": 295,
@@ -14847,7 +14890,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_296",
     "title": "深海少女",
-    "reading": "深海少女",
+    "reading": "しんかいしょうじょ",
     "unit": "more_more_jump",
     "releaseDate": "2023-04-07",
     "defaultOrder": 296,
@@ -14917,7 +14960,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_297",
     "title": "魔法みたいなミュージック！",
-    "reading": "魔法みたいなミュージック！",
+    "reading": "まほうみたいなみゅーじっく",
     "unit": "virtual_singer",
     "releaseDate": "2023-04-10",
     "defaultOrder": 297,
@@ -14946,7 +14989,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_298",
     "title": "相生",
-    "reading": "相生",
+    "reading": "あいおい",
     "unit": "leo_need",
     "releaseDate": "2023-04-11",
     "defaultOrder": 298,
@@ -15008,7 +15051,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_299",
     "title": "名も無き革命",
-    "reading": "名も無き革命",
+    "reading": "なもなきかくめい",
     "unit": "virtual_singer",
     "releaseDate": "2023-04-14",
     "defaultOrder": 299,
@@ -15037,7 +15080,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_300",
     "title": "おこちゃま戦争",
-    "reading": "おこちゃま戦争",
+    "reading": "おこちゃませんそう",
     "unit": "wonderlands_showtime",
     "releaseDate": "2023-04-17",
     "defaultOrder": 300,
@@ -15090,7 +15133,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_301",
     "title": "絶え間なく藍色",
-    "reading": "絶え間なく藍色",
+    "reading": "たえまなくあいいろ",
     "unit": "vivid_bad_squad",
     "releaseDate": "2023-04-21",
     "defaultOrder": 301,
@@ -15156,7 +15199,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_302",
     "title": "命ばっかり",
-    "reading": "命ばっかり",
+    "reading": "いのちばっかり",
     "unit": "nightcord_at_25",
     "releaseDate": "2023-04-24",
     "defaultOrder": 302,
@@ -15228,7 +15271,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_303",
     "title": "ももいろの鍵",
-    "reading": "ももいろの鍵",
+    "reading": "ももいろのかぎ",
     "unit": "more_more_jump",
     "releaseDate": "2023-04-28",
     "defaultOrder": 303,
@@ -15290,7 +15333,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_304",
     "title": "キティ",
-    "reading": "キティ",
+    "reading": "きてぃ",
     "unit": "nightcord_at_25",
     "releaseDate": "2023-04-30",
     "defaultOrder": 304,
@@ -15352,7 +15395,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_305",
     "title": "快晴",
-    "reading": "快晴",
+    "reading": "かいせい",
     "unit": "leo_need",
     "releaseDate": "2023-05-01",
     "defaultOrder": 305,
@@ -15423,7 +15466,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_306",
     "title": "悪食娘コンチータ",
-    "reading": "悪食娘コンチータ",
+    "reading": "あくじきむすめこんちーた",
     "unit": "virtual_singer",
     "releaseDate": "2023-05-03",
     "defaultOrder": 306,
@@ -15456,7 +15499,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_307",
     "title": "眠らせ姫からの贈り物",
-    "reading": "眠らせ姫からの贈り物",
+    "reading": "ねむらせひめからのおくりもの",
     "unit": "virtual_singer",
     "releaseDate": "2023-05-04",
     "defaultOrder": 307,
@@ -15485,7 +15528,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_308",
     "title": "円尾坂の仕立屋",
-    "reading": "円尾坂の仕立屋",
+    "reading": "えんびざかのしたてや",
     "unit": "virtual_singer",
     "releaseDate": "2023-05-05",
     "defaultOrder": 308,
@@ -15514,7 +15557,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_309",
     "title": "悪徳のジャッジメント",
-    "reading": "悪徳のジャッジメント",
+    "reading": "あくとくのじゃっじめんと",
     "unit": "virtual_singer",
     "releaseDate": "2023-05-06",
     "defaultOrder": 309,
@@ -15543,7 +15586,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_310",
     "title": "Sharing The World",
-    "reading": "Sharing The World",
+    "reading": "しぇありんぐざわーるど",
     "unit": "virtual_singer",
     "releaseDate": "2023-05-12",
     "defaultOrder": 310,
@@ -15572,7 +15615,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_311",
     "title": "セツナトリップ",
-    "reading": "セツナトリップ",
+    "reading": "せつなとりっぷ",
     "unit": "more_more_jump",
     "releaseDate": "2023-05-15",
     "defaultOrder": 311,
@@ -15630,7 +15673,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_312",
     "title": "シャンティ",
-    "reading": "シャンティ",
+    "reading": "しゃんてぃ",
     "unit": "vivid_bad_squad",
     "releaseDate": "2023-05-19",
     "defaultOrder": 312,
@@ -15691,7 +15734,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_313",
     "title": "エターナルアリア",
-    "reading": "エターナルアリア",
+    "reading": "えたーなるありあ",
     "unit": "virtual_singer",
     "releaseDate": "2023-05-22",
     "defaultOrder": 313,
@@ -15720,7 +15763,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_314",
     "title": "Blue Star",
-    "reading": "Blue Star",
+    "reading": "ぶるーすたー",
     "unit": "virtual_singer",
     "releaseDate": "2023-05-26",
     "defaultOrder": 314,
@@ -15749,7 +15792,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_315",
     "title": "箱庭のコラル",
-    "reading": "箱庭のコラル",
+    "reading": "はこにわのこらる",
     "unit": "wonderlands_showtime",
     "releaseDate": "2023-05-29",
     "defaultOrder": 315,
@@ -15811,7 +15854,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_316",
     "title": "人生",
-    "reading": "人生",
+    "reading": "じんせい",
     "unit": "virtual_singer",
     "releaseDate": "2023-06-02",
     "defaultOrder": 316,
@@ -15850,7 +15893,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_317",
     "title": "Wonder Style",
-    "reading": "Wonder Style",
+    "reading": "わんだーすたいる",
     "unit": "virtual_singer",
     "releaseDate": "2023-06-07",
     "defaultOrder": 317,
@@ -15879,7 +15922,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_318",
     "title": "下剋上",
-    "reading": "下剋上",
+    "reading": "げこくじょう",
     "unit": "vivid_bad_squad",
     "releaseDate": "2023-06-10",
     "defaultOrder": 318,
@@ -15941,7 +15984,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_319",
     "title": "嗚呼、素晴らしきニャン生",
-    "reading": "嗚呼、素晴らしきニャン生",
+    "reading": "ああすばらしきにゃんせい",
     "unit": "wonderlands_showtime",
     "releaseDate": "2023-06-12",
     "defaultOrder": 319,
@@ -15988,7 +16031,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_320",
     "title": "スターダストメドレー",
-    "reading": "スターダストメドレー",
+    "reading": "すたーだすとめどれー",
     "unit": "virtual_singer",
     "releaseDate": "2023-06-16",
     "defaultOrder": 320,
@@ -16017,7 +16060,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_321",
     "title": "チームメイト",
-    "reading": "チームメイト",
+    "reading": "ちーむめいと",
     "unit": "more_more_jump",
     "releaseDate": "2023-06-20",
     "defaultOrder": 321,
@@ -16079,7 +16122,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_322",
     "title": "glow",
-    "reading": "glow",
+    "reading": "ぐろう",
     "unit": "leo_need",
     "releaseDate": "2023-06-23",
     "defaultOrder": 322,
@@ -16140,7 +16183,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_323",
     "title": "とても素敵な六月でした",
-    "reading": "とても素敵な六月でした",
+    "reading": "とてもすてきなろくがつでした",
     "unit": "nightcord_at_25",
     "releaseDate": "2023-06-26",
     "defaultOrder": 323,
@@ -16201,7 +16244,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_324",
     "title": "UNDERWATER",
-    "reading": "UNDERWATER",
+    "reading": "あんだーうぉーたー",
     "unit": "virtual_singer",
     "releaseDate": "2023-06-28",
     "defaultOrder": 324,
@@ -16301,7 +16344,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_326",
     "title": "Afterglow",
-    "reading": "Afterglow",
+    "reading": "あふたーぐろう",
     "unit": "virtual_singer",
     "releaseDate": "2023-07-07",
     "defaultOrder": 326,
@@ -16330,7 +16373,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_327",
     "title": "太陽系デスコ",
-    "reading": "太陽系デスコ",
+    "reading": "たいようけいですこ",
     "unit": "wonderlands_showtime",
     "releaseDate": "2023-07-12",
     "defaultOrder": 327,
@@ -16390,7 +16433,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_328",
     "title": "心拍ペアリング",
-    "reading": "心拍ペアリング",
+    "reading": "しんぱくぺありんぐ",
     "unit": "virtual_singer",
     "releaseDate": "2023-07-14",
     "defaultOrder": 328,
@@ -16419,7 +16462,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_329",
     "title": "演劇",
-    "reading": "演劇",
+    "reading": "えんげき",
     "unit": "nightcord_at_25",
     "releaseDate": "2023-07-19",
     "defaultOrder": 329,
@@ -16473,7 +16516,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_330",
     "title": "星を繋ぐ",
-    "reading": "星を繋ぐ",
+    "reading": "ほしをつなぐ",
     "unit": "leo_need",
     "releaseDate": "2023-07-21",
     "defaultOrder": 330,
@@ -16527,7 +16570,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_331",
     "title": "脳内革命ガール",
-    "reading": "脳内革命ガール",
+    "reading": "のうないかくめいがーる",
     "unit": "vivid_bad_squad",
     "releaseDate": "2023-07-24",
     "defaultOrder": 331,
@@ -16604,7 +16647,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_332",
     "title": "Decade",
-    "reading": "Decade",
+    "reading": "でぃけいど",
     "unit": "virtual_singer",
     "releaseDate": "2023-07-28",
     "defaultOrder": 332,
@@ -16633,7 +16676,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_333",
     "title": "我らステインバスターズ！",
-    "reading": "我らステインバスターズ！",
+    "reading": "われらすていんばすたーず！",
     "unit": "more_more_jump",
     "releaseDate": "2023-08-01",
     "defaultOrder": 333,
@@ -16681,7 +16724,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_334",
     "title": "新人類",
-    "reading": "新人類",
+    "reading": "しんじんるい",
     "unit": "virtual_singer",
     "releaseDate": "2023-08-03",
     "defaultOrder": 334,
@@ -16710,7 +16753,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_335",
     "title": "ずんだパーリナイ",
-    "reading": "ずんだパーリナイ",
+    "reading": "ずんだぱーりない",
     "unit": "virtual_singer",
     "releaseDate": "2023-08-04",
     "defaultOrder": 335,
@@ -16739,7 +16782,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_336",
     "title": "Disco No.39",
-    "reading": "Disco No.39",
+    "reading": "でぃすこなんばーさーてぃーないん",
     "unit": "virtual_singer",
     "releaseDate": "2023-08-10",
     "defaultOrder": 336,
@@ -16768,7 +16811,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_337",
     "title": "サマータイムレコード",
-    "reading": "サマータイムレコード",
+    "reading": "さまーたいむれこーど",
     "unit": "leo_need",
     "releaseDate": "2023-08-15",
     "defaultOrder": 337,
@@ -16826,7 +16869,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_338",
     "title": "リアライズ",
-    "reading": "リアライズ",
+    "reading": "りあらいず",
     "unit": "vivid_bad_squad",
     "releaseDate": "2023-08-19",
     "defaultOrder": 338,
@@ -16879,7 +16922,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_339",
     "title": "キラピピ★キラピカ",
-    "reading": "キラピピ★キラピカ",
+    "reading": "きらぴぴきらぴか",
     "unit": "wonderlands_showtime",
     "releaseDate": "2023-08-21",
     "defaultOrder": 339,
@@ -16934,7 +16977,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_340",
     "title": "ボトルケーキ",
-    "reading": "ボトルケーキ",
+    "reading": "ぼとるけーき",
     "unit": "virtual_singer",
     "releaseDate": "2023-08-25",
     "defaultOrder": 340,
@@ -16963,7 +17006,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_341",
     "title": "心做し",
-    "reading": "心做し",
+    "reading": "こころなし",
     "unit": "nightcord_at_25",
     "releaseDate": "2023-08-28",
     "defaultOrder": 341,
@@ -17021,7 +17064,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_342",
     "title": "ブループラネット",
-    "reading": "ブループラネット",
+    "reading": "ぶるーぷらねっと",
     "unit": "virtual_singer",
     "releaseDate": "2023-08-31",
     "defaultOrder": 342,
@@ -17050,7 +17093,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_343",
     "title": "HERO",
-    "reading": "HERO",
+    "reading": "ひーろー",
     "unit": "virtual_singer",
     "releaseDate": "2023-09-01",
     "defaultOrder": 343,
@@ -17079,7 +17122,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_344",
     "title": "CIRCUS PANIC!!!",
-    "reading": "CIRCUS PANIC!!!",
+    "reading": "さーかすぱにっく",
     "unit": "virtual_singer",
     "releaseDate": "2023-09-04",
     "defaultOrder": 344,
@@ -17126,7 +17169,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_345",
     "title": "白い雪のプリンセスは",
-    "reading": "白い雪のプリンセスは",
+    "reading": "しろいゆきのプリンセスは",
     "unit": "more_more_jump",
     "releaseDate": "2023-09-11",
     "defaultOrder": 345,
@@ -17203,7 +17246,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_346",
     "title": "Un-Lock",
-    "reading": "Un-Lock",
+    "reading": "あんろっく",
     "unit": "virtual_singer",
     "releaseDate": "2023-09-19",
     "defaultOrder": 346,
@@ -17232,7 +17275,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_347",
     "title": "ラッキー☆オーブ",
-    "reading": "ラッキー☆オーブ",
+    "reading": "らっきーおーぶ",
     "unit": "virtual_singer",
     "releaseDate": "2023-09-25",
     "defaultOrder": 347,
@@ -17366,7 +17409,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_349",
     "title": "アイムマイン",
-    "reading": "アイムマイン",
+    "reading": "あいむまいん",
     "unit": "virtual_singer",
     "releaseDate": "2023-10-01",
     "defaultOrder": 349,
@@ -17405,7 +17448,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_350",
     "title": "天樂",
-    "reading": "天樂",
+    "reading": "てんがく",
     "unit": "leo_need",
     "releaseDate": "2023-10-02",
     "defaultOrder": 350,
@@ -17483,7 +17526,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_352",
     "title": "メランコリック",
-    "reading": "メランコリック",
+    "reading": "めらんこりっく",
     "unit": "more_more_jump",
     "releaseDate": "2023-10-04",
     "defaultOrder": 352,
@@ -17501,8 +17544,10 @@ export const ALL_RECORDS: RecordItem[] = [
       "haruka",
       "airi",
       "shizuku",
-      "MORE MORE JUMP！",
-      "ワンダーランズ×ショウタイム"
+      "tsukasa",
+      "emu",
+      "nene",
+      "rui"
     ],
     "vocalTracks": [
       {
@@ -17539,8 +17584,14 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "connect_live",
         "singers": [
           "rin",
-          "MORE MORE JUMP！",
-          "ワンダーランズ×ショウタイム"
+          "minori",
+          "haruka",
+          "airi",
+          "shizuku",
+          "tsukasa",
+          "emu",
+          "nene",
+          "rui"
         ]
       }
     ]
@@ -17548,7 +17599,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_353",
     "title": "豚になってyeah yeah",
-    "reading": "豚になってyeah yeah",
+    "reading": "ぶたになっていえいいえい",
     "unit": "virtual_singer",
     "releaseDate": "2023-10-05",
     "defaultOrder": 353,
@@ -17577,7 +17628,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_354",
     "title": "恋は戦争",
-    "reading": "恋は戦争",
+    "reading": "こいはせんそう",
     "unit": "vivid_bad_squad",
     "releaseDate": "2023-10-06",
     "defaultOrder": 354,
@@ -17618,7 +17669,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_355",
     "title": "デビルじゃないもん",
-    "reading": "デビルじゃないもん",
+    "reading": "でびるじゃないもん",
     "unit": "virtual_singer",
     "releaseDate": "2023-10-07",
     "defaultOrder": 355,
@@ -17704,7 +17755,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_357",
     "title": "番凩",
-    "reading": "番凩",
+    "reading": "つがいこがらし",
     "unit": "virtual_singer",
     "releaseDate": "2023-10-09",
     "defaultOrder": 357,
@@ -17735,7 +17786,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_358",
     "title": "神っぽいな",
-    "reading": "神っぽいな",
+    "reading": "かみっぽいな",
     "unit": "nightcord_at_25",
     "releaseDate": "2023-10-10",
     "defaultOrder": 358,
@@ -17796,7 +17847,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_359",
     "title": "Dear",
-    "reading": "Dear",
+    "reading": "でぃあー",
     "unit": "virtual_singer",
     "releaseDate": "2023-10-11",
     "defaultOrder": 359,
@@ -17825,7 +17876,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_360",
     "title": "CR詠ZY",
-    "reading": "CR詠ZY",
+    "reading": "くれいじー",
     "unit": "vivid_bad_squad",
     "releaseDate": "2023-10-12",
     "defaultOrder": 360,
@@ -17886,7 +17937,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_361",
     "title": "Cool Me Down",
-    "reading": "Cool Me Down",
+    "reading": "くーるみーだうん",
     "unit": "virtual_singer",
     "releaseDate": "2023-10-16",
     "defaultOrder": 361,
@@ -17915,7 +17966,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_362",
     "title": "悪役にキスシーンを",
-    "reading": "悪役にキスシーンを",
+    "reading": "あくやくにきすしーんを",
     "unit": "more_more_jump",
     "releaseDate": "2023-10-23",
     "defaultOrder": 362,
@@ -17961,7 +18012,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_363",
     "title": "我儘姫",
-    "reading": "我儘姫",
+    "reading": "わがままひめ",
     "unit": "wonderlands_showtime",
     "releaseDate": "2023-10-25",
     "defaultOrder": 363,
@@ -18002,7 +18053,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_364",
     "title": "purpose",
-    "reading": "purpose",
+    "reading": "ぱーぱす",
     "unit": "leo_need",
     "releaseDate": "2023-10-29",
     "defaultOrder": 364,
@@ -18136,7 +18187,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_366",
     "title": "トワイライトライト",
-    "reading": "トワイライトライト",
+    "reading": "とわいらいとらいと",
     "unit": "nightcord_at_25",
     "releaseDate": "2023-11-01",
     "defaultOrder": 366,
@@ -18183,7 +18234,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_367",
     "title": "春嵐",
-    "reading": "春嵐",
+    "reading": "しゅんらん",
     "unit": "vivid_bad_squad",
     "releaseDate": "2023-11-06",
     "defaultOrder": 367,
@@ -18237,7 +18288,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_368",
     "title": "ARQETYPE",
-    "reading": "ARQETYPE",
+    "reading": "あーきたいぷ",
     "unit": "virtual_singer",
     "releaseDate": "2023-11-10",
     "defaultOrder": 368,
@@ -18266,7 +18317,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_369",
     "title": "On&On",
-    "reading": "On&On",
+    "reading": "おんあんどおん",
     "unit": "virtual_singer",
     "releaseDate": "2023-11-13",
     "defaultOrder": 369,
@@ -18295,7 +18346,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_370",
     "title": "キュートなカノジョ",
-    "reading": "キュートなカノジョ",
+    "reading": "きゅーとなかのじょ",
     "unit": "nightcord_at_25",
     "releaseDate": "2023-11-22",
     "defaultOrder": 370,
@@ -18345,7 +18396,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_371",
     "title": "フィラメントフィーバー",
-    "reading": "フィラメントフィーバー",
+    "reading": "ふぃらめんとふぃーばー",
     "unit": "wonderlands_showtime",
     "releaseDate": "2023-11-28",
     "defaultOrder": 371,
@@ -18408,7 +18459,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_372",
     "title": "さよならプリンセス",
-    "reading": "さよならプリンセス",
+    "reading": "さよならぷりんせす",
     "unit": "more_more_jump",
     "releaseDate": "2023-12-04",
     "defaultOrder": 372,
@@ -18469,7 +18520,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_373",
     "title": "Beyond the way",
-    "reading": "Beyond the way",
+    "reading": "びよんどざうぇい",
     "unit": "vivid_bad_squad",
     "releaseDate": "2023-12-08",
     "defaultOrder": 373,
@@ -18518,7 +18569,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_374",
     "title": "ショウタイム×オーディエンス",
-    "reading": "ショウタイム×オーディエンス",
+    "reading": "しょうたいむおーでぃえんす",
     "unit": "virtual_singer",
     "releaseDate": "2023-12-11",
     "defaultOrder": 374,
@@ -18547,7 +18598,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_375",
     "title": "難聴系男子が倒せない",
-    "reading": "難聴系男子が倒せない",
+    "reading": "なんちょうけいだんしがたおせない",
     "unit": "virtual_singer",
     "releaseDate": "2023-12-18",
     "defaultOrder": 375,
@@ -18576,7 +18627,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_376",
     "title": "オーバーコード",
-    "reading": "オーバーコード",
+    "reading": "おーばーこーど",
     "unit": "virtual_singer",
     "releaseDate": "2023-12-22",
     "defaultOrder": 376,
@@ -18605,7 +18656,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_377",
     "title": "スロウダウナー",
-    "reading": "スロウダウナー",
+    "reading": "すろうだうなー",
     "unit": "nightcord_at_25",
     "releaseDate": "2023-12-25",
     "defaultOrder": 377,
@@ -18660,7 +18711,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_378",
     "title": "初めての恋が終わる時",
-    "reading": "初めての恋が終わる時",
+    "reading": "はじめてのこいがおわるとき",
     "unit": "leo_need",
     "releaseDate": "2023-12-28",
     "defaultOrder": 378,
@@ -18705,7 +18756,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_379",
     "title": "25時の情熱",
-    "reading": "25時の情熱",
+    "reading": "にじゅうごじのじょうねつ",
     "unit": "nightcord_at_25",
     "releaseDate": "2023-12-29",
     "defaultOrder": 379,
@@ -18768,7 +18819,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_380",
     "title": "金木犀",
-    "reading": "金木犀",
+    "reading": "きんもくせい",
     "unit": "vivid_bad_squad",
     "releaseDate": "2023-12-30",
     "defaultOrder": 380,
@@ -18830,7 +18881,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_381",
     "title": "一千光年",
-    "reading": "一千光年",
+    "reading": "いっせんこうねん",
     "unit": "virtual_singer",
     "releaseDate": "2023-12-31",
     "defaultOrder": 381,
@@ -18879,7 +18930,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_382",
     "title": "強風オールバック",
-    "reading": "強風オールバック",
+    "reading": "きょうふうおーるばっく",
     "unit": "wonderlands_showtime",
     "releaseDate": "2024-01-01",
     "defaultOrder": 382,
@@ -18950,7 +19001,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_383",
     "title": "ヒアソビ",
-    "reading": "ヒアソビ",
+    "reading": "ひあそび",
     "unit": "virtual_singer",
     "releaseDate": "2024-01-02",
     "defaultOrder": 383,
@@ -18979,7 +19030,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_384",
     "title": "エンヴィーベイビー",
-    "reading": "エンヴィーベイビー",
+    "reading": "えんヴぃーべいびー",
     "unit": "nightcord_at_25",
     "releaseDate": "2024-01-03",
     "defaultOrder": 384,
@@ -19058,7 +19109,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_385",
     "title": "『んっあっあっ。』",
-    "reading": "『んっあっあっ。』",
+    "reading": "んっあっあっ",
     "unit": "virtual_singer",
     "releaseDate": "2024-01-04",
     "defaultOrder": 385,
@@ -19151,7 +19202,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_387",
     "title": "ハイドアンド・シーク",
-    "reading": "ハイドアンド・シーク",
+    "reading": "はいどあんどしーく",
     "unit": "leo_need",
     "releaseDate": "2024-01-09",
     "defaultOrder": 387,
@@ -19200,7 +19251,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_388",
     "title": "folern",
-    "reading": "folern",
+    "reading": "ふぉれん",
     "unit": "other",
     "releaseDate": "2024-01-11",
     "defaultOrder": 388,
@@ -19218,7 +19269,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_389",
     "title": "MOTTO!!!",
-    "reading": "MOTTO!!!",
+    "reading": "もっと",
     "unit": "more_more_jump",
     "releaseDate": "2024-01-15",
     "defaultOrder": 389,
@@ -19263,7 +19314,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_390",
     "title": "Sage",
-    "reading": "Sage",
+    "reading": "さげ",
     "unit": "other",
     "releaseDate": "2024-01-18",
     "defaultOrder": 390,
@@ -19281,7 +19332,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_391",
     "title": "心泥夢(syndrome)",
-    "reading": "心泥夢(syndrome)",
+    "reading": "しんどろーむ",
     "unit": "virtual_singer",
     "releaseDate": "2024-01-22",
     "defaultOrder": 391,
@@ -19310,7 +19361,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_392",
     "title": "サイバーパンクデッドボーイ",
-    "reading": "サイバーパンクデッドボーイ",
+    "reading": "さいばーぱんくでっどぼーい",
     "unit": "wonderlands_showtime",
     "releaseDate": "2024-01-23",
     "defaultOrder": 392,
@@ -19372,7 +19423,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_393",
     "title": "MarbleBlue.",
-    "reading": "MarbleBlue.",
+    "reading": "まーぶるぶるー",
     "unit": "other",
     "releaseDate": "2024-01-25",
     "defaultOrder": 393,
@@ -19390,7 +19441,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_394",
     "title": "マーシャル・マキシマイザー",
-    "reading": "マーシャル・マキシマイザー",
+    "reading": "まーしゃるまきしまいざー",
     "unit": "vivid_bad_squad",
     "releaseDate": "2024-01-29",
     "defaultOrder": 394,
@@ -19456,7 +19507,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_395",
     "title": "え？あぁ、そう。",
-    "reading": "え？あぁ、そう。",
+    "reading": "えあぁそう",
     "unit": "vivid_bad_squad",
     "releaseDate": "2024-02-01",
     "defaultOrder": 395,
@@ -19530,7 +19581,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_397",
     "title": "おどロボ",
-    "reading": "おどロボ",
+    "reading": "おどろぼ",
     "unit": "virtual_singer",
     "releaseDate": "2024-02-04",
     "defaultOrder": 397,
@@ -19563,7 +19614,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_398",
     "title": "世界を照らすテトラッド",
-    "reading": "世界を照らすテトラッド",
+    "reading": "せかいをてらすてとらっど",
     "unit": "wonderlands_showtime",
     "releaseDate": "2024-02-09",
     "defaultOrder": 398,
@@ -19618,7 +19669,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_399",
     "title": "ハッピーチートデー",
-    "reading": "ハッピーチートデー",
+    "reading": "はっぴーちーとでー",
     "unit": "virtual_singer",
     "releaseDate": "2024-02-10",
     "defaultOrder": 399,
@@ -19647,7 +19698,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_400",
     "title": "十六歳の心臓",
-    "reading": "十六歳の心臓",
+    "reading": "じゅうろくさいのしんぞう",
     "unit": "virtual_singer",
     "releaseDate": "2024-02-13",
     "defaultOrder": 400,
@@ -19676,7 +19727,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_401",
     "title": "limbo",
-    "reading": "limbo",
+    "reading": "りんぼ",
     "unit": "virtual_singer",
     "releaseDate": "2024-02-16",
     "defaultOrder": 401,
@@ -19705,7 +19756,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_402",
     "title": "レグルス",
-    "reading": "レグルス",
+    "reading": "れぐるす",
     "unit": "leo_need",
     "releaseDate": "2024-02-18",
     "defaultOrder": 402,
@@ -19767,7 +19818,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_403",
     "title": "古書屋敷殺人事件",
-    "reading": "古書屋敷殺人事件",
+    "reading": "こしょやしきさつじんじけん",
     "unit": "wonderlands_showtime",
     "releaseDate": "2024-02-22",
     "defaultOrder": 403,
@@ -19813,7 +19864,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_404",
     "title": "JUMPIN’ OVER !",
-    "reading": "JUMPIN’ OVER !",
+    "reading": "じゃんぴんおーばー",
     "unit": "more_more_jump",
     "releaseDate": "2024-02-27",
     "defaultOrder": 404,
@@ -19858,7 +19909,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_405",
     "title": "ラグトレイン",
-    "reading": "ラグトレイン",
+    "reading": "らぐとれいん",
     "unit": "nightcord_at_25",
     "releaseDate": "2024-02-29",
     "defaultOrder": 405,
@@ -19908,7 +19959,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_406",
     "title": "インテグラル",
-    "reading": "インテグラル",
+    "reading": "いんてぐらる",
     "unit": "leo_need",
     "releaseDate": "2024-03-01",
     "defaultOrder": 406,
@@ -19953,7 +20004,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_407",
     "title": "ド屑",
-    "reading": "ド屑",
+    "reading": "どくず",
     "unit": "nightcord_at_25",
     "releaseDate": "2024-03-04",
     "defaultOrder": 407,
@@ -20011,7 +20062,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_408",
     "title": "明鏡止水",
-    "reading": "明鏡止水",
+    "reading": "めいきょうしすい",
     "unit": "virtual_singer",
     "releaseDate": "2024-03-08",
     "defaultOrder": 408,
@@ -20040,7 +20091,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_409",
     "title": "ハジメテノオト",
-    "reading": "ハジメテノオト",
+    "reading": "はじめてのおと",
     "unit": "virtual_singer",
     "releaseDate": "2024-03-09",
     "defaultOrder": 409,
@@ -20069,7 +20120,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_410",
     "title": "flos",
-    "reading": "flos",
+    "reading": "ふろーす",
     "unit": "more_more_jump",
     "releaseDate": "2024-03-11",
     "defaultOrder": 410,
@@ -20130,7 +20181,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_411",
     "title": "アコトバ",
-    "reading": "アコトバ",
+    "reading": "あことば",
     "unit": "virtual_singer",
     "releaseDate": "2024-03-15",
     "defaultOrder": 411,
@@ -20159,7 +20210,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_412",
     "title": "幽光、1/fのゆらめき",
-    "reading": "幽光、1/fのゆらめき",
+    "reading": "ゆうこうえふぶんのいちのゆらめき",
     "unit": "virtual_singer",
     "releaseDate": "2024-03-18",
     "defaultOrder": 412,
@@ -20188,7 +20239,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_413",
     "title": "嬢王",
-    "reading": "嬢王",
+    "reading": "じょうおう",
     "unit": "virtual_singer",
     "releaseDate": "2024-03-22",
     "defaultOrder": 413,
@@ -20217,7 +20268,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_414",
     "title": "1000年生きてる",
-    "reading": "1000年生きてる",
+    "reading": "せんねんいきてる",
     "unit": "wonderlands_showtime",
     "releaseDate": "2024-03-25",
     "defaultOrder": 414,
@@ -20279,7 +20330,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_415",
     "title": "幾望の月",
-    "reading": "幾望の月",
+    "reading": "きぼうのつき",
     "unit": "leo_need",
     "releaseDate": "2024-03-27",
     "defaultOrder": 415,
@@ -20341,7 +20392,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_416",
     "title": "blender",
-    "reading": "blender",
+    "reading": "ぶれんだー",
     "unit": "vivid_bad_squad",
     "releaseDate": "2024-03-28",
     "defaultOrder": 416,
@@ -20425,7 +20476,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_418",
     "title": "レッドランドマーカー",
-    "reading": "レッドランドマーカー",
+    "reading": "れっどらんどまーかー",
     "unit": "virtual_singer",
     "releaseDate": "2024-03-31",
     "defaultOrder": 418,
@@ -20485,7 +20536,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_420",
     "title": "ガーネットの涙",
-    "reading": "ガーネットの涙",
+    "reading": "がーねっとのなみだ",
     "unit": "virtual_singer",
     "releaseDate": "2024-04-03",
     "defaultOrder": 420,
@@ -20514,7 +20565,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_421",
     "title": "だんだん早くなる",
-    "reading": "だんだん早くなる",
+    "reading": "だんだんはやくなる",
     "unit": "virtual_singer",
     "releaseDate": "2024-04-04",
     "defaultOrder": 421,
@@ -20543,7 +20594,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_422",
     "title": "私は雨",
-    "reading": "私は雨",
+    "reading": "わたしはあめ",
     "unit": "nightcord_at_25",
     "releaseDate": "2024-04-10",
     "defaultOrder": 422,
@@ -20608,7 +20659,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_423",
     "title": "酔いどれ知らず",
-    "reading": "酔いどれ知らず",
+    "reading": "よいどれしらず",
     "unit": "vivid_bad_squad",
     "releaseDate": "2024-04-15",
     "defaultOrder": 423,
@@ -20716,7 +20767,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_425",
     "title": "シルバーコレクター",
-    "reading": "シルバーコレクター",
+    "reading": "しるばーこれくたー",
     "unit": "virtual_singer",
     "releaseDate": "2024-04-22",
     "defaultOrder": 425,
@@ -20807,7 +20858,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_427",
     "title": "烈火",
-    "reading": "烈火",
+    "reading": "れっか",
     "unit": "vivid_bad_squad",
     "releaseDate": "2024-04-30",
     "defaultOrder": 427,
@@ -20871,7 +20922,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_428",
     "title": "超最終鬼畜妹フランドール・Ｓ",
-    "reading": "超最終鬼畜妹フランドール・Ｓ",
+    "reading": "ちょうさいしゅうきちくいもうとふらんどーるえす",
     "unit": "other",
     "releaseDate": "2024-05-03",
     "defaultOrder": 428,
@@ -20889,7 +20940,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_429",
     "title": "Bad Apple!! feat.SEKAI",
-    "reading": "Bad Apple!! feat.SEKAI",
+    "reading": "ばっどあっぷるふぃーちゃりんぐせかい",
     "unit": "nightcord_at_25",
     "releaseDate": "2024-05-04",
     "defaultOrder": 429,
@@ -20934,7 +20985,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_430",
     "title": "Help me, ERINNNNNN!!",
-    "reading": "Help me, ERINNNNNN!!",
+    "reading": "へるぷみーえーりん",
     "unit": "virtual_singer",
     "releaseDate": "2024-05-05",
     "defaultOrder": 430,
@@ -20973,7 +21024,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_431",
     "title": "おちゃめ機能",
-    "reading": "おちゃめ機能",
+    "reading": "おちゃめきのう",
     "unit": "wonderlands_showtime",
     "releaseDate": "2024-05-07",
     "defaultOrder": 431,
@@ -20992,8 +21043,10 @@ export const ALL_RECORDS: RecordItem[] = [
       "nene",
       "rui",
       "teto",
-      "ワンダーランズ×ショウタイム",
-      "MORE MORE JUMP！"
+      "minori",
+      "haruka",
+      "airi",
+      "shizuku"
     ],
     "vocalTracks": [
       {
@@ -21038,8 +21091,14 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "connect_live",
         "singers": [
           "len",
-          "ワンダーランズ×ショウタイム",
-          "MORE MORE JUMP！"
+          "tsukasa",
+          "emu",
+          "nene",
+          "rui",
+          "minori",
+          "haruka",
+          "airi",
+          "shizuku"
         ]
       }
     ]
@@ -21047,7 +21106,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_432",
     "title": "ときめきジェットコースター",
-    "reading": "ときめきジェットコースター",
+    "reading": "ときめきじぇっとこーすたー",
     "unit": "virtual_singer",
     "releaseDate": "2024-05-10",
     "defaultOrder": 432,
@@ -21076,7 +21135,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_433",
     "title": "東京テディベア",
-    "reading": "東京テディベア",
+    "reading": "とうきょうてでぃべあ",
     "unit": "leo_need",
     "releaseDate": "2024-05-13",
     "defaultOrder": 433,
@@ -21137,7 +21196,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_434",
     "title": "熱異常",
-    "reading": "熱異常",
+    "reading": "ねついじょう",
     "unit": "nightcord_at_25",
     "releaseDate": "2024-05-17",
     "defaultOrder": 434,
@@ -21183,7 +21242,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_435",
     "title": "I know 愛脳.",
-    "reading": "I know 愛脳.",
+    "reading": "あいのーあいのう",
     "unit": "virtual_singer",
     "releaseDate": "2024-05-20",
     "defaultOrder": 435,
@@ -21258,7 +21317,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_437",
     "title": "オペラ！スペースオペラ！",
-    "reading": "オペラ！スペースオペラ！",
+    "reading": "おぺらすぺーすおぺら",
     "unit": "wonderlands_showtime",
     "releaseDate": "2024-05-29",
     "defaultOrder": 437,
@@ -21322,7 +21381,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_438",
     "title": "抜錨",
-    "reading": "抜錨",
+    "reading": "ばつびょう",
     "unit": "leo_need",
     "releaseDate": "2024-06-03",
     "defaultOrder": 438,
@@ -21387,7 +21446,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_439",
     "title": "きょうもハレバレ",
-    "reading": "きょうもハレバレ",
+    "reading": "きょうもはればれ",
     "unit": "wonderlands_showtime",
     "releaseDate": "2024-06-10",
     "defaultOrder": 439,
@@ -21455,7 +21514,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_440",
     "title": "Supernova",
-    "reading": "Supernova",
+    "reading": "すーぱーのゔぁ",
     "unit": "more_more_jump",
     "releaseDate": "2024-06-18",
     "defaultOrder": 440,
@@ -21525,7 +21584,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_441",
     "title": "エンパープル",
-    "reading": "エンパープル",
+    "reading": "えんぱーぷる",
     "unit": "nightcord_at_25",
     "releaseDate": "2024-06-20",
     "defaultOrder": 441,
@@ -21587,7 +21646,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_442",
     "title": "合成するミライ",
-    "reading": "合成するミライ",
+    "reading": "ごうせいするみらい",
     "unit": "virtual_singer",
     "releaseDate": "2024-06-24",
     "defaultOrder": 442,
@@ -21616,7 +21675,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_443",
     "title": "LEADER",
-    "reading": "LEADER",
+    "reading": "りーだー",
     "unit": "virtual_singer",
     "releaseDate": "2024-06-28",
     "defaultOrder": 443,
@@ -21645,7 +21704,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_444",
     "title": "ポッピンキャンディ☆フィーバー！",
-    "reading": "ポッピンキャンディ☆フィーバー！",
+    "reading": "ぽっぴんきゃんでぃ☆ふぃーばー！",
     "unit": "more_more_jump",
     "releaseDate": "2024-07-01",
     "defaultOrder": 444,
@@ -21705,7 +21764,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_445",
     "title": "ULTRA C",
-    "reading": "ULTRA C",
+    "reading": "うるとらしー",
     "unit": "vivid_bad_squad",
     "releaseDate": "2024-07-07",
     "defaultOrder": 445,
@@ -21771,7 +21830,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_446",
     "title": "ダイジョブですか？",
-    "reading": "ダイジョブですか？",
+    "reading": "だいじょぶですか？",
     "unit": "virtual_singer",
     "releaseDate": "2024-07-09",
     "defaultOrder": 446,
@@ -21800,7 +21859,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_447",
     "title": "成敗いたAAAAAす！",
-    "reading": "成敗いたAAAAAす！",
+    "reading": "せいばいいたあああああす",
     "unit": "wonderlands_showtime",
     "releaseDate": "2024-07-15",
     "defaultOrder": 447,
@@ -21856,7 +21915,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_448",
     "title": "林檎売りの泡沫少女",
-    "reading": "林檎売りの泡沫少女",
+    "reading": "りんごうりのうたかたしょうじょ",
     "unit": "leo_need",
     "releaseDate": "2024-07-17",
     "defaultOrder": 448,
@@ -21898,7 +21957,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_449",
     "title": "メリーゴーラウンド",
-    "reading": "メリーゴーラウンド",
+    "reading": "めりーごーらうんど",
     "unit": "virtual_singer",
     "releaseDate": "2024-07-22",
     "defaultOrder": 449,
@@ -21929,7 +21988,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_450",
     "title": "マインドブランド",
-    "reading": "マインドブランド",
+    "reading": "まいんどぶらんど",
     "unit": "nightcord_at_25",
     "releaseDate": "2024-07-29",
     "defaultOrder": 450,
@@ -21974,7 +22033,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_451",
     "title": "イガク",
-    "reading": "イガク",
+    "reading": "いがく",
     "unit": "virtual_singer",
     "releaseDate": "2024-08-03",
     "defaultOrder": 451,
@@ -22003,7 +22062,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_452",
     "title": "あちこちデートさん",
-    "reading": "あちこちデートさん",
+    "reading": "あちこちでーとさん",
     "unit": "virtual_singer",
     "releaseDate": "2024-08-04",
     "defaultOrder": 452,
@@ -22032,7 +22091,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_453",
     "title": "キラー",
-    "reading": "キラー",
+    "reading": "きらー",
     "unit": "more_more_jump",
     "releaseDate": "2024-08-07",
     "defaultOrder": 453,
@@ -22094,7 +22153,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_454",
     "title": "WAVE",
-    "reading": "WAVE",
+    "reading": "うぇーぶ",
     "unit": "vivid_bad_squad",
     "releaseDate": "2024-08-13",
     "defaultOrder": 454,
@@ -22148,7 +22207,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_455",
     "title": "彗星ノ銀河",
-    "reading": "彗星ノ銀河",
+    "reading": "すいせいのくに",
     "unit": "virtual_singer",
     "releaseDate": "2024-08-19",
     "defaultOrder": 455,
@@ -22177,7 +22236,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_456",
     "title": "夏夜ノ唄",
-    "reading": "夏夜ノ唄",
+    "reading": "なつよのうた",
     "unit": "virtual_singer",
     "releaseDate": "2024-08-23",
     "defaultOrder": 456,
@@ -22206,7 +22265,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_457",
     "title": "QUEEN",
-    "reading": "QUEEN",
+    "reading": "くいーん",
     "unit": "wonderlands_showtime",
     "releaseDate": "2024-08-26",
     "defaultOrder": 457,
@@ -22281,7 +22340,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_458",
     "title": "アンテナ39",
-    "reading": "アンテナ39",
+    "reading": "あんてなさんきゅー",
     "unit": "virtual_singer",
     "releaseDate": "2024-08-30",
     "defaultOrder": 458,
@@ -22310,7 +22369,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_459",
     "title": "ちがう!!!",
-    "reading": "ちがう!!!",
+    "reading": "ちがう",
     "unit": "wonderlands_showtime",
     "releaseDate": "2024-09-02",
     "defaultOrder": 459,
@@ -22357,7 +22416,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_460",
     "title": "スーパーヒーロー",
-    "reading": "スーパーヒーロー",
+    "reading": "すーぱーひーろー",
     "unit": "more_more_jump",
     "releaseDate": "2024-09-09",
     "defaultOrder": 460,
@@ -22415,7 +22474,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_461",
     "title": "カルチャ",
-    "reading": "カルチャ",
+    "reading": "かるちゃ",
     "unit": "virtual_singer",
     "releaseDate": "2024-09-13",
     "defaultOrder": 461,
@@ -22444,7 +22503,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_462",
     "title": "レイヤーノート",
-    "reading": "レイヤーノート",
+    "reading": "れいやーのーと",
     "unit": "virtual_singer",
     "releaseDate": "2024-09-17",
     "defaultOrder": 462,
@@ -22473,7 +22532,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_463",
     "title": "それでも僕らは歌うことをやめない",
-    "reading": "それでも僕らは歌うことをやめない",
+    "reading": "それでもぼくらはうたうことをやめない",
     "unit": "leo_need",
     "releaseDate": "2024-09-20",
     "defaultOrder": 463,
@@ -22535,7 +22594,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_464",
     "title": "Unpoison",
-    "reading": "Unpoison",
+    "reading": "あんぽいずん",
     "unit": "virtual_singer",
     "releaseDate": "2024-09-24",
     "defaultOrder": 464,
@@ -22564,7 +22623,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_465",
     "title": "熱風",
-    "reading": "熱風",
+    "reading": "ねっぷう",
     "unit": "other",
     "releaseDate": "2024-09-30",
     "defaultOrder": 465,
@@ -22669,7 +22728,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_466",
     "title": "モザイクロール (Reloaded)",
-    "reading": "モザイクロール (Reloaded)",
+    "reading": "もざいくろーるりろーでっど",
     "unit": "leo_need",
     "releaseDate": "2024-10-01",
     "defaultOrder": 466,
@@ -22747,7 +22806,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_467",
     "title": "メズマライザー",
-    "reading": "メズマライザー",
+    "reading": "めずまらいざー",
     "unit": "virtual_singer",
     "releaseDate": "2024-10-02",
     "defaultOrder": 467,
@@ -22778,7 +22837,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_468",
     "title": "如月アテンション",
-    "reading": "如月アテンション",
+    "reading": "きさらぎあてんしょん",
     "unit": "more_more_jump",
     "releaseDate": "2024-10-03",
     "defaultOrder": 468,
@@ -22840,7 +22899,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_469",
     "title": "メインキャラクター",
-    "reading": "メインキャラクター",
+    "reading": "めいんきゃらくたー",
     "unit": "virtual_singer",
     "releaseDate": "2024-10-04",
     "defaultOrder": 469,
@@ -22869,7 +22928,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_470",
     "title": "コールボーイ",
-    "reading": "コールボーイ",
+    "reading": "こーるぼーい",
     "unit": "vivid_bad_squad",
     "releaseDate": "2024-10-05",
     "defaultOrder": 470,
@@ -22910,7 +22969,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_471",
     "title": "きみとぼくのレゾナンス",
-    "reading": "きみとぼくのレゾナンス",
+    "reading": "きみとぼくのれぞなんす",
     "unit": "virtual_singer",
     "releaseDate": "2024-10-06",
     "defaultOrder": 471,
@@ -22939,7 +22998,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_472",
     "title": "転生林檎",
-    "reading": "転生林檎",
+    "reading": "てんせいりんご",
     "unit": "wonderlands_showtime",
     "releaseDate": "2024-10-07",
     "defaultOrder": 472,
@@ -23001,7 +23060,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_473",
     "title": "Blackjack",
-    "reading": "Blackjack",
+    "reading": "ぶらっくじゃっく",
     "unit": "virtual_singer",
     "releaseDate": "2024-10-08",
     "defaultOrder": 473,
@@ -23030,7 +23089,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_474",
     "title": "Shadow Shadow",
-    "reading": "Shadow Shadow",
+    "reading": "しゃどうしゃどう",
     "unit": "nightcord_at_25",
     "releaseDate": "2024-10-09",
     "defaultOrder": 474,
@@ -23092,7 +23151,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_475",
     "title": "生命性シンドロウム",
-    "reading": "生命性シンドロウム",
+    "reading": "せいめいせいしんどろうむ",
     "unit": "virtual_singer",
     "releaseDate": "2024-10-10",
     "defaultOrder": 475,
@@ -23121,7 +23180,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_476",
     "title": "化けの花",
-    "reading": "化けの花",
+    "reading": "ばけのはな",
     "unit": "nightcord_at_25",
     "releaseDate": "2024-10-12",
     "defaultOrder": 476,
@@ -23183,7 +23242,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_477",
     "title": "キャットフード",
-    "reading": "キャットフード",
+    "reading": "きゃっとふーど",
     "unit": "more_more_jump",
     "releaseDate": "2024-10-15",
     "defaultOrder": 477,
@@ -23228,7 +23287,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_478",
     "title": "メモリア",
-    "reading": "メモリア",
+    "reading": "めもりあ",
     "unit": "virtual_singer",
     "releaseDate": "2024-10-21",
     "defaultOrder": 478,
@@ -23257,7 +23316,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_479",
     "title": "脳天",
-    "reading": "脳天",
+    "reading": "のうてん",
     "unit": "virtual_singer",
     "releaseDate": "2024-10-28",
     "defaultOrder": 479,
@@ -23286,7 +23345,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_480",
     "title": "フューエル",
-    "reading": "フューエル",
+    "reading": "ふゅーえる",
     "unit": "vivid_bad_squad",
     "releaseDate": "2024-10-29",
     "defaultOrder": 480,
@@ -23340,7 +23399,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_481",
     "title": "その音が鳴るなら",
-    "reading": "その音が鳴るなら",
+    "reading": "そのおとがなるなら",
     "unit": "leo_need",
     "releaseDate": "2024-10-31",
     "defaultOrder": 481,
@@ -23402,7 +23461,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_482",
     "title": "妄想アスパルテーム",
-    "reading": "妄想アスパルテーム",
+    "reading": "もうそうあすぱるてーむ",
     "unit": "more_more_jump",
     "releaseDate": "2024-11-05",
     "defaultOrder": 482,
@@ -23456,7 +23515,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_483",
     "title": "キャットラビング",
-    "reading": "キャットラビング",
+    "reading": "きゃっとらびんぐ",
     "unit": "nightcord_at_25",
     "releaseDate": "2024-11-13",
     "defaultOrder": 483,
@@ -23565,7 +23624,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_485",
     "title": "パリィ",
-    "reading": "パリィ",
+    "reading": "ぱりぃ",
     "unit": "virtual_singer",
     "releaseDate": "2024-11-25",
     "defaultOrder": 485,
@@ -23625,7 +23684,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_487",
     "title": "余花にみとれて",
-    "reading": "余花にみとれて",
+    "reading": "よかにみとれて",
     "unit": "nightcord_at_25",
     "releaseDate": "2024-12-09",
     "defaultOrder": 487,
@@ -23687,7 +23746,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_488",
     "title": "シークレット・シーカー",
-    "reading": "シークレット・シーカー",
+    "reading": "しーくれっと・しーかー",
     "unit": "virtual_singer",
     "releaseDate": "2024-12-16",
     "defaultOrder": 488,
@@ -23716,7 +23775,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_489",
     "title": "はしる! とおく! とどく!",
-    "reading": "はしる! とおく! とどく!",
+    "reading": "はしるとおくとどく",
     "unit": "more_more_jump",
     "releaseDate": "2024-12-19",
     "defaultOrder": 489,
@@ -23779,7 +23838,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_490",
     "title": "花溺れ",
-    "reading": "花溺れ",
+    "reading": "はなおぼれ",
     "unit": "vivid_bad_squad",
     "releaseDate": "2024-12-23",
     "defaultOrder": 490,
@@ -23826,7 +23885,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_491",
     "title": "はじまりの未来",
-    "reading": "はじまりの未来",
+    "reading": "はじまりのみらい",
     "unit": "virtual_singer",
     "releaseDate": "2024-12-28",
     "defaultOrder": 491,
@@ -23855,7 +23914,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_492",
     "title": "混沌ブギ",
-    "reading": "混沌ブギ",
+    "reading": "こんとんぶぎ",
     "unit": "wonderlands_showtime",
     "releaseDate": "2024-12-29",
     "defaultOrder": 492,
@@ -23901,7 +23960,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_493",
     "title": "アンヘル",
-    "reading": "アンヘル",
+    "reading": "あんへる",
     "unit": "virtual_singer",
     "releaseDate": "2024-12-30",
     "defaultOrder": 493,
@@ -23930,7 +23989,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_494",
     "title": "プロトディスコ",
-    "reading": "プロトディスコ",
+    "reading": "ぷろとでぃすこ",
     "unit": "virtual_singer",
     "releaseDate": "2024-12-31",
     "defaultOrder": 494,
@@ -23959,7 +24018,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_495",
     "title": "CH4NGE",
-    "reading": "CH4NGE",
+    "reading": "ちぇんじ",
     "unit": "vivid_bad_squad",
     "releaseDate": "2025-01-01",
     "defaultOrder": 495,
@@ -24021,7 +24080,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_496",
     "title": "snooze",
-    "reading": "snooze",
+    "reading": "すぬーず",
     "unit": "more_more_jump",
     "releaseDate": "2025-01-02",
     "defaultOrder": 496,
@@ -24067,7 +24126,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_497",
     "title": "ワールド・ランプシェード [reunion]",
-    "reading": "ワールド・ランプシェード [reunion]",
+    "reading": "わーるど らんぷしぇーど りゆにおん",
     "unit": "leo_need",
     "releaseDate": "2025-01-03",
     "defaultOrder": 497,
@@ -24162,7 +24221,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_499",
     "title": "サイハテ",
-    "reading": "サイハテ",
+    "reading": "さいはて",
     "unit": "nightcord_at_25",
     "releaseDate": "2025-01-05",
     "defaultOrder": 499,
@@ -24207,7 +24266,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_500",
     "title": "Henceforth",
-    "reading": "Henceforth",
+    "reading": "へんすふぉーす",
     "unit": "leo_need",
     "releaseDate": "2025-01-10",
     "defaultOrder": 500,
@@ -24277,7 +24336,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_501",
     "title": "厨病激発ボーイ",
-    "reading": "厨病激発ボーイ",
+    "reading": "ちゅうびょうげきはつぼーい",
     "unit": "wonderlands_showtime",
     "releaseDate": "2025-01-14",
     "defaultOrder": 501,
@@ -24334,7 +24393,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_502",
     "title": "ヘイヴン",
-    "reading": "ヘイヴン",
+    "reading": "へいヴん",
     "unit": "vivid_bad_squad",
     "releaseDate": "2025-01-19",
     "defaultOrder": 502,
@@ -24396,7 +24455,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_503",
     "title": "夏に透明",
-    "reading": "夏に透明",
+    "reading": "なつにとうめい",
     "unit": "virtual_singer",
     "releaseDate": "2025-01-21",
     "defaultOrder": 503,
@@ -24425,7 +24484,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_504",
     "title": "パンダヒーロー",
-    "reading": "パンダヒーロー",
+    "reading": "ぱんだひーろー",
     "unit": "virtual_singer",
     "releaseDate": "2025-01-22",
     "defaultOrder": 504,
@@ -24454,7 +24513,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_505",
     "title": "結ンデ開イテ羅刹ト骸",
-    "reading": "結ンデ開イテ羅刹ト骸",
+    "reading": "むすんでひらいてらせつとむくろ",
     "unit": "virtual_singer",
     "releaseDate": "2025-01-23",
     "defaultOrder": 505,
@@ -24483,7 +24542,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_506",
     "title": "ファイアダンス",
-    "reading": "ファイアダンス",
+    "reading": "ふぁいあだんす",
     "unit": "vivid_bad_squad",
     "releaseDate": "2025-01-25",
     "defaultOrder": 506,
@@ -24533,7 +24592,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_507",
     "title": "そこに在る、光。",
-    "reading": "そこに在る、光。",
+    "reading": "そこにあるひかり",
     "unit": "nightcord_at_25",
     "releaseDate": "2025-01-28",
     "defaultOrder": 507,
@@ -24583,7 +24642,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_508",
     "title": "Worlders",
-    "reading": "Worlders",
+    "reading": "わーるだーず",
     "unit": "other",
     "releaseDate": "2025-01-29",
     "defaultOrder": 508,
@@ -24596,7 +24655,11 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "ALLユニット",
+      "ichika",
+      "minori",
+      "kohane",
+      "tsukasa",
+      "kanade",
       "miku"
     ],
     "vocalTracks": [
@@ -24605,7 +24668,11 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "セカイver",
         "type": "sekai",
         "singers": [
-          "ALLユニット"
+          "ichika",
+          "minori",
+          "kohane",
+          "tsukasa",
+          "kanade"
         ]
       },
       {
@@ -24621,7 +24688,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_509",
     "title": "FUN!!",
-    "reading": "FUN!!",
+    "reading": "ふぁん",
     "unit": "more_more_jump",
     "releaseDate": "2025-01-31",
     "defaultOrder": 509,
@@ -24671,7 +24738,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_510",
     "title": "終焉逃避行",
-    "reading": "終焉逃避行",
+    "reading": "しゅうえんとうひこう",
     "unit": "leo_need",
     "releaseDate": "2025-02-01",
     "defaultOrder": 510,
@@ -24725,7 +24792,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_511",
     "title": "スマイル*シンフォニー",
-    "reading": "スマイル*シンフォニー",
+    "reading": "すまいるしんふぉにー",
     "unit": "wonderlands_showtime",
     "releaseDate": "2025-02-03",
     "defaultOrder": 511,
@@ -24775,7 +24842,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_512",
     "title": "SToRY",
-    "reading": "SToRY",
+    "reading": "すとーりー",
     "unit": "leo_need",
     "releaseDate": "2025-02-06",
     "defaultOrder": 512,
@@ -24825,7 +24892,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_513",
     "title": "クリスタルスノウ",
-    "reading": "クリスタルスノウ",
+    "reading": "くりすたるすのう",
     "unit": "virtual_singer",
     "releaseDate": "2025-02-08",
     "defaultOrder": 513,
@@ -24854,7 +24921,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_514",
     "title": "ハローセカイ",
-    "reading": "ハローセカイ",
+    "reading": "はろーせかい",
     "unit": "virtual_singer",
     "releaseDate": "2025-02-09",
     "defaultOrder": 514,
@@ -24901,7 +24968,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_515",
     "title": "アンチユー",
-    "reading": "アンチユー",
+    "reading": "あんちゆー",
     "unit": "more_more_jump",
     "releaseDate": "2025-02-10",
     "defaultOrder": 515,
@@ -24963,7 +25030,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_516",
     "title": "ルルブ",
-    "reading": "ルルブ",
+    "reading": "るるぶ",
     "unit": "virtual_singer",
     "releaseDate": "2025-02-12",
     "defaultOrder": 516,
@@ -24992,7 +25059,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_517",
     "title": "フュージョン",
-    "reading": "フュージョン",
+    "reading": "ふゅーじょん",
     "unit": "other",
     "releaseDate": "2025-02-15",
     "defaultOrder": 517,
@@ -25005,14 +25072,14 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [
-      "DI:Verse (東雲 彰人",
+      "akito",
       "toya",
       "tsukasa",
       "rui",
-      "漣 ジュン",
-      "瀬名 泉",
-      "守沢 千秋",
-      "逆先 夏目)",
+      "jun",
+      "izumi",
+      "chiaki",
+      "natsume",
       "len",
       "kaito"
     ],
@@ -25022,14 +25089,14 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "セカイver",
         "type": "sekai",
         "singers": [
-          "DI:Verse (東雲 彰人",
+          "akito",
           "toya",
           "tsukasa",
           "rui",
-          "漣 ジュン",
-          "瀬名 泉",
-          "守沢 千秋",
-          "逆先 夏目)"
+          "jun",
+          "izumi",
+          "chiaki",
+          "natsume"
         ]
       },
       {
@@ -25046,14 +25113,14 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "コネクトライブver",
         "type": "connect_live",
         "singers": [
-          "DI:Verse (東雲 彰人",
+          "akito",
           "toya",
           "tsukasa",
           "rui",
-          "漣 ジュン",
-          "瀬名 泉",
-          "守沢 千秋",
-          "逆先 夏目)",
+          "jun",
+          "izumi",
+          "chiaki",
+          "natsume",
           "len",
           "kaito"
         ]
@@ -25063,14 +25130,14 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "コネクトライブver",
         "type": "connect_live",
         "singers": [
-          "DI:Verse (東雲 彰人",
+          "akito",
           "toya",
           "tsukasa",
           "rui",
-          "漣 ジュン",
-          "瀬名 泉",
-          "守沢 千秋",
-          "逆先 夏目)",
+          "jun",
+          "izumi",
+          "chiaki",
+          "natsume",
           "len",
           "kaito"
         ]
@@ -25080,14 +25147,14 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "コネクトライブver",
         "type": "connect_live",
         "singers": [
-          "DI:Verse (東雲 彰人",
+          "akito",
           "toya",
           "tsukasa",
           "rui",
-          "漣 ジュン",
-          "瀬名 泉",
-          "守沢 千秋",
-          "逆先 夏目)",
+          "jun",
+          "izumi",
+          "chiaki",
+          "natsume",
           "len",
           "kaito"
         ]
@@ -25097,14 +25164,14 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "コネクトライブver",
         "type": "connect_live",
         "singers": [
-          "DI:Verse (東雲 彰人",
+          "akito",
           "toya",
           "tsukasa",
           "rui",
-          "漣 ジュン",
-          "瀬名 泉",
-          "守沢 千秋",
-          "逆先 夏目)",
+          "jun",
+          "izumi",
+          "chiaki",
+          "natsume",
           "len",
           "kaito"
         ]
@@ -25114,7 +25181,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_518",
     "title": "ルーマー",
-    "reading": "ルーマー",
+    "reading": "るーまー",
     "unit": "vivid_bad_squad",
     "releaseDate": "2025-02-21",
     "defaultOrder": 518,
@@ -25168,7 +25235,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_519",
     "title": "Fire◎Flower (Rerec)",
-    "reading": "Fire◎Flower (Rerec)",
+    "reading": "ふぁいあふらわー",
     "unit": "other",
     "releaseDate": "2025-03-02",
     "defaultOrder": 519,
@@ -25215,7 +25282,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_520",
     "title": "三日月ステップ",
-    "reading": "三日月ステップ",
+    "reading": "みかづきすてっぷ",
     "unit": "vivid_bad_squad",
     "releaseDate": "2025-03-03",
     "defaultOrder": 520,
@@ -25273,7 +25340,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_521",
     "title": "オーバーライド",
-    "reading": "オーバーライド",
+    "reading": "おーばーらいど",
     "unit": "more_more_jump",
     "releaseDate": "2025-03-07",
     "defaultOrder": 521,
@@ -25340,7 +25407,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_522",
     "title": "Packaged",
-    "reading": "Packaged",
+    "reading": "ぱっけーじど",
     "unit": "virtual_singer",
     "releaseDate": "2025-03-09",
     "defaultOrder": 522,
@@ -25369,7 +25436,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_523",
     "title": "ライアーダンサー",
-    "reading": "ライアーダンサー",
+    "reading": "らいあーだんさー",
     "unit": "wonderlands_showtime",
     "releaseDate": "2025-03-10",
     "defaultOrder": 523,
@@ -25431,7 +25498,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_524",
     "title": "プラネットヒーロー",
-    "reading": "プラネットヒーロー",
+    "reading": "ぷらねっとひーろー",
     "unit": "virtual_singer",
     "releaseDate": "2025-03-14",
     "defaultOrder": 524,
@@ -25460,7 +25527,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_525",
     "title": "透明エレジー",
-    "reading": "透明エレジー",
+    "reading": "とうめいえれじー",
     "unit": "leo_need",
     "releaseDate": "2025-03-17",
     "defaultOrder": 525,
@@ -25522,7 +25589,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_526",
     "title": "D/N/A",
-    "reading": "D/N/A",
+    "reading": "でぃー・えぬ・えー",
     "unit": "nightcord_at_25",
     "releaseDate": "2025-03-20",
     "defaultOrder": 526,
@@ -25592,7 +25659,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_527",
     "title": "ドレミファロンド",
-    "reading": "ドレミファロンド",
+    "reading": "どれみふぁろんど",
     "unit": "wonderlands_showtime",
     "releaseDate": "2025-03-24",
     "defaultOrder": 527,
@@ -25654,7 +25721,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_528",
     "title": "Sympathy",
-    "reading": "Sympathy",
+    "reading": "しんぱしー",
     "unit": "leo_need",
     "releaseDate": "2025-03-30",
     "defaultOrder": 528,
@@ -25699,7 +25766,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_529",
     "title": "Call!!",
-    "reading": "Call!!",
+    "reading": "こーる",
     "unit": "virtual_singer",
     "releaseDate": "2025-03-31",
     "defaultOrder": 529,
@@ -25728,7 +25795,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_530",
     "title": "吉原ラメント 再来盤",
-    "reading": "吉原ラメント 再来盤",
+    "reading": "よしわららめんと さいらいばん",
     "unit": "virtual_singer",
     "releaseDate": "2025-04-02",
     "defaultOrder": 530,
@@ -25757,7 +25824,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_531",
     "title": "マンハッタン",
-    "reading": "マンハッタン",
+    "reading": "まんはったん",
     "unit": "virtual_singer",
     "releaseDate": "2025-04-03",
     "defaultOrder": 531,
@@ -25786,7 +25853,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_532",
     "title": "クイーンオブハート",
-    "reading": "クイーンオブハート",
+    "reading": "くいーんおぶはーと",
     "unit": "virtual_singer",
     "releaseDate": "2025-04-04",
     "defaultOrder": 532,
@@ -25815,7 +25882,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_533",
     "title": "バレリーコ",
-    "reading": "バレリーコ",
+    "reading": "ばれりーこ",
     "unit": "virtual_singer",
     "releaseDate": "2025-04-05",
     "defaultOrder": 533,
@@ -25844,7 +25911,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_534",
     "title": "花に風",
-    "reading": "花に風",
+    "reading": "はなにかぜ",
     "unit": "vivid_bad_squad",
     "releaseDate": "2025-04-08",
     "defaultOrder": 534,
@@ -25889,7 +25956,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_535",
     "title": "スーサイドパレヱド",
-    "reading": "スーサイドパレヱド",
+    "reading": "すーさいどぱれえど",
     "unit": "nightcord_at_25",
     "releaseDate": "2025-04-14",
     "defaultOrder": 535,
@@ -25951,7 +26018,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_536",
     "title": "星宙メランコリア",
-    "reading": "星宙メランコリア",
+    "reading": "ほしぞらめらんこりあ",
     "unit": "virtual_singer",
     "releaseDate": "2025-04-18",
     "defaultOrder": 536,
@@ -25980,7 +26047,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_537",
     "title": "回る空うさぎ",
-    "reading": "回る空うさぎ",
+    "reading": "まわるそらうさぎ",
     "unit": "more_more_jump",
     "releaseDate": "2025-04-22",
     "defaultOrder": 537,
@@ -26030,7 +26097,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_538",
     "title": "オールセーブチャレンジ",
-    "reading": "オールセーブチャレンジ",
+    "reading": "おーるせーぶちゃれんじ",
     "unit": "wonderlands_showtime",
     "releaseDate": "2025-04-28",
     "defaultOrder": 538,
@@ -26092,7 +26159,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_539",
     "title": "チルノのパーフェクトさんすう学園",
-    "reading": "チルノのパーフェクトさんすう学園",
+    "reading": "ちるののぱーふぇくとさんすうがくえん",
     "unit": "virtual_singer",
     "releaseDate": "2025-05-03",
     "defaultOrder": 539,
@@ -26131,7 +26198,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_540",
     "title": "とうほう☆ワンダーランド",
-    "reading": "とうほう☆ワンダーランド",
+    "reading": "とうほうわんだーらんど",
     "unit": "wonderlands_showtime",
     "releaseDate": "2025-05-04",
     "defaultOrder": 540,
@@ -26187,7 +26254,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_541",
     "title": "超ナイト・オブ・ナイツ",
-    "reading": "超ナイト・オブ・ナイツ",
+    "reading": "ちょうないと・おぶ・ないつ",
     "unit": "other",
     "releaseDate": "2025-05-05",
     "defaultOrder": 541,
@@ -26205,7 +26272,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_542",
     "title": "虚無さん",
-    "reading": "虚無さん",
+    "reading": "にひるさん",
     "unit": "nightcord_at_25",
     "releaseDate": "2025-05-06",
     "defaultOrder": 542,
@@ -26267,7 +26334,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_543",
     "title": "紗痲",
-    "reading": "紗痲",
+    "reading": "しゃま",
     "unit": "vivid_bad_squad",
     "releaseDate": "2025-05-09",
     "defaultOrder": 543,
@@ -26329,7 +26396,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_544",
     "title": "失敗作少女",
-    "reading": "失敗作少女",
+    "reading": "しっぱいさくしょうじょ",
     "unit": "nightcord_at_25",
     "releaseDate": "2025-05-12",
     "defaultOrder": 544,
@@ -26391,7 +26458,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_545",
     "title": "フィッシュアンドTips",
-    "reading": "フィッシュアンドTips",
+    "reading": "ふぃっしゅあんどちっぷす",
     "unit": "virtual_singer",
     "releaseDate": "2025-05-19",
     "defaultOrder": 545,
@@ -26420,7 +26487,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_546",
     "title": "Connecting",
-    "reading": "Connecting",
+    "reading": "こねくてぃんぐ",
     "unit": "virtual_singer",
     "releaseDate": "2025-05-23",
     "defaultOrder": 546,
@@ -26459,7 +26526,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_547",
     "title": "エンヴィキャットウォーク",
-    "reading": "エンヴィキャットウォーク",
+    "reading": "えんヴぃきゃっとうぉーく",
     "unit": "leo_need",
     "releaseDate": "2025-05-26",
     "defaultOrder": 547,
@@ -26504,7 +26571,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_548",
     "title": "イレヴンス",
-    "reading": "イレヴンス",
+    "reading": "いれヴんす",
     "unit": "more_more_jump",
     "releaseDate": "2025-05-29",
     "defaultOrder": 548,
@@ -26566,7 +26633,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_549",
     "title": "光線歌",
-    "reading": "光線歌",
+    "reading": "こうせんか",
     "unit": "vivid_bad_squad",
     "releaseDate": "2025-05-31",
     "defaultOrder": 549,
@@ -26628,7 +26695,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_550",
     "title": "テトリス",
-    "reading": "テトリス",
+    "reading": "てとりす",
     "unit": "virtual_singer",
     "releaseDate": "2025-06-02",
     "defaultOrder": 550,
@@ -26657,7 +26724,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_551",
     "title": "このふざけた素晴らしき世界は、僕の為にある",
-    "reading": "このふざけた素晴らしき世界は、僕の為にある",
+    "reading": "このふざけたすばらしきせかいはぼくのためにある",
     "unit": "wonderlands_showtime",
     "releaseDate": "2025-06-09",
     "defaultOrder": 551,
@@ -26703,7 +26770,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_552",
     "title": "モニタリング",
-    "reading": "モニタリング",
+    "reading": "もにたりんぐ",
     "unit": "virtual_singer",
     "releaseDate": "2025-06-16",
     "defaultOrder": 552,
@@ -26732,7 +26799,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_553",
     "title": "庭師のおはなしによると",
-    "reading": "庭師のおはなしによると",
+    "reading": "にわしのおはなしによると",
     "unit": "virtual_singer",
     "releaseDate": "2025-06-23",
     "defaultOrder": 553,
@@ -26761,7 +26828,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_554",
     "title": "Twilight Melody",
-    "reading": "Twilight Melody",
+    "reading": "とわいらいとめろでぃ",
     "unit": "virtual_singer",
     "releaseDate": "2025-06-30",
     "defaultOrder": 554,
@@ -26790,7 +26857,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_555",
     "title": "M@GICAL☆CURE! LOVE ♥ SHOT!",
-    "reading": "M@GICAL☆CURE! LOVE ♥ SHOT!",
+    "reading": "まじかるきゅあらぶしょっと",
     "unit": "virtual_singer",
     "releaseDate": "2025-07-01",
     "defaultOrder": 555,
@@ -26819,7 +26886,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_556",
     "title": "Hello Builder",
-    "reading": "Hello Builder",
+    "reading": "はろーびるだー",
     "unit": "virtual_singer",
     "releaseDate": "2025-07-02",
     "defaultOrder": 556,
@@ -26848,7 +26915,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_557",
     "title": "imaginary love story",
-    "reading": "imaginary love story",
+    "reading": "いまじなりーらぶすとーりー",
     "unit": "virtual_singer",
     "releaseDate": "2025-07-03",
     "defaultOrder": 557,
@@ -26877,7 +26944,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_558",
     "title": "Intergalactic Bound",
-    "reading": "Intergalactic Bound",
+    "reading": "いんたーぎゃらくてぃっく ばうんど",
     "unit": "virtual_singer",
     "releaseDate": "2025-07-04",
     "defaultOrder": 558,
@@ -26906,7 +26973,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_559",
     "title": "笑えたらえーやん！",
-    "reading": "笑えたらえーやん！",
+    "reading": "わらえたらえーやん",
     "unit": "virtual_singer",
     "releaseDate": "2025-07-07",
     "defaultOrder": 559,
@@ -26937,7 +27004,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_560",
     "title": "アイリッド",
-    "reading": "アイリッド",
+    "reading": "あいりっど",
     "unit": "wonderlands_showtime",
     "releaseDate": "2025-07-13",
     "defaultOrder": 560,
@@ -26990,7 +27057,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_561",
     "title": "透明なパレット",
-    "reading": "透明なパレット",
+    "reading": "とうめいなぱれっと",
     "unit": "leo_need",
     "releaseDate": "2025-07-15",
     "defaultOrder": 561,
@@ -27052,7 +27119,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_562",
     "title": "エクスプロウル",
-    "reading": "エクスプロウル",
+    "reading": "えくすぷろうる",
     "unit": "virtual_singer",
     "releaseDate": "2025-07-18",
     "defaultOrder": 562,
@@ -27081,7 +27148,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_563",
     "title": "ありのままのストーリーを",
-    "reading": "ありのままのストーリーを",
+    "reading": "ありのままのすとーりーを",
     "unit": "more_more_jump",
     "releaseDate": "2025-07-23",
     "defaultOrder": 563,
@@ -27149,7 +27216,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_564",
     "title": "生きる",
-    "reading": "生きる",
+    "reading": "いきる",
     "unit": "nightcord_at_25",
     "releaseDate": "2025-07-28",
     "defaultOrder": 564,
@@ -27191,7 +27258,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_565",
     "title": "花弁、それにまつわる音声",
-    "reading": "花弁、それにまつわる音声",
+    "reading": "かべんそれにまつわるおんせい",
     "unit": "virtual_singer",
     "releaseDate": "2025-08-02",
     "defaultOrder": 565,
@@ -27220,7 +27287,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_566",
     "title": "マリオネットダンサー",
-    "reading": "マリオネットダンサー",
+    "reading": "まりおねっとだんさー",
     "unit": "virtual_singer",
     "releaseDate": "2025-08-03",
     "defaultOrder": 566,
@@ -27249,7 +27316,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_567",
     "title": "Life Will Change",
-    "reading": "Life Will Change",
+    "reading": "らいふうぃるちぇんじ",
     "unit": "virtual_singer",
     "releaseDate": "2025-08-04",
     "defaultOrder": 567,
@@ -27282,7 +27349,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_568",
     "title": "アクセラレイト",
-    "reading": "アクセラレイト",
+    "reading": "あくせられいと",
     "unit": "vivid_bad_squad",
     "releaseDate": "2025-08-06",
     "defaultOrder": 568,
@@ -27344,7 +27411,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_569",
     "title": "Surges",
-    "reading": "Surges",
+    "reading": "さーじず",
     "unit": "vivid_bad_squad",
     "releaseDate": "2025-08-12",
     "defaultOrder": 569,
@@ -27392,7 +27459,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_570",
     "title": "リリィララ",
-    "reading": "リリィララ",
+    "reading": "りりぃらら",
     "unit": "virtual_singer",
     "releaseDate": "2025-08-18",
     "defaultOrder": 570,
@@ -27421,7 +27488,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_571",
     "title": "SAN値直葬",
-    "reading": "SAN値直葬",
+    "reading": "さんちちょくそう",
     "unit": "virtual_singer",
     "releaseDate": "2025-08-22",
     "defaultOrder": 571,
@@ -27450,7 +27517,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_572",
     "title": "飾って",
-    "reading": "飾って",
+    "reading": "かざって",
     "unit": "nightcord_at_25",
     "releaseDate": "2025-08-28",
     "defaultOrder": 572,
@@ -27512,7 +27579,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_573",
     "title": "ラストラス",
-    "reading": "ラストラス",
+    "reading": "らすとらす",
     "unit": "virtual_singer",
     "releaseDate": "2025-08-29",
     "defaultOrder": 573,
@@ -27541,7 +27608,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_574",
     "title": "サヨナラ天国また来て地獄",
-    "reading": "サヨナラ天国また来て地獄",
+    "reading": "さよならてんごくまたきてじごく",
     "unit": "wonderlands_showtime",
     "releaseDate": "2025-08-30",
     "defaultOrder": 574,
@@ -27586,7 +27653,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_575",
     "title": "8.32",
-    "reading": "8.32",
+    "reading": "はってんさんにー",
     "unit": "more_more_jump",
     "releaseDate": "2025-09-01",
     "defaultOrder": 575,
@@ -27640,7 +27707,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_576",
     "title": "あの夏が飽和する。",
-    "reading": "あの夏が飽和する。",
+    "reading": "あのなつがほうわする",
     "unit": "nightcord_at_25",
     "releaseDate": "2025-09-08",
     "defaultOrder": 576,
@@ -27684,7 +27751,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_577",
     "title": "深海シティアンダーグラウンド",
-    "reading": "深海シティアンダーグラウンド",
+    "reading": "しんかいしてぃあんだーぐらうんど",
     "unit": "leo_need",
     "releaseDate": "2025-09-16",
     "defaultOrder": 577,
@@ -27729,7 +27796,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_578",
     "title": "ブラッドドール",
-    "reading": "ブラッドドール",
+    "reading": "ぶらっどどーる",
     "unit": "virtual_singer",
     "releaseDate": "2025-09-22",
     "defaultOrder": 578,
@@ -27758,7 +27825,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_579",
     "title": "偽物人間40号",
-    "reading": "偽物人間40号",
+    "reading": "にせものにんげんよんじゅうごう",
     "unit": "vivid_bad_squad",
     "releaseDate": "2025-09-24",
     "defaultOrder": 579,
@@ -27831,7 +27898,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_580",
     "title": "ペンタトニック",
-    "reading": "ペンタトニック",
+    "reading": "ぺんたとにっく",
     "unit": "other",
     "releaseDate": "2025-09-30",
     "defaultOrder": 580,
@@ -28066,7 +28133,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_582",
     "title": "少女A",
-    "reading": "少女A",
+    "reading": "しょうじょえー",
     "unit": "virtual_singer",
     "releaseDate": "2025-10-02",
     "defaultOrder": 582,
@@ -28095,7 +28162,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_583",
     "title": "東京サマーセッション",
-    "reading": "東京サマーセッション",
+    "reading": "とうきょうさまーせっしょん",
     "unit": "more_more_jump",
     "releaseDate": "2025-10-03",
     "defaultOrder": 583,
@@ -28143,7 +28210,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_584",
     "title": "ヴィーナス",
-    "reading": "ヴィーナス",
+    "reading": "ヴぃーなす",
     "unit": "virtual_singer",
     "releaseDate": "2025-10-04",
     "defaultOrder": 584,
@@ -28172,7 +28239,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_585",
     "title": "ハウトゥー世界征服",
-    "reading": "ハウトゥー世界征服",
+    "reading": "はうとぅーせかいせいふく",
     "unit": "vivid_bad_squad",
     "releaseDate": "2025-10-05",
     "defaultOrder": 585,
@@ -28245,7 +28312,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_587",
     "title": "人マニア",
-    "reading": "人マニア",
+    "reading": "ひとまにあ",
     "unit": "wonderlands_showtime",
     "releaseDate": "2025-10-07",
     "defaultOrder": 587,
@@ -28291,7 +28358,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_588",
     "title": "㋰責任集合体",
-    "reading": "㋰責任集合体",
+    "reading": "むせきにんしゅうごうたい",
     "unit": "virtual_singer",
     "releaseDate": "2025-10-08",
     "defaultOrder": 588,
@@ -28333,7 +28400,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_589",
     "title": "ロストアンブレラ",
-    "reading": "ロストアンブレラ",
+    "reading": "ろすとあんぶれら",
     "unit": "nightcord_at_25",
     "releaseDate": "2025-10-09",
     "defaultOrder": 589,
@@ -28395,7 +28462,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_590",
     "title": "ホワイトハッピー",
-    "reading": "ホワイトハッピー",
+    "reading": "ほわいとはっぴー",
     "unit": "virtual_singer",
     "releaseDate": "2025-10-10",
     "defaultOrder": 590,
@@ -28424,7 +28491,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_591",
     "title": "ネクラチューンサーカス",
-    "reading": "ネクラチューンサーカス",
+    "reading": "ねくらちゅーんさーかす",
     "unit": "virtual_singer",
     "releaseDate": "2025-10-11",
     "defaultOrder": 591,
@@ -28453,7 +28520,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_592",
     "title": "カレシのジュード",
-    "reading": "カレシのジュード",
+    "reading": "かれしのじゅーど",
     "unit": "virtual_singer",
     "releaseDate": "2025-10-14",
     "defaultOrder": 592,
@@ -28482,7 +28549,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_593",
     "title": "パメラ",
-    "reading": "パメラ",
+    "reading": "ぱめら",
     "unit": "virtual_singer",
     "releaseDate": "2025-10-15",
     "defaultOrder": 593,
@@ -28511,7 +28578,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_594",
     "title": "スター",
-    "reading": "スター",
+    "reading": "すたー",
     "unit": "leo_need",
     "releaseDate": "2025-10-19",
     "defaultOrder": 594,
@@ -28566,7 +28633,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_595",
     "title": "あなたの空が泣くのなら",
-    "reading": "あなたの空が泣くのなら",
+    "reading": "あなたのそらがなくのなら",
     "unit": "more_more_jump",
     "releaseDate": "2025-10-21",
     "defaultOrder": 595,
@@ -28628,7 +28695,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_596",
     "title": "アベリア",
-    "reading": "アベリア",
+    "reading": "あべりあ",
     "unit": "virtual_singer",
     "releaseDate": "2025-10-27",
     "defaultOrder": 596,
@@ -28657,7 +28724,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_597",
     "title": "ルマ",
-    "reading": "ルマ",
+    "reading": "るま",
     "unit": "more_more_jump",
     "releaseDate": "2025-11-04",
     "defaultOrder": 597,
@@ -28703,7 +28770,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_598",
     "title": "ロケットサイダー",
-    "reading": "ロケットサイダー",
+    "reading": "ろけっとさいだー",
     "unit": "leo_need",
     "releaseDate": "2025-11-07",
     "defaultOrder": 598,
@@ -28748,7 +28815,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_599",
     "title": "その絵の名前は",
-    "reading": "その絵の名前は",
+    "reading": "そのえのなまえは",
     "unit": "nightcord_at_25",
     "releaseDate": "2025-11-08",
     "defaultOrder": 599,
@@ -28801,7 +28868,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_600",
     "title": "金時計",
-    "reading": "金時計",
+    "reading": "きんどけい",
     "unit": "virtual_singer",
     "releaseDate": "2025-11-12",
     "defaultOrder": 600,
@@ -28830,7 +28897,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_601",
     "title": "征け",
-    "reading": "征け",
+    "reading": "ゆけ",
     "unit": "wonderlands_showtime",
     "releaseDate": "2025-11-17",
     "defaultOrder": 601,
@@ -28885,7 +28952,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_602",
     "title": "ファイター",
-    "reading": "ファイター",
+    "reading": "ふぁいたー",
     "unit": "vivid_bad_squad",
     "releaseDate": "2025-11-20",
     "defaultOrder": 602,
@@ -28947,7 +29014,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_603",
     "title": "IMAWANOKIWA",
-    "reading": "IMAWANOKIWA",
+    "reading": "いまわのきわ",
     "unit": "virtual_singer",
     "releaseDate": "2025-11-22",
     "defaultOrder": 603,
@@ -28976,7 +29043,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_604",
     "title": "怪獣になりたい",
-    "reading": "怪獣になりたい",
+    "reading": "かいじゅうになりたい",
     "unit": "virtual_singer",
     "releaseDate": "2025-11-23",
     "defaultOrder": 604,
@@ -29005,7 +29072,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_605",
     "title": "0.0000034",
-    "reading": "0.0000034",
+    "reading": "れいてんれいれいれいれいれいさんよん",
     "unit": "virtual_singer",
     "releaseDate": "2025-11-24",
     "defaultOrder": 605,
@@ -29034,7 +29101,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_606",
     "title": "花結び",
-    "reading": "花結び",
+    "reading": "はなむすび",
     "unit": "leo_need",
     "releaseDate": "2025-11-30",
     "defaultOrder": 606,
@@ -29082,7 +29149,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_607",
     "title": "電光刹歌",
-    "reading": "電光刹歌",
+    "reading": "でんこうせっか",
     "unit": "virtual_singer",
     "releaseDate": "2025-12-06",
     "defaultOrder": 607,
@@ -29111,7 +29178,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_608",
     "title": "ウィーアーピコピコハンマーズ!!!!",
-    "reading": "ウィーアーピコピコハンマーズ!!!!",
+    "reading": "うぃーあーぴこぴこはんまーず",
     "unit": "virtual_singer",
     "releaseDate": "2025-12-07",
     "defaultOrder": 608,
@@ -29140,7 +29207,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_609",
     "title": "ジェットブラック",
-    "reading": "ジェットブラック",
+    "reading": "じぇっとぶらっく",
     "unit": "virtual_singer",
     "releaseDate": "2025-12-08",
     "defaultOrder": 609,
@@ -29169,7 +29236,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_610",
     "title": "トレジャーガーデン",
-    "reading": "トレジャーガーデン",
+    "reading": "とれじゃーがーでん",
     "unit": "virtual_singer",
     "releaseDate": "2025-12-09",
     "defaultOrder": 610,
@@ -29198,7 +29265,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_611",
     "title": "最愛人生ランナー",
-    "reading": "最愛人生ランナー",
+    "reading": "さいあいじんせいらんなー",
     "unit": "virtual_singer",
     "releaseDate": "2025-12-10",
     "defaultOrder": 611,
@@ -29274,7 +29341,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_613",
     "title": "ドリーム・キス",
-    "reading": "ドリーム・キス",
+    "reading": "どりーむ・きす",
     "unit": "virtual_singer",
     "releaseDate": "2025-12-22",
     "defaultOrder": 613,
@@ -29303,7 +29370,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_614",
     "title": "Polar Star",
-    "reading": "Polar Star",
+    "reading": "ぽーらーすたー",
     "unit": "more_more_jump",
     "releaseDate": "2025-12-29",
     "defaultOrder": 614,
@@ -29377,7 +29444,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_616",
     "title": "ヤンキーボーイ・ヤンキーガール",
-    "reading": "ヤンキーボーイ・ヤンキーガール",
+    "reading": "やんきーぼーいやんきーがーる",
     "unit": "vivid_bad_squad",
     "releaseDate": "2025-12-31",
     "defaultOrder": 616,
@@ -29423,7 +29490,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_617",
     "title": "魔法少女とチョコレゐト",
-    "reading": "魔法少女とチョコレゐト",
+    "reading": "まほうしょうじょとちょこれいと",
     "unit": "more_more_jump",
     "releaseDate": "2026-01-01",
     "defaultOrder": 617,
@@ -29476,7 +29543,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_618",
     "title": "上弦の月",
-    "reading": "上弦の月",
+    "reading": "じょうげんのつき",
     "unit": "virtual_singer",
     "releaseDate": "2026-01-02",
     "defaultOrder": 618,
@@ -29505,7 +29572,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_619",
     "title": "惑星ループ",
-    "reading": "惑星ループ",
+    "reading": "わくせいるーぷ",
     "unit": "wonderlands_showtime",
     "releaseDate": "2026-01-03",
     "defaultOrder": 619,
@@ -29563,7 +29630,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_620",
     "title": "黒塗り世界宛て書簡",
-    "reading": "黒塗り世界宛て書簡",
+    "reading": "くろぬりせかいあてしょかん",
     "unit": "virtual_singer",
     "releaseDate": "2026-01-04",
     "defaultOrder": 620,
@@ -29592,7 +29659,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_621",
     "title": "君が飛び降りるのならば",
-    "reading": "君が飛び降りるのならば",
+    "reading": "きみがとびおりるのならば",
     "unit": "leo_need",
     "releaseDate": "2026-01-05",
     "defaultOrder": 621,
@@ -29638,7 +29705,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_622",
     "title": "鎖の少女-Re Alive-",
-    "reading": "鎖の少女-Re Alive-",
+    "reading": "くさりのしょうじょりあらいぶ",
     "unit": "nightcord_at_25",
     "releaseDate": "2026-01-06",
     "defaultOrder": 622,
@@ -29648,7 +29715,7 @@ export const ALL_RECORDS: RecordItem[] = [
       "sekai": true,
       "virtualSinger": true,
       "connectLive": false,
-      "anotherVocal": false
+      "anotherVocal": true
     },
     "characters": [
       "miku",
@@ -29677,13 +29744,21 @@ export const ALL_RECORDS: RecordItem[] = [
         "singers": [
           "miku"
         ]
+      },
+      {
+        "id": "rec_622_t3",
+        "name": "アナザーボーカルver",
+        "type": "another_vocal",
+        "singers": [
+          "mafuyu"
+        ]
       }
     ]
   },
   {
     "id": "rec_623",
     "title": "Internet Junk Junkie",
-    "reading": "Internet Junk Junkie",
+    "reading": "いんたーねっとじゃんくじゃんきー",
     "unit": "virtual_singer",
     "releaseDate": "2026-01-12",
     "defaultOrder": 623,
@@ -29712,7 +29787,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_624",
     "title": "幸福刑",
-    "reading": "幸福刑",
+    "reading": "こうふくけい",
     "unit": "nightcord_at_25",
     "releaseDate": "2026-01-19",
     "defaultOrder": 624,
@@ -29774,7 +29849,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_625",
     "title": "透過する温度",
-    "reading": "透過する温度",
+    "reading": "とうかするおんど",
     "unit": "vivid_bad_squad",
     "releaseDate": "2026-01-21",
     "defaultOrder": 625,
@@ -29828,7 +29903,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_626",
     "title": "好き！雪！本気マジック",
-    "reading": "好き！雪！本気マジック",
+    "reading": "すきゆきまじまじっく",
     "unit": "virtual_singer",
     "releaseDate": "2026-01-31",
     "defaultOrder": 626,
@@ -29857,7 +29932,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_627",
     "title": "Snow Fairy Story",
-    "reading": "Snow Fairy Story",
+    "reading": "すのうふぇありーすとーりー",
     "unit": "virtual_singer",
     "releaseDate": "2026-02-01",
     "defaultOrder": 627,
@@ -29886,7 +29961,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_628",
     "title": "雪がとける前に",
-    "reading": "雪がとける前に",
+    "reading": "ゆきがとけるまえに",
     "unit": "virtual_singer",
     "releaseDate": "2026-02-02",
     "defaultOrder": 628,
@@ -29915,7 +29990,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_629",
     "title": "スターナイトスノウ",
-    "reading": "スターナイトスノウ",
+    "reading": "すたーないとすのう",
     "unit": "virtual_singer",
     "releaseDate": "2026-02-03",
     "defaultOrder": 629,
@@ -29944,7 +30019,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_630",
     "title": "四角い地球を丸くする",
-    "reading": "四角い地球を丸くする",
+    "reading": "しかくいちきゅうをまるくする",
     "unit": "virtual_singer",
     "releaseDate": "2026-02-04",
     "defaultOrder": 630,
@@ -29973,7 +30048,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_631",
     "title": "アイ",
-    "reading": "アイ",
+    "reading": "あい",
     "unit": "virtual_singer",
     "releaseDate": "2026-02-05",
     "defaultOrder": 631,
@@ -30002,7 +30077,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_632",
     "title": "ぽかぽかの星",
-    "reading": "ぽかぽかの星",
+    "reading": "ぽかぽかのほし",
     "unit": "virtual_singer",
     "releaseDate": "2026-02-06",
     "defaultOrder": 632,
@@ -30031,7 +30106,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_633",
     "title": "Fondant Step",
-    "reading": "Fondant Step",
+    "reading": "ふぉんだんすてっぷ",
     "unit": "virtual_singer",
     "releaseDate": "2026-02-07",
     "defaultOrder": 633,
@@ -30060,7 +30135,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_634",
     "title": "SHIAWASE FOR YOU!",
-    "reading": "SHIAWASE FOR YOU!",
+    "reading": "しあわせふぉーゆー",
     "unit": "virtual_singer",
     "releaseDate": "2026-02-08",
     "defaultOrder": 634,
@@ -30089,7 +30164,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_635",
     "title": "アリア",
-    "reading": "アリア",
+    "reading": "ありあ",
     "unit": "virtual_singer",
     "releaseDate": "2026-02-13",
     "defaultOrder": 635,
@@ -30118,7 +30193,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_636",
     "title": "幕を下ろそう、パレードへ",
-    "reading": "幕を下ろそう、パレードへ",
+    "reading": "まくをおろそうぱれーどへ",
     "unit": "virtual_singer",
     "releaseDate": "2026-02-14",
     "defaultOrder": 636,
@@ -30149,7 +30224,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_637",
     "title": "Ribbon",
-    "reading": "Ribbon",
+    "reading": "りぼん",
     "unit": "virtual_singer",
     "releaseDate": "2026-02-15",
     "defaultOrder": 637,
@@ -30178,7 +30253,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_638",
     "title": "ハオ",
-    "reading": "ハオ",
+    "reading": "はお",
     "unit": "virtual_singer",
     "releaseDate": "2026-02-16",
     "defaultOrder": 638,
@@ -30262,7 +30337,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_640",
     "title": "とびだせ！わんだぴょい",
-    "reading": "とびだせ！わんだぴょい",
+    "reading": "とびだせわんだぴょい",
     "unit": "wonderlands_showtime",
     "releaseDate": "2026-02-19",
     "defaultOrder": 640,
@@ -30309,7 +30384,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_641",
     "title": "erase or zero",
-    "reading": "erase or zero",
+    "reading": "いれーすおあぜろ",
     "unit": "more_more_jump",
     "releaseDate": "2026-02-28",
     "defaultOrder": 641,
@@ -30353,7 +30428,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_642",
     "title": "About me",
-    "reading": "About me",
+    "reading": "あばうとみー",
     "unit": "vivid_bad_squad",
     "releaseDate": "2026-03-01",
     "defaultOrder": 642,
@@ -30399,7 +30474,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_643",
     "title": "ラムネ",
-    "reading": "ラムネ",
+    "reading": "らむね",
     "unit": "leo_need",
     "releaseDate": "2026-03-06",
     "defaultOrder": 643,
@@ -30449,7 +30524,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_644",
     "title": "Catch the Wave",
-    "reading": "Catch the Wave",
+    "reading": "きゃっちざうぇーぶ",
     "unit": "virtual_singer",
     "releaseDate": "2026-03-09",
     "defaultOrder": 644,
@@ -30478,7 +30553,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_645",
     "title": "カラフルファンデーション",
-    "reading": "カラフルファンデーション",
+    "reading": "からふるふぁんでーしょん",
     "unit": "more_more_jump",
     "releaseDate": "2026-03-10",
     "defaultOrder": 645,
@@ -30540,7 +30615,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_646",
     "title": "バイオレンストリガー",
-    "reading": "バイオレンストリガー",
+    "reading": "ばいおれんすとりがー",
     "unit": "vivid_bad_squad",
     "releaseDate": "2026-03-14",
     "defaultOrder": 646,
@@ -30585,7 +30660,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_647",
     "title": "ラヴィ",
-    "reading": "ラヴィ",
+    "reading": "らゔぃ",
     "unit": "nightcord_at_25",
     "releaseDate": "2026-03-15",
     "defaultOrder": 647,
@@ -30640,7 +30715,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_648",
     "title": "アルカリレットウセイ",
-    "reading": "アルカリレットウセイ",
+    "reading": "あるかりれっとうせい",
     "unit": "virtual_singer",
     "releaseDate": "2026-03-16",
     "defaultOrder": 648,
@@ -30669,7 +30744,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_649",
     "title": "天藍のアイスヘヴン",
-    "reading": "天藍のアイスヘヴン",
+    "reading": "てんらんのあいすへゔん",
     "unit": "virtual_singer",
     "releaseDate": "2026-03-23",
     "defaultOrder": 649,
@@ -30698,7 +30773,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_650",
     "title": "告白",
-    "reading": "告白",
+    "reading": "こくはく",
     "unit": "nightcord_at_25",
     "releaseDate": "2026-03-28",
     "defaultOrder": 650,
@@ -30744,7 +30819,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_651",
     "title": "傀儡のうつつ",
-    "reading": "傀儡のうつつ",
+    "reading": "くぐつのうつつ",
     "unit": "wonderlands_showtime",
     "releaseDate": "2026-03-30",
     "defaultOrder": 651,
@@ -30781,7 +30856,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_652",
     "title": "ダイダイダイダイダイキライ",
-    "reading": "ダイダイダイダイダイキライ",
+    "reading": "だいだいだいだいだいきらい",
     "unit": "virtual_singer",
     "releaseDate": "2026-03-31",
     "defaultOrder": 652,
@@ -30812,7 +30887,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_653",
     "title": "ワンダーラスト",
-    "reading": "ワンダーラスト",
+    "reading": "わんだーらすと",
     "unit": "virtual_singer",
     "releaseDate": "2026-04-02",
     "defaultOrder": 653,
@@ -30870,7 +30945,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_655",
     "title": "フロイライン＝オジョウサマ",
-    "reading": "フロイライン＝オジョウサマ",
+    "reading": "ふろいらいんおじょうさま",
     "unit": "virtual_singer",
     "releaseDate": "2026-04-04",
     "defaultOrder": 655,
@@ -30899,7 +30974,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_656",
     "title": "Nyanyanyanyanyanyanya!",
-    "reading": "Nyanyanyanyanyanyanya!",
+    "reading": "にゃにゃにゃにゃにゃにゃにゃ",
     "unit": "virtual_singer",
     "releaseDate": "2026-04-05",
     "defaultOrder": 656,
@@ -30928,7 +31003,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_657",
     "title": "T氏の話を信じるな",
-    "reading": "T氏の話を信じるな",
+    "reading": "てぃーしのはなしをしんじるな",
     "unit": "virtual_singer",
     "releaseDate": "2026-04-06",
     "defaultOrder": 657,
@@ -30959,7 +31034,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_658",
     "title": "ヘッジホッグ",
-    "reading": "ヘッジホッグ",
+    "reading": "へっじほっぐ",
     "unit": "leo_need",
     "releaseDate": "2026-04-13",
     "defaultOrder": 658,
@@ -31004,7 +31079,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_659",
     "title": "CRASH THE PARTY",
-    "reading": "CRASH THE PARTY",
+    "reading": "くらっしゅ ざ ぱーてぃ",
     "unit": "vivid_bad_squad",
     "releaseDate": "2026-04-16",
     "defaultOrder": 659,
@@ -31070,7 +31145,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_660",
     "title": "Who?",
-    "reading": "Who?",
+    "reading": "ふー？",
     "unit": "nightcord_at_25",
     "releaseDate": "2026-04-20",
     "defaultOrder": 660,
@@ -31118,7 +31193,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_661",
     "title": "導火愛",
-    "reading": "導火愛",
+    "reading": "どうかあい",
     "unit": "virtual_singer",
     "releaseDate": "2026-04-24",
     "defaultOrder": 661,
@@ -31147,7 +31222,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_662",
     "title": "世界の歩き方",
-    "reading": "世界の歩き方",
+    "reading": "せかいのあるきかた",
     "unit": "other",
     "releaseDate": "2026-04-28",
     "defaultOrder": 662,
@@ -31184,7 +31259,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_663",
     "title": "魔法少女幸福論",
-    "reading": "魔法少女幸福論",
+    "reading": "まほうしょうじょこうふくろん",
     "unit": "wonderlands_showtime",
     "releaseDate": "2026-05-02",
     "defaultOrder": 663,
@@ -31226,7 +31301,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_664",
     "title": "星に一番近い場所",
-    "reading": "星に一番近い場所",
+    "reading": "ほしにいちばんちかいばしょ",
     "unit": "leo_need",
     "releaseDate": "2026-05-06",
     "defaultOrder": 664,
@@ -31273,7 +31348,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_665",
     "title": "羽歌",
-    "reading": "羽歌",
+    "reading": "うか",
     "unit": "vivid_bad_squad",
     "releaseDate": "2026-05-08",
     "defaultOrder": 665,
@@ -31319,7 +31394,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_666",
     "title": "卑怯戦隊うろたんだー",
-    "reading": "卑怯戦隊うろたんだー",
+    "reading": "ひきょーせんたいうろたんだ���",
     "unit": "wonderlands_showtime",
     "releaseDate": "2026-05-11",
     "defaultOrder": 666,
@@ -31368,7 +31443,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_667",
     "title": "あなたしか見えないの",
-    "reading": "あなたしか見えないの",
+    "reading": "あなたしかみえないの",
     "unit": "more_more_jump",
     "releaseDate": "2026-05-18",
     "defaultOrder": 667,
@@ -31424,7 +31499,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_668",
     "title": "比較症候群",
-    "reading": "比較症候群",
+    "reading": "ひかくしょうこうぐん",
     "unit": "nightcord_at_25",
     "releaseDate": "2026-05-22",
     "defaultOrder": 668,
@@ -31466,7 +31541,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_669",
     "title": "ストラタでまちあわせ",
-    "reading": "ストラタでまちあわせ",
+    "reading": "すとらたでまちあわせ",
     "unit": "virtual_singer",
     "releaseDate": "2026-05-25",
     "defaultOrder": 669,
@@ -31495,7 +31570,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_670",
     "title": "ドリーマーズビート",
-    "reading": "ドリーマーズビート",
+    "reading": "どりーまーずびーと",
     "unit": "other",
     "releaseDate": "2026-05-29",
     "defaultOrder": 670,
@@ -31543,7 +31618,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_671",
     "title": "プロポーズ",
-    "reading": "プロポーズ",
+    "reading": "ぷろぽーず",
     "unit": "nightcord_at_25",
     "releaseDate": "2026-06-01",
     "defaultOrder": 671,
@@ -31585,7 +31660,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_672",
     "title": "ラズベリー＊モンスター",
-    "reading": "ラズベリー＊モンスター",
+    "reading": "らずべりーもんすたー",
     "unit": "leo_need",
     "releaseDate": "2026-06-05",
     "defaultOrder": 672,
@@ -31640,7 +31715,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_673",
     "title": "いますぐ輪廻",
-    "reading": "いますぐ輪廻",
+    "reading": "いますぐりんね",
     "unit": "virtual_singer",
     "releaseDate": "2026-06-08",
     "defaultOrder": 673,
@@ -31669,7 +31744,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_674",
     "title": "初音狂奏曲第01番「彗惺」",
-    "reading": "初音狂奏曲第01番「彗惺」",
+    "reading": "はつねきょうそうきょくだいいちばんすいせい",
     "unit": "virtual_singer",
     "releaseDate": "2026-06-09",
     "defaultOrder": 674,
@@ -31698,7 +31773,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_675",
     "title": "永遠甚だしい",
-    "reading": "永遠甚だしい",
+    "reading": "えいえんはなはだしい",
     "unit": "vivid_bad_squad",
     "releaseDate": "2026-06-12",
     "defaultOrder": 675,
@@ -31773,7 +31848,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_677",
     "title": "旅に帰る",
-    "reading": "旅に帰る",
+    "reading": "たびにかえる",
     "unit": "other",
     "releaseDate": "2026-06-18",
     "defaultOrder": 677,
@@ -31821,7 +31896,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_678",
     "title": "オールイン・ワン",
-    "reading": "オールイン・ワン",
+    "reading": "おーるいんわん",
     "unit": "wonderlands_showtime",
     "releaseDate": "2026-06-20",
     "defaultOrder": 678,
@@ -31867,7 +31942,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_679",
     "title": "SAIRAI",
-    "reading": "SAIRAI",
+    "reading": "さいらい",
     "unit": "other",
     "releaseDate": "2026-06-21",
     "defaultOrder": 679,
@@ -31885,7 +31960,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_680",
     "title": "CHAOS",
-    "reading": "CHAOS",
+    "reading": "かおす",
     "unit": "other",
     "releaseDate": "2026-06-22",
     "defaultOrder": 680,
@@ -31903,7 +31978,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_681",
     "title": "Saika",
-    "reading": "Saika",
+    "reading": "さいか",
     "unit": "other",
     "releaseDate": "2026-06-23",
     "defaultOrder": 681,
@@ -31921,7 +31996,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_682",
     "title": "99 Glooms",
-    "reading": "99 Glooms",
+    "reading": "ないんてぃないんぐるーむず",
     "unit": "other",
     "releaseDate": "2026-06-24",
     "defaultOrder": 682,
@@ -31939,7 +32014,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_683",
     "title": "ANiMA",
-    "reading": "ANiMA",
+    "reading": "あにま",
     "unit": "other",
     "releaseDate": "2026-06-25",
     "defaultOrder": 683,
@@ -31957,7 +32032,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_684",
     "title": "Masquerade",
-    "reading": "Masquerade",
+    "reading": "ますかれーど",
     "unit": "other",
     "releaseDate": "2026-06-26",
     "defaultOrder": 684,
@@ -31975,7 +32050,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_685",
     "title": "Gimme more!",
-    "reading": "Gimme more!",
+    "reading": "ぎみーもあ",
     "unit": "more_more_jump",
     "releaseDate": "2026-06-30",
     "defaultOrder": 685,
@@ -32026,7 +32101,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_686",
     "title": "天才ロック",
-    "reading": "天才ロック",
+    "reading": "てんさいろっく",
     "unit": "wonderlands_showtime",
     "releaseDate": "2026-07-01",
     "defaultOrder": 686,
@@ -32071,7 +32146,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_687",
     "title": "アイ・メイカー！",
-    "reading": "アイ・メイカー！",
+    "reading": "あい・めいかー",
     "unit": "virtual_singer",
     "releaseDate": "2026-07-06",
     "defaultOrder": 687,
@@ -32100,7 +32175,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_688",
     "title": "光",
-    "reading": "光",
+    "reading": "ひかり",
     "unit": "nightcord_at_25",
     "releaseDate": "2026-07-09",
     "defaultOrder": 688,
@@ -32146,7 +32221,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_689",
     "title": "ハナタバ",
-    "reading": "ハナタバ",
+    "reading": "はなたば",
     "unit": "vivid_bad_squad",
     "releaseDate": "2026-07-13",
     "defaultOrder": 689,
@@ -32188,7 +32263,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_690",
     "title": "ラプス",
-    "reading": "ラプス",
+    "reading": "らぷす",
     "unit": "virtual_singer",
     "releaseDate": "2026-07-17",
     "defaultOrder": 690,
@@ -32217,7 +32292,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_691",
     "title": "アストロノーツ",
-    "reading": "アストロノーツ",
+    "reading": "あすとろのーつ",
     "unit": "virtual_singer",
     "releaseDate": "2026-07-21",
     "defaultOrder": 691,
@@ -32246,7 +32321,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_692",
     "title": "シティライツ",
-    "reading": "シティライツ",
+    "reading": "してぃらいつ",
     "unit": "virtual_singer",
     "releaseDate": "2026-07-22",
     "defaultOrder": 692,
@@ -32275,7 +32350,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_693",
     "title": "ピッコーン！！",
-    "reading": "ピッコーン！！",
+    "reading": "ぴっこーん",
     "unit": "virtual_singer",
     "releaseDate": "2026-07-23",
     "defaultOrder": 693,
@@ -32304,7 +32379,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_694",
     "title": "レム",
-    "reading": "レム",
+    "reading": "れむ",
     "unit": "other",
     "releaseDate": "2026-07-29",
     "defaultOrder": 694,
@@ -32352,7 +32427,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_695",
     "title": "天秤、指先で触れて",
-    "reading": "天秤、指先で触れて",
+    "reading": "てんびん、ゆびさきでふれて",
     "unit": "leo_need",
     "releaseDate": "2026-07-31",
     "defaultOrder": 695,
@@ -32422,7 +32497,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_696",
     "title": "デロスサントス",
-    "reading": "デロスサントス",
+    "reading": "でろすさんとす",
     "unit": "virtual_singer",
     "releaseDate": "2026-08-03",
     "defaultOrder": 696,
@@ -32451,7 +32526,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_697",
     "title": "一億年恋してる",
-    "reading": "一億年恋してる",
+    "reading": "いちおくねんこいしてる",
     "unit": "virtual_singer",
     "releaseDate": "2026-08-04",
     "defaultOrder": 697,
@@ -32480,7 +32555,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_698",
     "title": "アディショナルメモリー",
-    "reading": "アディショナルメモリー",
+    "reading": "あでぃしょなるめもりー",
     "unit": "leo_need",
     "releaseDate": "2026-08-10",
     "defaultOrder": 698,
@@ -32526,7 +32601,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_699",
     "title": "オツキミリサイタル",
-    "reading": "オツキミリサイタル",
+    "reading": "おつきみりさいたる",
     "unit": "more_more_jump",
     "releaseDate": "2026-08-11",
     "defaultOrder": 699,
@@ -32572,7 +32647,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_700",
     "title": "ロスタイムメモリー",
-    "reading": "ロスタイムメモリー",
+    "reading": "ろすたいむめもりー",
     "unit": "vivid_bad_squad",
     "releaseDate": "2026-08-12",
     "defaultOrder": 700,
@@ -32618,7 +32693,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_701",
     "title": "空想フォレスト",
-    "reading": "空想フォレスト",
+    "reading": "くうそうふぉれすと",
     "unit": "wonderlands_showtime",
     "releaseDate": "2026-08-13",
     "defaultOrder": 701,
@@ -32664,7 +32739,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_702",
     "title": "アヤノの幸福理論",
-    "reading": "アヤノの幸福理論",
+    "reading": "あやののこうふくりろん",
     "unit": "nightcord_at_25",
     "releaseDate": "2026-08-14",
     "defaultOrder": 702,
@@ -32710,7 +32785,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_703",
     "title": "スターダストレイン",
-    "reading": "スターダストレイン",
+    "reading": "すたーだすとれいん",
     "unit": "more_more_jump",
     "releaseDate": "2026-08-15",
     "defaultOrder": 703,
@@ -32756,7 +32831,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_704",
     "title": "君に贈る未来",
-    "reading": "君に贈る未来",
+    "reading": "きみにおくるみらい",
     "unit": "virtual_singer",
     "releaseDate": "2026-08-24",
     "defaultOrder": 704,
@@ -32787,7 +32862,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_705",
     "title": "アンチサイノウ",
-    "reading": "アンチサイノウ",
+    "reading": "あんちさいのう",
     "unit": "other",
     "releaseDate": "2026-08-27",
     "defaultOrder": 705,
@@ -32833,7 +32908,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_706",
     "title": "空に免じて",
-    "reading": "空に免じて",
+    "reading": "そらにめんじて",
     "unit": "virtual_singer",
     "releaseDate": "2026-08-28",
     "defaultOrder": 706,
@@ -32862,7 +32937,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_707",
     "title": "shake it!",
-    "reading": "shake it!",
+    "reading": "しぇいくいっと",
     "unit": "more_more_jump",
     "releaseDate": "2026-09-01",
     "defaultOrder": 707,
@@ -32911,7 +32986,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_708",
     "title": "正解",
-    "reading": "正解",
+    "reading": "せいかい",
     "unit": "vivid_bad_squad",
     "releaseDate": "2026-09-06",
     "defaultOrder": 708,
@@ -32957,7 +33032,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_709",
     "title": "ヘレディティ",
-    "reading": "ヘレディティ",
+    "reading": "へれでぃてぃ",
     "unit": "wonderlands_showtime",
     "releaseDate": "2026-09-14",
     "defaultOrder": 709,
@@ -33013,7 +33088,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_710",
     "title": "敗走",
-    "reading": "敗走",
+    "reading": "はいそう",
     "unit": "virtual_singer",
     "releaseDate": "2026-09-19",
     "defaultOrder": 710,
@@ -33042,7 +33117,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_711",
     "title": "こわれちゃった！！",
-    "reading": "こわれちゃった！！",
+    "reading": "こわれちゃった",
     "unit": "virtual_singer",
     "releaseDate": "2026-09-22",
     "defaultOrder": 711,
@@ -33110,7 +33185,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_713",
     "title": "エメラルド",
-    "reading": "エメラルド",
+    "reading": "えめらるど",
     "unit": "other",
     "releaseDate": "2026-09-30",
     "defaultOrder": 713,
@@ -33215,7 +33290,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_714",
     "title": "オブソミート",
-    "reading": "オブソミート",
+    "reading": "おぶそみーと",
     "unit": "virtual_singer",
     "releaseDate": "2026-10-01",
     "defaultOrder": 714,
@@ -33246,7 +33321,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_715",
     "title": "アブノーマリティ･ダンシンガール",
-    "reading": "アブノーマリティ･ダンシンガール",
+    "reading": "あぶのーまりてぃだんしんがーる",
     "unit": "leo_need",
     "releaseDate": "2026-10-02",
     "defaultOrder": 715,
@@ -33292,7 +33367,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_716",
     "title": "ラビットホール",
-    "reading": "ラビットホール",
+    "reading": "らびっとほーる",
     "unit": "virtual_singer",
     "releaseDate": "2026-10-03",
     "defaultOrder": 716,
@@ -33321,7 +33396,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_717",
     "title": "LEMON MELON COOKIE",
-    "reading": "LEMON MELON COOKIE",
+    "reading": "れもんめろんくっきー",
     "unit": "more_more_jump",
     "releaseDate": "2026-10-04",
     "defaultOrder": 717,
@@ -33366,7 +33441,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_718",
     "title": "ドゥーマー",
-    "reading": "ドゥーマー",
+    "reading": "どぅーまー",
     "unit": "virtual_singer",
     "releaseDate": "2026-10-05",
     "defaultOrder": 718,
@@ -33395,7 +33470,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_719",
     "title": "デーモンロード",
-    "reading": "デーモンロード",
+    "reading": "でーもんろーど",
     "unit": "vivid_bad_squad",
     "releaseDate": "2026-10-06",
     "defaultOrder": 719,
@@ -33441,7 +33516,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_720",
     "title": "推定ラブソング",
-    "reading": "推定ラブソング",
+    "reading": "すいていらぶそんぐ",
     "unit": "virtual_singer",
     "releaseDate": "2026-10-07",
     "defaultOrder": 720,
@@ -33470,7 +33545,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_721",
     "title": "アルティメットセンパイ",
-    "reading": "アルティメットセンパイ",
+    "reading": "あるてぃめっとせんぱい",
     "unit": "wonderlands_showtime",
     "releaseDate": "2026-10-08",
     "defaultOrder": 721,
@@ -33515,7 +33590,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_722",
     "title": "ダーリン",
-    "reading": "ダーリン",
+    "reading": "だーりん",
     "unit": "virtual_singer",
     "releaseDate": "2026-10-09",
     "defaultOrder": 722,
@@ -33544,7 +33619,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_723",
     "title": "ハイドレンジア",
-    "reading": "ハイドレンジア",
+    "reading": "はいどれんじあ",
     "unit": "nightcord_at_25",
     "releaseDate": "2026-10-10",
     "defaultOrder": 723,
@@ -33590,7 +33665,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_724",
     "title": "at",
-    "reading": "at",
+    "reading": "あっと",
     "unit": "virtual_singer",
     "releaseDate": "2026-10-11",
     "defaultOrder": 724,
@@ -33619,7 +33694,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_725",
     "title": "星、ときどき光",
-    "reading": "星、ときどき光",
+    "reading": "ほし、ときどきひかり",
     "unit": "leo_need",
     "releaseDate": "2026-10-12",
     "defaultOrder": 725,
@@ -33665,7 +33740,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_726",
     "title": "Palette",
-    "reading": "Palette",
+    "reading": "ぱれっと",
     "unit": "virtual_singer",
     "releaseDate": "2026-10-16",
     "defaultOrder": 726,
@@ -33694,7 +33769,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_727",
     "title": "バカ通信",
-    "reading": "バカ通信",
+    "reading": "ばかつうしん",
     "unit": "wonderlands_showtime",
     "releaseDate": "2026-10-19",
     "defaultOrder": 727,
@@ -33733,6 +33808,135 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "virtual_singer",
         "singers": [
           "chisei"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rec_728",
+    "title": "ディスコティックブルー",
+    "reading": "でぃすこてぃっくぶるー",
+    "unit": "virtual_singer",
+    "releaseDate": "2026-10-26",
+    "defaultOrder": 728,
+    "defaultSort": 10269,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%87%E3%82%A3%E3%82%B9%E3%82%B3%E3%83%86%E3%82%A3%E3%83%83%E3%82%AF%E3%83%96%E3%83%AB%E3%83%BC&src=%E3%83%87%E3%82%A3%E3%82%B9%E3%82%B3%E3%83%86%E3%82%A3%E3%83%83%E3%82%AF%E3%83%96%E3%83%AB%E3%83%BC.jpg",
+    "vocalVersions": {
+      "sekai": false,
+      "virtualSinger": true,
+      "connectLive": false,
+      "anotherVocal": false
+    },
+    "characters": [
+      "miku"
+    ],
+    "vocalTracks": [
+      {
+        "id": "rec_728_t1",
+        "name": "バーチャル・シンガーver",
+        "type": "virtual_singer",
+        "singers": [
+          "miku"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rec_729",
+    "title": "ULTIM@TE☆BE∀M!!",
+    "reading": "あるてぃめっとびーむ",
+    "unit": "virtual_singer",
+    "releaseDate": "2026-10-31",
+    "defaultOrder": 729,
+    "defaultSort": 20024,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=ULTIM%40TE%E2%98%86BE%E2%88%80M%21%21&src=ULTIM%40TE%E2%98%86BE%E2%88%80M%21%21.jpg",
+    "vocalVersions": {
+      "sekai": false,
+      "virtualSinger": true,
+      "connectLive": false,
+      "anotherVocal": false
+    },
+    "characters": [
+      "miku"
+    ],
+    "vocalTracks": [
+      {
+        "id": "rec_729_t1",
+        "name": "バーチャル・シンガーver",
+        "type": "virtual_singer",
+        "singers": [
+          "miku"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rec_730",
+    "title": "プレデター",
+    "reading": "ぷれでたー",
+    "unit": "vivid_bad_squad",
+    "releaseDate": "2026-11-02",
+    "defaultOrder": 730,
+    "defaultSort": 13051,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%97%E3%83%AC%E3%83%87%E3%82%BF%E3%83%BC&src=%E3%83%97%E3%83%AC%E3%83%87%E3%82%BF%E3%83%BC.jpg",
+    "vocalVersions": {
+      "sekai": true,
+      "virtualSinger": true,
+      "connectLive": false,
+      "anotherVocal": false
+    },
+    "characters": [
+      "kaito",
+      "akito",
+      "toya",
+      "flower"
+    ],
+    "vocalTracks": [
+      {
+        "id": "rec_730_t1",
+        "name": "セカイver",
+        "type": "sekai",
+        "singers": [
+          "kaito",
+          "akito",
+          "toya"
+        ]
+      },
+      {
+        "id": "rec_730_t2",
+        "name": "バーチャル・シンガーver",
+        "type": "virtual_singer",
+        "singers": [
+          "flower"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rec_731",
+    "title": "プシ",
+    "reading": "ぷし",
+    "unit": "virtual_singer",
+    "releaseDate": "2026-11-06",
+    "defaultOrder": 731,
+    "defaultSort": 10270,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%97%E3%82%B7&src=%E3%83%97%E3%82%B7.jpg",
+    "vocalVersions": {
+      "sekai": false,
+      "virtualSinger": true,
+      "connectLive": false,
+      "anotherVocal": false
+    },
+    "characters": [
+      "miku"
+    ],
+    "vocalTracks": [
+      {
+        "id": "rec_731_t1",
+        "name": "バーチャル・シンガーver",
+        "type": "virtual_singer",
+        "singers": [
+          "miku"
         ]
       }
     ]

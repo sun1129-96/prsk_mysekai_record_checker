@@ -9,10 +9,12 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "start": "vite preview --port 4173 --open",
-    "test": "vitest run"
+    "test": "vitest run",
+    "update-data": "node scripts/update_all_data.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
+    "@tanstack/react-virtual": "^3.14.23",
     "lucide-react": "^1.60.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",

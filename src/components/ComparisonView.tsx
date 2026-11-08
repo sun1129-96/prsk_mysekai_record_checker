@@ -392,16 +392,10 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                   </div>
 
                   <div className="flex items-baseline gap-1.5 font-bold">
-                    <span
-                      className="text-base sm:text-lg"
-                      style={{
-                        color:
-                          item.themeColor === '#FFFFFF' ? '#475569' : item.themeColor,
-                      }}
-                    >
+                    <span className="text-base sm:text-lg text-slate-800">
                       {item.percentage.toFixed(1)}%
                     </span>
-                    <span className="text-xs text-slate-400">
+                    <span className="text-xs text-slate-500 font-medium">
                       ({item.owned} / {item.total}曲)
                     </span>
                   </div>

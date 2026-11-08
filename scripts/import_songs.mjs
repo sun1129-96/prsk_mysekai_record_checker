@@ -108,12 +108,14 @@ async function fetchWithRetry(url, retries = 3) {
   throw new Error(`Failed to fetch ${url}`);
 }
 
-async function getCachedHtml(url) {
+const isRefresh = process.argv.includes('--refresh');
+
+async function getCachedHtml(url, forceRefresh = false) {
   // URLクエリやページ名をファイル名に変換
   const safeName = encodeURIComponent(url.replace('https://pjsekai.com/', '').replace('?', ''));
   const cachePath = path.join(CACHE_DIR, `${safeName}.html`);
 
-  if (fs.existsSync(cachePath)) {
+  if (!forceRefresh && !isRefresh && fs.existsSync(cachePath)) {
     return fs.readFileSync(cachePath, 'utf-8');
   }
 
@@ -143,22 +145,29 @@ function parseSongDetail(html) {
 
     $(table).find('tr').each((_, tr) => {
       const thsAndTds = $(tr).find('th, td');
-      const cells = thsAndTds.map((_, el) => $(el).text().trim().replace(/\s+/g, ' ')).get();
+      if (thsAndTds.length < 2) return;
+
+      const firstCellText = $(thsAndTds[0]).text().trim();
+      const nextSectionHeaders = ['ユニット', 'MV', '3DMV', '2DMV', '原曲', '再生時間', 'BPM', '追加日', '解放条件', '作詞', '作曲', '編曲'];
 
       // 音源行の開始検知
       let versionTypeCell = '';
       let singerListCell = '';
 
-      const firstCellText = $(thsAndTds[0]).text().trim();
       if (firstCellText === '音源') {
         inSoundSection = true;
         const rowspan = parseInt($(thsAndTds[0]).attr('rowspan') || '1', 10);
         soundRowsRemaining = rowspan;
         versionTypeCell = $(thsAndTds[1]).text().trim();
         singerListCell = $(thsAndTds[2]).text().trim();
-      } else if (inSoundSection && soundRowsRemaining > 0) {
-        versionTypeCell = $(thsAndTds[0]).text().trim();
-        singerListCell = $(thsAndTds[1]).text().trim();
+      } else if (inSoundSection) {
+        // 次のセクションの見出しが来たら音源セクション終了
+        if (nextSectionHeaders.some(h => firstCellText.startsWith(h))) {
+          inSoundSection = false;
+        } else {
+          versionTypeCell = $(thsAndTds[0]).text().trim();
+          singerListCell = $(thsAndTds[1]).text().trim();
+        }
       }
 
       if (versionTypeCell) {
