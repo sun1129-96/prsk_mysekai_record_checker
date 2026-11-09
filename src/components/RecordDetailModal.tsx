@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { X, Calendar, Hash, Music, Check } from 'lucide-react';
 import type { RecordItem } from '../types/record';
-import { UNIT_METAS, CHARACTERS } from '../types/record';
+import { UNIT_METAS, CHARACTERS, ORIGINAL_TYPE_METAS } from '../types/record';
 
 interface RecordDetailModalProps {
   record: RecordItem | null;
@@ -98,10 +98,38 @@ export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
               backgroundColor: unitMeta.bgColor,
               color: unitMeta.textColor || unitMeta.themeColor,
               border: `1px solid ${unitMeta.borderColor}`,
+              textShadow: '0 0 2px #ffffff, 0 0 4px #ffffff',
             }}
           >
             {unitMeta.name}
           </span>
+
+          {/* 書き下ろし楽曲のみ表示する楽曲分類・バナーキャラ情報 */}
+          {record.originalType && record.originalType !== 'cover' && (
+            <div className="flex flex-wrap items-center justify-center gap-1.5 mb-1.5">
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#33ccbb]/15 text-[#0d9488] border border-[#33ccbb]/30">
+                {ORIGINAL_TYPE_METAS[record.originalType]?.label || record.originalType}
+              </span>
+              {record.bannerCharacter && (
+                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">
+                  {(() => {
+                    const bChar = CHARACTERS.find((c) => c.id === record.bannerCharacter);
+                    return (
+                      <>
+                        {bChar && (
+                          <span
+                            className="w-2 h-2 rounded-full shrink-0 border border-black/10"
+                            style={{ backgroundColor: bChar.color }}
+                          />
+                        )}
+                        <span>{bChar ? bChar.name : record.bannerCharacter} バナー</span>
+                      </>
+                    );
+                  })()}
+                </span>
+              )}
+            </div>
+          )}
 
           <h3 className="text-base font-bold text-slate-800 text-center tracking-tight">
             {record.title}
@@ -111,12 +139,12 @@ export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
 
         {/* 詳細データ（スクロール領域） */}
         <div className="p-5 space-y-4 text-xs overflow-y-auto flex-1">
-          {/* 配信日 & 実装順 */}
+          {/* 実装日 & 実装順 */}
           <div className="grid grid-cols-2 gap-2 bg-slate-50 p-3 rounded-2xl border border-slate-100">
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4 text-slate-400" />
               <div>
-                <span className="block text-slate-400 text-[10px]">配信日</span>
+                <span className="block text-slate-400 text-[10px]">実装日</span>
                 <span className="font-semibold text-slate-700">{record.releaseDate}</span>
               </div>
             </div>
@@ -179,7 +207,6 @@ export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
                         <span className={`font-bold text-xs ${isTargetTrack ? 'text-[#0d9488]' : 'text-slate-800'}`}>
                           {displayTrackName}
                         </span>
-                        <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                       </div>
 
                       {/* 歌唱者チップ一覧 */}

@@ -59,7 +59,15 @@ const mockItems: RecordItem[] = [
 
 const defaultFilter: FilterOptions = {
   ownership: 'all',
-  units: ['virtual_singer', 'leo_need', 'wonderlands_showtime', 'other'],
+  units: [
+    'virtual_singer',
+    'leo_need',
+    'more_more_jump',
+    'vivid_bad_squad',
+    'wonderlands_showtime',
+    'nightcord_at_25',
+    'other',
+  ],
   characters: [],
   vocalVersions: { virtualSinger: false, sekai: false, connectLive: false, anotherVocal: false },
   searchQuery: '',
@@ -253,6 +261,85 @@ describe('filterAndSortRecords', () => {
       { ...defaultFilter, bannerCharacters: ['saki', 'tsukasa'] }
     );
     expect(multiRes.length).toBe(2);
+  });
+
+  it('実装年（1年目〜6年目等）で正しく絞り込める', () => {
+    // mockItems: rec_1 (2020-09-30, 1年目), rec_2 (2020-10-09, 1年目), rec_3 (2021-06-19, 1年目), rec_4 (2021-09-30, 2年目)
+    const year1Res = filterAndSortRecords(
+      mockItems,
+      {},
+      'defaultOrder',
+      'asc',
+      { ...defaultFilter, releaseYears: [1] }
+    );
+    expect(year1Res.length).toBe(3);
+    expect(year1Res.map((r) => r.id)).toEqual(['rec_1', 'rec_2', 'rec_3']);
+
+    const year2Res = filterAndSortRecords(
+      mockItems,
+      {},
+      'defaultOrder',
+      'asc',
+      { ...defaultFilter, releaseYears: [2] }
+    );
+    expect(year2Res.length).toBe(1);
+    expect(year2Res[0].id).toBe('rec_4');
+  });
+
+  it('AND/OR 条件指定が正しく機能する', () => {
+    // mockItems:
+    // rec_1: virtual_singer, miku, cover, year 1
+    // rec_2: leo_need, ichika/saki/miku, event, year 1
+    // rec_3: wonderlands_showtime, tsukasa/emu, event, year 1
+    // rec_4: other, ichika/miku, anniversary, year 2
+
+    // AND条件 (デフォルト): ユニットが leo_need かつ イベント書き下ろし
+    const andRes = filterAndSortRecords(
+      mockItems,
+      {},
+      'defaultOrder',
+      'asc',
+      {
+        ...defaultFilter,
+        units: ['leo_need'],
+        originalTypes: ['event'],
+        matchType: 'and',
+      }
+    );
+    expect(andRes.length).toBe(1);
+    expect(andRes[0].id).toBe('rec_2');
+
+    // OR条件: ユニットが leo_need または イベント書き下ろし (rec_2は両方、rec_3はeventのみでヒット)
+    const orRes = filterAndSortRecords(
+      mockItems,
+      {},
+      'defaultOrder',
+      'asc',
+      {
+        ...defaultFilter,
+        units: ['leo_need'],
+        originalTypes: ['event'],
+        matchType: 'or',
+      }
+    );
+    expect(orRes.length).toBe(2);
+    expect(orRes.map((r) => r.id)).toEqual(['rec_2', 'rec_3']);
+
+    // OR条件: 歌唱verにコネクトライブverがある OR 実装年が2年目 (rec_3はconnectLive、rec_4はconnectLiveかつyear 2)
+    const orRes2 = filterAndSortRecords(
+      mockItems,
+      {},
+      'defaultOrder',
+      'asc',
+      {
+        ...defaultFilter,
+        vocalVersions: { virtualSinger: false, sekai: false, connectLive: true, anotherVocal: false },
+        releaseYears: [2],
+        matchType: 'or',
+      }
+    );
+    expect(orRes2.length).toBe(2);
+    expect(orRes2.map((r) => r.id)).toEqual(['rec_3', 'rec_4']);
   });
 });
 

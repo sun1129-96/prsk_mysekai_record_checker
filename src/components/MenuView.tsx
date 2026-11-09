@@ -3,7 +3,6 @@ import {
   Share2,
   RotateCcw,
   CheckCheck,
-  Info,
   Copy,
   Check,
   KeyRound,
@@ -12,7 +11,6 @@ import {
   History,
   AlertTriangle,
   Sparkles,
-  ExternalLink,
 } from 'lucide-react';
 import type { RecordItem, DisplaySettings } from '../types/record';
 import { encodeShareData, decodeShareData } from '../utils/recordUtils';
@@ -148,7 +146,9 @@ export const MenuView: React.FC<MenuViewProps> = ({
               進捗の共有・引継ぎ
             </h3>
             <p className="text-xs text-slate-400">
-              チェック状況をコンパクトな暗号コード（約120文字）に圧縮。サーバー不要で安全にSNS共有や他端末への引継ぎが可能です。
+              チェック状況を他端末に移すためのコードや共有URLを発行します。
+              <br />
+              いずれかを入力することでチェック状況の引継ぎを行えます。
             </p>
           </div>
         </div>
@@ -246,25 +246,11 @@ export const MenuView: React.FC<MenuViewProps> = ({
             />
           </label>
 
-          {/* 歌唱キャラクター表示 */}
+          {/* 実装日表示 */}
           <label className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-slate-100/80 border border-slate-200/70 transition-colors cursor-pointer">
             <div>
-              <span className="block font-bold text-xs sm:text-sm text-slate-800">歌唱キャラクター名</span>
-              <span className="block text-[11px] text-slate-400">参加シンガー・キャラ名の表記</span>
-            </div>
-            <input
-              type="checkbox"
-              checked={displaySettings.showCharacters}
-              onChange={() => handleToggleDisplay('showCharacters')}
-              className="w-4 h-4 accent-[#33ccbb] rounded cursor-pointer"
-            />
-          </label>
-
-          {/* 配信日表示 */}
-          <label className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-slate-100/80 border border-slate-200/70 transition-colors cursor-pointer">
-            <div>
-              <span className="block font-bold text-xs sm:text-sm text-slate-800">配信日（追加日）</span>
-              <span className="block text-[11px] text-slate-400">ゲーム内追加日付の表示</span>
+              <span className="block font-bold text-xs sm:text-sm text-slate-800">実装日</span>
+              <span className="block text-[11px] text-slate-400">ゲーム内実装日付の表示</span>
             </div>
             <input
               type="checkbox"
@@ -301,7 +287,7 @@ export const MenuView: React.FC<MenuViewProps> = ({
               データの一括操作
             </h3>
             <p className="text-xs text-slate-400">
-              すべての楽曲の所持ステータスを一括で変更します（誤操作防止の確認モーダルが表示されます）。
+              すべての楽曲の所持ステータスを一括で変更します。
             </p>
           </div>
         </div>
@@ -312,7 +298,7 @@ export const MenuView: React.FC<MenuViewProps> = ({
             className="px-4 py-2.5 rounded-xl border border-slate-200 hover:border-emerald-300 text-xs sm:text-sm font-bold text-slate-700 hover:text-emerald-700 hover:bg-emerald-50/50 flex items-center gap-2 transition-all cursor-pointer active:scale-95 shadow-2xs"
           >
             <CheckCheck className="w-4 h-4 text-emerald-600" />
-            <span>すべて所持にする</span>
+            <span>すべて所持済みにする</span>
           </button>
 
           <button
@@ -357,30 +343,6 @@ export const MenuView: React.FC<MenuViewProps> = ({
               最新の追加楽曲を含む全{records.length}曲のレコードマスターデータ（ジャケット・公式読み仮名・歌唱ver音源情報）を反映済みです。
             </p>
           </div>
-        </div>
-      </div>
-
-      {/* 5. アプリ情報・免責事項カード */}
-      <div className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-xs space-y-3">
-        <div className="flex items-center gap-2">
-          <Info className="w-4 h-4 text-slate-400" />
-          <h3 className="font-bold text-sm text-slate-800">アプリについて</h3>
-        </div>
-        <p className="text-xs text-slate-500 leading-relaxed">
-          本アプリは、「プロジェクトセカイ カラフルステージ！ feat. 初音ミク」の非公式ファンメイドツールです。
-          マイセカイ内の楽曲レコード収集の進捗管理をサポートします。セガ様、Colorful Palette様、クリプトン様とは一切関係ありません。
-        </p>
-        <div className="pt-2 text-[11px] text-slate-400 flex flex-wrap items-center justify-between gap-2 border-t border-slate-100">
-          <span>バージョン: 1.2.0 (全{records.length}曲)</span>
-          <a
-            href="https://github.com/sun1129-96/prsk_mysekai_record_checker"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 text-slate-500 hover:text-[#0d9488] transition-colors"
-          >
-            <span>GitHub リポジトリ</span>
-            <ExternalLink className="w-3 h-3" />
-          </a>
         </div>
       </div>
 
@@ -488,7 +450,7 @@ export const MenuView: React.FC<MenuViewProps> = ({
                     : 'bg-rose-600 hover:bg-rose-700'
                 }`}
               >
-                {batchModalTarget === 'all_owned' ? 'すべて所持にする' : 'チェックを全解除'}
+                {batchModalTarget === 'all_owned' ? 'すべて所持済みにする' : 'チェックを全解除'}
               </button>
             </div>
           </div>

@@ -31,6 +31,9 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
     const unitMeta = UNIT_METAS[record.unit];
     const vsMeta = UNIT_METAS.virtual_singer;
 
+    // バッジ共通のテキスト縁取りスタイル（視認性向上）
+    const badgeTextShadow = '0 0 2px #ffffff, 0 0 4px #ffffff, 0.5px 0.5px 0 #ffffff, -0.5px -0.5px 0 #ffffff, 0.5px -0.5px 0 #ffffff, -0.5px 0.5px 0 #ffffff';
+
     // 歌唱者の境界のみグラデーションする背景スタイル生成
     const getAnotherVocalStyle = (singers: typeof CHARACTERS, fallbackUnit?: UnitType) => {
       const getUnitBorderColor = () => {
@@ -48,9 +51,10 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
         const c1 = singers[0];
         const c2 = singers[1];
         return {
-          background: `linear-gradient(105deg, ${c1.color}3d 0%, ${c1.color}3d 40%, ${c2.color}3d 60%, ${c2.color}3d 100%)`,
+          background: `linear-gradient(105deg, ${c1.color}66 0%, ${c1.color}66 40%, ${c2.color}66 60%, ${c2.color}66 100%)`,
           borderColor,
-          color: '#1e293b',
+          color: '#0f172a',
+          textShadow: badgeTextShadow,
         };
       } else if (singers.length > 2) {
         const n = singers.length;
@@ -59,26 +63,29 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
           const startPct = Math.round((i / n) * 100);
           const endPct = Math.round(((i + 1) / n) * 100);
           const pad = Math.min(6, Math.floor(100 / n / 3));
-          stops.push(`${c.color}3d ${startPct + (i === 0 ? 0 : pad)}%`);
-          stops.push(`${c.color}3d ${endPct - (i === n - 1 ? 0 : pad)}%`);
+          stops.push(`${c.color}66 ${startPct + (i === 0 ? 0 : pad)}%`);
+          stops.push(`${c.color}66 ${endPct - (i === n - 1 ? 0 : pad)}%`);
         });
         return {
           background: `linear-gradient(105deg, ${stops.join(', ')})`,
           borderColor,
-          color: '#1e293b',
+          color: '#0f172a',
+          textShadow: badgeTextShadow,
         };
       } else if (singers.length === 1) {
         const c1 = singers[0];
         return {
-          backgroundColor: `${c1.color}28`,
+          backgroundColor: `${c1.color}55`,
           borderColor,
-          color: '#1e293b',
+          color: '#0f172a',
+          textShadow: badgeTextShadow,
         };
       }
       return {
         backgroundColor: '#fffbeb',
         borderColor,
         color: '#b45309',
+        textShadow: badgeTextShadow,
       };
     };
 
@@ -152,6 +159,7 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
                 backgroundColor: unitMeta.bgColor,
                 color: unitMeta.textColor || unitMeta.themeColor,
                 border: `1px solid ${unitMeta.borderColor}`,
+                textShadow: badgeTextShadow,
               }}
             >
               {unitMeta.shortName}
@@ -165,7 +173,7 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
             )}
 
             <span className="text-[10px] text-slate-500 font-mono font-semibold">
-              #{record.defaultOrder}
+              No. {record.defaultOrder}
             </span>
           </div>
 
@@ -193,6 +201,7 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
                           backgroundColor: unitMeta.bgColor,
                           borderColor: unitMeta.borderColor,
                           color: unitMeta.textColor || unitMeta.themeColor,
+                          textShadow: badgeTextShadow,
                         }}
                         title={`${track.name} を詳細表示`}
                       >
@@ -211,6 +220,7 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
                           backgroundColor: vsMeta.bgColor,
                           borderColor: vsMeta.borderColor,
                           color: vsMeta.textColor || vsMeta.themeColor,
+                          textShadow: badgeTextShadow,
                         }}
                         title={`${track.name} を詳細表示`}
                       >
@@ -225,6 +235,7 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
                         key={track.id}
                         onClick={(e) => onBadgeClick(record, track.id, e)}
                         className="px-1.5 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-200/60 font-bold shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
+                        style={{ textShadow: badgeTextShadow }}
                         title={`${track.name} を詳細表示`}
                       >
                         コネライ
@@ -261,19 +272,23 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
                               key={uKey}
                               src={uMeta.iconUrl}
                               alt={uMeta.name}
-                              className="w-3.5 h-3.5 object-contain shrink-0 drop-shadow-2xs"
+                              className="w-3.5 h-3.5 object-contain shrink-0"
+                              style={{
+                                filter:
+                                  'drop-shadow(1px 0 0 #ffffff) drop-shadow(-1px 0 0 #ffffff) drop-shadow(0 1px 0 #ffffff) drop-shadow(0 -1px 0 #ffffff) drop-shadow(0 0 2px #ffffff)',
+                              }}
                               title={uMeta.name}
                             />
                           ) : (
                             <span
                               key={uKey}
-                              className="w-2 h-2 rounded-full shrink-0 border border-black/20 shadow-2xs"
+                              className="w-2 h-2 rounded-full shrink-0 border-2 border-white ring-1 ring-slate-400/80 shadow-2xs"
                               style={{ backgroundColor: uMeta.themeColor }}
                               title={uMeta.name}
                             />
                           );
                         })}
-                        <span>アナボ</span>
+                        <span style={{ textShadow: badgeTextShadow }}>アナボ</span>
                       </button>
                     );
                   }
@@ -284,6 +299,7 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
                         key={track.id}
                         onClick={(e) => onBadgeClick(record, track.id, e)}
                         className="px-1.5 py-0.5 rounded-md bg-purple-50 text-purple-700 border border-purple-200/60 font-bold shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
+                        style={{ textShadow: badgeTextShadow }}
                         title={`${track.name} を詳細表示`}
                       >
                         {track.name.includes('コラボ') ? 'コラボ' : 'その他'}
@@ -303,6 +319,7 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
                         backgroundColor: unitMeta.bgColor,
                         borderColor: unitMeta.borderColor,
                         color: unitMeta.textColor || unitMeta.themeColor,
+                        textShadow: badgeTextShadow,
                       }}
                     >
                       セカイ
@@ -317,6 +334,7 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
                         backgroundColor: vsMeta.bgColor,
                         borderColor: vsMeta.borderColor,
                         color: vsMeta.textColor || vsMeta.themeColor,
+                        textShadow: badgeTextShadow,
                       }}
                     >
                       バチャシン
@@ -327,6 +345,7 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
                       type="button"
                       onClick={(e) => onBadgeClick(record, 'cl', e)}
                       className="px-1.5 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-200/60 font-bold shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
+                      style={{ textShadow: badgeTextShadow }}
                     >
                       コネライ
                     </button>
@@ -336,6 +355,7 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
                       type="button"
                       onClick={(e) => onBadgeClick(record, 'av', e)}
                       className="px-1.5 py-0.5 rounded-md bg-amber-50 text-amber-700 border border-amber-200/60 font-bold shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
+                      style={{ textShadow: badgeTextShadow }}
                     >
                       アナボ
                     </button>

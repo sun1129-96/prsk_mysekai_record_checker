@@ -79,6 +79,61 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
     onFilterChange({ ...filterOptions, characters: [] });
   };
 
+  const handleSelectAllCharacters = () => {
+    onFilterChange({ ...filterOptions, characters: CHARACTERS.map((c) => c.id) });
+  };
+
+  // 指定キャラクター群の一括選択・クリア
+  const handleBatchSelectChars = (charIds: string[], select: boolean) => {
+    if (select) {
+      const merged = Array.from(new Set([...filterOptions.characters, ...charIds]));
+      onFilterChange({ ...filterOptions, characters: merged });
+    } else {
+      const remaining = filterOptions.characters.filter((id) => !charIds.includes(id));
+      onFilterChange({ ...filterOptions, characters: remaining });
+    }
+  };
+
+  // 歌唱バージョン一括選択・クリア
+  const handleSelectAllVocalVersions = (select: boolean) => {
+    onFilterChange({
+      ...filterOptions,
+      vocalVersions: {
+        virtualSinger: select,
+        sekai: select,
+        connectLive: select,
+        anotherVocal: select,
+      },
+    });
+  };
+
+  // 楽曲分類一括選択・クリア
+  const handleSelectAllOriginalTypes = (select: boolean) => {
+    const allTypes = (Object.keys(ORIGINAL_TYPE_METAS) as OriginalSongType[]).filter(
+      (t) => t !== 'cover'
+    );
+    onFilterChange({
+      ...filterOptions,
+      originalTypes: select ? allTypes : [],
+    });
+  };
+
+  // 実装年一括選択・クリア
+  const handleSelectAllReleaseYears = (select: boolean) => {
+    onFilterChange({
+      ...filterOptions,
+      releaseYears: select ? [1, 2, 3, 4, 5, 6, 7] : [],
+    });
+  };
+
+  // イベントバナーキャラクター一括選択・クリア
+  const handleSelectAllBannerCharacters = (select: boolean) => {
+    onFilterChange({
+      ...filterOptions,
+      bannerCharacters: select ? CHARACTERS.map((c) => c.id) : [],
+    });
+  };
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/40 backdrop-blur-xs">
       <div className="bg-white/95 backdrop-blur-md rounded-3xl max-w-lg w-full max-h-[88vh] flex flex-col shadow-2xl overflow-hidden border border-slate-100 animate-in fade-in zoom-in-95 duration-150">
@@ -110,11 +165,11 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
             </div>
 
             {/* ソート項目選択 */}
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-3 gap-2">
               <button
                 type="button"
                 onClick={() => onSortChange('defaultSort', sortDirection)}
-                className={`py-2.5 px-3 rounded-xl border font-bold text-xs sm:text-sm text-center transition-all ${
+                className={`py-2.5 px-2 rounded-xl border font-bold text-xs sm:text-sm text-center transition-all ${
                   sortType === 'defaultSort'
                     ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] shadow-2xs'
                     : 'border-slate-200 text-slate-600 hover:bg-slate-50'
@@ -125,32 +180,20 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
 
               <button
                 type="button"
-                onClick={() => onSortChange('defaultOrder', sortDirection)}
-                className={`py-2.5 px-3 rounded-xl border font-bold text-xs sm:text-sm text-center transition-all ${
-                  sortType === 'defaultOrder'
-                    ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] shadow-2xs'
-                    : 'border-slate-200 text-slate-600 hover:bg-slate-50'
-                }`}
-              >
-                実装順 (No.)
-              </button>
-
-              <button
-                type="button"
                 onClick={() => onSortChange('releaseDate', sortDirection)}
-                className={`py-2.5 px-3 rounded-xl border font-bold text-xs sm:text-sm text-center transition-all ${
+                className={`py-2.5 px-2 rounded-xl border font-bold text-xs sm:text-sm text-center transition-all ${
                   sortType === 'releaseDate'
                     ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] shadow-2xs'
                     : 'border-slate-200 text-slate-600 hover:bg-slate-50'
                 }`}
               >
-                配信日順
+                実装日順
               </button>
 
               <button
                 type="button"
                 onClick={() => onSortChange('reading', sortDirection)}
-                className={`py-2.5 px-3 rounded-xl border font-bold text-xs sm:text-sm text-center transition-all ${
+                className={`py-2.5 px-2 rounded-xl border font-bold text-xs sm:text-sm text-center transition-all ${
                   sortType === 'reading'
                     ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] shadow-2xs'
                     : 'border-slate-200 text-slate-600 hover:bg-slate-50'
@@ -160,24 +203,10 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
               </button>
             </div>
 
-            {/* 昇順・降順の明示的選択 */}
+            {/* 昇順・降順の明示的選択（左: 昇順、右: 降順） */}
             <div className="bg-slate-50 p-2.5 rounded-2xl border border-slate-200/80">
               <div className="text-[11px] font-bold text-slate-500 mb-1.5">順序の指定</div>
               <div className="grid grid-cols-2 gap-2">
-                <button
-                  type="button"
-                  onClick={() => onSortChange(sortType, 'desc')}
-                  className={`py-2 px-3 rounded-xl border text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
-                    sortDirection === 'desc'
-                      ? 'border-[#33ccbb] bg-white text-[#0d9488] shadow-xs'
-                      : 'border-transparent text-slate-500 hover:bg-slate-200/50'
-                  }`}
-                >
-                  {sortType === 'releaseDate' && '新しい順 (降順)'}
-                  {sortType === 'defaultOrder' && '番号が大きい順 (降順)'}
-                  {sortType === 'reading' && 'ん → あ (降順)'}
-                </button>
-
                 <button
                   type="button"
                   onClick={() => onSortChange(sortType, 'asc')}
@@ -187,11 +216,63 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                       : 'border-transparent text-slate-500 hover:bg-slate-200/50'
                   }`}
                 >
+                  {sortType === 'defaultSort' && 'デフォルト順 (昇順)'}
                   {sortType === 'releaseDate' && '古い順 (昇順)'}
-                  {sortType === 'defaultOrder' && '番号が小さい順 (昇順)'}
                   {sortType === 'reading' && 'あ → ん (昇順)'}
                 </button>
+
+                <button
+                  type="button"
+                  onClick={() => onSortChange(sortType, 'desc')}
+                  className={`py-2 px-3 rounded-xl border text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+                    sortDirection === 'desc'
+                      ? 'border-[#33ccbb] bg-white text-[#0d9488] shadow-xs'
+                      : 'border-transparent text-slate-500 hover:bg-slate-200/50'
+                  }`}
+                >
+                  {sortType === 'defaultSort' && '逆順 (降順)'}
+                  {sortType === 'releaseDate' && '新しい順 (降順)'}
+                  {sortType === 'reading' && 'ん → あ (降順)'}
+                </button>
               </div>
+            </div>
+          </div>
+
+          {/* 条件の判定方式 (AND / OR) */}
+          <div className="pt-4 space-y-2">
+            <div className="flex items-center justify-between">
+              <div className="font-bold text-slate-700 flex items-center gap-1.5">
+                <span>条件の判定方式</span>
+              </div>
+              <div className="flex items-center bg-slate-100 p-0.5 rounded-xl border border-slate-200 text-xs font-bold">
+                <button
+                  type="button"
+                  onClick={() => onFilterChange({ ...filterOptions, matchType: 'and' })}
+                  className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
+                    (filterOptions.matchType || 'and') === 'and'
+                      ? 'bg-[#33ccbb] text-white shadow-2xs'
+                      : 'text-slate-500 hover:text-slate-700'
+                  }`}
+                >
+                  AND (すべて一致)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => onFilterChange({ ...filterOptions, matchType: 'or' })}
+                  className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
+                    filterOptions.matchType === 'or'
+                      ? 'bg-sky-500 text-white shadow-2xs'
+                      : 'text-slate-500 hover:text-slate-700'
+                  }`}
+                >
+                  OR (いずれか一致)
+                </button>
+              </div>
+            </div>
+            <div className="text-[11px] text-slate-500">
+              {(filterOptions.matchType || 'and') === 'and'
+                ? '※指定したすべての絞り込み条件（ユニット、キャラ、ver、分類、実装年等）を満たす楽曲を表示します'
+                : '※指定したいずれかの絞り込み条件を満たす楽曲を表示します（所持ステータスと検索語は常に適用）'}
             </div>
           </div>
 
@@ -295,15 +376,23 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                   </span>
                 )}
               </div>
-              {filterOptions.characters.length > 0 && (
+              <div className="flex gap-2 text-xs">
+                <button
+                  type="button"
+                  onClick={handleSelectAllCharacters}
+                  className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                >
+                  全選択
+                </button>
+                <span className="text-slate-300">|</span>
                 <button
                   type="button"
                   onClick={handleClearCharacters}
-                  className="text-xs text-slate-400 hover:text-slate-600 hover:underline"
+                  className="text-slate-400 hover:underline cursor-pointer"
                 >
                   クリア
                 </button>
-              )}
+              </div>
             </div>
 
             <div className="max-h-60 sm:max-h-72 overflow-y-auto p-1 space-y-3 bg-slate-50/60 rounded-2xl border border-slate-200/80">
@@ -355,20 +444,39 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
 
                   return (
                     <div key={unitKey} className="space-y-1.5">
-                      <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-700 px-1 pt-1">
-                        {unitMeta.iconUrl ? (
-                          <img
-                            src={unitMeta.iconUrl}
-                            alt={unitMeta.name}
-                            className="w-3.5 h-3.5 object-contain shrink-0 drop-shadow-2xs"
-                          />
-                        ) : (
-                          <div
-                            className="w-2.5 h-2.5 rounded-full shrink-0 border border-slate-300"
-                            style={{ backgroundColor: unitMeta.themeColor }}
-                          />
-                        )}
-                        <span>{displayName}</span>
+                      <div className="flex items-center justify-between px-1 pt-1">
+                        <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-700">
+                          {unitMeta.iconUrl ? (
+                            <img
+                              src={unitMeta.iconUrl}
+                              alt={unitMeta.name}
+                              className="w-3.5 h-3.5 object-contain shrink-0 drop-shadow-2xs"
+                            />
+                          ) : (
+                            <div
+                              className="w-2.5 h-2.5 rounded-full shrink-0 border border-slate-300"
+                              style={{ backgroundColor: unitMeta.themeColor }}
+                            />
+                          )}
+                          <span>{displayName}</span>
+                        </div>
+                        <div className="flex gap-1.5 text-[10px]">
+                          <button
+                            type="button"
+                            onClick={() => handleBatchSelectChars(mainChars.map((c) => c.id), true)}
+                            className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                          >
+                            全選択
+                          </button>
+                          <span className="text-slate-300">|</span>
+                          <button
+                            type="button"
+                            onClick={() => handleBatchSelectChars(mainChars.map((c) => c.id), false)}
+                            className="text-slate-400 hover:underline cursor-pointer"
+                          >
+                            クリア
+                          </button>
+                        </div>
                       </div>
 
                       {/* ゲーム内登場の6人（初音ミク、鏡音リン、鏡音レン、巡音ルカ、MEIKO、KAITO） */}
@@ -376,20 +484,43 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                         {mainChars.map(renderCharButton)}
                       </div>
 
-                      {/* ゲーム未登場シンガー（折りたたみ表示） */}
+                      {/* ゲーム未登場シンガー（折りたたみ表示 & 全選択/クリア） */}
                       {extraChars.length > 0 && (
-                        <div className="pt-1">
+                        <div className="pt-1 space-y-1">
+                          <div className="flex items-center justify-between px-1">
+                            <span className="text-[11px] font-bold text-slate-600">
+                              ゲーム未登場シンガー ({extraChars.length}人)
+                            </span>
+                            <div className="flex gap-1.5 text-[10px]">
+                              <button
+                                type="button"
+                                onClick={() => handleBatchSelectChars(extraChars.map((c) => c.id), true)}
+                                className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                              >
+                                全選択
+                              </button>
+                              <span className="text-slate-300">|</span>
+                              <button
+                                type="button"
+                                onClick={() => handleBatchSelectChars(extraChars.map((c) => c.id), false)}
+                                className="text-slate-400 hover:underline cursor-pointer"
+                              >
+                                クリア
+                              </button>
+                            </div>
+                          </div>
+
                           <button
                             type="button"
                             onClick={() => setShowNonGameSingers(!showNonGameSingers)}
-                            className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-left text-xs font-bold transition-all border ${
+                            className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-left text-xs font-bold transition-all border cursor-pointer ${
                               showNonGameSingers
                                 ? 'bg-slate-200/80 border-slate-300 text-slate-800'
                                 : 'bg-slate-100/90 hover:bg-slate-200/60 border-slate-200 text-slate-600'
                             }`}
                           >
                             <span className="flex items-center gap-1.5 text-[11px]">
-                              <span>ゲーム未登場シンガー ({extraChars.length}人)</span>
+                              <span>シンガー一覧</span>
                               {selectedExtraCount > 0 && (
                                 <span className="bg-[#33ccbb] text-white px-1.5 py-0.5 rounded-full text-[10px] font-bold leading-none shadow-2xs">
                                   {selectedExtraCount}人選択中
@@ -420,20 +551,39 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                 // その他のユニット（レオニ、モモジャン、ビビバス、ワンダショ、ニーゴ、その他）
                 return (
                   <div key={unitKey} className="space-y-1.5">
-                    <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-700 px-1 pt-1">
-                      {unitMeta.iconUrl ? (
-                        <img
-                          src={unitMeta.iconUrl}
-                          alt={unitMeta.name}
-                          className="w-3.5 h-3.5 object-contain shrink-0 drop-shadow-2xs"
-                        />
-                      ) : (
-                        <div
-                          className="w-2.5 h-2.5 rounded-full shrink-0 border border-slate-300"
-                          style={{ backgroundColor: unitMeta.themeColor }}
-                        />
-                      )}
-                      <span>{displayName}</span>
+                    <div className="flex items-center justify-between px-1 pt-1">
+                      <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-700">
+                        {unitMeta.iconUrl ? (
+                          <img
+                            src={unitMeta.iconUrl}
+                            alt={unitMeta.name}
+                            className="w-3.5 h-3.5 object-contain shrink-0 drop-shadow-2xs"
+                          />
+                        ) : (
+                          <div
+                            className="w-2.5 h-2.5 rounded-full shrink-0 border border-slate-300"
+                            style={{ backgroundColor: unitMeta.themeColor }}
+                          />
+                        )}
+                        <span>{displayName}</span>
+                      </div>
+                      <div className="flex gap-1.5 text-[10px]">
+                        <button
+                          type="button"
+                          onClick={() => handleBatchSelectChars(unitChars.map((c) => c.id), true)}
+                          className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                        >
+                          全選択
+                        </button>
+                        <span className="text-slate-300">|</span>
+                        <button
+                          type="button"
+                          onClick={() => handleBatchSelectChars(unitChars.map((c) => c.id), false)}
+                          className="text-slate-400 hover:underline cursor-pointer"
+                        >
+                          クリア
+                        </button>
+                      </div>
                     </div>
                     <div className="grid grid-cols-2 gap-1.5">
                       {unitChars.map(renderCharButton)}
@@ -446,7 +596,26 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
 
           {/* 5. 歌唱バージョンでの絞り込み */}
           <div className="pt-4 space-y-2">
-            <div className="font-bold text-slate-700">歌唱バージョン条件</div>
+            <div className="flex items-center justify-between">
+              <div className="font-bold text-slate-700">歌唱バージョン条件</div>
+              <div className="flex gap-2 text-xs">
+                <button
+                  type="button"
+                  onClick={() => handleSelectAllVocalVersions(true)}
+                  className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                >
+                  全選択
+                </button>
+                <span className="text-slate-300">|</span>
+                <button
+                  type="button"
+                  onClick={() => handleSelectAllVocalVersions(false)}
+                  className="text-slate-400 hover:underline cursor-pointer"
+                >
+                  クリア
+                </button>
+              </div>
+            </div>
             <div className="grid grid-cols-2 gap-2 text-xs">
               {[
                 { key: 'sekai', label: 'セカイver あり' },
@@ -481,30 +650,40 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
             </div>
           </div>
 
-          {/* 6. 書き下ろし楽曲の絞り込み（新設） */}
+          {/* 6. 書き下ろし楽曲の絞り込み */}
           <div className="pt-4 space-y-2.5">
             <div className="flex items-center justify-between">
               <div className="font-bold text-slate-700 flex items-center gap-1.5">
-                <span>楽曲分類（書き下ろし・カバー）</span>
+                <span>楽曲分類（書き下ろし楽曲）</span>
                 {filterOptions.originalTypes && filterOptions.originalTypes.length > 0 && (
                   <span className="text-[11px] bg-[#33ccbb]/15 text-[#0d9488] px-2 py-0.5 rounded-full font-bold">
                     {filterOptions.originalTypes.length}種選択中
                   </span>
                 )}
               </div>
-              {filterOptions.originalTypes && filterOptions.originalTypes.length > 0 && (
+              <div className="flex gap-2 text-xs">
                 <button
                   type="button"
-                  onClick={() => onFilterChange({ ...filterOptions, originalTypes: [] })}
-                  className="text-xs text-slate-400 hover:text-slate-600 hover:underline"
+                  onClick={() => handleSelectAllOriginalTypes(true)}
+                  className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                >
+                  全選択
+                </button>
+                <span className="text-slate-300">|</span>
+                <button
+                  type="button"
+                  onClick={() => handleSelectAllOriginalTypes(false)}
+                  className="text-slate-400 hover:underline cursor-pointer"
                 >
                   クリア
                 </button>
-              )}
+              </div>
             </div>
 
             <div className="grid grid-cols-2 gap-2 text-xs">
-              {(Object.keys(ORIGINAL_TYPE_METAS) as OriginalSongType[]).map((typeKey) => {
+              {(Object.keys(ORIGINAL_TYPE_METAS) as OriginalSongType[])
+                .filter((typeKey) => typeKey !== 'cover')
+                .map((typeKey) => {
                 const meta = ORIGINAL_TYPE_METAS[typeKey];
                 const isSelected = filterOptions.originalTypes?.includes(typeKey) ?? false;
                 return (
@@ -542,15 +721,23 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                   </span>
                 )}
               </div>
-              {filterOptions.bannerCharacters && filterOptions.bannerCharacters.length > 0 && (
+              <div className="flex gap-2 text-xs">
                 <button
                   type="button"
-                  onClick={() => onFilterChange({ ...filterOptions, bannerCharacters: [] })}
-                  className="text-xs text-slate-400 hover:text-slate-600 hover:underline"
+                  onClick={() => handleSelectAllBannerCharacters(true)}
+                  className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                >
+                  全選択
+                </button>
+                <span className="text-slate-300">|</span>
+                <button
+                  type="button"
+                  onClick={() => handleSelectAllBannerCharacters(false)}
+                  className="text-slate-400 hover:underline cursor-pointer"
                 >
                   クリア
                 </button>
-              )}
+              </div>
             </div>
 
             <p className="text-[11px] text-slate-400 leading-tight">
@@ -572,11 +759,42 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
 
                 return (
                   <div key={uKey} className="space-y-1">
-                    <div className="flex items-center gap-1 text-[11px] font-bold text-slate-600 px-0.5">
-                      {uMeta.iconUrl && (
-                        <img src={uMeta.iconUrl} alt={uMeta.name} className="w-3 h-3 object-contain" />
-                      )}
-                      <span>{uMeta.name}</span>
+                    <div className="flex items-center justify-between px-0.5">
+                      <div className="flex items-center gap-1 text-[11px] font-bold text-slate-600">
+                        {uMeta.iconUrl && (
+                          <img src={uMeta.iconUrl} alt={uMeta.name} className="w-3 h-3 object-contain" />
+                        )}
+                        <span>{uMeta.name}</span>
+                      </div>
+                      <div className="flex gap-1.5 text-[10px]">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const memberIds = members.map((c) => c.id);
+                            const merged = Array.from(
+                              new Set([...(filterOptions.bannerCharacters || []), ...memberIds])
+                            );
+                            onFilterChange({ ...filterOptions, bannerCharacters: merged });
+                          }}
+                          className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                        >
+                          全選択
+                        </button>
+                        <span className="text-slate-300">|</span>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const memberIds = members.map((c) => c.id);
+                            const remaining = (filterOptions.bannerCharacters || []).filter(
+                              (id) => !memberIds.includes(id)
+                            );
+                            onFilterChange({ ...filterOptions, bannerCharacters: remaining });
+                          }}
+                          className="text-slate-400 hover:underline cursor-pointer"
+                        >
+                          クリア
+                        </button>
+                      </div>
                     </div>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
                       {members.map((char) => {
@@ -609,6 +827,71 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                       })}
                     </div>
                   </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* 8. 実装年での絞り込み */}
+          <div className="pt-4 space-y-2.5">
+            <div className="flex items-center justify-between">
+              <div className="font-bold text-slate-700 flex items-center gap-1.5">
+                <span>実装年</span>
+                {filterOptions.releaseYears && filterOptions.releaseYears.length > 0 && (
+                  <span className="text-[11px] bg-[#33ccbb]/15 text-[#0d9488] px-2 py-0.5 rounded-full font-bold">
+                    {filterOptions.releaseYears.length}件選択中
+                  </span>
+                )}
+              </div>
+              <div className="flex gap-2 text-xs">
+                <button
+                  type="button"
+                  onClick={() => handleSelectAllReleaseYears(true)}
+                  className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                >
+                  全選択
+                </button>
+                <span className="text-slate-300">|</span>
+                <button
+                  type="button"
+                  onClick={() => handleSelectAllReleaseYears(false)}
+                  className="text-slate-400 hover:underline cursor-pointer"
+                >
+                  クリア
+                </button>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2 text-xs">
+              {[
+                { year: 1, label: '1年目 (2020.9.30〜)' },
+                { year: 2, label: '2年目 (2021.9.30〜)' },
+                { year: 3, label: '3年目 (2022.9.30〜)' },
+                { year: 4, label: '4年目 (2023.9.30〜)' },
+                { year: 5, label: '5年目 (2024.9.30〜)' },
+                { year: 6, label: '6年目 (2025.9.30〜)' },
+                { year: 7, label: '7年目 (2026.9.30〜)' },
+              ].map((item) => {
+                const isSelected = filterOptions.releaseYears?.includes(item.year) ?? false;
+                return (
+                  <button
+                    key={item.year}
+                    type="button"
+                    onClick={() => {
+                      const current = filterOptions.releaseYears ?? [];
+                      const updated = isSelected
+                        ? current.filter((y) => y !== item.year)
+                        : [...current, item.year];
+                      onFilterChange({ ...filterOptions, releaseYears: updated });
+                    }}
+                    className={`px-3 py-2 rounded-xl border text-left font-medium transition-all ${
+                      isSelected
+                        ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] font-bold shadow-2xs'
+                        : 'border-slate-200 text-slate-600 hover:bg-slate-50'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
                 );
               })}
             </div>
@@ -688,8 +971,8 @@ export const DisplaySettingsModal: React.FC<DisplaySettingsModalProps> = ({
 
           <label className="flex items-center justify-between cursor-pointer p-2 rounded-xl hover:bg-slate-50 transition-colors">
             <div>
-              <span className="block text-slate-800 font-medium">配信日</span>
-              <span className="text-[11px] text-slate-400">楽曲の配信年月日を表示する</span>
+              <span className="block text-slate-800 font-medium">実装日</span>
+              <span className="text-[11px] text-slate-400">楽曲の実装年月日を表示する</span>
             </div>
             <input
               type="checkbox"

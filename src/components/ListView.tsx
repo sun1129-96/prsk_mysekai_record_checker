@@ -2,7 +2,6 @@ import React, { useState, useMemo, useRef, useCallback } from 'react';
 import {
   Search,
   SlidersHorizontal,
-  Eye,
   X,
   Disc3,
   Zap,
@@ -17,7 +16,7 @@ import type {
   TapActionMode,
 } from '../types/record';
 import { UNIT_METAS } from '../types/record';
-import { FilterSortModal, DisplaySettingsModal } from './ToolbarModals';
+import { FilterSortModal } from './ToolbarModals';
 import { RecordDetailModal } from './RecordDetailModal';
 import { filterAndSortRecords } from '../utils/recordUtils';
 import { RecordRow } from './RecordRow';
@@ -27,7 +26,6 @@ interface ListViewProps {
   ownedRecordIds: Record<string, boolean>;
   onToggleOwned: (id: string) => void;
   displaySettings: DisplaySettings;
-  onDisplaySettingsChange: React.Dispatch<React.SetStateAction<DisplaySettings>>;
   filterOptions: FilterOptions;
   onFilterOptionsChange: React.Dispatch<React.SetStateAction<FilterOptions>>;
 }
@@ -37,14 +35,13 @@ export const ListView: React.FC<ListViewProps> = ({
   ownedRecordIds,
   onToggleOwned,
   displaySettings,
-  onDisplaySettingsChange,
   filterOptions,
   onFilterOptionsChange,
 }) => {
   const listRef = useRef<HTMLDivElement>(null);
 
-  // 並び替え状態（初期値: 実装順 昇順）
-  const [sortType, setSortType] = useState<SortType>('defaultOrder');
+  // 並び替え状態（初期値: 実装日昇順）
+  const [sortType, setSortType] = useState<SortType>('releaseDate');
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
 
   // タップ動作モード: 'detail' (詳細モーダル) vs 'quick_check' (行全体でチェック切り替え)
@@ -52,7 +49,6 @@ export const ListView: React.FC<ListViewProps> = ({
 
   // モーダル状態
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
-  const [isDisplayModalOpen, setIsDisplayModalOpen] = useState(false);
   const [selectedRecordForDetail, setSelectedRecordForDetail] = useState<RecordItem | null>(null);
   const [selectedTrackIdForDetail, setSelectedTrackIdForDetail] = useState<string | null>(null);
 
@@ -114,6 +110,7 @@ export const ListView: React.FC<ListViewProps> = ({
       searchQuery: '',
       originalTypes: [],
       bannerCharacters: [],
+      releaseYears: [],
     });
   };
 
@@ -122,7 +119,10 @@ export const ListView: React.FC<ListViewProps> = ({
     filterOptions.units.length !== Object.keys(UNIT_METAS).length ||
     filterOptions.characters.length > 0 ||
     Object.values(filterOptions.vocalVersions).some(Boolean) ||
-    filterOptions.searchQuery !== '';
+    filterOptions.searchQuery !== '' ||
+    Boolean(filterOptions.originalTypes && filterOptions.originalTypes.length > 0) ||
+    Boolean(filterOptions.bannerCharacters && filterOptions.bannerCharacters.length > 0) ||
+    Boolean(filterOptions.releaseYears && filterOptions.releaseYears.length > 0);
 
   return (
     <div className="max-w-4xl mx-auto px-3 sm:px-6 py-2 space-y-4">
@@ -130,37 +130,25 @@ export const ListView: React.FC<ListViewProps> = ({
       {/* ページ背景と完全にピクセル一致する不透明固定グラデーション（bg-pjsk-fixed）を敷き、背景と一体化しながら背後の文字を遮断 */}
       <div className="sticky top-[96px] z-30 -mx-3 sm:-mx-6 px-3 sm:px-6 pt-2 pb-2.5 bg-pjsk-fixed border-b border-slate-200/60 shadow-xs">
         <div className="max-w-4xl mx-auto space-y-2">
-          {/* 3連操作ツールバー */}
-          <div className="bg-white/95 backdrop-blur-md p-2 rounded-2xl shadow-xs border border-slate-200/90 flex flex-wrap items-center justify-between gap-2">
-            {/* 左側: 並べ替え・絞り込み & 表示項目設定 */}
-            <div className="flex items-center gap-1.5 flex-1 min-w-[240px]">
-              {/* ① 並べ替え・絞り込みボタン */}
-              <button
-                onClick={() => setIsFilterModalOpen(true)}
-                className={`px-3 py-2 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 transition-all border ${
-                  isFilterActive
-                    ? 'bg-[#33ccbb]/15 border-[#33ccbb] text-[#0d9488]'
-                    : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
-                }`}
-              >
-                <SlidersHorizontal className="w-3.5 h-3.5 text-[#33ccbb]" />
-                <span>並替・絞込</span>
-                {isFilterActive && (
-                  <span className="w-2 h-2 rounded-full bg-[#33ccbb]" />
-                )}
-              </button>
+          {/* 2連操作ツールバー */}
+          <div className="bg-white/95 backdrop-blur-md p-2 rounded-2xl shadow-xs border border-slate-200/90 flex items-center justify-between gap-2">
+            {/* 左側: 並べ替え・絞り込みボタン */}
+            <button
+              onClick={() => setIsFilterModalOpen(true)}
+              className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 transition-all border cursor-pointer ${
+                isFilterActive
+                  ? 'bg-[#33ccbb]/15 border-[#33ccbb] text-[#0d9488]'
+                  : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
+              }`}
+            >
+              <SlidersHorizontal className="w-3.5 h-3.5 text-[#33ccbb]" />
+              <span>並替・絞込</span>
+              {isFilterActive && (
+                <span className="w-2 h-2 rounded-full bg-[#33ccbb]" />
+              )}
+            </button>
 
-              {/* ② 表示情報の設定ボタン（何をするボタンか明記） */}
-              <button
-                onClick={() => setIsDisplayModalOpen(true)}
-                className="px-3 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-50 border border-slate-200 text-slate-700 hover:bg-slate-100 flex items-center justify-center gap-1.5 transition-all"
-              >
-                <Eye className="w-3.5 h-3.5 text-slate-500" />
-                <span>表示項目設定</span>
-              </button>
-            </div>
-
-            {/* 右側: ③ 詳細表示とクイックチェックのトグルスイッチ */}
+            {/* 右側: 詳細表示とクイックチェックのトグルスイッチ */}
             <div className="flex items-center gap-2 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200/80">
               <div className="flex items-center gap-1 text-xs">
                 <Zap className={`w-3.5 h-3.5 ${tapMode === 'quick_check' ? 'text-[#33ccbb]' : 'text-slate-400'}`} />
@@ -196,7 +184,7 @@ export const ListView: React.FC<ListViewProps> = ({
             <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
             <input
               type="text"
-              placeholder="曲名・よみがなでインクリメンタル検索..."
+              placeholder="曲名・よみがなで検索..."
               value={filterOptions.searchQuery}
               onChange={(e) =>
                 onFilterOptionsChange((prev) => ({ ...prev, searchQuery: e.target.value }))
@@ -303,13 +291,6 @@ export const ListView: React.FC<ListViewProps> = ({
         filterOptions={filterOptions}
         onFilterChange={onFilterOptionsChange}
         onResetFilter={handleResetFilter}
-      />
-
-      <DisplaySettingsModal
-        isOpen={isDisplayModalOpen}
-        onClose={() => setIsDisplayModalOpen(false)}
-        settings={displaySettings}
-        onSettingsChange={onDisplaySettingsChange}
       />
 
       <RecordDetailModal

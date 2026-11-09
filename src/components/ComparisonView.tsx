@@ -11,6 +11,7 @@ import {
   SlidersHorizontal,
   ChevronDown,
   ChevronUp,
+  Check,
 } from 'lucide-react';
 import type {
   RecordItem,
@@ -25,7 +26,7 @@ import {
   GAME_VIRTUAL_SINGER_IDS,
   ORIGINAL_TYPE_METAS,
 } from '../types/record';
-import { filterAndSortRecords } from '../utils/recordUtils';
+import { filterAndSortRecords, getAnniversaryYear } from '../utils/recordUtils';
 
 interface ComparisonViewProps {
   records: RecordItem[];
@@ -34,12 +35,19 @@ interface ComparisonViewProps {
 }
 
 type CompareTab = 'unit' | 'vocal' | 'year' | 'character' | 'custom';
-type SortMetric = 'default' | 'percentage_desc' | 'percentage_asc' | 'count_desc';
+type SortMetric = 'default' | 'percentage_desc' | 'percentage_asc' | 'count_desc' | 'count_asc';
 
 const CUSTOM_CONDITIONS_STORAGE_KEY = 'mysekai_custom_compare_conditions_v1';
 
-/** プロセカ公式キャラクター順（キャラクター選択画面に登場する順序） */
+/** プロセカ公式キャラクター順（全64キャラクター：バーチャル・シンガー最上部、メイン26人先頭） */
 export const PROSEKA_DEFAULT_CHAR_ORDER: string[] = [
+  // バーチャル・シンガー（登場済み6人）
+  'miku',
+  'rin',
+  'len',
+  'luka',
+  'meiko',
+  'kaito',
   // Leo/need
   'ichika',
   'saki',
@@ -65,14 +73,50 @@ export const PROSEKA_DEFAULT_CHAR_ORDER: string[] = [
   'mafuyu',
   'ena',
   'mizuki',
-  // バーチャル・シンガー
-  'miku',
-  'rin',
-  'len',
-  'luka',
-  'meiko',
-  'kaito',
+  // ゲーム未登場バーチャル・シンガー（30人）
+  'gumi',
+  'flower',
+  'teto',
+  'ia',
+  'una',
+  'kaf',
+  'yuki',
+  'gakupo',
+  'yukari',
+  'zundamon',
+  'kiritan',
+  'akane',
+  'aoi',
+  'chisei',
+  'adachi_rei',
+  'karin',
+  'chifuyu',
+  'rime',
+  'sekai_cevio',
+  'haru',
+  'koko',
+  'tsuina',
+  'merrow',
+  'gekiyaku',
+  'kanon',
+  'mikoto',
+  'lily',
+  'solaria',
+  'vy1',
+  'vy2',
+  // コラボ・ゲストキャラクター（その他8人）
+  'nenerobo',
+  'mikudayo',
+  'alkaloid',
+  'crazy_b',
+  'jun',
+  'izumi',
+  'chiaki',
+  'natsume',
 ];
+
+/** ゲーム内メイン26キャラクターのID一覧 */
+export const PROSEKA_MAIN_26_CHAR_ORDER: string[] = PROSEKA_DEFAULT_CHAR_ORDER.slice(0, 26);
 
 /**
  * カスタム比較条件に合致するか判定（AND / OR 条件評価）
@@ -86,12 +130,14 @@ export const checkRecordMatchesCustomCondition = (
   const characters = cond.conditionCharacters || [];
   const originalTypes = cond.conditionOriginalTypes || [];
   const vocalTypes = cond.conditionVocalTypes || [];
+  const releaseYears = cond.conditionReleaseYears || [];
 
   const hasSpecificConditions =
     units.length > 0 ||
     characters.length > 0 ||
     originalTypes.length > 0 ||
-    vocalTypes.length > 0;
+    vocalTypes.length > 0 ||
+    releaseYears.length > 0;
 
   if (!hasSpecificConditions) {
     if (cond.filter) {
@@ -120,10 +166,16 @@ export const checkRecordMatchesCustomCondition = (
     const hasAnyTrack = vocalTypes.some((vt) => {
       if (vt === 'sekai') return Boolean(record.vocalVersions?.sekai);
       if (vt === 'virtualSinger') return Boolean(record.vocalVersions?.virtualSinger);
+      if (vt === 'connectLive') return Boolean(record.vocalVersions?.connectLive);
       if (vt === 'anotherVocal') return Boolean(record.vocalVersions?.anotherVocal);
       return false;
     });
     results.push(hasAnyTrack);
+  }
+
+  if (releaseYears.length > 0) {
+    const year = getAnniversaryYear(record.releaseDate);
+    results.push(releaseYears.includes(year));
   }
 
   if (results.length === 0) return true;
@@ -142,18 +194,19 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
   // ソート基準（デフォルト順 / 所持率降順 / 所持率昇順 / 曲数降順）
   const [sortMetric, setSortMetric] = useState<SortMetric>('default');
 
-  // 歌唱キャラ別タブ用: 選択されたキャラクターID（初期値: メイン各ユニットのリーダー）
-  const [selectedCharIds, setSelectedCharIds] = useState<string[]>([
-    'ichika',
-    'minori',
-    'kohane',
-    'tsukasa',
-    'kanade',
-    'miku',
+  // 歌唱キャラ別タブ用: 選択されたキャラクターID（初期値: メイン26人選択）
+  const [selectedCharIds, setSelectedCharIds] = useState<string[]>(() => [
+    ...PROSEKA_MAIN_26_CHAR_ORDER,
   ]);
 
   // 歌唱キャラ別タブ用: キャラクター選択パネルの開閉状態
   const [isCharSelectorOpen, setIsCharSelectorOpen] = useState(true);
+
+  // 歌唱キャラ別タブ用: ゲーム未登場シンガーの開閉状態
+  const [showNonGameSingersInCompare, setShowNonGameSingersInCompare] = useState(false);
+
+  // カスタム比較用: ゲーム未登場シンガーの開閉状態
+  const [showNonGameSingersInCustom, setShowNonGameSingersInCustom] = useState(false);
 
   // カスタム比較条件一覧（LocalStorage 永続化）
   const [savedConditions, setSavedConditions] = useState<SavedCompareCondition[]>(() => {
@@ -221,8 +274,9 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
   const [newSelectedChars, setNewSelectedChars] = useState<string[]>([]);
   const [newSelectedOriginalTypes, setNewSelectedOriginalTypes] = useState<OriginalSongType[]>([]);
   const [newSelectedVocalTypes, setNewSelectedVocalTypes] = useState<
-    ('sekai' | 'virtualSinger' | 'anotherVocal')[]
+    ('sekai' | 'virtualSinger' | 'anotherVocal' | 'connectLive')[]
   >([]);
+  const [newSelectedReleaseYears, setNewSelectedReleaseYears] = useState<number[]>([]);
 
   // 1. ユニット別集計
   const unitStats = useMemo(() => {
@@ -318,7 +372,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
         percentage,
         isComplete: total > 0 && owned === total,
         defaultOrderIndex: index,
-        filterParams: { searchQuery: '' }, // 実装年別はリスト側では検索条件でフィルタ
+        filterParams: { releaseYears: [annivYear] },
       };
     });
   }, [records, ownedRecordIds]);
@@ -404,6 +458,9 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
     if (sortMetric === 'count_desc') {
       return list.sort((a, b) => b.total - a.total || b.percentage - a.percentage);
     }
+    if (sortMetric === 'count_asc') {
+      return list.sort((a, b) => a.total - b.total || a.percentage - b.percentage);
+    }
     return list;
   }, [rawList, sortMetric]);
 
@@ -426,12 +483,23 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
       if (newSelectedVocalTypes.length > 0) {
         parts.push(
           newSelectedVocalTypes
-            .map((vt) => (vt === 'sekai' ? 'セカイ' : vt === 'virtualSinger' ? 'バチャシン' : 'アナザー'))
+            .map((vt) =>
+              vt === 'sekai'
+                ? 'セカイ'
+                : vt === 'virtualSinger'
+                ? 'バチャシン'
+                : vt === 'connectLive'
+                ? 'コネライ'
+                : 'アナザー'
+            )
             .join('/')
         );
       }
+      if (newSelectedReleaseYears.length > 0) {
+        parts.push(newSelectedReleaseYears.map((y) => `${y}年目`).join('/'));
+      }
       if (parts.length === 0) {
-        alert('少なくとも1つの条件（ユニット、楽曲分類、キャラ、歌唱ver）を選択してください');
+        alert('少なくとも1つの条件（ユニット、楽曲分類、キャラ、歌唱ver、実装年）を選択してください');
         return;
       }
       title = `${parts.join(' × ')} (${newMatchType.toUpperCase()})`;
@@ -444,11 +512,13 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
       vocalVersions: {
         virtualSinger: newSelectedVocalTypes.includes('virtualSinger'),
         sekai: newSelectedVocalTypes.includes('sekai'),
-        connectLive: false,
+        connectLive: newSelectedVocalTypes.includes('connectLive'),
         anotherVocal: newSelectedVocalTypes.includes('anotherVocal'),
       },
       searchQuery: '',
       originalTypes: newSelectedOriginalTypes.length > 0 ? newSelectedOriginalTypes : undefined,
+      releaseYears: newSelectedReleaseYears.length > 0 ? newSelectedReleaseYears : undefined,
+      matchType: newMatchType,
     };
 
     const newCond: SavedCompareCondition = {
@@ -461,10 +531,12 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
       conditionCharacters: newSelectedChars,
       conditionOriginalTypes: newSelectedOriginalTypes,
       conditionVocalTypes: newSelectedVocalTypes,
+      conditionReleaseYears: newSelectedReleaseYears,
     };
 
     setSavedConditions((prev) => [newCond, ...prev]);
     setNewTitle('');
+    setNewSelectedReleaseYears([]);
     alert(`比較条件「${title}」を追加しました！`);
   };
 
@@ -473,19 +545,6 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
     e.stopPropagation();
     if (confirm(`比較条件「${title}」を削除しますか？`)) {
       setSavedConditions((prev) => prev.filter((c) => c.id !== id));
-    }
-  };
-
-  // ユニットごとのキャラクター一括選択
-  const handleSelectUnitChars = (unitKey: UnitType) => {
-    const unitCharIds = CHARACTERS.filter((c) => c.unit === unitKey).map((c) => c.id);
-    const allSelected = unitCharIds.every((id) => selectedCharIds.includes(id));
-    if (allSelected) {
-      // ユニット分を解除（最低1人は保持）
-      const remaining = selectedCharIds.filter((id) => !unitCharIds.includes(id));
-      setSelectedCharIds(remaining.length > 0 ? remaining : [unitCharIds[0]]);
-    } else {
-      setSelectedCharIds(Array.from(new Set([...selectedCharIds, ...unitCharIds])));
     }
   };
 
@@ -501,7 +560,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
             所持率の比較・進捗分析
           </h2>
           <p className="text-xs text-slate-500">
-            各条件の所持率を棒グラフで比較。バーをクリックすると該当楽曲一覧へ直接ジャンプできます。
+            各条件の所持率を棒グラフで比較できます。バーをクリックすると、その条件の楽曲リストが表示されます。
           </p>
         </div>
       </div>
@@ -573,9 +632,10 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
             className="bg-transparent border-none text-xs font-bold text-slate-700 focus:outline-hidden cursor-pointer"
           >
             <option value="default">デフォルト順</option>
-            <option value="percentage_desc">達成率が高い順</option>
-            <option value="percentage_asc">達成率が低い順</option>
+            <option value="percentage_desc">所持率が高い順</option>
+            <option value="percentage_asc">所持率が低い順</option>
             <option value="count_desc">楽曲数が多い順</option>
+            <option value="count_asc">楽曲数が少ない順</option>
           </select>
         </div>
       </div>
@@ -611,7 +671,15 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                 <span className="text-slate-300">|</span>
                 <button
                   type="button"
-                  onClick={() => setSelectedCharIds(['ichika'])}
+                  onClick={() => setSelectedCharIds([...PROSEKA_MAIN_26_CHAR_ORDER])}
+                  className="text-[#0d9488] font-bold hover:underline cursor-pointer"
+                >
+                  メイン26人
+                </button>
+                <span className="text-slate-300">|</span>
+                <button
+                  type="button"
+                  onClick={() => setSelectedCharIds([])}
                   className="text-slate-400 hover:underline cursor-pointer"
                 >
                   リセット
@@ -624,20 +692,180 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
               <div className="space-y-2.5 pt-1 border-t border-slate-200/60">
                 {(
                   [
+                    'virtual_singer',
                     'leo_need',
                     'more_more_jump',
                     'vivid_bad_squad',
                     'wonderlands_showtime',
                     'nightcord_at_25',
-                    'virtual_singer',
+                    'other',
                   ] as UnitType[]
                 ).map((uKey) => {
                   const uMeta = UNIT_METAS[uKey];
-                  const unitChars =
-                    uKey === 'virtual_singer'
-                      ? CHARACTERS.filter((c) => GAME_VIRTUAL_SINGER_IDS.includes(c.id as any))
-                      : CHARACTERS.filter((c) => c.unit === uKey);
+                  const unitChars = CHARACTERS.filter((c) => c.unit === uKey);
+                  if (unitChars.length === 0) return null;
 
+                  const displayName =
+                    uKey === 'other' ? 'その他（コラボ・ゲスト）' : uMeta.name;
+
+                  // 単一キャラクターボタン描画ヘルパー
+                  const renderCharButton = (char: (typeof CHARACTERS)[number]) => {
+                    const isSelected = selectedCharIds.includes(char.id);
+                    return (
+                      <button
+                        key={char.id}
+                        type="button"
+                        onClick={() => {
+                          if (isSelected) {
+                            setSelectedCharIds(selectedCharIds.filter((id) => id !== char.id));
+                          } else {
+                            setSelectedCharIds([...selectedCharIds, char.id]);
+                          }
+                        }}
+                        className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border text-xs text-left transition-all cursor-pointer ${
+                          isSelected
+                            ? 'bg-slate-800 text-white font-bold border-slate-800 shadow-2xs'
+                            : 'bg-white text-slate-600 border-slate-200/80 hover:bg-slate-100'
+                        }`}
+                      >
+                        <span
+                          className="w-2.5 h-2.5 rounded-full shrink-0 border border-black/10"
+                          style={{ backgroundColor: char.color }}
+                        />
+                        <span className="truncate">{char.name}</span>
+                      </button>
+                    );
+                  };
+
+                  // バーチャル・シンガーの場合：ゲーム内登場（6人）とゲーム未登場（30人）を分離
+                  if (uKey === 'virtual_singer') {
+                    const mainChars = unitChars.filter((c) =>
+                      GAME_VIRTUAL_SINGER_IDS.includes(c.id as any)
+                    );
+                    const extraChars = unitChars.filter(
+                      (c) => !GAME_VIRTUAL_SINGER_IDS.includes(c.id as any)
+                    );
+                    const selectedExtraCount = extraChars.filter((c) =>
+                      selectedCharIds.includes(c.id)
+                    ).length;
+
+                    return (
+                      <div key={uKey} className="space-y-1.5">
+                        <div className="flex items-center justify-between px-1">
+                          <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-600">
+                            {uMeta.iconUrl && (
+                              <img src={uMeta.iconUrl} alt={uMeta.name} className="w-3.5 h-3.5 object-contain" />
+                            )}
+                            <span>{displayName}</span>
+                          </div>
+                          <div className="flex gap-1.5 text-[10px]">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                const mainIds = mainChars.map((c) => c.id);
+                                setSelectedCharIds((prev) =>
+                                  Array.from(new Set([...prev, ...mainIds]))
+                                );
+                              }}
+                              className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                            >
+                              全選択
+                            </button>
+                            <span className="text-slate-300">|</span>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                const mainIds = mainChars.map((c) => c.id);
+                                setSelectedCharIds((prev) =>
+                                  prev.filter((id) => !mainIds.includes(id))
+                                );
+                              }}
+                              className="text-slate-400 hover:underline cursor-pointer"
+                            >
+                              クリア
+                            </button>
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+                          {mainChars.map(renderCharButton)}
+                        </div>
+
+                        {/* ゲーム未登場シンガー（折りたたみ表示） */}
+                        {extraChars.length > 0 && (
+                          <div className="pt-1 space-y-1">
+                            <div className="flex items-center justify-between px-1">
+                              <span className="text-[11px] font-bold text-slate-600">
+                                ゲーム未登場シンガー ({extraChars.length}人)
+                              </span>
+                              <div className="flex gap-1.5 text-[10px]">
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    const extraIds = extraChars.map((c) => c.id);
+                                    setSelectedCharIds((prev) =>
+                                      Array.from(new Set([...prev, ...extraIds]))
+                                    );
+                                  }}
+                                  className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                                >
+                                  全選択
+                                </button>
+                                <span className="text-slate-300">|</span>
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    const extraIds = extraChars.map((c) => c.id);
+                                    setSelectedCharIds((prev) =>
+                                      prev.filter((id) => !extraIds.includes(id))
+                                    );
+                                  }}
+                                  className="text-slate-400 hover:underline cursor-pointer"
+                                >
+                                  クリア
+                                </button>
+                              </div>
+                            </div>
+
+                            <button
+                              type="button"
+                              onClick={() => setShowNonGameSingersInCompare(!showNonGameSingersInCompare)}
+                              className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-left text-xs font-bold transition-all border cursor-pointer ${
+                                showNonGameSingersInCompare
+                                  ? 'bg-slate-200/80 border-slate-300 text-slate-800'
+                                  : 'bg-slate-100/90 hover:bg-slate-200/60 border-slate-200 text-slate-600'
+                              }`}
+                            >
+                              <span className="flex items-center gap-1.5 text-[11px]">
+                                <span>シンガー一覧</span>
+                                {selectedExtraCount > 0 && (
+                                  <span className="bg-[#33ccbb] text-white px-1.5 py-0.5 rounded-full text-[10px] font-bold leading-none shadow-2xs">
+                                    {selectedExtraCount}人選択中
+                                  </span>
+                                )}
+                              </span>
+                              <span className="flex items-center gap-1 text-[11px] text-slate-500">
+                                <span>{showNonGameSingersInCompare ? '閉じる' : '表示する'}</span>
+                                {showNonGameSingersInCompare ? (
+                                  <ChevronUp className="w-3.5 h-3.5 text-slate-500" />
+                                ) : (
+                                  <ChevronDown className="w-3.5 h-3.5 text-slate-500" />
+                                )}
+                              </span>
+                            </button>
+
+                            {showNonGameSingersInCompare && (
+                              <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 mt-1.5 pt-1.5 pl-2 border-l-2 border-slate-200 animate-in fade-in duration-150">
+                                {extraChars.map(renderCharButton)}
+                              </div>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  }
+
+                  // その他のユニット（レオニ、モモジャン、ビビバス、ワンダショ、ニーゴ、その他）
                   return (
                     <div key={uKey} className="space-y-1">
                       <div className="flex items-center justify-between px-1">
@@ -645,47 +873,39 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                           {uMeta.iconUrl && (
                             <img src={uMeta.iconUrl} alt={uMeta.name} className="w-3.5 h-3.5 object-contain" />
                           )}
-                          <span>{uMeta.name}</span>
+                          <span>{displayName}</span>
                         </div>
-                        <button
-                          type="button"
-                          onClick={() => handleSelectUnitChars(uKey)}
-                          className="text-[10px] text-slate-500 hover:text-slate-800 font-medium cursor-pointer"
-                        >
-                          ユニット全選択
-                        </button>
+                        <div className="flex gap-1.5 text-[10px]">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const ids = unitChars.map((c) => c.id);
+                              setSelectedCharIds((prev) =>
+                                Array.from(new Set([...prev, ...ids]))
+                              );
+                            }}
+                            className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                          >
+                            全選択
+                          </button>
+                          <span className="text-slate-300">|</span>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const ids = unitChars.map((c) => c.id);
+                              setSelectedCharIds((prev) =>
+                                prev.filter((id) => !ids.includes(id))
+                              );
+                            }}
+                            className="text-slate-400 hover:underline cursor-pointer"
+                          >
+                            クリア
+                          </button>
+                        </div>
                       </div>
 
                       <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
-                        {unitChars.map((char) => {
-                          const isSelected = selectedCharIds.includes(char.id);
-                          return (
-                            <button
-                              key={char.id}
-                              type="button"
-                              onClick={() => {
-                                if (isSelected) {
-                                  if (selectedCharIds.length > 1) {
-                                    setSelectedCharIds(selectedCharIds.filter((id) => id !== char.id));
-                                  }
-                                } else {
-                                  setSelectedCharIds([...selectedCharIds, char.id]);
-                                }
-                              }}
-                              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border text-xs text-left transition-all cursor-pointer ${
-                                isSelected
-                                  ? 'bg-slate-800 text-white font-bold border-slate-800 shadow-2xs'
-                                  : 'bg-white text-slate-600 border-slate-200/80 hover:bg-slate-100'
-                              }`}
-                            >
-                              <span
-                                className="w-2.5 h-2.5 rounded-full shrink-0 border border-black/10"
-                                style={{ backgroundColor: char.color }}
-                              />
-                              <span className="truncate">{char.name}</span>
-                            </button>
-                          );
-                        })}
+                        {unitChars.map(renderCharButton)}
                       </div>
                     </div>
                   );
@@ -695,10 +915,10 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
           </div>
         )}
 
-        {/* カスタム比較タブ時の条件作成・追加パネル（複数条件・AND/OR対応） */}
+        {/* カスタム比較タブ時の条件作成・追加パネル（リスト表示の絞り込みUIと統一） */}
         {activeTab === 'custom' && (
-          <div className="p-4 sm:p-5 bg-gradient-to-r from-emerald-50/70 via-teal-50/40 to-sky-50/70 rounded-3xl border border-[#33ccbb]/30 space-y-3.5 shadow-2xs">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div className="p-4 sm:p-5 bg-slate-50/80 rounded-3xl border border-slate-200/90 space-y-4 shadow-2xs">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-2 border-b border-slate-200/80">
               <div className="flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-[#33ccbb]" />
                 <h3 className="font-bold text-xs sm:text-sm text-slate-800">
@@ -707,7 +927,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
               </div>
 
               {/* AND / OR 条件の切り替えトグル */}
-              <div className="flex items-center self-start sm:self-auto bg-white/90 p-0.5 rounded-xl border border-slate-200/90 text-[11px] font-bold shadow-2xs">
+              <div className="flex items-center self-start sm:self-auto bg-white p-0.5 rounded-xl border border-slate-200/90 text-xs font-bold shadow-2xs">
                 <button
                   type="button"
                   onClick={() => setNewMatchType('and')}
@@ -735,128 +955,396 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
               </div>
             </div>
 
-            <form onSubmit={handleAddCustomCondition} className="space-y-3">
+            <form onSubmit={handleAddCustomCondition} className="space-y-4">
               {/* 条件タイトル入力 */}
               <div>
-                <label className="block text-[11px] font-bold text-slate-600 mb-1">
+                <label className="block text-xs font-bold text-slate-700 mb-1.5">
                   条件のタイトル（空欄の場合は選択条件から自動命名）
                 </label>
                 <input
                   type="text"
                   value={newTitle}
                   onChange={(e) => setNewTitle(e.target.value)}
-                  placeholder="例: ワンダショ×イベント書き下ろし、ニーゴまたは奏歌唱曲等"
-                  className="w-full text-xs p-2.5 bg-white border border-slate-200 rounded-xl focus:border-[#33ccbb] focus:ring-2 focus:ring-[#33ccbb]/20 focus:outline-hidden"
+                  placeholder="例: GUMI歌唱曲、進級前実装曲等"
+                  className="w-full text-xs sm:text-sm p-2.5 bg-white border border-slate-200 rounded-xl focus:border-[#33ccbb] focus:ring-2 focus:ring-[#33ccbb]/20 focus:outline-hidden"
                 />
               </div>
 
-              {/* 1. 対象ユニット（複数選択チップ） */}
-              <div className="space-y-1">
-                <div className="flex items-center justify-between text-[11px]">
-                  <span className="font-bold text-slate-600">
-                    対象ユニット ({newSelectedUnits.length > 0 ? `${newSelectedUnits.length}件選択中` : '全ユニット'}):
-                  </span>
-                  {newSelectedUnits.length > 0 && (
+              {/* 1. ユニットでの絞り込み（リスト絞り込みUIと統一） */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between text-xs font-bold">
+                  <div className="flex items-center gap-1.5 text-slate-700">
+                    <span>対象ユニット</span>
+                    {newSelectedUnits.length > 0 && (
+                      <span className="text-[11px] bg-[#33ccbb]/15 text-[#0d9488] px-2 py-0.5 rounded-full font-bold">
+                        {newSelectedUnits.length}組選択中
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex gap-2 text-xs">
+                    <button
+                      type="button"
+                      onClick={() => setNewSelectedUnits(Object.keys(UNIT_METAS) as UnitType[])}
+                      className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                    >
+                      全選択
+                    </button>
+                    <span className="text-slate-300">|</span>
                     <button
                       type="button"
                       onClick={() => setNewSelectedUnits([])}
-                      className="text-slate-400 hover:underline text-[10px]"
+                      className="text-slate-400 hover:underline cursor-pointer"
                     >
                       クリア
                     </button>
-                  )}
+                  </div>
                 </div>
-                <div className="flex flex-wrap gap-1.5">
-                  {(Object.keys(UNIT_METAS) as UnitType[]).map((uKey) => {
-                    const uMeta = UNIT_METAS[uKey];
-                    const isSelected = newSelectedUnits.includes(uKey);
+
+                <div className="grid grid-cols-2 gap-2">
+                  {(Object.keys(UNIT_METAS) as UnitType[]).map((unitKey) => {
+                    const meta = UNIT_METAS[unitKey];
+                    const isSelected = newSelectedUnits.includes(unitKey);
                     return (
                       <button
-                        key={uKey}
+                        key={unitKey}
                         type="button"
                         onClick={() => {
                           setNewSelectedUnits((prev) =>
-                            isSelected ? prev.filter((u) => u !== uKey) : [...prev, uKey]
+                            isSelected ? prev.filter((u) => u !== unitKey) : [...prev, unitKey]
                           );
                         }}
-                        className={`px-2.5 py-1 rounded-xl border text-[11px] font-bold transition-all cursor-pointer flex items-center gap-1 ${
+                        className={`flex items-center gap-2 px-2.5 py-2 rounded-xl border text-left min-h-[42px] transition-all cursor-pointer ${
                           isSelected
-                            ? 'bg-slate-800 text-white border-slate-800 shadow-2xs'
-                            : 'bg-white text-slate-600 border-slate-200/90 hover:bg-slate-50'
+                            ? 'border-slate-400/80 bg-white shadow-2xs text-slate-800'
+                            : 'border-slate-200/70 bg-slate-50/60 text-slate-400 opacity-60 hover:opacity-80'
                         }`}
                       >
-                        {uMeta.iconUrl && (
-                          <img src={uMeta.iconUrl} alt={uMeta.name} className="w-3.5 h-3.5 object-contain" />
+                        {meta.iconUrl ? (
+                          <img
+                            src={meta.iconUrl}
+                            alt={meta.name}
+                            className="w-4 h-4 object-contain shrink-0 drop-shadow-2xs"
+                          />
+                        ) : (
+                          <div
+                            className="w-3.5 h-3.5 rounded-full shrink-0 border border-slate-300/80 shadow-2xs"
+                            style={{ backgroundColor: meta.themeColor }}
+                          />
                         )}
-                        <span>{uMeta.shortName}</span>
+                        <span className="flex-1 text-[11px] sm:text-xs font-bold leading-tight break-words">
+                          {meta.name}
+                        </span>
+                        {isSelected && <Check className="w-3.5 h-3.5 text-slate-600 shrink-0" />}
                       </button>
                     );
                   })}
                 </div>
               </div>
 
-              {/* 2. 楽曲分類（複数選択チップ） */}
-              <div className="space-y-1">
-                <div className="flex items-center justify-between text-[11px]">
-                  <span className="font-bold text-slate-600">
-                    楽曲分類 ({newSelectedOriginalTypes.length > 0 ? `${newSelectedOriginalTypes.length}件選択中` : '全楽曲'}):
-                  </span>
-                  {newSelectedOriginalTypes.length > 0 && (
+              {/* 2. 歌唱キャラクターでの絞り込み（リスト絞り込みUIと統一） */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between text-xs font-bold">
+                  <div className="flex items-center gap-1.5 text-slate-700">
+                    <Users className="w-4 h-4 text-[#33ccbb]" />
+                    <span>歌唱キャラクター</span>
+                    {newSelectedChars.length > 0 && (
+                      <span className="text-[11px] bg-[#33ccbb]/15 text-[#0d9488] px-2 py-0.5 rounded-full font-bold">
+                        {newSelectedChars.length}人選択中
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex gap-2 text-xs">
                     <button
                       type="button"
-                      onClick={() => setNewSelectedOriginalTypes([])}
-                      className="text-slate-400 hover:underline text-[10px]"
+                      onClick={() => setNewSelectedChars(CHARACTERS.map((c) => c.id))}
+                      className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                    >
+                      全選択
+                    </button>
+                    <span className="text-slate-300">|</span>
+                    <button
+                      type="button"
+                      onClick={() => setNewSelectedChars([])}
+                      className="text-slate-400 hover:underline cursor-pointer"
                     >
                       クリア
                     </button>
-                  )}
+                  </div>
                 </div>
-                <div className="flex flex-wrap gap-1.5">
-                  {(Object.keys(ORIGINAL_TYPE_METAS) as OriginalSongType[]).map((tKey) => {
-                    const tMeta = ORIGINAL_TYPE_METAS[tKey];
-                    const isSelected = newSelectedOriginalTypes.includes(tKey);
+
+                <div className="max-h-60 sm:max-h-72 overflow-y-auto p-2 space-y-3 bg-white/70 rounded-2xl border border-slate-200/80">
+                  {(
+                    [
+                      'virtual_singer',
+                      'leo_need',
+                      'more_more_jump',
+                      'vivid_bad_squad',
+                      'wonderlands_showtime',
+                      'nightcord_at_25',
+                      'other',
+                    ] as UnitType[]
+                  ).map((unitKey) => {
+                    const unitMeta = UNIT_METAS[unitKey];
+                    const unitChars = CHARACTERS.filter((c) => c.unit === unitKey);
+                    if (unitChars.length === 0) return null;
+
+                    const displayName =
+                      unitKey === 'other' ? 'その他（コラボ・ゲスト）' : unitMeta.name;
+
+                    const renderCharButton = (char: (typeof CHARACTERS)[number]) => {
+                      const isSelected = newSelectedChars.includes(char.id);
+                      return (
+                        <button
+                          key={char.id}
+                          type="button"
+                          onClick={() => {
+                            setNewSelectedChars((prev) =>
+                              isSelected ? prev.filter((id) => id !== char.id) : [...prev, char.id]
+                            );
+                          }}
+                          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs text-left transition-all cursor-pointer ${
+                            isSelected
+                              ? 'bg-white border-[#33ccbb] text-[#0d9488] font-bold shadow-2xs'
+                              : 'bg-white/80 border-slate-200/70 text-slate-600 hover:bg-white'
+                          }`}
+                        >
+                          <div
+                            className="w-2.5 h-2.5 rounded-full shrink-0 border border-slate-300/80 shadow-2xs"
+                            style={{ backgroundColor: char.color }}
+                          />
+                          <span className="truncate flex-1">{char.name}</span>
+                          {isSelected && <Check className="w-3 h-3 text-[#0d9488] shrink-0" />}
+                        </button>
+                      );
+                    };
+
+                    if (unitKey === 'virtual_singer') {
+                      const mainChars = unitChars.filter((c) =>
+                        GAME_VIRTUAL_SINGER_IDS.includes(c.id as any)
+                      );
+                      const extraChars = unitChars.filter(
+                        (c) => !GAME_VIRTUAL_SINGER_IDS.includes(c.id as any)
+                      );
+                      const selectedExtraCount = extraChars.filter((c) =>
+                        newSelectedChars.includes(c.id)
+                      ).length;
+
+                      return (
+                        <div key={unitKey} className="space-y-1.5">
+                          <div className="flex items-center justify-between px-1 pt-1">
+                            <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-700">
+                              {unitMeta.iconUrl ? (
+                                <img
+                                  src={unitMeta.iconUrl}
+                                  alt={unitMeta.name}
+                                  className="w-3.5 h-3.5 object-contain shrink-0 drop-shadow-2xs"
+                                />
+                              ) : (
+                                <div
+                                  className="w-2.5 h-2.5 rounded-full shrink-0 border border-slate-300"
+                                  style={{ backgroundColor: unitMeta.themeColor }}
+                                />
+                              )}
+                              <span>{displayName}</span>
+                            </div>
+                            <div className="flex gap-1.5 text-[10px]">
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  const mainIds = mainChars.map((c) => c.id);
+                                  setNewSelectedChars((prev) =>
+                                    Array.from(new Set([...prev, ...mainIds]))
+                                  );
+                                }}
+                                className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                              >
+                                全選択
+                              </button>
+                              <span className="text-slate-300">|</span>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  const mainIds = mainChars.map((c) => c.id);
+                                  setNewSelectedChars((prev) =>
+                                    prev.filter((id) => !mainIds.includes(id))
+                                  );
+                                }}
+                                className="text-slate-400 hover:underline cursor-pointer"
+                              >
+                                クリア
+                              </button>
+                            </div>
+                          </div>
+
+                          <div className="grid grid-cols-2 gap-1.5">
+                            {mainChars.map(renderCharButton)}
+                          </div>
+
+                          {extraChars.length > 0 && (
+                            <div className="pt-1 space-y-1">
+                              <div className="flex items-center justify-between px-1">
+                                <span className="text-[11px] font-bold text-slate-600">
+                                  ゲーム未登場シンガー ({extraChars.length}人)
+                                </span>
+                                <div className="flex gap-1.5 text-[10px]">
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      const extraIds = extraChars.map((c) => c.id);
+                                      setNewSelectedChars((prev) =>
+                                        Array.from(new Set([...prev, ...extraIds]))
+                                      );
+                                    }}
+                                    className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                                  >
+                                    全選択
+                                  </button>
+                                  <span className="text-slate-300">|</span>
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      const extraIds = extraChars.map((c) => c.id);
+                                      setNewSelectedChars((prev) =>
+                                        prev.filter((id) => !extraIds.includes(id))
+                                      );
+                                    }}
+                                    className="text-slate-400 hover:underline cursor-pointer"
+                                  >
+                                    クリア
+                                  </button>
+                                </div>
+                              </div>
+
+                              <button
+                                type="button"
+                                onClick={() => setShowNonGameSingersInCustom(!showNonGameSingersInCustom)}
+                                className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-left text-xs font-bold transition-all border cursor-pointer ${
+                                  showNonGameSingersInCustom
+                                    ? 'bg-slate-200/80 border-slate-300 text-slate-800'
+                                    : 'bg-slate-100/90 hover:bg-slate-200/60 border-slate-200 text-slate-600'
+                                }`}
+                              >
+                                <span className="flex items-center gap-1.5 text-[11px]">
+                                  <span>シンガー一覧</span>
+                                  {selectedExtraCount > 0 && (
+                                    <span className="bg-[#33ccbb] text-white px-1.5 py-0.5 rounded-full text-[10px] font-bold leading-none shadow-2xs">
+                                      {selectedExtraCount}人選択中
+                                    </span>
+                                  )}
+                                </span>
+                                <span className="flex items-center gap-1 text-[11px] text-slate-500">
+                                  <span>{showNonGameSingersInCustom ? '閉じる' : '表示する'}</span>
+                                  {showNonGameSingersInCustom ? (
+                                    <ChevronUp className="w-3.5 h-3.5 text-slate-500" />
+                                  ) : (
+                                    <ChevronDown className="w-3.5 h-3.5 text-slate-500" />
+                                  )}
+                                </span>
+                              </button>
+
+                              {showNonGameSingersInCustom && (
+                                <div className="grid grid-cols-2 gap-1.5 mt-1.5 pt-1.5 pl-2 border-l-2 border-slate-200 animate-in fade-in duration-150">
+                                  {extraChars.map(renderCharButton)}
+                                </div>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    }
+
                     return (
-                      <button
-                        key={tKey}
-                        type="button"
-                        onClick={() => {
-                          setNewSelectedOriginalTypes((prev) =>
-                            isSelected ? prev.filter((t) => t !== tKey) : [...prev, tKey]
-                          );
-                        }}
-                        className={`px-2.5 py-1 rounded-xl border text-[11px] font-bold transition-all cursor-pointer ${
-                          isSelected
-                            ? 'bg-[#33ccbb] text-white border-[#33ccbb] shadow-2xs'
-                            : 'bg-white text-slate-600 border-slate-200/90 hover:bg-slate-50'
-                        }`}
-                      >
-                        {tMeta.shortLabel}
-                      </button>
+                      <div key={unitKey} className="space-y-1.5">
+                        <div className="flex items-center justify-between px-1 pt-1">
+                          <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-700">
+                            {unitMeta.iconUrl ? (
+                              <img
+                                src={unitMeta.iconUrl}
+                                alt={unitMeta.name}
+                                className="w-3.5 h-3.5 object-contain shrink-0 drop-shadow-2xs"
+                              />
+                            ) : (
+                              <div
+                                className="w-2.5 h-2.5 rounded-full shrink-0 border border-slate-300"
+                                style={{ backgroundColor: unitMeta.themeColor }}
+                              />
+                            )}
+                            <span>{displayName}</span>
+                          </div>
+                          <div className="flex gap-1.5 text-[10px]">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                const ids = unitChars.map((c) => c.id);
+                                setNewSelectedChars((prev) =>
+                                  Array.from(new Set([...prev, ...ids]))
+                                );
+                              }}
+                              className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                            >
+                              全選択
+                            </button>
+                            <span className="text-slate-300">|</span>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                const ids = unitChars.map((c) => c.id);
+                                setNewSelectedChars((prev) =>
+                                  prev.filter((id) => !ids.includes(id))
+                                );
+                              }}
+                              className="text-slate-400 hover:underline cursor-pointer"
+                            >
+                              クリア
+                            </button>
+                          </div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-1.5">
+                          {unitChars.map(renderCharButton)}
+                        </div>
+                      </div>
                     );
                   })}
                 </div>
               </div>
 
-              {/* 3. 歌唱バージョン（複数選択チップ） */}
-              <div className="space-y-1">
-                <div className="flex items-center justify-between text-[11px]">
-                  <span className="font-bold text-slate-600">
-                    歌唱バージョン ({newSelectedVocalTypes.length > 0 ? `${newSelectedVocalTypes.length}件選択中` : '指定なし'}):
-                  </span>
-                  {newSelectedVocalTypes.length > 0 && (
+              {/* 3. 歌唱バージョンでの絞り込み（リスト絞り込みUIと統一） */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between text-xs font-bold">
+                  <div className="flex items-center gap-1.5 text-slate-700">
+                    <span>歌唱バージョン条件</span>
+                    {newSelectedVocalTypes.length > 0 && (
+                      <span className="text-[11px] bg-[#33ccbb]/15 text-[#0d9488] px-2 py-0.5 rounded-full font-bold">
+                        {newSelectedVocalTypes.length}件選択中
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex gap-2 text-xs">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setNewSelectedVocalTypes(['sekai', 'virtualSinger', 'connectLive', 'anotherVocal'])
+                      }
+                      className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                    >
+                      全選択
+                    </button>
+                    <span className="text-slate-300">|</span>
                     <button
                       type="button"
                       onClick={() => setNewSelectedVocalTypes([])}
-                      className="text-slate-400 hover:underline text-[10px]"
+                      className="text-slate-400 hover:underline cursor-pointer"
                     >
                       クリア
                     </button>
-                  )}
+                  </div>
                 </div>
-                <div className="flex flex-wrap gap-1.5">
+
+                <div className="grid grid-cols-2 gap-2 text-xs">
                   {[
                     { id: 'sekai', label: 'セカイver あり' },
-                    { id: 'virtualSinger', label: 'バチャシンver あり' },
+                    { id: 'virtualSinger', label: 'バーチャル・シンガーver あり' },
+                    { id: 'connectLive', label: 'コネクトライブver あり' },
                     { id: 'anotherVocal', label: 'アナザーボーカル あり' },
                   ].map((v) => {
                     const isSelected = newSelectedVocalTypes.includes(v.id as any);
@@ -869,10 +1357,10 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                             isSelected ? prev.filter((id) => id !== v.id) : [...prev, v.id as any]
                           );
                         }}
-                        className={`px-2.5 py-1 rounded-xl border text-[11px] font-bold transition-all cursor-pointer ${
+                        className={`px-3 py-2 rounded-xl border text-left font-medium transition-all cursor-pointer ${
                           isSelected
-                            ? 'bg-indigo-600 text-white border-indigo-600 shadow-2xs'
-                            : 'bg-white text-slate-600 border-slate-200/90 hover:bg-slate-50'
+                            ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] font-bold shadow-2xs'
+                            : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
                         }`}
                       >
                         {v.label}
@@ -882,60 +1370,149 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                 </div>
               </div>
 
-              {/* 4. 歌唱キャラクター（複数選択チップ） */}
-              <div className="space-y-1">
-                <div className="flex items-center justify-between text-[11px]">
-                  <span className="font-bold text-slate-600">
-                    歌唱キャラクター ({newSelectedChars.length > 0 ? `${newSelectedChars.length}人選択中` : '指定なし'}):
-                  </span>
-                  {newSelectedChars.length > 0 && (
+              {/* 4. 楽曲分類での絞り込み（書き下ろし楽曲のみ・カバー除外） */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between text-xs font-bold">
+                  <div className="flex items-center gap-1.5 text-slate-700">
+                    <span>楽曲分類（書き下ろし楽曲）</span>
+                    {newSelectedOriginalTypes.length > 0 && (
+                      <span className="text-[11px] bg-[#33ccbb]/15 text-[#0d9488] px-2 py-0.5 rounded-full font-bold">
+                        {newSelectedOriginalTypes.length}種選択中
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex gap-2 text-xs">
                     <button
                       type="button"
-                      onClick={() => setNewSelectedChars([])}
-                      className="text-slate-400 hover:underline text-[10px]"
+                      onClick={() =>
+                        setNewSelectedOriginalTypes(
+                          (Object.keys(ORIGINAL_TYPE_METAS) as OriginalSongType[]).filter(
+                            (t) => t !== 'cover'
+                          )
+                        )
+                      }
+                      className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                    >
+                      全選択
+                    </button>
+                    <span className="text-slate-300">|</span>
+                    <button
+                      type="button"
+                      onClick={() => setNewSelectedOriginalTypes([])}
+                      className="text-slate-400 hover:underline cursor-pointer"
                     >
                       クリア
                     </button>
-                  )}
+                  </div>
                 </div>
-                <div className="flex flex-wrap gap-1 max-h-24 overflow-y-auto p-1.5 bg-white/70 rounded-xl border border-slate-200/70">
-                  {CHARACTERS.map((c) => {
-                    const isSelected = newSelectedChars.includes(c.id);
+
+                <div className="grid grid-cols-2 gap-2 text-xs">
+                  {(Object.keys(ORIGINAL_TYPE_METAS) as OriginalSongType[])
+                    .filter((typeKey) => typeKey !== 'cover')
+                    .map((typeKey) => {
+                      const meta = ORIGINAL_TYPE_METAS[typeKey];
+                      const isSelected = newSelectedOriginalTypes.includes(typeKey);
+                      return (
+                        <button
+                          key={typeKey}
+                          type="button"
+                          onClick={() => {
+                            setNewSelectedOriginalTypes((prev) =>
+                              isSelected ? prev.filter((t) => t !== typeKey) : [...prev, typeKey]
+                            );
+                          }}
+                          className={`px-3 py-2 rounded-xl border text-left font-medium transition-all cursor-pointer ${
+                            isSelected
+                              ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] font-bold shadow-2xs'
+                              : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+                          }`}
+                        >
+                          {meta.label}
+                        </button>
+                      );
+                    })}
+                </div>
+              </div>
+
+              {/* 5. 実装年での絞り込み */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between text-xs font-bold">
+                  <div className="flex items-center gap-1.5 text-slate-700">
+                    <span>実装年</span>
+                    {newSelectedReleaseYears.length > 0 && (
+                      <span className="text-[11px] bg-[#33ccbb]/15 text-[#0d9488] px-2 py-0.5 rounded-full font-bold">
+                        {newSelectedReleaseYears.length}件選択中
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex gap-2 text-xs">
+                    <button
+                      type="button"
+                      onClick={() => setNewSelectedReleaseYears([1, 2, 3, 4, 5, 6, 7])}
+                      className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                    >
+                      全選択
+                    </button>
+                    <span className="text-slate-300">|</span>
+                    <button
+                      type="button"
+                      onClick={() => setNewSelectedReleaseYears([])}
+                      className="text-slate-400 hover:underline cursor-pointer"
+                    >
+                      クリア
+                    </button>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2 text-xs">
+                  {[
+                    { year: 1, label: '1年目 (2020.9.30〜)' },
+                    { year: 2, label: '2年目 (2021.9.30〜)' },
+                    { year: 3, label: '3年目 (2022.9.30〜)' },
+                    { year: 4, label: '4年目 (2023.9.30〜)' },
+                    { year: 5, label: '5年目 (2024.9.30〜)' },
+                    { year: 6, label: '6年目 (2025.9.30〜)' },
+                    { year: 7, label: '7年目 (2026.9.30〜)' },
+                  ].map((item) => {
+                    const isSelected = newSelectedReleaseYears.includes(item.year);
                     return (
                       <button
-                        key={c.id}
+                        key={item.year}
                         type="button"
                         onClick={() => {
-                          setNewSelectedChars((prev) =>
-                            isSelected ? prev.filter((id) => id !== c.id) : [...prev, c.id]
+                          setNewSelectedReleaseYears((prev) =>
+                            isSelected ? prev.filter((y) => y !== item.year) : [...prev, item.year]
                           );
                         }}
-                        className={`px-2 py-0.5 rounded-lg border text-[10px] font-medium transition-all cursor-pointer flex items-center gap-1 ${
+                        className={`px-3 py-2 rounded-xl border text-left font-medium transition-all cursor-pointer ${
                           isSelected
-                            ? 'bg-slate-800 text-white border-slate-800 shadow-2xs'
-                            : 'bg-white text-slate-600 border-slate-200/80 hover:bg-slate-100'
+                            ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] font-bold shadow-2xs'
+                            : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
                         }`}
                       >
-                        <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: c.color }} />
-                        <span>{c.name}</span>
+                        {item.label}
                       </button>
                     );
                   })}
                 </div>
               </div>
 
-              {/* 追加ボタン */}
-              <div className="flex items-center justify-between pt-1">
-                <div className="text-[10px] text-slate-500">
+              {/* 追加ボタン & マッチタイプ補足説明 */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-slate-200/80">
+                <div className="text-[11px] text-slate-500">
                   {newMatchType === 'and' ? (
-                    <span className="text-[#0d9488] font-bold">※すべての条件を満たす楽曲を対象 (AND)</span>
+                    <span className="text-[#0d9488] font-bold">
+                      ※指定したすべての条件を満たす楽曲を対象にします (AND)
+                    </span>
                   ) : (
-                    <span className="text-sky-600 font-bold">※いずれかの条件を満たす楽曲を対象 (OR)</span>
+                    <span className="text-sky-600 font-bold">
+                      ※指定したいずれかの条件を満たす楽曲を対象にします (OR)
+                    </span>
                   )}
                 </div>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-[#33ccbb] hover:bg-[#2cb3a5] text-white font-bold text-xs rounded-xl shadow-xs flex items-center gap-1.5 transition-all cursor-pointer active:scale-95"
+                  className="px-5 py-2.5 bg-[#33ccbb] hover:bg-[#2cb3a5] text-white font-bold text-xs sm:text-sm rounded-xl shadow-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer active:scale-95"
                 >
                   <Plus className="w-4 h-4" />
                   <span>比較条件を追加</span>
@@ -949,7 +1526,9 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
         <div className="space-y-3">
           {sortedList.length === 0 ? (
             <div className="p-8 text-center text-slate-400 text-xs">
-              比較条件に該当する項目がありません。
+              {activeTab === 'character'
+                ? 'キャラクターが選択されていません。上の「比較キャラクター選択」から選択してください。'
+                : '比較条件に該当する項目がありません。'}
             </div>
           ) : (
             sortedList.map((item) => (

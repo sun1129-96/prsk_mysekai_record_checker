@@ -43,6 +43,7 @@ export const App: React.FC = () => {
     searchQuery: '',
     originalTypes: [],
     bannerCharacters: [],
+    releaseYears: [],
   });
 
   // 比較画面等から特定の絞り込み条件でリスト画面へ遷移する
@@ -164,7 +165,6 @@ export const App: React.FC = () => {
             ownedRecordIds={ownedRecordIds}
             onToggleOwned={handleToggleOwned}
             displaySettings={displaySettings}
-            onDisplaySettingsChange={setDisplaySettings}
             filterOptions={filterOptions}
             onFilterOptionsChange={setFilterOptions}
           />
@@ -190,9 +190,15 @@ export const App: React.FC = () => {
         )}
       </main>
 
-      {/* 控えめなフッター */}
-      <footer className="py-6 border-t border-slate-200/60 bg-white/50 text-center text-xs text-slate-400">
-        <p>© 2026 プロセカ マイセカイ レコードチェッカー (Unofficial Mockup)</p>
+      {/* フッター（免責事項・非公式ファンサイト明記） */}
+      <footer className="py-8 px-4 border-t border-slate-200/60 bg-white/60 text-center text-xs text-slate-400">
+        <div className="max-w-xl mx-auto space-y-2 leading-relaxed text-slate-400 text-xs">
+          <p className="font-medium text-slate-400">このサイトは非公式のファンサイトです。</p>
+          <p className="text-slate-400">予告なくサイト内容の追加・変更・削除等を行う場合があります。</p>
+          <p className="text-slate-400">
+            当サイトの利用によって生じた何らかのトラブルや不利益に対し、作成者は一切の責任を負いかねます。自己責任にてご利用いただきますよう、あらかじめご了承ください。
+          </p>
+        </div>
       </footer>
     </div>
   );

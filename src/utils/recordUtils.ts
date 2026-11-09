@@ -56,6 +56,16 @@ export const getAnniversaryYear = (dateStr: string): number => {
 /**
  * レコードのフィルタリングとソート処理
  */
+const ALL_UNIT_KEYS: RecordItem['unit'][] = [
+  'virtual_singer',
+  'leo_need',
+  'more_more_jump',
+  'vivid_bad_squad',
+  'wonderlands_showtime',
+  'nightcord_at_25',
+  'other',
+];
+
 export const filterAndSortRecords = (
   records: RecordItem[],
   ownedRecordIds: Record<string, boolean>,
@@ -63,48 +73,30 @@ export const filterAndSortRecords = (
   sortDirection: SortDirection,
   filterOptions: FilterOptions
 ): RecordItem[] => {
+  const matchType = filterOptions.matchType || 'and';
+  const isUnitFiltered =
+    filterOptions.units.length === 0 ||
+    !ALL_UNIT_KEYS.every((u) => filterOptions.units.includes(u));
+  const isCharFiltered = filterOptions.characters.length > 0;
+  const isVocalFiltered = Boolean(
+    filterOptions.vocalVersions.sekai ||
+    filterOptions.vocalVersions.virtualSinger ||
+    filterOptions.vocalVersions.connectLive ||
+    filterOptions.vocalVersions.anotherVocal
+  );
+  const isOriginalTypeFiltered = Boolean(filterOptions.originalTypes && filterOptions.originalTypes.length > 0);
+  const isBannerFiltered = Boolean(filterOptions.bannerCharacters && filterOptions.bannerCharacters.length > 0);
+  const isYearFiltered = Boolean(filterOptions.releaseYears && filterOptions.releaseYears.length > 0);
+
   return records
     .filter((record) => {
       const isOwned = !!ownedRecordIds[record.id];
 
-      // 所持ステータス絞り込み
+      // 所持ステータス絞り込み（基本フィルター）
       if (filterOptions.ownership === 'owned' && !isOwned) return false;
       if (filterOptions.ownership === 'unowned' && isOwned) return false;
 
-      // ユニット絞り込み
-      if (!filterOptions.units.includes(record.unit)) return false;
-
-      // キャラクター絞り込み
-      if (filterOptions.characters.length > 0) {
-        const hasChar = filterOptions.characters.some((cId) =>
-          record.characters.includes(cId)
-        );
-        if (!hasChar) return false;
-      }
-
-      // 歌唱ver絞り込み
-      if (filterOptions.vocalVersions.sekai && !record.vocalVersions.sekai) return false;
-      if (filterOptions.vocalVersions.virtualSinger && !record.vocalVersions.virtualSinger)
-        return false;
-      if (filterOptions.vocalVersions.connectLive && !record.vocalVersions.connectLive)
-        return false;
-      if (filterOptions.vocalVersions.anotherVocal && !record.vocalVersions.anotherVocal)
-        return false;
-
-      // 書き下ろし種別絞り込み
-      if (filterOptions.originalTypes && filterOptions.originalTypes.length > 0) {
-        const type = record.originalType || 'cover';
-        if (!filterOptions.originalTypes.includes(type)) return false;
-      }
-
-      // バナーキャラクター絞り込み
-      if (filterOptions.bannerCharacters && filterOptions.bannerCharacters.length > 0) {
-        if (!record.bannerCharacter || !filterOptions.bannerCharacters.includes(record.bannerCharacter)) {
-          return false;
-        }
-      }
-
-      // 検索クエリ（曲名・よみがな）
+      // 検索クエリ（基本フィルター）
       if (filterOptions.searchQuery.trim() !== '') {
         const q = filterOptions.searchQuery.toLowerCase();
         const matchTitle = record.title.toLowerCase().includes(q);
@@ -112,7 +104,57 @@ export const filterAndSortRecords = (
         if (!matchTitle && !matchReading) return false;
       }
 
-      return true;
+      // AND / OR 対象の個別条件を評価
+      const criteriaResults: boolean[] = [];
+
+      // 1. ユニット
+      if (isUnitFiltered) {
+        criteriaResults.push(filterOptions.units.includes(record.unit));
+      }
+
+      // 2. キャラクター
+      if (isCharFiltered) {
+        const hasChar = filterOptions.characters.some((cId) =>
+          record.characters.includes(cId)
+        );
+        criteriaResults.push(hasChar);
+      }
+
+      // 3. 歌唱ver
+      if (isVocalFiltered) {
+        const vocalMatch =
+          (filterOptions.vocalVersions.sekai && record.vocalVersions.sekai) ||
+          (filterOptions.vocalVersions.virtualSinger && record.vocalVersions.virtualSinger) ||
+          (filterOptions.vocalVersions.connectLive && record.vocalVersions.connectLive) ||
+          (filterOptions.vocalVersions.anotherVocal && record.vocalVersions.anotherVocal);
+        criteriaResults.push(Boolean(vocalMatch));
+      }
+
+      // 4. 書き下ろし種別
+      if (isOriginalTypeFiltered && filterOptions.originalTypes) {
+        const type = record.originalType || 'cover';
+        criteriaResults.push(filterOptions.originalTypes.includes(type));
+      }
+
+      // 5. バナーキャラクター
+      if (isBannerFiltered && filterOptions.bannerCharacters) {
+        criteriaResults.push(
+          Boolean(record.bannerCharacter && filterOptions.bannerCharacters.includes(record.bannerCharacter))
+        );
+      }
+
+      // 6. 実装年
+      if (isYearFiltered && filterOptions.releaseYears) {
+        const year = getAnniversaryYear(record.releaseDate);
+        criteriaResults.push(filterOptions.releaseYears.includes(year));
+      }
+
+      // どの条件も指定されていない場合は全件通過
+      if (criteriaResults.length === 0) return true;
+
+      return matchType === 'and'
+        ? criteriaResults.every(Boolean)
+        : criteriaResults.some(Boolean);
     })
     .sort((a, b) => {
       let compare = 0;
@@ -121,7 +163,7 @@ export const filterAndSortRecords = (
       } else if (sortType === 'defaultOrder') {
         compare = a.defaultOrder - b.defaultOrder;
       } else if (sortType === 'releaseDate') {
-        compare = a.releaseDate.localeCompare(b.releaseDate);
+        compare = a.releaseDate.localeCompare(b.releaseDate) || (a.defaultOrder - b.defaultOrder);
       } else if (sortType === 'reading') {
         compare = a.reading.localeCompare(b.reading, 'ja');
       }

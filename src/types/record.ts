@@ -297,6 +297,8 @@ export interface FilterOptions {
   searchQuery: string;
   originalTypes?: OriginalSongType[];  // 書き下ろし種別絞り込み
   bannerCharacters?: string[];         // バナーキャラクター絞り込み
+  releaseYears?: number[];             // 実装年（1年目〜6年目等）絞り込み
+  matchType?: 'and' | 'or';            // 条件結合方式 (AND: すべて一致, OR: いずれか一致)
 }
 
 /**
@@ -311,7 +313,8 @@ export interface SavedCompareCondition {
   conditionUnits?: UnitType[];
   conditionCharacters?: string[];
   conditionOriginalTypes?: OriginalSongType[];
-  conditionVocalTypes?: ('sekai' | 'virtualSinger' | 'anotherVocal')[];
+  conditionVocalTypes?: ('sekai' | 'virtualSinger' | 'anotherVocal' | 'connectLive')[];
+  conditionReleaseYears?: number[];
 }
 
 /**
