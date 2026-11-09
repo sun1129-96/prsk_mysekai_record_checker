@@ -18,6 +18,7 @@ const mockItems: RecordItem[] = [
     defaultOrder: 1,
     vocalVersions: { virtualSinger: true, sekai: false, connectLive: false, anotherVocal: false },
     characters: ['miku'],
+    originalType: 'cover',
   },
   {
     id: 'rec_2',
@@ -28,6 +29,8 @@ const mockItems: RecordItem[] = [
     defaultOrder: 2,
     vocalVersions: { virtualSinger: true, sekai: true, connectLive: false, anotherVocal: true },
     characters: ['ichika', 'saki', 'miku'],
+    originalType: 'event',
+    bannerCharacter: 'saki',
   },
   {
     id: 'rec_3',
@@ -38,6 +41,8 @@ const mockItems: RecordItem[] = [
     defaultOrder: 3,
     vocalVersions: { virtualSinger: false, sekai: true, connectLive: true, anotherVocal: true },
     characters: ['tsukasa', 'emu'],
+    originalType: 'event',
+    bannerCharacter: 'tsukasa',
   },
   {
     id: 'rec_4',
@@ -48,6 +53,7 @@ const mockItems: RecordItem[] = [
     defaultOrder: 4,
     vocalVersions: { virtualSinger: true, sekai: true, connectLive: true, anotherVocal: false },
     characters: ['ichika', 'miku'],
+    originalType: 'anniversary',
   },
 ];
 
@@ -205,23 +211,85 @@ describe('filterAndSortRecords', () => {
     expect(descRes[0].title).toBe('群青讃歌');
     expect(descRes[3].title).toBe('メルト');
   });
+
+  it('書き下ろし種別で絞り込みができる', () => {
+    const res = filterAndSortRecords(
+      mockItems,
+      {},
+      'defaultOrder',
+      'asc',
+      { ...defaultFilter, originalTypes: ['event'] }
+    );
+    expect(res.length).toBe(2);
+    expect(res.map((r) => r.title)).toEqual(['ステラ', 'トンデモワンダーズ']);
+
+    const annivRes = filterAndSortRecords(
+      mockItems,
+      {},
+      'defaultOrder',
+      'asc',
+      { ...defaultFilter, originalTypes: ['anniversary'] }
+    );
+    expect(annivRes.length).toBe(1);
+    expect(annivRes[0].title).toBe('群青讃歌');
+  });
+
+  it('バナーキャラクターで絞り込みができる', () => {
+    const sakiRes = filterAndSortRecords(
+      mockItems,
+      {},
+      'defaultOrder',
+      'asc',
+      { ...defaultFilter, bannerCharacters: ['saki'] }
+    );
+    expect(sakiRes.length).toBe(1);
+    expect(sakiRes[0].title).toBe('ステラ');
+
+    const multiRes = filterAndSortRecords(
+      mockItems,
+      {},
+      'defaultOrder',
+      'asc',
+      { ...defaultFilter, bannerCharacters: ['saki', 'tsukasa'] }
+    );
+    expect(multiRes.length).toBe(2);
+  });
 });
 
 describe('encodeShareData / decodeShareData', () => {
-  it('所持状態を可逆的にエンコード・デコードできる', () => {
-    const original = { rec_1: true, rec_3: true };
-    const encoded = encodeShareData(original);
+  it('所持状態を可逆的にエンコード・デコードできる（BitSet b1_ 形式）', () => {
+    const original = { rec_1: true, rec_3: true, rec_731: true };
+    const encoded = encodeShareData(original, 731);
     expect(typeof encoded).toBe('string');
-    expect(encoded.length).toBeGreaterThan(0);
+    expect(encoded.startsWith('b1_')).toBe(true);
 
     const decoded = decodeShareData(encoded);
     expect(decoded.rec_1).toBe(true);
     expect(decoded.rec_3).toBe(true);
+    expect(decoded.rec_731).toBe(true);
     expect(decoded.rec_2).toBeUndefined();
+  });
+
+  it('旧形式（JSON Base64）の共有データも後方互換性でデコードできる', () => {
+    const oldJson = JSON.stringify(['rec_2', 'rec_4']);
+    const oldBase64 = btoa(encodeURIComponent(oldJson));
+
+    const decoded = decodeShareData(oldBase64);
+    expect(decoded.rec_2).toBe(true);
+    expect(decoded.rec_4).toBe(true);
+    expect(decoded.rec_1).toBeUndefined();
+  });
+
+  it('空の所持状態を安全にエンコード・デコードできる', () => {
+    const encoded = encodeShareData({}, 10);
+    const decoded = decodeShareData(encoded);
+    expect(decoded).toEqual({});
   });
 
   it('不正な共有文字列が与えられた場合は空オブジェクトを安全に返す', () => {
     const decoded = decodeShareData('invalid_base64_string_%%%');
     expect(decoded).toEqual({});
+    const decodedB1 = decodeShareData('b1_!!!not_valid_b64!!!');
+    expect(decodedB1).toEqual({});
   });
 });

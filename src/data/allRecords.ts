@@ -1,4 +1,4 @@
-// 自動生成ファイル (pjsekai.com より全731曲インポート・公式pronunciation読み仮名適用済み・シンガーID正規化済み)
+// 自動生成ファイル (pjsekai.com より全731曲インポート・公式pronunciation読み仮名適用済み・シンガーID正規化済み・書き下ろし分類およびバナーキャラ付与済み)
 import type { RecordItem } from '../types/record';
 
 export const ALL_RECORDS: RecordItem[] = [
@@ -29,7 +29,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_2",
@@ -58,7 +59,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_3",
@@ -87,7 +89,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_4",
@@ -116,7 +119,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_5",
@@ -176,7 +180,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_6",
@@ -205,7 +210,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_7",
@@ -256,7 +262,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_8",
@@ -322,7 +329,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_9",
@@ -410,7 +418,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "toya"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_10",
@@ -488,7 +497,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "shizuku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_11",
@@ -545,7 +555,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "shizuku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_12",
@@ -598,7 +609,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_13",
@@ -642,7 +654,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_14",
@@ -692,7 +705,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_15",
@@ -770,7 +784,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "alkaloid"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_16",
@@ -828,7 +843,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rui"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_17",
@@ -905,7 +921,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "nene"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_18",
@@ -949,7 +966,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_19",
@@ -1027,7 +1045,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "an"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_20",
@@ -1068,7 +1087,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_21",
@@ -1109,7 +1129,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_22",
@@ -1178,7 +1199,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "saki"
         ]
       }
-    ]
+    ],
+    "originalType": "unit"
   },
   {
     "id": "rec_23",
@@ -1229,7 +1251,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "unit"
   },
   {
     "id": "rec_24",
@@ -1278,7 +1301,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "unit"
   },
   {
     "id": "rec_25",
@@ -1341,7 +1365,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rui"
         ]
       }
-    ]
+    ],
+    "originalType": "unit"
   },
   {
     "id": "rec_26",
@@ -1418,7 +1443,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "mizuki"
         ]
       }
-    ]
+    ],
+    "originalType": "unit"
   },
   {
     "id": "rec_27",
@@ -1479,7 +1505,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "anniversary"
   },
   {
     "id": "rec_28",
@@ -1522,7 +1549,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "anniversary"
   },
   {
     "id": "rec_29",
@@ -1551,7 +1579,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "ichika"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_30",
@@ -1600,7 +1629,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "haruka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_31",
@@ -1657,7 +1687,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "an"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_32",
@@ -1707,7 +1738,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_33",
@@ -1772,7 +1804,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_34",
@@ -1801,7 +1834,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_35",
@@ -1862,7 +1896,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "emu"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_36",
@@ -1891,7 +1926,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_37",
@@ -1957,7 +1993,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_38",
@@ -1988,7 +2025,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_39",
@@ -2042,7 +2080,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "airi"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_40",
@@ -2071,7 +2110,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_41",
@@ -2116,7 +2156,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_42",
@@ -2147,7 +2188,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_43",
@@ -2196,7 +2238,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "unit"
   },
   {
     "id": "rec_44",
@@ -2225,7 +2268,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_45",
@@ -2264,7 +2308,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_46",
@@ -2325,7 +2370,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "shiho"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "saki"
   },
   {
     "id": "rec_47",
@@ -2354,7 +2401,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_48",
@@ -2425,7 +2473,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "mafuyu"
   },
   {
     "id": "rec_49",
@@ -2470,7 +2520,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_50",
@@ -2527,7 +2578,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "mizuki"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_51",
@@ -2590,7 +2642,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "rui"
   },
   {
     "id": "rec_52",
@@ -2619,7 +2673,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_53",
@@ -2664,7 +2719,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "airi"
   },
   {
     "id": "rec_54",
@@ -2693,7 +2750,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_55",
@@ -2722,7 +2780,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_56",
@@ -2751,7 +2810,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_57",
@@ -2800,7 +2860,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "honami"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_58",
@@ -2870,7 +2931,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "an"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "an"
   },
   {
     "id": "rec_59",
@@ -2939,7 +3002,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "mizuki"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_60",
@@ -3009,7 +3073,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "nene"
   },
   {
     "id": "rec_61",
@@ -3038,7 +3104,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_62",
@@ -3085,7 +3152,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "ichika"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_63",
@@ -3114,7 +3182,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_64",
@@ -3171,7 +3240,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "airi"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_65",
@@ -3200,7 +3270,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_66",
@@ -3260,7 +3331,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_67",
@@ -3324,7 +3396,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "akito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_68",
@@ -3368,7 +3441,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "nene"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_69",
@@ -3397,7 +3471,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_70",
@@ -3439,7 +3514,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "vy2"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_71",
@@ -3500,7 +3576,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "honami"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "honami"
   },
   {
     "id": "rec_72",
@@ -3531,7 +3609,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_73",
@@ -3560,7 +3639,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_74",
@@ -3630,7 +3710,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "shizuku"
   },
   {
     "id": "rec_75",
@@ -3697,7 +3779,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "an"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "toya"
   },
   {
     "id": "rec_76",
@@ -3754,7 +3838,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "shizuku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_77",
@@ -3815,7 +3900,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "saki"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_78",
@@ -3886,7 +3972,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kohane"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_79",
@@ -3945,7 +4032,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "nene"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_80",
@@ -3984,7 +4072,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "minori"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_81",
@@ -4046,7 +4135,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "ena"
   },
   {
     "id": "rec_82",
@@ -4108,7 +4199,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "emu"
   },
   {
     "id": "rec_83",
@@ -4148,7 +4241,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "flower"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_84",
@@ -4177,7 +4271,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_85",
@@ -4251,7 +4346,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "toya"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_86",
@@ -4314,7 +4410,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "shiho"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_87",
@@ -4343,7 +4440,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_88",
@@ -4404,7 +4502,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "airi"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "minori"
   },
   {
     "id": "rec_89",
@@ -4458,7 +4558,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rui"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_90",
@@ -4527,7 +4628,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "shizuku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_91",
@@ -4607,7 +4709,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "ena"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "mizuki"
   },
   {
     "id": "rec_92",
@@ -4676,7 +4780,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "shiho"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "shiho"
   },
   {
     "id": "rec_93",
@@ -4705,7 +4811,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_94",
@@ -4788,7 +4895,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kanade"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_95",
@@ -4838,7 +4946,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "toya"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_96",
@@ -4900,7 +5009,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "akito"
   },
   {
     "id": "rec_97",
@@ -4976,7 +5087,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "crazy_b"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_98",
@@ -5032,7 +5144,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "minori"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "haruka"
   },
   {
     "id": "rec_99",
@@ -5082,7 +5196,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "saki"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_100",
@@ -5152,7 +5267,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "shizuku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_101",
@@ -5181,7 +5297,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_102",
@@ -5260,7 +5377,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "rui"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "tsukasa"
   },
   {
     "id": "rec_103",
@@ -5346,7 +5465,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "kanade"
   },
   {
     "id": "rec_104",
@@ -5418,7 +5539,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_105",
@@ -5487,7 +5609,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "shiho"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "saki"
   },
   {
     "id": "rec_106",
@@ -5575,7 +5699,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "kohane"
   },
   {
     "id": "rec_107",
@@ -5631,7 +5757,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_108",
@@ -5709,7 +5836,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "nene"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_109",
@@ -5787,7 +5915,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_110",
@@ -5826,7 +5955,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "tsukasa"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_111",
@@ -5903,7 +6033,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "shiho"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_112",
@@ -5957,7 +6088,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "airi"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "airi"
   },
   {
     "id": "rec_113",
@@ -6003,7 +6136,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "nene"
   },
   {
     "id": "rec_114",
@@ -6067,7 +6202,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "toya"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_115",
@@ -6096,7 +6232,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "collab"
   },
   {
     "id": "rec_116",
@@ -6167,7 +6304,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "shiho"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "ichika"
   },
   {
     "id": "rec_117",
@@ -6224,7 +6363,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "mafuyu"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_118",
@@ -6294,7 +6434,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "mafuyu"
   },
   {
     "id": "rec_119",
@@ -6431,7 +6573,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "anniversary"
   },
   {
     "id": "rec_120",
@@ -6460,7 +6603,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_121",
@@ -6539,7 +6683,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_122",
@@ -6568,7 +6713,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "anniv_hard"
   },
   {
     "id": "rec_123",
@@ -6652,7 +6798,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "mizuki"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_124",
@@ -6681,7 +6828,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "gumi"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_125",
@@ -6742,7 +6890,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "nene"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_126",
@@ -6771,7 +6920,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "gumi"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_127",
@@ -6816,7 +6966,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_128",
@@ -6845,7 +6996,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "gumi"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_129",
@@ -6894,7 +7046,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "airi"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_130",
@@ -6923,7 +7076,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_131",
@@ -6962,7 +7116,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_132",
@@ -7007,7 +7162,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_133",
@@ -7038,7 +7194,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_134",
@@ -7099,7 +7256,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "rui"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "rui"
   },
   {
     "id": "rec_135",
@@ -7168,7 +7327,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "shizuku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_136",
@@ -7247,7 +7407,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "mizuki"
   },
   {
     "id": "rec_137",
@@ -7276,7 +7438,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_138",
@@ -7345,7 +7508,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "toya"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_139",
@@ -7431,7 +7595,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "honami"
   },
   {
     "id": "rec_140",
@@ -7494,7 +7660,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "shizuku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_141",
@@ -7548,7 +7715,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "minori"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "minori"
   },
   {
     "id": "rec_142",
@@ -7577,7 +7746,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_143",
@@ -7606,7 +7776,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_144",
@@ -7635,7 +7806,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "collab"
   },
   {
     "id": "rec_145",
@@ -7664,7 +7836,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_146",
@@ -7720,7 +7893,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rui"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_147",
@@ -7790,7 +7964,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "toya"
   },
   {
     "id": "rec_148",
@@ -7851,7 +8027,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_149",
@@ -7907,7 +8084,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "mizuki"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_150",
@@ -7938,7 +8116,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_151",
@@ -7995,7 +8174,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "shizuku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_152",
@@ -8053,7 +8233,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "toya"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_153",
@@ -8071,7 +8252,8 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [],
-    "vocalTracks": []
+    "vocalTracks": [],
+    "originalType": "cover"
   },
   {
     "id": "rec_154",
@@ -8089,7 +8271,8 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [],
-    "vocalTracks": []
+    "vocalTracks": [],
+    "originalType": "cover"
   },
   {
     "id": "rec_155",
@@ -8107,7 +8290,8 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [],
-    "vocalTracks": []
+    "vocalTracks": [],
+    "originalType": "cover"
   },
   {
     "id": "rec_156",
@@ -8165,7 +8349,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "emu"
   },
   {
     "id": "rec_157",
@@ -8227,7 +8413,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "kanade"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "kanade"
   },
   {
     "id": "rec_158",
@@ -8284,7 +8472,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "honami"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_159",
@@ -8340,7 +8529,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "mizuki"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_160",
@@ -8398,7 +8588,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "an"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_161",
@@ -8427,7 +8618,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_162",
@@ -8484,7 +8676,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "ena"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_163",
@@ -8555,7 +8748,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "kohane"
   },
   {
     "id": "rec_164",
@@ -8644,7 +8839,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "shiho"
   },
   {
     "id": "rec_165",
@@ -8673,7 +8870,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_166",
@@ -8740,7 +8938,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_167",
@@ -8812,7 +9011,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_168",
@@ -8872,7 +9072,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "tsukasa"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_169",
@@ -8901,7 +9102,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_170",
@@ -8954,7 +9156,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "shizuku"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "shizuku"
   },
   {
     "id": "rec_171",
@@ -9010,7 +9214,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "emu"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_172",
@@ -9086,7 +9291,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_173",
@@ -9157,7 +9363,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "ena"
   },
   {
     "id": "rec_174",
@@ -9188,7 +9396,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "gumi"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_175",
@@ -9217,7 +9426,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "gumi"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_176",
@@ -9246,7 +9456,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_177",
@@ -9275,7 +9486,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_178",
@@ -9304,7 +9516,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_179",
@@ -9333,7 +9546,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_180",
@@ -9408,7 +9622,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "tsukasa"
   },
   {
     "id": "rec_181",
@@ -9437,7 +9653,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_182",
@@ -9491,7 +9708,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "an"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_183",
@@ -9532,7 +9750,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_184",
@@ -9593,7 +9812,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "saki"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "ichika"
   },
   {
     "id": "rec_185",
@@ -9634,7 +9855,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "gumi"
         ]
       }
-    ]
+    ],
+    "originalType": "collab"
   },
   {
     "id": "rec_186",
@@ -9679,7 +9901,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "collab"
   },
   {
     "id": "rec_187",
@@ -9724,7 +9947,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "collab"
   },
   {
     "id": "rec_188",
@@ -9761,7 +9985,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "mikudayo"
         ]
       }
-    ]
+    ],
+    "originalType": "collab"
   },
   {
     "id": "rec_189",
@@ -9802,7 +10027,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "collab"
   },
   {
     "id": "rec_190",
@@ -9863,7 +10089,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "haruka"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "haruka"
   },
   {
     "id": "rec_191",
@@ -9892,7 +10120,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_192",
@@ -9967,7 +10196,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_193",
@@ -10011,7 +10241,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_194",
@@ -10083,7 +10314,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "akito"
   },
   {
     "id": "rec_195",
@@ -10177,7 +10410,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kohane"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_196",
@@ -10238,7 +10472,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "an"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "an"
   },
   {
     "id": "rec_197",
@@ -10278,7 +10514,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "flower"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_198",
@@ -10358,7 +10595,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "mafuyu"
   },
   {
     "id": "rec_199",
@@ -10422,7 +10661,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "ena"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_200",
@@ -10510,7 +10750,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_201",
@@ -10539,7 +10780,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_202",
@@ -10608,7 +10850,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "nene"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "nene"
   },
   {
     "id": "rec_203",
@@ -10652,7 +10896,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_204",
@@ -10681,7 +10926,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "gumi"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_205",
@@ -10738,7 +10984,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "mafuyu"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_206",
@@ -10787,7 +11034,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "emu"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_207",
@@ -10849,7 +11097,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "an"
   },
   {
     "id": "rec_208",
@@ -10902,7 +11152,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "saki"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "saki"
   },
   {
     "id": "rec_209",
@@ -10931,7 +11183,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_210",
@@ -11019,7 +11272,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_211",
@@ -11083,7 +11337,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "airi"
   },
   {
     "id": "rec_212",
@@ -11144,7 +11400,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "honami"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_213",
@@ -11197,7 +11454,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "an"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_214",
@@ -11226,7 +11484,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_215",
@@ -11281,7 +11540,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "mizuki"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "mizuki"
   },
   {
     "id": "rec_216",
@@ -11310,7 +11571,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_217",
@@ -11372,7 +11634,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "shiho"
   },
   {
     "id": "rec_218",
@@ -11421,7 +11685,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "mizuki"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_219",
@@ -11478,7 +11743,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "shiho"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_220",
@@ -11532,7 +11798,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "toya"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "toya"
   },
   {
     "id": "rec_221",
@@ -11637,7 +11905,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kanade"
         ]
       }
-    ]
+    ],
+    "originalType": "anniversary"
   },
   {
     "id": "rec_222",
@@ -11707,7 +11976,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_223",
@@ -11736,7 +12006,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_224",
@@ -11824,7 +12095,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_225",
@@ -11853,7 +12125,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_226",
@@ -11884,7 +12157,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "gumi"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_227",
@@ -11946,7 +12220,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_228",
@@ -11989,7 +12264,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "gakupo"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_229",
@@ -12060,7 +12336,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kanade"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_230",
@@ -12089,7 +12366,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_231",
@@ -12163,7 +12441,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "shiho"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_232",
@@ -12194,7 +12473,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "anniv_hard"
   },
   {
     "id": "rec_233",
@@ -12252,7 +12532,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "minori"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "minori"
   },
   {
     "id": "rec_234",
@@ -12293,7 +12575,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_235",
@@ -12322,7 +12605,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_236",
@@ -12379,7 +12663,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "an"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_237",
@@ -12408,7 +12693,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_238",
@@ -12470,7 +12756,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rui"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_239",
@@ -12523,7 +12810,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "ichika"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "ichika"
   },
   {
     "id": "rec_240",
@@ -12576,7 +12865,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "ena"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "ena"
   },
   {
     "id": "rec_241",
@@ -12607,7 +12898,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_242",
@@ -12636,7 +12928,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_243",
@@ -12679,7 +12972,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "collab"
   },
   {
     "id": "rec_244",
@@ -12708,7 +13002,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_245",
@@ -12771,7 +13066,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "shizuku"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "haruka"
   },
   {
     "id": "rec_246",
@@ -12816,7 +13113,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_247",
@@ -12875,7 +13173,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "haruka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_248",
@@ -12906,7 +13205,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_249",
@@ -12962,7 +13262,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "akito"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "akito"
   },
   {
     "id": "rec_250",
@@ -12991,7 +13293,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_251",
@@ -13020,7 +13323,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_252",
@@ -13090,7 +13394,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_253",
@@ -13147,7 +13452,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "nene"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_254",
@@ -13178,7 +13484,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_255",
@@ -13207,7 +13514,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_256",
@@ -13260,7 +13568,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "airi"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_257",
@@ -13317,7 +13626,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "ena"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_258",
@@ -13348,7 +13658,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_259",
@@ -13392,7 +13703,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_260",
@@ -13421,7 +13733,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_261",
@@ -13483,7 +13796,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "emu"
   },
   {
     "id": "rec_262",
@@ -13538,7 +13853,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "honami"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "honami"
   },
   {
     "id": "rec_263",
@@ -13567,7 +13884,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "flower"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_264",
@@ -13596,7 +13914,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_265",
@@ -13625,7 +13944,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_266",
@@ -13658,7 +13978,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kiritan"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_267",
@@ -13689,7 +14010,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "gekiyaku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_268",
@@ -13718,7 +14040,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "gumi"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_269",
@@ -13747,7 +14070,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_270",
@@ -13809,7 +14133,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "ena"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_271",
@@ -13870,7 +14195,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rui"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_272",
@@ -13933,7 +14259,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "shizuku"
   },
   {
     "id": "rec_273",
@@ -13995,7 +14323,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "kohane"
   },
   {
     "id": "rec_274",
@@ -14048,7 +14378,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "shiho"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_275",
@@ -14079,7 +14410,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_276",
@@ -14108,7 +14440,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_277",
@@ -14137,7 +14470,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_278",
@@ -14166,7 +14500,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_279",
@@ -14195,7 +14530,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_280",
@@ -14224,7 +14560,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_281",
@@ -14286,7 +14623,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "shizuku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_282",
@@ -14333,7 +14671,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_283",
@@ -14397,7 +14736,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "emu"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "tsukasa"
   },
   {
     "id": "rec_284",
@@ -14452,7 +14793,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "akito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_285",
@@ -14481,7 +14823,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_286",
@@ -14510,7 +14853,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_287",
@@ -14572,7 +14916,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_288",
@@ -14634,7 +14979,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "kanade"
   },
   {
     "id": "rec_289",
@@ -14663,7 +15010,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_290",
@@ -14692,7 +15040,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_291",
@@ -14769,7 +15118,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "mizuki"
         ]
       }
-    ]
+    ],
+    "originalType": "anniversary"
   },
   {
     "id": "rec_292",
@@ -14798,7 +15148,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_293",
@@ -14827,7 +15178,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_294",
@@ -14856,7 +15208,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_295",
@@ -14885,7 +15238,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_296",
@@ -14955,7 +15309,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_297",
@@ -14984,7 +15339,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_298",
@@ -15046,7 +15402,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "saki"
   },
   {
     "id": "rec_299",
@@ -15075,7 +15433,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_300",
@@ -15128,7 +15487,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "nene"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_301",
@@ -15194,7 +15554,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_302",
@@ -15266,7 +15627,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_303",
@@ -15328,7 +15690,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "airi"
   },
   {
     "id": "rec_304",
@@ -15390,7 +15754,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "mizuki"
   },
   {
     "id": "rec_305",
@@ -15461,7 +15827,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_306",
@@ -15494,7 +15861,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_307",
@@ -15523,7 +15891,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_308",
@@ -15552,7 +15921,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_309",
@@ -15581,7 +15951,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_310",
@@ -15610,7 +15981,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_311",
@@ -15668,7 +16040,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "airi"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_312",
@@ -15729,7 +16102,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "toya"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_313",
@@ -15758,7 +16132,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_314",
@@ -15787,7 +16162,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_315",
@@ -15849,7 +16225,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "nene"
   },
   {
     "id": "rec_316",
@@ -15888,7 +16266,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_317",
@@ -15917,7 +16296,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_318",
@@ -15979,7 +16359,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "an"
   },
   {
     "id": "rec_319",
@@ -16026,7 +16408,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_320",
@@ -16055,7 +16438,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_321",
@@ -16117,7 +16501,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "minori"
   },
   {
     "id": "rec_322",
@@ -16178,7 +16564,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "honami"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_323",
@@ -16239,7 +16626,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "mizuki"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_324",
@@ -16268,7 +16656,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_325",
@@ -16339,7 +16728,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_326",
@@ -16368,7 +16758,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_327",
@@ -16428,7 +16819,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "emu"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_328",
@@ -16457,7 +16849,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_329",
@@ -16511,7 +16904,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "mafuyu"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "mafuyu"
   },
   {
     "id": "rec_330",
@@ -16565,7 +16960,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "ichika"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "ichika"
   },
   {
     "id": "rec_331",
@@ -16642,7 +17039,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "toya"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_332",
@@ -16671,7 +17069,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_333",
@@ -16719,7 +17118,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "collab"
   },
   {
     "id": "rec_334",
@@ -16748,7 +17148,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_335",
@@ -16777,7 +17178,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "zundamon"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_336",
@@ -16806,7 +17208,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_337",
@@ -16864,7 +17267,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "saki"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_338",
@@ -16917,7 +17321,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "kohane"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "kohane"
   },
   {
     "id": "rec_339",
@@ -16972,7 +17378,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "emu"
   },
   {
     "id": "rec_340",
@@ -17001,7 +17409,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "sekai_no_oto"
   },
   {
     "id": "rec_341",
@@ -17059,7 +17468,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "mafuyu"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_342",
@@ -17088,7 +17498,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_343",
@@ -17117,7 +17528,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_344",
@@ -17164,7 +17576,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_345",
@@ -17241,7 +17654,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "shizuku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_346",
@@ -17270,7 +17684,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "sekai_no_oto"
   },
   {
     "id": "rec_347",
@@ -17299,7 +17714,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_348",
@@ -17404,7 +17820,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kanade"
         ]
       }
-    ]
+    ],
+    "originalType": "anniversary"
   },
   {
     "id": "rec_349",
@@ -17443,7 +17860,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "unit"
   },
   {
     "id": "rec_350",
@@ -17492,7 +17910,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "shiho"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_351",
@@ -17521,7 +17940,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_352",
@@ -17594,7 +18014,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rui"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_353",
@@ -17623,7 +18044,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_354",
@@ -17664,7 +18086,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_355",
@@ -17693,7 +18116,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_356",
@@ -17750,7 +18174,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rui"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_357",
@@ -17781,7 +18206,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_358",
@@ -17842,7 +18268,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "mizuki"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_359",
@@ -17871,7 +18298,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_360",
@@ -17932,7 +18360,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "akito"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "akito"
   },
   {
     "id": "rec_361",
@@ -17961,7 +18391,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_362",
@@ -18007,7 +18438,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_363",
@@ -18048,7 +18480,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_364",
@@ -18110,7 +18543,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "shiho"
   },
   {
     "id": "rec_365",
@@ -18182,7 +18617,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "shizuku"
   },
   {
     "id": "rec_366",
@@ -18229,7 +18666,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "unit"
   },
   {
     "id": "rec_367",
@@ -18283,7 +18721,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "akito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_368",
@@ -18312,7 +18751,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "sekai_no_oto"
   },
   {
     "id": "rec_369",
@@ -18341,7 +18781,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_370",
@@ -18391,7 +18832,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "ena"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_371",
@@ -18454,7 +18896,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "rui"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "tsukasa"
   },
   {
     "id": "rec_372",
@@ -18515,7 +18959,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "shizuku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_373",
@@ -18564,7 +19009,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "unit"
   },
   {
     "id": "rec_374",
@@ -18593,7 +19039,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "sekai_no_oto"
   },
   {
     "id": "rec_375",
@@ -18622,7 +19069,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_376",
@@ -18651,7 +19099,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_377",
@@ -18706,7 +19155,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "mizuki"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_378",
@@ -18751,7 +19201,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_379",
@@ -18814,7 +19265,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "kanade"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "kanade"
   },
   {
     "id": "rec_380",
@@ -18876,7 +19329,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_381",
@@ -18925,7 +19379,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "solaria"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_382",
@@ -18996,7 +19451,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_383",
@@ -19025,7 +19481,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_384",
@@ -19104,7 +19561,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_385",
@@ -19133,7 +19591,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_386",
@@ -19197,7 +19656,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "shizuku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_387",
@@ -19246,7 +19706,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "honami"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_388",
@@ -19264,7 +19725,8 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [],
-    "vocalTracks": []
+    "vocalTracks": [],
+    "originalType": "cover"
   },
   {
     "id": "rec_389",
@@ -19309,7 +19771,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "unit"
   },
   {
     "id": "rec_390",
@@ -19327,7 +19790,8 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [],
-    "vocalTracks": []
+    "vocalTracks": [],
+    "originalType": "cover"
   },
   {
     "id": "rec_391",
@@ -19356,7 +19820,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_392",
@@ -19418,7 +19883,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "rui"
   },
   {
     "id": "rec_393",
@@ -19436,7 +19903,8 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [],
-    "vocalTracks": []
+    "vocalTracks": [],
+    "originalType": "cover"
   },
   {
     "id": "rec_394",
@@ -19502,7 +19970,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "emu"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_395",
@@ -19547,7 +20016,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_396",
@@ -19576,7 +20046,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "yuki"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_397",
@@ -19609,7 +20080,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "zundamon"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_398",
@@ -19664,7 +20136,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "unit"
   },
   {
     "id": "rec_399",
@@ -19693,7 +20166,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_400",
@@ -19722,7 +20196,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_401",
@@ -19751,7 +20226,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "sekai_no_oto"
   },
   {
     "id": "rec_402",
@@ -19813,7 +20289,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "honami"
   },
   {
     "id": "rec_403",
@@ -19859,7 +20337,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_404",
@@ -19904,7 +20383,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "minori"
   },
   {
     "id": "rec_405",
@@ -19954,7 +20435,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "mizuki"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_406",
@@ -19999,7 +20481,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "unit"
   },
   {
     "id": "rec_407",
@@ -20057,7 +20540,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "ena"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_408",
@@ -20086,7 +20570,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_409",
@@ -20115,7 +20600,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_410",
@@ -20176,7 +20662,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "shizuku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_411",
@@ -20205,7 +20692,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_412",
@@ -20234,7 +20722,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "sekai_no_oto"
   },
   {
     "id": "rec_413",
@@ -20263,7 +20752,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "anniv_hard"
   },
   {
     "id": "rec_414",
@@ -20325,7 +20815,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rui"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_415",
@@ -20387,7 +20878,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "shiho"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_416",
@@ -20442,7 +20934,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "toya"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "toya"
   },
   {
     "id": "rec_417",
@@ -20471,7 +20965,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_418",
@@ -20500,7 +20995,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_419",
@@ -20531,7 +21027,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "teto"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_420",
@@ -20560,7 +21057,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_421",
@@ -20589,7 +21087,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_422",
@@ -20654,7 +21153,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "ena"
   },
   {
     "id": "rec_423",
@@ -20733,7 +21234,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_424",
@@ -20762,7 +21264,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_425",
@@ -20791,7 +21294,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_426",
@@ -20853,7 +21357,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "saki"
   },
   {
     "id": "rec_427",
@@ -20917,7 +21423,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "an"
   },
   {
     "id": "rec_428",
@@ -20935,7 +21443,8 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [],
-    "vocalTracks": []
+    "vocalTracks": [],
+    "originalType": "cover"
   },
   {
     "id": "rec_429",
@@ -20980,7 +21489,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_430",
@@ -21019,7 +21529,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_431",
@@ -21101,7 +21612,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "shizuku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_432",
@@ -21130,7 +21642,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "sekai_no_oto"
   },
   {
     "id": "rec_433",
@@ -21191,7 +21704,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "shiho"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_434",
@@ -21237,7 +21751,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "adachi_rei"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_435",
@@ -21266,7 +21781,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_436",
@@ -21312,7 +21828,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "teto"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_437",
@@ -21376,7 +21893,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "emu"
   },
   {
     "id": "rec_438",
@@ -21441,7 +21960,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "mafuyu"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_439",
@@ -21509,7 +22029,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "mizuki"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_440",
@@ -21579,7 +22100,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "haruka"
   },
   {
     "id": "rec_441",
@@ -21641,7 +22164,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "mafuyu"
   },
   {
     "id": "rec_442",
@@ -21670,7 +22195,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_443",
@@ -21699,7 +22225,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "sekai_no_oto"
   },
   {
     "id": "rec_444",
@@ -21759,7 +22286,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kohane"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_445",
@@ -21825,7 +22353,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "toya"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "kohane"
   },
   {
     "id": "rec_446",
@@ -21854,7 +22384,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_447",
@@ -21910,7 +22441,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "tsukasa"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "tsukasa"
   },
   {
     "id": "rec_448",
@@ -21952,7 +22485,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "gumi"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_449",
@@ -21983,7 +22517,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_450",
@@ -22028,7 +22563,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_451",
@@ -22057,7 +22593,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "teto"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_452",
@@ -22086,7 +22623,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "merrow"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_453",
@@ -22148,7 +22686,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "airi"
   },
   {
     "id": "rec_454",
@@ -22202,7 +22742,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "an"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_455",
@@ -22231,7 +22772,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_456",
@@ -22260,7 +22802,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "sekai_no_oto"
   },
   {
     "id": "rec_457",
@@ -22335,7 +22878,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_458",
@@ -22364,7 +22908,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_459",
@@ -22411,7 +22956,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "una"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_460",
@@ -22469,7 +23015,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "airi"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_461",
@@ -22498,7 +23045,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_462",
@@ -22527,7 +23075,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_463",
@@ -22589,7 +23138,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "ichika"
   },
   {
     "id": "rec_464",
@@ -22618,7 +23169,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "sekai_no_oto"
   },
   {
     "id": "rec_465",
@@ -22723,7 +23275,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kanade"
         ]
       }
-    ]
+    ],
+    "originalType": "anniversary"
   },
   {
     "id": "rec_466",
@@ -22801,7 +23354,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "shiho"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_467",
@@ -22832,7 +23386,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "teto"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_468",
@@ -22894,7 +23449,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "airi"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_469",
@@ -22923,7 +23479,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_470",
@@ -22964,7 +23521,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_471",
@@ -22993,7 +23551,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_472",
@@ -23055,7 +23614,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_473",
@@ -23084,7 +23644,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_474",
@@ -23146,7 +23707,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_475",
@@ -23175,7 +23737,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "anniv_hard"
   },
   {
     "id": "rec_476",
@@ -23237,7 +23800,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "mizuki"
   },
   {
     "id": "rec_477",
@@ -23282,7 +23847,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_478",
@@ -23311,7 +23877,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_479",
@@ -23340,7 +23907,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_480",
@@ -23394,7 +23962,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "akito"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "akito"
   },
   {
     "id": "rec_481",
@@ -23456,7 +24026,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "saki"
   },
   {
     "id": "rec_482",
@@ -23510,7 +24082,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "airi"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_483",
@@ -23565,7 +24138,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "emu"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_484",
@@ -23619,7 +24193,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "nene"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "nene"
   },
   {
     "id": "rec_485",
@@ -23650,7 +24226,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_486",
@@ -23679,7 +24256,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_487",
@@ -23741,7 +24319,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "ena"
   },
   {
     "id": "rec_488",
@@ -23770,7 +24350,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_489",
@@ -23833,7 +24414,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "shizuku"
   },
   {
     "id": "rec_490",
@@ -23880,7 +24463,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kanon"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_491",
@@ -23909,7 +24493,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "movie"
   },
   {
     "id": "rec_492",
@@ -23955,7 +24540,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_493",
@@ -23984,7 +24570,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "mikoto"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_494",
@@ -24013,7 +24600,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "flower"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_495",
@@ -24075,7 +24663,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "an"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_496",
@@ -24121,7 +24710,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_497",
@@ -24183,7 +24773,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "shiho"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_498",
@@ -24216,7 +24807,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "teto"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_499",
@@ -24261,7 +24853,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_500",
@@ -24331,7 +24924,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_501",
@@ -24388,7 +24982,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rui"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_502",
@@ -24450,7 +25045,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "toya"
   },
   {
     "id": "rec_503",
@@ -24479,7 +25076,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_504",
@@ -24508,7 +25106,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "gumi"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_505",
@@ -24537,7 +25136,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_506",
@@ -24587,7 +25187,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "movie"
   },
   {
     "id": "rec_507",
@@ -24637,7 +25238,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "movie"
   },
   {
     "id": "rec_508",
@@ -24683,7 +25285,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "movie"
   },
   {
     "id": "rec_509",
@@ -24733,7 +25336,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "movie"
   },
   {
     "id": "rec_510",
@@ -24787,7 +25391,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "honami"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_511",
@@ -24837,7 +25442,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "movie"
   },
   {
     "id": "rec_512",
@@ -24887,7 +25493,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "movie"
   },
   {
     "id": "rec_513",
@@ -24916,7 +25523,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_514",
@@ -24963,7 +25571,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "movie"
   },
   {
     "id": "rec_515",
@@ -25025,7 +25634,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "haruka"
   },
   {
     "id": "rec_516",
@@ -25054,7 +25665,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_517",
@@ -25176,7 +25788,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "collab"
   },
   {
     "id": "rec_518",
@@ -25230,7 +25843,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "toya"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_519",
@@ -25277,7 +25891,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_520",
@@ -25335,7 +25950,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "an"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_521",
@@ -25402,7 +26018,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "mizuki"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_522",
@@ -25431,7 +26048,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_523",
@@ -25493,7 +26111,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rui"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_524",
@@ -25522,7 +26141,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_525",
@@ -25584,7 +26204,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "saki"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_526",
@@ -25654,7 +26275,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "kanade"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "kanade"
   },
   {
     "id": "rec_527",
@@ -25716,7 +26339,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "nene"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_528",
@@ -25761,7 +26385,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "shiho"
   },
   {
     "id": "rec_529",
@@ -25790,7 +26416,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_530",
@@ -25819,7 +26446,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "teto"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_531",
@@ -25848,7 +26476,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_532",
@@ -25877,7 +26506,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_533",
@@ -25906,7 +26536,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "gumi"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_534",
@@ -25951,7 +26582,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_535",
@@ -26013,7 +26645,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_536",
@@ -26042,7 +26675,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_537",
@@ -26092,7 +26726,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_538",
@@ -26154,7 +26789,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "emu"
   },
   {
     "id": "rec_539",
@@ -26193,7 +26830,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_540",
@@ -26249,7 +26887,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_541",
@@ -26267,7 +26906,8 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [],
-    "vocalTracks": []
+    "vocalTracks": [],
+    "originalType": "cover"
   },
   {
     "id": "rec_542",
@@ -26329,7 +26969,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "mafuyu"
   },
   {
     "id": "rec_543",
@@ -26391,7 +27033,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "toya"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_544",
@@ -26453,7 +27096,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "ena"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_545",
@@ -26482,7 +27126,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_546",
@@ -26521,7 +27166,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_547",
@@ -26566,7 +27212,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_548",
@@ -26628,7 +27275,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "airi"
   },
   {
     "id": "rec_549",
@@ -26690,7 +27339,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "kohane"
   },
   {
     "id": "rec_550",
@@ -26719,7 +27370,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "teto"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_551",
@@ -26765,7 +27417,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_552",
@@ -26794,7 +27447,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_553",
@@ -26823,7 +27477,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_554",
@@ -26852,7 +27507,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "anniversary"
   },
   {
     "id": "rec_555",
@@ -26881,7 +27537,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_556",
@@ -26910,7 +27567,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_557",
@@ -26939,7 +27597,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_558",
@@ -26968,7 +27627,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_559",
@@ -26999,7 +27659,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_560",
@@ -27052,7 +27713,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "rui"
   },
   {
     "id": "rec_561",
@@ -27114,7 +27777,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "honami"
   },
   {
     "id": "rec_562",
@@ -27143,7 +27808,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_563",
@@ -27211,7 +27877,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "minori"
   },
   {
     "id": "rec_564",
@@ -27253,7 +27921,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaf"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_565",
@@ -27282,7 +27951,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_566",
@@ -27311,7 +27981,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_567",
@@ -27344,7 +28015,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_568",
@@ -27406,7 +28078,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "an"
   },
   {
     "id": "rec_569",
@@ -27454,7 +28128,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_570",
@@ -27483,7 +28158,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_571",
@@ -27512,7 +28188,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_572",
@@ -27574,7 +28251,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "mizuki"
   },
   {
     "id": "rec_573",
@@ -27603,7 +28282,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_574",
@@ -27648,7 +28328,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "tsukasa"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "tsukasa"
   },
   {
     "id": "rec_575",
@@ -27702,7 +28384,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "haruka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_576",
@@ -27746,7 +28429,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_577",
@@ -27791,7 +28475,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_578",
@@ -27820,7 +28505,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_579",
@@ -27893,7 +28579,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "mizuki"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_580",
@@ -28070,7 +28757,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kanade"
         ]
       }
-    ]
+    ],
+    "originalType": "anniversary"
   },
   {
     "id": "rec_581",
@@ -28128,7 +28816,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "tsukasa"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_582",
@@ -28157,7 +28846,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_583",
@@ -28205,7 +28895,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "flower"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_584",
@@ -28234,7 +28925,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_585",
@@ -28278,7 +28970,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_586",
@@ -28307,7 +29000,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_587",
@@ -28353,7 +29047,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "teto"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_588",
@@ -28395,7 +29090,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_589",
@@ -28457,7 +29153,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "ena"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_590",
@@ -28486,7 +29183,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_591",
@@ -28515,7 +29213,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "anniv_hard"
   },
   {
     "id": "rec_592",
@@ -28544,7 +29243,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_593",
@@ -28573,7 +29273,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "flower"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_594",
@@ -28628,7 +29329,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "ichika"
   },
   {
     "id": "rec_595",
@@ -28690,7 +29393,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "shizuku"
   },
   {
     "id": "rec_596",
@@ -28719,7 +29424,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_597",
@@ -28765,7 +29471,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_598",
@@ -28810,7 +29517,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_599",
@@ -28863,7 +29571,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "ena"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "ena"
   },
   {
     "id": "rec_600",
@@ -28892,7 +29602,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_601",
@@ -28947,7 +29658,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "nene"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "nene"
   },
   {
     "id": "rec_602",
@@ -29009,7 +29722,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "akito"
   },
   {
     "id": "rec_603",
@@ -29038,7 +29753,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_604",
@@ -29067,7 +29783,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "anniv_hard"
   },
   {
     "id": "rec_605",
@@ -29096,7 +29813,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_606",
@@ -29144,7 +29862,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "flower"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "saki"
   },
   {
     "id": "rec_607",
@@ -29173,7 +29893,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_608",
@@ -29202,7 +29923,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_609",
@@ -29231,7 +29953,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_610",
@@ -29260,7 +29983,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_611",
@@ -29289,7 +30013,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_612",
@@ -29336,7 +30061,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_613",
@@ -29365,7 +30091,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_614",
@@ -29410,7 +30137,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "haruka"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "haruka"
   },
   {
     "id": "rec_615",
@@ -29439,7 +30168,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_616",
@@ -29485,7 +30215,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "gumi"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_617",
@@ -29538,7 +30269,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "haruka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_618",
@@ -29567,7 +30299,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_619",
@@ -29625,7 +30358,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rui"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_620",
@@ -29654,7 +30388,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "teto"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_621",
@@ -29700,7 +30435,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_622",
@@ -29753,7 +30489,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "mafuyu"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_623",
@@ -29782,7 +30519,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_624",
@@ -29844,7 +30582,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "kanade"
   },
   {
     "id": "rec_625",
@@ -29898,7 +30638,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "toya"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "toya"
   },
   {
     "id": "rec_626",
@@ -29927,7 +30669,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_627",
@@ -29956,7 +30699,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_628",
@@ -29985,7 +30729,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_629",
@@ -30014,7 +30759,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_630",
@@ -30043,7 +30789,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_631",
@@ -30072,7 +30819,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_632",
@@ -30101,7 +30849,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_633",
@@ -30130,7 +30879,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_634",
@@ -30159,7 +30909,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_635",
@@ -30188,7 +30939,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_636",
@@ -30219,7 +30971,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "aoi"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_637",
@@ -30248,7 +31001,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "teto"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_638",
@@ -30277,7 +31031,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_639",
@@ -30332,7 +31087,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "shiho"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "shiho"
   },
   {
     "id": "rec_640",
@@ -30379,7 +31136,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "zundamon"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "emu"
   },
   {
     "id": "rec_641",
@@ -30423,7 +31182,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_642",
@@ -30469,7 +31229,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "gumi"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_643",
@@ -30519,7 +31280,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "honami"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_644",
@@ -30548,7 +31310,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_645",
@@ -30610,7 +31373,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "airi"
   },
   {
     "id": "rec_646",
@@ -30655,7 +31420,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_647",
@@ -30710,7 +31476,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "mizuki"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_648",
@@ -30739,7 +31506,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_649",
@@ -30768,7 +31536,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_650",
@@ -30814,7 +31583,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaf"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "mizuki"
   },
   {
     "id": "rec_651",
@@ -30851,7 +31622,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "nene"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "rui"
   },
   {
     "id": "rec_652",
@@ -30882,7 +31655,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "teto"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_653",
@@ -30911,7 +31685,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_654",
@@ -30940,7 +31715,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_655",
@@ -30969,7 +31745,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_656",
@@ -30998,7 +31775,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_657",
@@ -31029,7 +31807,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "teto"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_658",
@@ -31074,7 +31853,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_659",
@@ -31140,7 +31920,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "an"
   },
   {
     "id": "rec_660",
@@ -31188,7 +31970,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "flower"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_661",
@@ -31217,7 +32000,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_662",
@@ -31254,7 +32038,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "world_link"
   },
   {
     "id": "rec_663",
@@ -31296,7 +32081,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_664",
@@ -31343,7 +32129,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "honami"
   },
   {
     "id": "rec_665",
@@ -31389,7 +32177,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "kohane"
   },
   {
     "id": "rec_666",
@@ -31438,7 +32228,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_667",
@@ -31494,7 +32285,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "haru"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_668",
@@ -31536,7 +32328,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "una"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_669",
@@ -31565,7 +32358,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_670",
@@ -31613,7 +32407,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "world_link"
   },
   {
     "id": "rec_671",
@@ -31655,7 +32450,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaf"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_672",
@@ -31710,7 +32506,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "airi"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_673",
@@ -31739,7 +32536,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_674",
@@ -31768,7 +32566,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_675",
@@ -31814,7 +32613,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_676",
@@ -31843,7 +32643,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_677",
@@ -31891,7 +32692,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "teto"
         ]
       }
-    ]
+    ],
+    "originalType": "world_link"
   },
   {
     "id": "rec_678",
@@ -31937,7 +32739,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "teto"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "tsukasa"
   },
   {
     "id": "rec_679",
@@ -31955,7 +32759,8 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [],
-    "vocalTracks": []
+    "vocalTracks": [],
+    "originalType": "cover"
   },
   {
     "id": "rec_680",
@@ -31973,7 +32778,8 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [],
-    "vocalTracks": []
+    "vocalTracks": [],
+    "originalType": "cover"
   },
   {
     "id": "rec_681",
@@ -31991,7 +32797,8 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [],
-    "vocalTracks": []
+    "vocalTracks": [],
+    "originalType": "cover"
   },
   {
     "id": "rec_682",
@@ -32009,7 +32816,8 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [],
-    "vocalTracks": []
+    "vocalTracks": [],
+    "originalType": "cover"
   },
   {
     "id": "rec_683",
@@ -32027,7 +32835,8 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [],
-    "vocalTracks": []
+    "vocalTracks": [],
+    "originalType": "cover"
   },
   {
     "id": "rec_684",
@@ -32045,7 +32854,8 @@ export const ALL_RECORDS: RecordItem[] = [
       "anotherVocal": false
     },
     "characters": [],
-    "vocalTracks": []
+    "vocalTracks": [],
+    "originalType": "cover"
   },
   {
     "id": "rec_685",
@@ -32096,7 +32906,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "minori"
   },
   {
     "id": "rec_686",
@@ -32141,7 +32953,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_687",
@@ -32170,7 +32983,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "meiko"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_688",
@@ -32216,7 +33030,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "ena"
   },
   {
     "id": "rec_689",
@@ -32258,7 +33074,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaf"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_690",
@@ -32287,7 +33104,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_691",
@@ -32316,7 +33134,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_692",
@@ -32345,7 +33164,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_693",
@@ -32374,7 +33194,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_694",
@@ -32422,7 +33243,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "flower"
         ]
       }
-    ]
+    ],
+    "originalType": "world_link"
   },
   {
     "id": "rec_695",
@@ -32492,7 +33314,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "ichika"
   },
   {
     "id": "rec_696",
@@ -32521,7 +33345,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "teto"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_697",
@@ -32550,7 +33375,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "tsuina"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_698",
@@ -32596,7 +33422,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_699",
@@ -32642,7 +33469,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_700",
@@ -32688,7 +33516,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_701",
@@ -32734,7 +33563,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_702",
@@ -32780,7 +33610,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_703",
@@ -32826,7 +33657,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "haruka"
   },
   {
     "id": "rec_704",
@@ -32857,7 +33690,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_705",
@@ -32903,7 +33737,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "world_link"
   },
   {
     "id": "rec_706",
@@ -32932,7 +33767,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_707",
@@ -32981,7 +33817,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "len"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_708",
@@ -33027,7 +33864,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "teto"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "akito"
   },
   {
     "id": "rec_709",
@@ -33083,7 +33922,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "teto"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "nene"
   },
   {
     "id": "rec_710",
@@ -33112,7 +33953,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_711",
@@ -33141,7 +33983,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_712",
@@ -33180,7 +34023,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_713",
@@ -33285,7 +34129,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kanade"
         ]
       }
-    ]
+    ],
+    "originalType": "anniversary"
   },
   {
     "id": "rec_714",
@@ -33316,7 +34161,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "teto"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_715",
@@ -33362,7 +34208,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "flower"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_716",
@@ -33391,7 +34238,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_717",
@@ -33436,7 +34284,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_718",
@@ -33465,7 +34314,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "teto"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_719",
@@ -33511,7 +34361,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_720",
@@ -33540,7 +34391,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "kaito"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_721",
@@ -33585,7 +34437,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_722",
@@ -33614,7 +34467,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_723",
@@ -33660,7 +34514,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "yuki"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_724",
@@ -33689,7 +34544,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "rin"
         ]
       }
-    ]
+    ],
+    "originalType": "anniv_hard"
   },
   {
     "id": "rec_725",
@@ -33735,7 +34591,9 @@ export const ALL_RECORDS: RecordItem[] = [
           "flower"
         ]
       }
-    ]
+    ],
+    "originalType": "event",
+    "bannerCharacter": "honami"
   },
   {
     "id": "rec_726",
@@ -33764,7 +34622,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "luka"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_727",
@@ -33810,7 +34669,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "chisei"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_728",
@@ -33839,7 +34699,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_729",
@@ -33868,7 +34729,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "anniv_hard"
   },
   {
     "id": "rec_730",
@@ -33910,7 +34772,8 @@ export const ALL_RECORDS: RecordItem[] = [
           "flower"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   },
   {
     "id": "rec_731",
@@ -33939,6 +34802,7 @@ export const ALL_RECORDS: RecordItem[] = [
           "miku"
         ]
       }
-    ]
+    ],
+    "originalType": "cover"
   }
 ];

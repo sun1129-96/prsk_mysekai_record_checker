@@ -26,41 +26,26 @@ interface ListViewProps {
   records: RecordItem[];
   ownedRecordIds: Record<string, boolean>;
   onToggleOwned: (id: string) => void;
+  displaySettings: DisplaySettings;
+  onDisplaySettingsChange: React.Dispatch<React.SetStateAction<DisplaySettings>>;
+  filterOptions: FilterOptions;
+  onFilterOptionsChange: React.Dispatch<React.SetStateAction<FilterOptions>>;
 }
 
 export const ListView: React.FC<ListViewProps> = ({
   records,
   ownedRecordIds,
   onToggleOwned,
+  displaySettings,
+  onDisplaySettingsChange,
+  filterOptions,
+  onFilterOptionsChange,
 }) => {
   const listRef = useRef<HTMLDivElement>(null);
 
   // 並び替え状態（初期値: 実装順 昇順）
   const [sortType, setSortType] = useState<SortType>('defaultOrder');
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
-
-  // 絞り込み状態
-  const [filterOptions, setFilterOptions] = useState<FilterOptions>({
-    ownership: 'all',
-    units: Object.keys(UNIT_METAS) as any,
-    characters: [],
-    vocalVersions: {
-      virtualSinger: false,
-      sekai: false,
-      connectLive: false,
-      anotherVocal: false,
-    },
-    searchQuery: '',
-  });
-
-  // 表示設定
-  const [displaySettings, setDisplaySettings] = useState<DisplaySettings>({
-    showJacket: true,
-    showReleaseDate: true,
-    showVocalBadges: true,
-    showCharacters: true,
-    compactMode: false,
-  });
 
   // タップ動作モード: 'detail' (詳細モーダル) vs 'quick_check' (行全体でチェック切り替え)
   const [tapMode, setTapMode] = useState<TapActionMode>('detail');
@@ -116,7 +101,7 @@ export const ListView: React.FC<ListViewProps> = ({
   });
 
   const handleResetFilter = () => {
-    setFilterOptions({
+    onFilterOptionsChange({
       ownership: 'all',
       units: Object.keys(UNIT_METAS) as any,
       characters: [],
@@ -127,6 +112,8 @@ export const ListView: React.FC<ListViewProps> = ({
         anotherVocal: false,
       },
       searchQuery: '',
+      originalTypes: [],
+      bannerCharacters: [],
     });
   };
 
@@ -212,13 +199,13 @@ export const ListView: React.FC<ListViewProps> = ({
               placeholder="曲名・よみがなでインクリメンタル検索..."
               value={filterOptions.searchQuery}
               onChange={(e) =>
-                setFilterOptions({ ...filterOptions, searchQuery: e.target.value })
+                onFilterOptionsChange((prev) => ({ ...prev, searchQuery: e.target.value }))
               }
               className="w-full bg-white border border-slate-200/90 rounded-xl pl-9 pr-9 py-2 text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-hidden focus:border-[#33ccbb] focus:ring-2 focus:ring-[#33ccbb]/20 transition-all shadow-2xs"
             />
             {filterOptions.searchQuery && (
               <button
-                onClick={() => setFilterOptions({ ...filterOptions, searchQuery: '' })}
+                onClick={() => onFilterOptionsChange((prev) => ({ ...prev, searchQuery: '' }))}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-0.5"
               >
                 <X className="w-4 h-4" />
@@ -314,7 +301,7 @@ export const ListView: React.FC<ListViewProps> = ({
           setSortDirection(dir);
         }}
         filterOptions={filterOptions}
-        onFilterChange={setFilterOptions}
+        onFilterChange={onFilterOptionsChange}
         onResetFilter={handleResetFilter}
       />
 
@@ -322,7 +309,7 @@ export const ListView: React.FC<ListViewProps> = ({
         isOpen={isDisplayModalOpen}
         onClose={() => setIsDisplayModalOpen(false)}
         settings={displaySettings}
-        onSettingsChange={setDisplaySettings}
+        onSettingsChange={onDisplaySettingsChange}
       />
 
       <RecordDetailModal

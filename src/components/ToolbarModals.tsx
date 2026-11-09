@@ -15,8 +15,14 @@ import type {
   FilterOptions,
   DisplaySettings,
   UnitType,
+  OriginalSongType,
 } from '../types/record';
-import { UNIT_METAS, CHARACTERS, GAME_VIRTUAL_SINGER_IDS } from '../types/record';
+import {
+  UNIT_METAS,
+  CHARACTERS,
+  GAME_VIRTUAL_SINGER_IDS,
+  ORIGINAL_TYPE_METAS,
+} from '../types/record';
 
 interface FilterSortModalProps {
   isOpen: boolean;
@@ -470,6 +476,139 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                   >
                     {v.label}
                   </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* 6. 書き下ろし楽曲の絞り込み（新設） */}
+          <div className="pt-4 space-y-2.5">
+            <div className="flex items-center justify-between">
+              <div className="font-bold text-slate-700 flex items-center gap-1.5">
+                <span>楽曲分類（書き下ろし・カバー）</span>
+                {filterOptions.originalTypes && filterOptions.originalTypes.length > 0 && (
+                  <span className="text-[11px] bg-[#33ccbb]/15 text-[#0d9488] px-2 py-0.5 rounded-full font-bold">
+                    {filterOptions.originalTypes.length}種選択中
+                  </span>
+                )}
+              </div>
+              {filterOptions.originalTypes && filterOptions.originalTypes.length > 0 && (
+                <button
+                  type="button"
+                  onClick={() => onFilterChange({ ...filterOptions, originalTypes: [] })}
+                  className="text-xs text-slate-400 hover:text-slate-600 hover:underline"
+                >
+                  クリア
+                </button>
+              )}
+            </div>
+
+            <div className="grid grid-cols-2 gap-2 text-xs">
+              {(Object.keys(ORIGINAL_TYPE_METAS) as OriginalSongType[]).map((typeKey) => {
+                const meta = ORIGINAL_TYPE_METAS[typeKey];
+                const isSelected = filterOptions.originalTypes?.includes(typeKey) ?? false;
+                return (
+                  <button
+                    key={typeKey}
+                    type="button"
+                    onClick={() => {
+                      const current = filterOptions.originalTypes ?? [];
+                      const updated = isSelected
+                        ? current.filter((t) => t !== typeKey)
+                        : [...current, typeKey];
+                      onFilterChange({ ...filterOptions, originalTypes: updated });
+                    }}
+                    className={`px-3 py-2 rounded-xl border text-left font-medium transition-all ${
+                      isSelected
+                        ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] font-bold shadow-2xs'
+                        : 'border-slate-200 text-slate-600 hover:bg-slate-50'
+                    }`}
+                  >
+                    {meta.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* 7. イベントバナーキャラクターでの絞り込み（新設） */}
+          <div className="pt-4 space-y-2.5">
+            <div className="flex items-center justify-between">
+              <div className="font-bold text-slate-700 flex items-center gap-1.5">
+                <span>イベントバナーキャラクター</span>
+                {filterOptions.bannerCharacters && filterOptions.bannerCharacters.length > 0 && (
+                  <span className="text-[11px] bg-[#33ccbb]/15 text-[#0d9488] px-2 py-0.5 rounded-full font-bold">
+                    {filterOptions.bannerCharacters.length}人選択中
+                  </span>
+                )}
+              </div>
+              {filterOptions.bannerCharacters && filterOptions.bannerCharacters.length > 0 && (
+                <button
+                  type="button"
+                  onClick={() => onFilterChange({ ...filterOptions, bannerCharacters: [] })}
+                  className="text-xs text-slate-400 hover:text-slate-600 hover:underline"
+                >
+                  クリア
+                </button>
+              )}
+            </div>
+
+            <p className="text-[11px] text-slate-400 leading-tight">
+              ※ 各イベント書き下ろし楽曲のバナー対象キャラクターで絞り込みます。
+            </p>
+
+            <div className="space-y-2">
+              {(
+                [
+                  'leo_need',
+                  'more_more_jump',
+                  'vivid_bad_squad',
+                  'wonderlands_showtime',
+                  'nightcord_at_25',
+                ] as UnitType[]
+              ).map((uKey) => {
+                const uMeta = UNIT_METAS[uKey];
+                const members = CHARACTERS.filter((c) => c.unit === uKey);
+
+                return (
+                  <div key={uKey} className="space-y-1">
+                    <div className="flex items-center gap-1 text-[11px] font-bold text-slate-600 px-0.5">
+                      {uMeta.iconUrl && (
+                        <img src={uMeta.iconUrl} alt={uMeta.name} className="w-3 h-3 object-contain" />
+                      )}
+                      <span>{uMeta.name}</span>
+                    </div>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+                      {members.map((char) => {
+                        const isSelected =
+                          filterOptions.bannerCharacters?.includes(char.id) ?? false;
+                        return (
+                          <button
+                            key={char.id}
+                            type="button"
+                            onClick={() => {
+                              const current = filterOptions.bannerCharacters ?? [];
+                              const updated = isSelected
+                                ? current.filter((id) => id !== char.id)
+                                : [...current, char.id];
+                              onFilterChange({ ...filterOptions, bannerCharacters: updated });
+                            }}
+                            className={`flex items-center gap-1.5 px-2 py-1.5 rounded-xl border text-left text-xs transition-all ${
+                              isSelected
+                                ? 'border-slate-800 bg-slate-800 text-white font-bold shadow-2xs'
+                                : 'border-slate-200/80 bg-white text-slate-700 hover:bg-slate-50'
+                            }`}
+                          >
+                            <span
+                              className="w-2.5 h-2.5 rounded-full shrink-0 border border-black/10"
+                              style={{ backgroundColor: char.color }}
+                            />
+                            <span className="truncate">{char.name}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
                 );
               })}
             </div>

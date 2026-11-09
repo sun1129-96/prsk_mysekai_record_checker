@@ -219,6 +219,38 @@ export interface VocalTrackDetail {
 }
 
 /**
+ * 書き下ろし楽曲の分類種別
+ */
+export type OriginalSongType =
+  | 'event'        // イベント書き下ろし楽曲
+  | 'unit'         // ユニットソング
+  | 'collab'       // コラボ楽曲
+  | 'sekai_no_oto' // セカイノオト
+  | 'movie'        // 劇場版楽曲
+  | 'anniv_hard'   // 高難易度書き下ろし
+  | 'world_link'   // WL書き下ろし楽曲
+  | 'anniversary'  // 周年曲・その他
+  | 'cover';       // カバー楽曲
+
+export interface OriginalTypeMeta {
+  id: OriginalSongType;
+  label: string;
+  shortLabel: string;
+}
+
+export const ORIGINAL_TYPE_METAS: Record<OriginalSongType, OriginalTypeMeta> = {
+  event: { id: 'event', label: 'イベント書き下ろし楽曲', shortLabel: 'イベント' },
+  unit: { id: 'unit', label: 'ユニットソング', shortLabel: 'ユニット曲' },
+  collab: { id: 'collab', label: 'コラボ楽曲', shortLabel: 'コラボ' },
+  sekai_no_oto: { id: 'sekai_no_oto', label: 'セカイノオト', shortLabel: 'セカイノオト' },
+  movie: { id: 'movie', label: '劇場版楽曲', shortLabel: '劇場版' },
+  anniv_hard: { id: 'anniv_hard', label: '高難易度書き下ろし', shortLabel: '高難易度' },
+  world_link: { id: 'world_link', label: 'WL書き下ろし楽曲', shortLabel: 'WL' },
+  anniversary: { id: 'anniversary', label: '周年曲・その他', shortLabel: '周年・他' },
+  cover: { id: 'cover', label: 'カバー楽曲', shortLabel: 'カバー' },
+};
+
+/**
  * 楽曲レコードマスターデータ型
  */
 export interface RecordItem {
@@ -234,6 +266,8 @@ export interface RecordItem {
   vocalTracks?: VocalTrackDetail[]; // 各バージョンの詳細トラック情報
   jacketUrl?: string;       // ジャケット画像URL
   source?: string;          // 入手方法
+  originalType?: OriginalSongType;  // 書き下ろし分類種別
+  bannerCharacter?: string;         // イベント書き下ろしバナーキャラクターID
 }
 
 /**
@@ -261,6 +295,23 @@ export interface FilterOptions {
     anotherVocal: boolean;
   };
   searchQuery: string;
+  originalTypes?: OriginalSongType[];  // 書き下ろし種別絞り込み
+  bannerCharacters?: string[];         // バナーキャラクター絞り込み
+}
+
+/**
+ * 保存されたカスタム比較条件
+ */
+export interface SavedCompareCondition {
+  id: string;
+  title: string;
+  filter: FilterOptions;
+  createdAt: number;
+  matchType?: 'and' | 'or';
+  conditionUnits?: UnitType[];
+  conditionCharacters?: string[];
+  conditionOriginalTypes?: OriginalSongType[];
+  conditionVocalTypes?: ('sekai' | 'virtualSinger' | 'anotherVocal')[];
 }
 
 /**

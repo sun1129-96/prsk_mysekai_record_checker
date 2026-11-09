@@ -5,11 +5,76 @@ import { ComparisonView } from './components/ComparisonView';
 import { MenuView } from './components/MenuView';
 import { MOCK_RECORDS } from './data/mockRecords';
 import { decodeShareData } from './utils/recordUtils';
+import type { DisplaySettings, FilterOptions } from './types/record';
 
 const STORAGE_KEY = 'mysekai_owned_record_ids_v1';
+const DISPLAY_SETTINGS_STORAGE_KEY = 'mysekai_display_settings_v1';
+
+const DEFAULT_DISPLAY_SETTINGS: DisplaySettings = {
+  showJacket: true,
+  showReleaseDate: true,
+  showVocalBadges: true,
+  showCharacters: true,
+  compactMode: false,
+};
 
 export const App: React.FC = () => {
   const [currentTab, setCurrentTab] = useState<TabType>('list');
+
+  // リスト画面の絞り込み状態（比較画面からのダイレクト遷移連携用）
+  const [filterOptions, setFilterOptions] = useState<FilterOptions>({
+    ownership: 'all',
+    units: [
+      'virtual_singer',
+      'leo_need',
+      'more_more_jump',
+      'vivid_bad_squad',
+      'wonderlands_showtime',
+      'nightcord_at_25',
+      'other',
+    ],
+    characters: [],
+    vocalVersions: {
+      virtualSinger: false,
+      sekai: false,
+      connectLive: false,
+      anotherVocal: false,
+    },
+    searchQuery: '',
+    originalTypes: [],
+    bannerCharacters: [],
+  });
+
+  // 比較画面等から特定の絞り込み条件でリスト画面へ遷移する
+  const handleNavigateToListWithFilter = (newFilter: Partial<FilterOptions>) => {
+    setFilterOptions((prev) => ({
+      ...prev,
+      ...newFilter,
+    }));
+    setCurrentTab('list');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // 表示設定（localStorageに保存・永続化）
+  const [displaySettings, setDisplaySettings] = useState<DisplaySettings>(() => {
+    try {
+      const saved = localStorage.getItem(DISPLAY_SETTINGS_STORAGE_KEY);
+      if (saved) {
+        return { ...DEFAULT_DISPLAY_SETTINGS, ...JSON.parse(saved) };
+      }
+    } catch {
+      // ignore
+    }
+    return DEFAULT_DISPLAY_SETTINGS;
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(DISPLAY_SETTINGS_STORAGE_KEY, JSON.stringify(displaySettings));
+    } catch {
+      // ignore
+    }
+  }, [displaySettings]);
 
   // 所持状態管理（localStorage + URL共有デコード）
   const [ownedRecordIds, setOwnedRecordIds] = useState<Record<string, boolean>>(() => {
@@ -98,6 +163,10 @@ export const App: React.FC = () => {
             records={MOCK_RECORDS}
             ownedRecordIds={ownedRecordIds}
             onToggleOwned={handleToggleOwned}
+            displaySettings={displaySettings}
+            onDisplaySettingsChange={setDisplaySettings}
+            filterOptions={filterOptions}
+            onFilterOptionsChange={setFilterOptions}
           />
         )}
 
@@ -105,6 +174,7 @@ export const App: React.FC = () => {
           <ComparisonView
             records={MOCK_RECORDS}
             ownedRecordIds={ownedRecordIds}
+            onNavigateToList={handleNavigateToListWithFilter}
           />
         )}
 
@@ -114,6 +184,8 @@ export const App: React.FC = () => {
             ownedRecordIds={ownedRecordIds}
             onBatchCheckAll={handleBatchCheckAll}
             onImportData={handleImportData}
+            displaySettings={displaySettings}
+            onDisplaySettingsChange={setDisplaySettings}
           />
         )}
       </main>

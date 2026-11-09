@@ -91,6 +91,19 @@ export const filterAndSortRecords = (
       if (filterOptions.vocalVersions.anotherVocal && !record.vocalVersions.anotherVocal)
         return false;
 
+      // 書き下ろし種別絞り込み
+      if (filterOptions.originalTypes && filterOptions.originalTypes.length > 0) {
+        const type = record.originalType || 'cover';
+        if (!filterOptions.originalTypes.includes(type)) return false;
+      }
+
+      // バナーキャラクター絞り込み
+      if (filterOptions.bannerCharacters && filterOptions.bannerCharacters.length > 0) {
+        if (!record.bannerCharacter || !filterOptions.bannerCharacters.includes(record.bannerCharacter)) {
+          return false;
+        }
+      }
+
       // 検索クエリ（曲名・よみがな）
       if (filterOptions.searchQuery.trim() !== '') {
         const q = filterOptions.searchQuery.toLowerCase();

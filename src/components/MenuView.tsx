@@ -1,8 +1,6 @@
-import { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   Share2,
-  Download,
-  Upload,
   RotateCcw,
   CheckCheck,
   Info,
@@ -10,8 +8,13 @@ import {
   Check,
   KeyRound,
   Undo2,
+  Sliders,
+  History,
+  AlertTriangle,
+  Sparkles,
+  ExternalLink,
 } from 'lucide-react';
-import type { RecordItem } from '../types/record';
+import type { RecordItem, DisplaySettings } from '../types/record';
 import { encodeShareData, decodeShareData } from '../utils/recordUtils';
 
 interface MenuViewProps {
@@ -19,6 +22,8 @@ interface MenuViewProps {
   ownedRecordIds: Record<string, boolean>;
   onBatchCheckAll: (owned: boolean) => void;
   onImportData: (data: Record<string, boolean>) => void;
+  displaySettings: DisplaySettings;
+  onDisplaySettingsChange: React.Dispatch<React.SetStateAction<DisplaySettings>>;
 }
 
 export const MenuView: React.FC<MenuViewProps> = ({
@@ -26,13 +31,16 @@ export const MenuView: React.FC<MenuViewProps> = ({
   ownedRecordIds,
   onBatchCheckAll,
   onImportData,
+  displaySettings,
+  onDisplaySettingsChange,
 }) => {
   const [copiedShareUrl, setCopiedShareUrl] = useState(false);
   const [copiedShareCode, setCopiedShareCode] = useState(false);
-  const [importText, setImportText] = useState('');
-  const [showImportDialog, setShowImportDialog] = useState(false);
   const [showCodeRestoreDialog, setShowCodeRestoreDialog] = useState(false);
   const [shareCodeInput, setShareCodeInput] = useState('');
+
+  // 一括操作モーダル用State
+  const [batchModalTarget, setBatchModalTarget] = useState<'all_owned' | 'all_clear' | null>(null);
 
   // Undo (元に戻す) 用のバックアップState
   const [undoBackup, setUndoBackup] = useState<Record<string, boolean> | null>(null);
@@ -67,7 +75,6 @@ export const MenuView: React.FC<MenuViewProps> = ({
   const handleApplyShareCode = () => {
     try {
       let rawCode = shareCodeInput.trim();
-      // もしURLごと貼り付けられた場合はパラメータから抽出
       if (rawCode.includes('share=')) {
         try {
           const urlObj = new URL(rawCode);
@@ -93,18 +100,20 @@ export const MenuView: React.FC<MenuViewProps> = ({
     }
   };
 
-  // 一括操作実行（Undoバックアップ付き）
-  const handleExecuteBatch = (owned: boolean, message: string) => {
-    if (window.confirm(message)) {
-      // 直前の状態をUndo用に保存
-      setUndoBackup({ ...ownedRecordIds });
-      if (undoTimeoutRef.current) clearTimeout(undoTimeoutRef.current);
-      undoTimeoutRef.current = setTimeout(() => {
-        setUndoBackup(null);
-      }, 8000); // 8秒間Undo可能
+  // 一括操作実行（安全なカスタムモーダル承認後）
+  const handleConfirmBatch = () => {
+    if (!batchModalTarget) return;
+    const isOwned = batchModalTarget === 'all_owned';
 
-      onBatchCheckAll(owned);
-    }
+    // 直前の状態をUndo用に保存
+    setUndoBackup({ ...ownedRecordIds });
+    if (undoTimeoutRef.current) clearTimeout(undoTimeoutRef.current);
+    undoTimeoutRef.current = setTimeout(() => {
+      setUndoBackup(null);
+    }, 10000); // 10秒間Undo可能
+
+    onBatchCheckAll(isOwned);
+    setBatchModalTarget(null);
   };
 
   // 元に戻す (Undo)
@@ -116,52 +125,30 @@ export const MenuView: React.FC<MenuViewProps> = ({
     }
   };
 
-  // JSONファイルとしてバックアップダウンロード
-  const handleExportJson = () => {
-    const dataStr =
-      'data:text/json;charset=utf-8,' +
-      encodeURIComponent(JSON.stringify(ownedRecordIds, null, 2));
-    const downloadAnchor = document.createElement('a');
-    downloadAnchor.setAttribute('href', dataStr);
-    downloadAnchor.setAttribute(
-      'download',
-      `mysekai_records_${new Date().toISOString().slice(0, 10)}.json`
-    );
-    document.body.appendChild(downloadAnchor);
-    downloadAnchor.click();
-    downloadAnchor.remove();
+  // 表示設定のトグルヘルパー
+  const handleToggleDisplay = (key: keyof DisplaySettings) => {
+    onDisplaySettingsChange((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
   };
 
-  const handleApplyImport = () => {
-    try {
-      const parsed = JSON.parse(importText);
-      if (typeof parsed === 'object' && parsed !== null) {
-        onImportData(parsed);
-        setShowImportDialog(false);
-        setImportText('');
-        alert('データを正常に復元・インポートしました！');
-      } else {
-        alert('形式が無効です');
-      }
-    } catch {
-      alert('JSONデータの解析に失敗しました。内容をご確認ください。');
-    }
-  };
+  const currentOwnedCount = Object.values(ownedRecordIds).filter(Boolean).length;
 
   return (
     <div className="max-w-4xl mx-auto px-3 sm:px-6 py-6 space-y-6">
-      {/* 1. データ共有・引継ぎカード */}
+      {/* 1. 進捗の共有・引継ぎカード */}
       <div className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-xs">
-        <div className="flex items-center gap-2 mb-3">
+        <div className="flex items-center gap-2.5 mb-3">
           <div className="p-2 rounded-xl bg-[#33ccbb]/10 text-[#0d9488]">
             <Share2 className="w-5 h-5" />
           </div>
           <div>
             <h3 className="font-bold text-sm sm:text-base text-slate-800">
-              進捗の共有・引継ぎ（完全無料・サーバーレス）
+              進捗の共有・引継ぎ
             </h3>
             <p className="text-xs text-slate-400">
-              チェック状況をURLに圧縮してコピー。サーバーを経由せず完全安全・高速にSNSシェアや端末引継ぎが可能です。
+              チェック状況をコンパクトな暗号コード（約120文字）に圧縮。サーバー不要で安全にSNS共有や他端末への引継ぎが可能です。
             </p>
           </div>
         </div>
@@ -170,7 +157,7 @@ export const MenuView: React.FC<MenuViewProps> = ({
           {/* 共有URLコピー */}
           <button
             onClick={handleGenerateShareUrl}
-            className="px-4 py-2.5 bg-[#33ccbb] hover:bg-[#2cb3a5] text-white rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-xs"
+            className="px-4 py-2.5 bg-[#33ccbb] hover:bg-[#2cb3a5] text-white rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-xs cursor-pointer active:scale-95"
           >
             {copiedShareUrl ? (
               <>
@@ -185,10 +172,10 @@ export const MenuView: React.FC<MenuViewProps> = ({
             )}
           </button>
 
-          {/* 進捗コードコピー（約122文字） */}
+          {/* 進捗コードコピー */}
           <button
             onClick={handleCopyShareCode}
-            className="px-4 py-2.5 bg-slate-100 hover:bg-slate-200/80 text-slate-700 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-2xs border border-slate-200"
+            className="px-4 py-2.5 bg-slate-100 hover:bg-slate-200/80 text-slate-700 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-2xs border border-slate-200 cursor-pointer active:scale-95"
           >
             {copiedShareCode ? (
               <>
@@ -206,84 +193,174 @@ export const MenuView: React.FC<MenuViewProps> = ({
           {/* コードから復元ボタン */}
           <button
             onClick={() => setShowCodeRestoreDialog(true)}
-            className="px-4 py-2.5 bg-white hover:bg-slate-50 text-slate-700 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-2xs border border-slate-200"
+            className="px-4 py-2.5 bg-white hover:bg-slate-50 text-slate-700 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-2xs border border-slate-200 cursor-pointer active:scale-95"
           >
-            <Upload className="w-4 h-4 text-[#33ccbb]" />
+            <Sparkles className="w-4 h-4 text-[#33ccbb]" />
             <span>コード / URLから復元</span>
           </button>
         </div>
       </div>
 
-      {/* 2. バックアップ・データ管理 */}
+      {/* 2. 表示項目の設定カード（新設） */}
       <div className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-xs space-y-4">
-        <h3 className="font-bold text-sm sm:text-base text-slate-800 flex items-center gap-2">
-          <span>データ管理・バックアップ</span>
-        </h3>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {/* JSONエクスポート */}
-          <button
-            onClick={handleExportJson}
-            className="p-3.5 rounded-2xl border border-slate-200 hover:border-slate-300 bg-slate-50/50 hover:bg-slate-50 flex items-center gap-3 text-left transition-all"
-          >
-            <div className="p-2 rounded-xl bg-sky-50 text-sky-600">
-              <Download className="w-4 h-4" />
-            </div>
-            <div>
-              <span className="block font-bold text-xs sm:text-sm text-slate-800">
-                JSONファイル保存
-              </span>
-              <span className="block text-[11px] text-slate-400">
-                チェックデータを端末に保存
-              </span>
-            </div>
-          </button>
-
-          {/* JSONインポート */}
-          <button
-            onClick={() => setShowImportDialog(true)}
-            className="p-3.5 rounded-2xl border border-slate-200 hover:border-slate-300 bg-slate-50/50 hover:bg-slate-50 flex items-center gap-3 text-left transition-all"
-          >
-            <div className="p-2 rounded-xl bg-purple-50 text-purple-600">
-              <Upload className="w-4 h-4" />
-            </div>
-            <div>
-              <span className="block font-bold text-xs sm:text-sm text-slate-800">
-                JSONから復元
-              </span>
-              <span className="block text-[11px] text-slate-400">
-                保存したファイルを読み込み
-              </span>
-            </div>
-          </button>
+        <div className="flex items-center gap-2.5">
+          <div className="p-2 rounded-xl bg-indigo-50 text-indigo-600">
+            <Sliders className="w-5 h-5" />
+          </div>
+          <div>
+            <h3 className="font-bold text-sm sm:text-base text-slate-800">
+              表示項目の設定
+            </h3>
+            <p className="text-xs text-slate-400">
+              楽曲リストでの表示項目を設定します。設定内容はブラウザに自動保存されます。
+            </p>
+          </div>
         </div>
 
-        <hr className="border-slate-100" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+          {/* ジャケット画像表示 */}
+          <label className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-slate-100/80 border border-slate-200/70 transition-colors cursor-pointer">
+            <div>
+              <span className="block font-bold text-xs sm:text-sm text-slate-800">ジャケット画像</span>
+              <span className="block text-[11px] text-slate-400">OFFにすると通信量を節約できます</span>
+            </div>
+            <input
+              type="checkbox"
+              checked={displaySettings.showJacket}
+              onChange={() => handleToggleDisplay('showJacket')}
+              className="w-4 h-4 accent-[#33ccbb] rounded cursor-pointer"
+            />
+          </label>
 
-        {/* 一括操作 */}
-        <div>
-          <span className="block text-xs font-bold text-slate-700 mb-2">一括操作</span>
-          <div className="flex flex-wrap gap-2">
-            <button
-              onClick={() => handleExecuteBatch(true, 'すべての楽曲レコードを「所持済み」にしますか？')}
-              className="px-3 py-2 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 flex items-center gap-1.5 transition-all active:scale-95"
-            >
-              <CheckCheck className="w-3.5 h-3.5 text-emerald-600" />
-              <span>すべて所持にする</span>
-            </button>
+          {/* 歌唱バージョンバッジ表示 */}
+          <label className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-slate-100/80 border border-slate-200/70 transition-colors cursor-pointer">
+            <div>
+              <span className="block font-bold text-xs sm:text-sm text-slate-800">歌唱verバッジ</span>
+              <span className="block text-[11px] text-slate-400">セカイ/VS/アナボ等のバッジ表示</span>
+            </div>
+            <input
+              type="checkbox"
+              checked={displaySettings.showVocalBadges}
+              onChange={() => handleToggleDisplay('showVocalBadges')}
+              className="w-4 h-4 accent-[#33ccbb] rounded cursor-pointer"
+            />
+          </label>
 
-            <button
-              onClick={() => handleExecuteBatch(false, 'すべてのチェックを解除しますか？')}
-              className="px-3 py-2 rounded-xl border border-rose-200 text-xs font-semibold text-rose-600 hover:bg-rose-50 flex items-center gap-1.5 transition-all active:scale-95"
-            >
-              <RotateCcw className="w-3.5 h-3.5" />
-              <span>すべてのチェックを解除</span>
-            </button>
+          {/* 歌唱キャラクター表示 */}
+          <label className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-slate-100/80 border border-slate-200/70 transition-colors cursor-pointer">
+            <div>
+              <span className="block font-bold text-xs sm:text-sm text-slate-800">歌唱キャラクター名</span>
+              <span className="block text-[11px] text-slate-400">参加シンガー・キャラ名の表記</span>
+            </div>
+            <input
+              type="checkbox"
+              checked={displaySettings.showCharacters}
+              onChange={() => handleToggleDisplay('showCharacters')}
+              className="w-4 h-4 accent-[#33ccbb] rounded cursor-pointer"
+            />
+          </label>
+
+          {/* 配信日表示 */}
+          <label className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-slate-100/80 border border-slate-200/70 transition-colors cursor-pointer">
+            <div>
+              <span className="block font-bold text-xs sm:text-sm text-slate-800">配信日（追加日）</span>
+              <span className="block text-[11px] text-slate-400">ゲーム内追加日付の表示</span>
+            </div>
+            <input
+              type="checkbox"
+              checked={displaySettings.showReleaseDate}
+              onChange={() => handleToggleDisplay('showReleaseDate')}
+              className="w-4 h-4 accent-[#33ccbb] rounded cursor-pointer"
+            />
+          </label>
+
+          {/* コンパクトモード */}
+          <label className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-slate-100/80 border border-slate-200/70 transition-colors cursor-pointer sm:col-span-2">
+            <div>
+              <span className="block font-bold text-xs sm:text-sm text-slate-800">コンパクト表示モード</span>
+              <span className="block text-[11px] text-slate-400">行間を狭め、1画面にたくさんの楽曲を一覧表示します</span>
+            </div>
+            <input
+              type="checkbox"
+              checked={displaySettings.compactMode}
+              onChange={() => handleToggleDisplay('compactMode')}
+              className="w-4 h-4 accent-[#33ccbb] rounded cursor-pointer"
+            />
+          </label>
+        </div>
+      </div>
+
+      {/* 3. データ一括操作カード */}
+      <div className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-xs space-y-3">
+        <div className="flex items-center gap-2.5">
+          <div className="p-2 rounded-xl bg-amber-50 text-amber-600">
+            <RotateCcw className="w-5 h-5" />
+          </div>
+          <div>
+            <h3 className="font-bold text-sm sm:text-base text-slate-800">
+              データの一括操作
+            </h3>
+            <p className="text-xs text-slate-400">
+              すべての楽曲の所持ステータスを一括で変更します（誤操作防止の確認モーダルが表示されます）。
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap gap-2.5 pt-1">
+          <button
+            onClick={() => setBatchModalTarget('all_owned')}
+            className="px-4 py-2.5 rounded-xl border border-slate-200 hover:border-emerald-300 text-xs sm:text-sm font-bold text-slate-700 hover:text-emerald-700 hover:bg-emerald-50/50 flex items-center gap-2 transition-all cursor-pointer active:scale-95 shadow-2xs"
+          >
+            <CheckCheck className="w-4 h-4 text-emerald-600" />
+            <span>すべて所持にする</span>
+          </button>
+
+          <button
+            onClick={() => setBatchModalTarget('all_clear')}
+            className="px-4 py-2.5 rounded-xl border border-rose-200 hover:border-rose-300 text-xs sm:text-sm font-bold text-rose-600 hover:bg-rose-50 flex items-center gap-2 transition-all cursor-pointer active:scale-95 shadow-2xs"
+          >
+            <RotateCcw className="w-4 h-4 text-rose-500" />
+            <span>すべてのチェックを解除</span>
+          </button>
+        </div>
+      </div>
+
+      {/* 4. 更新履歴（Changelog）カード */}
+      <div className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-xs space-y-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <div className="p-2 rounded-xl bg-sky-50 text-sky-600">
+              <History className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="font-bold text-sm sm:text-base text-slate-800">
+                更新履歴（Changelog）
+              </h3>
+              <p className="text-xs text-slate-400">
+                アプリの新機能追加・楽曲データの更新履歴
+              </p>
+            </div>
+          </div>
+          <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/60 font-mono">
+            全{records.length}曲対応
+          </span>
+        </div>
+
+        <div className="pt-1 text-xs text-slate-600 border-l-2 border-slate-200 ml-3 pl-4">
+          <div className="relative">
+            <div className="absolute -left-[21px] top-1 w-2.5 h-2.5 rounded-full bg-[#33ccbb] border-2 border-white ring-2 ring-[#33ccbb]/20" />
+            <div className="flex items-center gap-2 mb-1">
+              <span className="font-bold text-slate-800">楽曲データ最終追加</span>
+              <span className="text-[11px] font-mono text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">2026.11.08</span>
+            </div>
+            <p className="text-slate-500 text-[11px] leading-relaxed">
+              最新の追加楽曲を含む全{records.length}曲のレコードマスターデータ（ジャケット・公式読み仮名・歌唱ver音源情報）を反映済みです。
+            </p>
           </div>
         </div>
       </div>
 
-      {/* 3. アプリ情報・免責事項 */}
+      {/* 5. アプリ情報・免責事項カード */}
       <div className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-xs space-y-3">
         <div className="flex items-center gap-2">
           <Info className="w-4 h-4 text-slate-400" />
@@ -293,9 +370,17 @@ export const MenuView: React.FC<MenuViewProps> = ({
           本アプリは、「プロジェクトセカイ カラフルステージ！ feat. 初音ミク」の非公式ファンメイドツールです。
           マイセカイ内の楽曲レコード収集の進捗管理をサポートします。セガ様、Colorful Palette様、クリプトン様とは一切関係ありません。
         </p>
-        <div className="pt-2 text-[11px] text-slate-400 flex items-center justify-between border-t border-slate-100">
-          <span>バージョン: 1.0.0</span>
-          <span>登録楽曲数: {records.length}件</span>
+        <div className="pt-2 text-[11px] text-slate-400 flex flex-wrap items-center justify-between gap-2 border-t border-slate-100">
+          <span>バージョン: 1.2.0 (全{records.length}曲)</span>
+          <a
+            href="https://github.com/sun1129-96/prsk_mysekai_record_checker"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 text-slate-500 hover:text-[#0d9488] transition-colors"
+          >
+            <span>GitHub リポジトリ</span>
+            <ExternalLink className="w-3 h-3" />
+          </a>
         </div>
       </div>
 
@@ -323,13 +408,13 @@ export const MenuView: React.FC<MenuViewProps> = ({
                   setShowCodeRestoreDialog(false);
                   setShareCodeInput('');
                 }}
-                className="px-4 py-2 text-xs font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition-colors"
+                className="px-4 py-2 text-xs font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition-colors cursor-pointer"
               >
                 キャンセル
               </button>
               <button
                 onClick={handleApplyShareCode}
-                className="px-4 py-2 text-xs font-bold bg-[#33ccbb] hover:bg-[#2cb3a5] text-white rounded-xl shadow-xs transition-colors"
+                className="px-4 py-2 text-xs font-bold bg-[#33ccbb] hover:bg-[#2cb3a5] text-white rounded-xl shadow-xs transition-colors cursor-pointer"
               >
                 復元を実行
               </button>
@@ -338,36 +423,72 @@ export const MenuView: React.FC<MenuViewProps> = ({
         </div>
       )}
 
-      {/* JSONインポートモーダル */}
-      {showImportDialog && (
+      {/* 一括操作のカスタム確認モーダル（新設） */}
+      {batchModalTarget && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs">
-          <div className="bg-white rounded-2xl max-w-md w-full p-5 shadow-xl border border-slate-100 animate-in fade-in zoom-in-95 duration-150">
-            <h4 className="font-bold text-slate-800 mb-2 flex items-center gap-2">
-              <Upload className="w-4 h-4 text-purple-600" />
-              <span>JSONデータのインポート</span>
-            </h4>
-            <p className="text-xs text-slate-500 mb-3">
-              保存したJSONテキストを貼り付けてください。現在のチェック状態が上書きされます。
-            </p>
-            <textarea
-              rows={6}
-              value={importText}
-              onChange={(e) => setImportText(e.target.value)}
-              placeholder='{"rec_1": true, ...}'
-              className="w-full text-xs font-mono p-3 border border-slate-200 rounded-xl focus:border-[#33ccbb] focus:ring-2 focus:ring-[#33ccbb]/20 focus:outline-hidden"
-            />
-            <div className="mt-4 flex justify-end gap-2">
+          <div className="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 animate-in fade-in zoom-in-95 duration-150 space-y-4">
+            <div className="flex items-center gap-3">
+              <div
+                className={`p-3 rounded-2xl ${
+                  batchModalTarget === 'all_owned'
+                    ? 'bg-emerald-50 text-emerald-600'
+                    : 'bg-rose-50 text-rose-600'
+                }`}
+              >
+                {batchModalTarget === 'all_owned' ? (
+                  <CheckCheck className="w-6 h-6" />
+                ) : (
+                  <AlertTriangle className="w-6 h-6" />
+                )}
+              </div>
+              <div>
+                <h4 className="font-bold text-base text-slate-800">
+                  {batchModalTarget === 'all_owned'
+                    ? 'すべて所持済みにしますか？'
+                    : 'すべてのチェックを解除しますか？'}
+                </h4>
+                <p className="text-xs text-slate-400">一括操作の確認</p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/70 text-xs text-slate-600 space-y-2">
+              <div className="flex justify-between items-center">
+                <span>現在の所持曲数:</span>
+                <span className="font-bold font-mono text-slate-800">
+                  {currentOwnedCount} / {records.length} 曲
+                </span>
+              </div>
+              <div className="flex justify-between items-center pt-1 border-t border-slate-200/60">
+                <span>変更後の所持曲数:</span>
+                <span
+                  className={`font-bold font-mono text-sm ${
+                    batchModalTarget === 'all_owned' ? 'text-emerald-600' : 'text-rose-600'
+                  }`}
+                >
+                  {batchModalTarget === 'all_owned' ? records.length : 0} / {records.length} 曲
+                </span>
+              </div>
+              <p className="text-[11px] text-slate-400 pt-1">
+                ※ 実行後も画面下の「元に戻す」ボタンから直前の状態に復元できます。
+              </p>
+            </div>
+
+            <div className="flex items-center justify-end gap-2.5 pt-1">
               <button
-                onClick={() => setShowImportDialog(false)}
-                className="px-4 py-2 text-xs font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition-colors"
+                onClick={() => setBatchModalTarget(null)}
+                className="px-4 py-2.5 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-xl transition-colors cursor-pointer"
               >
                 キャンセル
               </button>
               <button
-                onClick={handleApplyImport}
-                className="px-4 py-2 text-xs font-bold bg-[#33ccbb] hover:bg-[#2cb3a5] text-white rounded-xl shadow-xs transition-colors"
+                onClick={handleConfirmBatch}
+                className={`px-5 py-2.5 text-xs font-bold text-white rounded-xl shadow-xs transition-all cursor-pointer active:scale-95 ${
+                  batchModalTarget === 'all_owned'
+                    ? 'bg-emerald-600 hover:bg-emerald-700'
+                    : 'bg-rose-600 hover:bg-rose-700'
+                }`}
               >
-                復元を実行
+                {batchModalTarget === 'all_owned' ? 'すべて所持にする' : 'チェックを全解除'}
               </button>
             </div>
           </div>
@@ -383,14 +504,14 @@ export const MenuView: React.FC<MenuViewProps> = ({
             </span>
             <button
               onClick={handleUndo}
-              className="px-3 py-1.5 bg-[#33ccbb] hover:bg-[#2cb3a5] text-slate-900 font-bold rounded-xl flex items-center gap-1.5 transition-colors shrink-0 shadow-xs"
+              className="px-3 py-1.5 bg-[#33ccbb] hover:bg-[#2cb3a5] text-slate-900 font-bold rounded-xl flex items-center gap-1.5 transition-colors shrink-0 shadow-xs cursor-pointer active:scale-95"
             >
               <Undo2 className="w-3.5 h-3.5" />
               <span>元に戻す</span>
             </button>
             <button
               onClick={() => setUndoBackup(null)}
-              className="text-slate-400 hover:text-white p-1 text-[11px]"
+              className="text-slate-400 hover:text-white p-1 text-[11px] cursor-pointer"
             >
               ✕
             </button>
