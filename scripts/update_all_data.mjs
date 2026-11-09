@@ -45,6 +45,9 @@ async function main() {
   // 3. 公式読み仮名取得 & シンガー正規化 & allRecords.ts 出力
   await runScript('generate_records_ts.mjs');
 
+  // 4. 書き下ろし分類 & イベントバナーキャラの付与
+  await runScript('apply_tags_to_all_records.mjs');
+
   console.log('\n====================================================');
   console.log('  ✔ 全データの更新処理が正常に完了しました！');
   console.log('  ・CSV: records_spreadsheet.csv');

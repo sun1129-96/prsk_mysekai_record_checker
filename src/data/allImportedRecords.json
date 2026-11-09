@@ -36600,5 +36600,53 @@
       "anotherVocal": false
     },
     "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%97%E3%82%B7&src=%E3%83%97%E3%82%B7.jpg"
+  },
+  {
+    "no": 732,
+    "defaultSort": 25031,
+    "category": "書",
+    "title": "星を探して♭♭",
+    "unitRaw": "5_25",
+    "unitId": "nightcord_at_25",
+    "unitName": "25時、ナイトコードで。",
+    "releaseDate": "2026/11/08",
+    "detailUrl": "https://pjsekai.com/?bec56795ab",
+    "vocalTracks": [
+      {
+        "rawType": "セカイver.",
+        "type": "sekai",
+        "rawSingers": [
+          "宵崎奏",
+          "巡音ルカ",
+          "朝比奈まふゆ",
+          "東雲絵名",
+          "暁山瑞希"
+        ],
+        "singers": [
+          "kanade",
+          "luka",
+          "mafuyu",
+          "ena",
+          "mizuki"
+        ]
+      },
+      {
+        "rawType": "バーチャル・シンガーver.",
+        "type": "virtual_singer",
+        "rawSingers": [
+          "初音ミク"
+        ],
+        "singers": [
+          "miku"
+        ]
+      }
+    ],
+    "vocalVersions": {
+      "sekai": true,
+      "virtualSinger": true,
+      "connectLive": false,
+      "anotherVocal": false
+    },
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%98%9F%E3%82%92%E6%8E%A2%E3%81%97%E3%81%A6%E2%99%AD%E2%99%AD&src=%E6%98%9F%E3%82%92%E6%8E%A2%E3%81%97%E3%81%A6%E2%99%AD%E2%99%AD.jpg"
   }
 ]

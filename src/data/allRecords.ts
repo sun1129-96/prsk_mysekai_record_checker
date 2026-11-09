@@ -1,4 +1,4 @@
-// 自動生成ファイル (pjsekai.com より全731曲インポート・公式pronunciation読み仮名適用済み・シンガーID正規化済み・書き下ろし分類およびバナーキャラ付与済み)
+// 自動生成ファイル (pjsekai.com より全732曲インポート・公式pronunciation読み仮名適用済み・シンガーID正規化済み・書き下ろし分類およびバナーキャラ付与済み)
 import type { RecordItem } from '../types/record';
 
 export const ALL_RECORDS: RecordItem[] = [
@@ -3645,7 +3645,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_74",
     "title": "Color of Drops",
-    "reading": "からーおぶどろっ��す",
+    "reading": "からーおぶどろっぷす",
     "unit": "more_more_jump",
     "releaseDate": "2021-01-29",
     "defaultOrder": 74,
@@ -32184,7 +32184,7 @@ export const ALL_RECORDS: RecordItem[] = [
   {
     "id": "rec_666",
     "title": "卑怯戦隊うろたんだー",
-    "reading": "ひきょーせんたいうろたんだ���",
+    "reading": "ひきょーせんたいうろたんだー",
     "unit": "wonderlands_showtime",
     "releaseDate": "2026-05-11",
     "defaultOrder": 666,
@@ -34804,5 +34804,53 @@ export const ALL_RECORDS: RecordItem[] = [
       }
     ],
     "originalType": "cover"
+  },
+  {
+    "id": "rec_732",
+    "title": "星を探して♭♭",
+    "reading": "ほしをさがして",
+    "unit": "nightcord_at_25",
+    "releaseDate": "2026-11-08",
+    "defaultOrder": 732,
+    "defaultSort": 25031,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%98%9F%E3%82%92%E6%8E%A2%E3%81%97%E3%81%A6%E2%99%AD%E2%99%AD&src=%E6%98%9F%E3%82%92%E6%8E%A2%E3%81%97%E3%81%A6%E2%99%AD%E2%99%AD.jpg",
+    "vocalVersions": {
+      "sekai": true,
+      "virtualSinger": true,
+      "connectLive": false,
+      "anotherVocal": false
+    },
+    "characters": [
+      "kanade",
+      "luka",
+      "mafuyu",
+      "ena",
+      "mizuki",
+      "miku"
+    ],
+    "vocalTracks": [
+      {
+        "id": "rec_732_t1",
+        "name": "セカイver",
+        "type": "sekai",
+        "singers": [
+          "kanade",
+          "luka",
+          "mafuyu",
+          "ena",
+          "mizuki"
+        ]
+      },
+      {
+        "id": "rec_732_t2",
+        "name": "バーチャル・シンガーver",
+        "type": "virtual_singer",
+        "singers": [
+          "miku"
+        ]
+      }
+    ],
+    "originalType": "event",
+    "bannerCharacter": "kanade"
   }
 ];
