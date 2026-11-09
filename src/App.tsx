@@ -103,14 +103,9 @@ export const App: React.FC = () => {
       // ignore
     }
 
-    // 3. 初期モック用プリセット（例として各ユニットの代表曲を所持状態に）
+    // 3. 初期プリセット（Ready Steady のみ所持状態に）
     return {
-      rec_1: true, // Tell Your World
-      rec_7: true, // ロキ
-      rec_10: true, // ハッピーシンセサイザ
-      rec_15: true, // フラジール
-      rec_16: true, // ブリキノダンス
-      rec_19: true, // シャルル
+      rec_24: true, // Ready Steady
     };
   });
 

@@ -40,8 +40,8 @@ export const ListView: React.FC<ListViewProps> = ({
 }) => {
   const listRef = useRef<HTMLDivElement>(null);
 
-  // 並び替え状態（初期値: 実装日昇順）
-  const [sortType, setSortType] = useState<SortType>('releaseDate');
+  // 並び替え状態（初期値: デフォルト順昇順）
+  const [sortType, setSortType] = useState<SortType>('defaultSort');
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
 
   // タップ動作モード: 'detail' (詳細モーダル) vs 'quick_check' (行全体でチェック切り替え)
