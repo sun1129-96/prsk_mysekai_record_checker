@@ -203,7 +203,7 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
                           color: unitMeta.textColor || unitMeta.themeColor,
                           textShadow: badgeTextShadow,
                         }}
-                        title={`${track.name} を詳細表示`}
+                        title={tapMode === 'detail' ? `${track.name} を詳細表示` : undefined}
                       >
                         セカイ
                       </button>
@@ -222,7 +222,7 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
                           color: vsMeta.textColor || vsMeta.themeColor,
                           textShadow: badgeTextShadow,
                         }}
-                        title={`${track.name} を詳細表示`}
+                        title={tapMode === 'detail' ? `${track.name} を詳細表示` : undefined}
                       >
                         バチャシン
                       </button>
@@ -236,7 +236,7 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
                         onClick={(e) => onBadgeClick(record, track.id, e)}
                         className="px-1.5 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-200/60 font-bold shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
                         style={{ textShadow: badgeTextShadow }}
-                        title={`${track.name} を詳細表示`}
+                        title={tapMode === 'detail' ? `${track.name} を詳細表示` : undefined}
                       >
                         コネライ
                       </button>
@@ -262,7 +262,7 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
                         onClick={(e) => onBadgeClick(record, track.id, e)}
                         className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md font-bold border transition-all shadow-2xs text-[10px] cursor-pointer hover:opacity-80 active:scale-95"
                         style={badgeStyle}
-                        title={`${track.name} を詳細表示`}
+                        title={tapMode === 'detail' ? `${track.name} を詳細表示` : undefined}
                       >
                         {singerUnits.map((uKey) => {
                           const uMeta = UNIT_METAS[uKey];
@@ -300,7 +300,7 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
                         onClick={(e) => onBadgeClick(record, track.id, e)}
                         className="px-1.5 py-0.5 rounded-md bg-purple-50 text-purple-700 border border-purple-200/60 font-bold shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
                         style={{ textShadow: badgeTextShadow }}
-                        title={`${track.name} を詳細表示`}
+                        title={tapMode === 'detail' ? `${track.name} を詳細表示` : undefined}
                       >
                         {track.name.includes('コラボ') ? 'コラボ' : 'その他'}
                       </button>
@@ -321,6 +321,7 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
                         color: unitMeta.textColor || unitMeta.themeColor,
                         textShadow: badgeTextShadow,
                       }}
+                      title={tapMode === 'detail' ? 'セカイver を詳細表示' : undefined}
                     >
                       セカイ
                     </button>
@@ -336,6 +337,7 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
                         color: vsMeta.textColor || vsMeta.themeColor,
                         textShadow: badgeTextShadow,
                       }}
+                      title={tapMode === 'detail' ? 'バーチャル・シンガーver を詳細表示' : undefined}
                     >
                       バチャシン
                     </button>
@@ -346,6 +348,7 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
                       onClick={(e) => onBadgeClick(record, 'cl', e)}
                       className="px-1.5 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-200/60 font-bold shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
                       style={{ textShadow: badgeTextShadow }}
+                      title={tapMode === 'detail' ? 'コネクトライブver を詳細表示' : undefined}
                     >
                       コネライ
                     </button>
@@ -356,6 +359,7 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
                       onClick={(e) => onBadgeClick(record, 'av', e)}
                       className="px-1.5 py-0.5 rounded-md bg-amber-50 text-amber-700 border border-amber-200/60 font-bold shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
                       style={{ textShadow: badgeTextShadow }}
+                      title={tapMode === 'detail' ? 'アナザーボーカルver を詳細表示' : undefined}
                     >
                       アナボ
                     </button>

@@ -52,12 +52,17 @@ export const ListView: React.FC<ListViewProps> = ({
   const [selectedRecordForDetail, setSelectedRecordForDetail] = useState<RecordItem | null>(null);
   const [selectedTrackIdForDetail, setSelectedTrackIdForDetail] = useState<string | null>(null);
 
-  // 歌唱バージョンバッジをクリックした際にそのトラックを指定して詳細を開く
+  // 歌唱バージョンバッジをクリックした際の処理
   const handleBadgeClick = useCallback((record: RecordItem, trackId: string, e: React.MouseEvent) => {
     e.stopPropagation();
+    if (tapMode === 'quick_check') {
+      // クイックチェックモード時は詳細モーダルを開かず、所持チェックを切り替える
+      onToggleOwned(record.id);
+      return;
+    }
     setSelectedRecordForDetail(record);
     setSelectedTrackIdForDetail(trackId);
-  }, []);
+  }, [tapMode, onToggleOwned]);
 
   const handleRowClick = useCallback((record: RecordItem) => {
     if (tapMode === 'quick_check') {
