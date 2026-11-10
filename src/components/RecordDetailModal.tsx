@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { X, Calendar, Hash, Music, Check } from 'lucide-react';
 import type { RecordItem } from '../types/record';
-import { UNIT_METAS, CHARACTERS, ORIGINAL_TYPE_METAS } from '../types/record';
+import { UNIT_METAS, CHARACTERS, ORIGINAL_TYPE_METAS, getRecordJackets } from '../types/record';
 
 interface RecordDetailModalProps {
   record: RecordItem | null;
@@ -10,6 +10,8 @@ interface RecordDetailModalProps {
   isOwned: boolean;
   onToggleOwned: (id: string) => void;
   initialTrackId?: string | null;
+  currentJacketIndex?: number;
+  onSelectJacketIndex?: (recordId: string, index: number) => void;
 }
 
 export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
@@ -19,8 +21,22 @@ export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
   isOwned,
   onToggleOwned,
   initialTrackId,
+  currentJacketIndex = 0,
+  onSelectJacketIndex,
 }) => {
   const tracksListRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+
+  useEffect(() => {
+    setActiveIndex(currentJacketIndex || 0);
+  }, [record?.id, currentJacketIndex]);
+
+  const handleSelectIndex = (idx: number) => {
+    setActiveIndex(idx);
+    if (record && onSelectJacketIndex) {
+      onSelectJacketIndex(record.id, idx);
+    }
+  };
 
   // 指定された歌唱verが見えるように自動スクロール
   useEffect(() => {
@@ -53,8 +69,14 @@ export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
           ...(record.vocalVersions.connectLive
             ? [{ id: 'cl', name: 'コネクトライブver', type: 'connect_live' as const, singers: record.characters.slice(0, 2) }]
             : []),
+          ...(record.vocalVersions.movie
+            ? [{ id: 'movie', name: '「劇場版プロジェクトセカイ」ver.', type: 'movie' as const, singers: record.characters }]
+            : []),
           ...(record.vocalVersions.anotherVocal
             ? [{ id: 'av', name: 'アナザーボーカルver', type: 'another_vocal' as const, singers: [record.characters[0] || 'ichika'] }]
+            : []),
+          ...(record.vocalVersions.inst
+            ? [{ id: 'inst', name: 'Inst. ver.', type: 'inst' as const, singers: [] }]
             : []),
         ];
 
@@ -71,38 +93,90 @@ export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
           </button>
 
           {/* ジャケットプレビュー */}
-          <div
-            className="w-24 h-24 rounded-2xl flex items-center justify-center shadow-md mb-3 overflow-hidden relative bg-slate-100"
-            style={{
-              border: `2px solid ${unitMeta.borderColor}`,
-            }}
-          >
-            {record.jacketUrl ? (
-              <img
-                src={record.jacketUrl}
-                alt={record.title}
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).style.display = 'none';
-                }}
-              />
-            ) : (
-              <Music className="w-10 h-10" style={{ color: unitMeta.textColor || (unitMeta.themeColor === '#FFFFFF' ? '#94a3b8' : unitMeta.themeColor) }} />
-            )}
-          </div>
+          {(() => {
+            const jackets = getRecordJackets(record);
+            const hasMultiple = jackets.length > 1;
+            const safeIndex = jackets.length > 0 ? (activeIndex % jackets.length + jackets.length) % jackets.length : 0;
+            const currentJacket = jackets[safeIndex] || { url: record.jacketUrl || '', label: '通常' };
 
-          {/* ユニットバッジ */}
-          <span
-            className="px-2.5 py-0.5 rounded-full text-[11px] font-bold mb-1.5"
-            style={{
-              backgroundColor: unitMeta.bgColor,
-              color: unitMeta.textColor || unitMeta.themeColor,
-              border: `1px solid ${unitMeta.borderColor}`,
-              textShadow: '0 0 2px #ffffff, 0 0 4px #ffffff',
-            }}
-          >
-            {unitMeta.name}
-          </span>
+            return (
+              <div className="flex flex-col items-center mb-3">
+                <div
+                  onClick={() => {
+                    if (hasMultiple) {
+                      handleSelectIndex((safeIndex + 1) % jackets.length);
+                    }
+                  }}
+                  className={`w-24 h-24 rounded-2xl flex items-center justify-center shadow-md overflow-hidden relative bg-slate-100 ${
+                    hasMultiple ? 'cursor-pointer hover:ring-2 hover:ring-[#33ccbb]/60 active:scale-95 transition-all' : ''
+                  }`}
+                  style={{
+                    border: `2px solid ${unitMeta.borderColor}`,
+                  }}
+                  title={hasMultiple ? `クリックでジャケットを切り替え（現在: ${currentJacket.label}）` : undefined}
+                >
+                  {currentJacket.url ? (
+                    <img
+                      key={currentJacket.url}
+                      src={currentJacket.url}
+                      alt={record.title}
+                      className="w-full h-full object-cover transition-opacity duration-150"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = 'none';
+                      }}
+                      onLoad={(e) => {
+                        (e.target as HTMLImageElement).style.display = '';
+                      }}
+                    />
+                  ) : (
+                    <Music className="w-10 h-10" style={{ color: unitMeta.textColor || (unitMeta.themeColor === '#FFFFFF' ? '#94a3b8' : unitMeta.themeColor) }} />
+                  )}
+                </div>
+
+                {/* 複数ジャケットが存在する場合の切り替えタブ（3枚以上にも動的対応） */}
+                {hasMultiple && (
+                  <div className="flex items-center gap-1 mt-2 bg-slate-100 p-1 rounded-xl text-[10px] font-bold flex-wrap justify-center max-w-[280px]">
+                    {jackets.map((j, idx) => (
+                      <button
+                        key={idx}
+                        type="button"
+                        onClick={() => handleSelectIndex(idx)}
+                        className={`px-2 py-0.5 rounded-lg transition-all ${
+                          safeIndex === idx
+                            ? 'bg-white text-[#0d9488] shadow-2xs font-extrabold'
+                            : 'text-slate-500 hover:text-slate-700'
+                        }`}
+                      >
+                        {j.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })()}
+
+          {/* ユニットバッジ（複数ユニット対応・正式名称表示） */}
+          <div className="flex flex-wrap items-center justify-center gap-1.5 mb-1.5 max-w-sm mx-auto">
+            {(record.units && record.units.length > 0 ? record.units : [record.unit]).map((u) => {
+              const uMeta = UNIT_METAS[u];
+              if (!uMeta) return null;
+              return (
+                <span
+                  key={u}
+                  className="px-2.5 py-0.5 rounded-full text-[11px] font-bold"
+                  style={{
+                    backgroundColor: uMeta.bgColor,
+                    color: uMeta.textColor || uMeta.themeColor,
+                    border: `1px solid ${uMeta.borderColor}`,
+                    textShadow: '0 0 2px #ffffff, 0 0 4px #ffffff',
+                  }}
+                >
+                  {uMeta.name}
+                </span>
+              );
+            })}
+          </div>
 
           {/* 書き下ろし楽曲のみ表示する楽曲分類・バナーキャラ情報 */}
           {record.originalType && record.originalType !== 'cover' && (

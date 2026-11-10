@@ -15,7 +15,7 @@ import type {
   DisplaySettings,
   TapActionMode,
 } from '../types/record';
-import { UNIT_METAS } from '../types/record';
+import { UNIT_METAS, getJacketIndexForTrack } from '../types/record';
 import { FilterSortModal } from './ToolbarModals';
 import { RecordDetailModal } from './RecordDetailModal';
 import { filterAndSortRecords } from '../utils/recordUtils';
@@ -26,6 +26,7 @@ interface ListViewProps {
   ownedRecordIds: Record<string, boolean>;
   onToggleOwned: (id: string) => void;
   displaySettings: DisplaySettings;
+  onDisplaySettingsChange?: React.Dispatch<React.SetStateAction<DisplaySettings>>;
   filterOptions: FilterOptions;
   onFilterOptionsChange: React.Dispatch<React.SetStateAction<FilterOptions>>;
 }
@@ -52,6 +53,26 @@ export const ListView: React.FC<ListViewProps> = ({
   const [selectedRecordForDetail, setSelectedRecordForDetail] = useState<RecordItem | null>(null);
   const [selectedTrackIdForDetail, setSelectedTrackIdForDetail] = useState<string | null>(null);
 
+  // 個別ジャケット切り替え状態（recordId -> jacketIndex: 3枚以上のジャケットにも完全対応）
+  const [jacketIndexMap, setJacketIndexMap] = useState<Record<string, number>>({});
+
+  const handleRotateJacket = useCallback((recordId: string, totalCount: number) => {
+    setJacketIndexMap((prev) => {
+      const current = typeof prev[recordId] === 'number' ? prev[recordId] : 0;
+      return {
+        ...prev,
+        [recordId]: (current + 1) % totalCount,
+      };
+    });
+  }, []);
+
+  const handleSetJacketIndex = useCallback((recordId: string, index: number) => {
+    setJacketIndexMap((prev) => ({
+      ...prev,
+      [recordId]: index,
+    }));
+  }, []);
+
   // 歌唱バージョンバッジをクリックした際の処理
   const handleBadgeClick = useCallback((record: RecordItem, trackId: string, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -60,6 +81,14 @@ export const ListView: React.FC<ListViewProps> = ({
       onToggleOwned(record.id);
       return;
     }
+
+    // 歌唱バージョンに対応するジャケットインデックスを算出して設定
+    const targetJacketIndex = getJacketIndexForTrack(record, trackId);
+    setJacketIndexMap((prev) => ({
+      ...prev,
+      [record.id]: targetJacketIndex,
+    }));
+
     setSelectedRecordForDetail(record);
     setSelectedTrackIdForDetail(trackId);
   }, [tapMode, onToggleOwned]);
@@ -140,11 +169,10 @@ export const ListView: React.FC<ListViewProps> = ({
             {/* 左側: 並べ替え・絞り込みボタン */}
             <button
               onClick={() => setIsFilterModalOpen(true)}
-              className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 transition-all border cursor-pointer ${
-                isFilterActive
+              className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 transition-all border cursor-pointer ${isFilterActive
                   ? 'bg-[#33ccbb]/15 border-[#33ccbb] text-[#0d9488]'
                   : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
-              }`}
+                }`}
             >
               <SlidersHorizontal className="w-3.5 h-3.5 text-[#33ccbb]" />
               <span>並替・絞込</span>
@@ -170,15 +198,13 @@ export const ListView: React.FC<ListViewProps> = ({
                 onClick={() =>
                   setTapMode(tapMode === 'quick_check' ? 'detail' : 'quick_check')
                 }
-                className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-hidden ${
-                  tapMode === 'quick_check' ? 'bg-[#33ccbb]' : 'bg-slate-300'
-                }`}
+                className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-hidden ${tapMode === 'quick_check' ? 'bg-[#33ccbb]' : 'bg-slate-300'
+                  }`}
               >
                 <span
                   aria-hidden="true"
-                  className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow-md ring-0 transition duration-200 ease-in-out ${
-                    tapMode === 'quick_check' ? 'translate-x-5' : 'translate-x-0'
-                  }`}
+                  className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow-md ring-0 transition duration-200 ease-in-out ${tapMode === 'quick_check' ? 'translate-x-5' : 'translate-x-0'
+                    }`}
                 />
               </button>
             </div>
@@ -273,9 +299,11 @@ export const ListView: React.FC<ListViewProps> = ({
                   isOwned={!!ownedRecordIds[record.id]}
                   displaySettings={displaySettings}
                   tapMode={tapMode}
+                  jacketIndex={jacketIndexMap[record.id] || 0}
                   onRowClick={handleRowClick}
                   onToggleOwned={onToggleOwned}
                   onBadgeClick={handleBadgeClick}
+                  onRotateJacket={handleRotateJacket}
                 />
               </div>
             );
@@ -308,6 +336,8 @@ export const ListView: React.FC<ListViewProps> = ({
         isOwned={selectedRecordForDetail ? !!ownedRecordIds[selectedRecordForDetail.id] : false}
         onToggleOwned={onToggleOwned}
         initialTrackId={selectedTrackIdForDetail}
+        currentJacketIndex={selectedRecordForDetail ? (jacketIndexMap[selectedRecordForDetail.id] || 0) : 0}
+        onSelectJacketIndex={handleSetJacketIndex}
       />
     </div>
   );

@@ -48,6 +48,34 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
   // ゲーム未登場のバーチャル・シンガー折りたたみ状態（デフォルトは折りたたみ）
   const [showNonGameSingers, setShowNonGameSingers] = useState(false);
 
+  // 絞り込み条件グループごとの簡易アコーディオン開閉状態
+  const [openSections, setOpenSections] = useState<Record<string, boolean>>({
+    units: true,
+    characters: false,
+    vocalVersions: false,
+    originalTypes: false,
+    bannerCharacters: false,
+    releaseYears: false,
+  });
+
+  const toggleSection = (key: string) => {
+    setOpenSections((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+
+  const setAllSections = (open: boolean) => {
+    setOpenSections({
+      units: open,
+      characters: open,
+      vocalVersions: open,
+      originalTypes: open,
+      bannerCharacters: open,
+      releaseYears: open,
+    });
+  };
+
   if (!isOpen) return null;
 
   // ユニットトグル
@@ -103,6 +131,7 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
         sekai: select,
         connectLive: select,
         anotherVocal: select,
+        inst: select,
       },
     });
   };
@@ -169,11 +198,10 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
               <button
                 type="button"
                 onClick={() => onSortChange('defaultSort', sortDirection)}
-                className={`py-2.5 px-2 rounded-xl border font-bold text-xs sm:text-sm text-center transition-all ${
-                  sortType === 'defaultSort'
+                className={`py-2.5 px-2 rounded-xl border font-bold text-xs sm:text-sm text-center transition-all ${sortType === 'defaultSort'
                     ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] shadow-2xs'
                     : 'border-slate-200 text-slate-600 hover:bg-slate-50'
-                }`}
+                  }`}
               >
                 デフォルト順
               </button>
@@ -181,11 +209,10 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
               <button
                 type="button"
                 onClick={() => onSortChange('releaseDate', sortDirection)}
-                className={`py-2.5 px-2 rounded-xl border font-bold text-xs sm:text-sm text-center transition-all ${
-                  sortType === 'releaseDate'
+                className={`py-2.5 px-2 rounded-xl border font-bold text-xs sm:text-sm text-center transition-all ${sortType === 'releaseDate'
                     ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] shadow-2xs'
                     : 'border-slate-200 text-slate-600 hover:bg-slate-50'
-                }`}
+                  }`}
               >
                 実装日順
               </button>
@@ -193,11 +220,10 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
               <button
                 type="button"
                 onClick={() => onSortChange('reading', sortDirection)}
-                className={`py-2.5 px-2 rounded-xl border font-bold text-xs sm:text-sm text-center transition-all ${
-                  sortType === 'reading'
+                className={`py-2.5 px-2 rounded-xl border font-bold text-xs sm:text-sm text-center transition-all ${sortType === 'reading'
                     ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] shadow-2xs'
                     : 'border-slate-200 text-slate-600 hover:bg-slate-50'
-                }`}
+                  }`}
               >
                 五十音順
               </button>
@@ -210,11 +236,10 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                 <button
                   type="button"
                   onClick={() => onSortChange(sortType, 'asc')}
-                  className={`py-2 px-3 rounded-xl border text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
-                    sortDirection === 'asc'
+                  className={`py-2 px-3 rounded-xl border text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${sortDirection === 'asc'
                       ? 'border-[#33ccbb] bg-white text-[#0d9488] shadow-xs'
                       : 'border-transparent text-slate-500 hover:bg-slate-200/50'
-                  }`}
+                    }`}
                 >
                   {sortType === 'defaultSort' && 'デフォルト順 (昇順)'}
                   {sortType === 'releaseDate' && '古い順 (昇順)'}
@@ -224,11 +249,10 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                 <button
                   type="button"
                   onClick={() => onSortChange(sortType, 'desc')}
-                  className={`py-2 px-3 rounded-xl border text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
-                    sortDirection === 'desc'
+                  className={`py-2 px-3 rounded-xl border text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${sortDirection === 'desc'
                       ? 'border-[#33ccbb] bg-white text-[#0d9488] shadow-xs'
                       : 'border-transparent text-slate-500 hover:bg-slate-200/50'
-                  }`}
+                    }`}
                 >
                   {sortType === 'defaultSort' && '逆順 (降順)'}
                   {sortType === 'releaseDate' && '新しい順 (降順)'}
@@ -248,22 +272,20 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                 <button
                   type="button"
                   onClick={() => onFilterChange({ ...filterOptions, matchType: 'and' })}
-                  className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
-                    (filterOptions.matchType || 'and') === 'and'
+                  className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${(filterOptions.matchType || 'and') === 'and'
                       ? 'bg-[#33ccbb] text-white shadow-2xs'
                       : 'text-slate-500 hover:text-slate-700'
-                  }`}
+                    }`}
                 >
                   AND (すべて一致)
                 </button>
                 <button
                   type="button"
                   onClick={() => onFilterChange({ ...filterOptions, matchType: 'or' })}
-                  className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
-                    filterOptions.matchType === 'or'
+                  className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${filterOptions.matchType === 'or'
                       ? 'bg-sky-500 text-white shadow-2xs'
                       : 'text-slate-500 hover:text-slate-700'
-                  }`}
+                    }`}
                 >
                   OR (いずれか一致)
                 </button>
@@ -293,11 +315,10 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                   onClick={() =>
                     onFilterChange({ ...filterOptions, ownership: status.id })
                   }
-                  className={`py-2 px-3 rounded-xl border text-xs sm:text-sm font-medium transition-all ${
-                    filterOptions.ownership === status.id
+                  className={`py-2 px-3 rounded-xl border text-xs sm:text-sm font-medium transition-all ${filterOptions.ownership === status.id
                       ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] font-bold'
                       : 'border-slate-200 text-slate-600 hover:bg-slate-50'
-                  }`}
+                    }`}
                 >
                   {status.label}
                 </button>
@@ -305,97 +326,167 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
             </div>
           </div>
 
-          {/* 3. ユニットでの絞り込み */}
-          <div className="pt-4 space-y-2.5">
-            <div className="flex items-center justify-between">
-              <div className="font-bold text-slate-700">ユニット</div>
-              <div className="flex gap-2 text-xs">
-                <button
-                  type="button"
-                  onClick={() => handleSelectAllUnits(true)}
-                  className="text-[#0d9488] font-semibold hover:underline"
-                >
-                  全選択
-                </button>
-                <span className="text-slate-300">|</span>
-                <button
-                  type="button"
-                  onClick={() => handleSelectAllUnits(false)}
-                  className="text-slate-400 hover:underline"
-                >
-                  クリア
-                </button>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              {(Object.keys(UNIT_METAS) as UnitType[]).map((unitKey) => {
-                const meta = UNIT_METAS[unitKey];
-                const isSelected = filterOptions.units.includes(unitKey);
-                return (
-                  <button
-                    key={unitKey}
-                    type="button"
-                    onClick={() => handleUnitToggle(unitKey)}
-                    className={`flex items-center gap-2 px-2.5 py-2 rounded-xl border text-left min-h-[42px] transition-all ${
-                      isSelected
-                        ? 'border-slate-400/80 bg-white shadow-2xs text-slate-800'
-                        : 'border-slate-200/70 bg-slate-50/60 text-slate-400 opacity-60 hover:opacity-80'
-                    }`}
-                  >
-                    {meta.iconUrl ? (
-                      <img
-                        src={meta.iconUrl}
-                        alt={meta.name}
-                        className="w-4 h-4 object-contain shrink-0 drop-shadow-2xs"
-                      />
-                    ) : (
-                      <div
-                        className="w-3.5 h-3.5 rounded-full shrink-0 border border-slate-300/80 shadow-2xs"
-                        style={{ backgroundColor: meta.themeColor }}
-                      />
-                    )}
-                    <span className="flex-1 text-[11px] sm:text-xs font-bold leading-tight break-words">
-                      {meta.name}
-                    </span>
-                    {isSelected && <Check className="w-3.5 h-3.5 text-slate-600 shrink-0" />}
-                  </button>
-                );
-              })}
+          {/* 絞り込み条件グループの一括展開/折りたたみバー */}
+          <div className="pt-2 flex items-center justify-between px-1 text-xs">
+            <span className="text-[11px] font-bold text-slate-500">絞り込み条件グループ（クリックで開閉）</span>
+            <div className="flex gap-2 text-[11px]">
+              <button
+                type="button"
+                onClick={() => setAllSections(true)}
+                className="text-[#0d9488] font-bold hover:underline cursor-pointer"
+              >
+                すべて展開
+              </button>
+              <span className="text-slate-300">|</span>
+              <button
+                type="button"
+                onClick={() => setAllSections(false)}
+                className="text-slate-400 font-bold hover:underline cursor-pointer"
+              >
+                すべて折りたたむ
+              </button>
             </div>
           </div>
 
-          {/* 4. 歌唱キャラクターでの絞り込み（新規追加） */}
-          <div className="pt-4 space-y-2.5">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-1.5 font-bold text-slate-700">
+          {/* 3. ユニットでの絞り込み */}
+          <div className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-2xs">
+            <div
+              onClick={() => toggleSection('units')}
+              className="flex items-center justify-between p-3 cursor-pointer select-none bg-slate-50/60 hover:bg-slate-100/60 transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <span className="font-bold text-xs sm:text-sm text-slate-800">対象ユニット</span>
+                <span className="text-[11px] bg-[#33ccbb]/15 text-[#0d9488] px-2 py-0.5 rounded-full font-bold">
+                  {filterOptions.units.length === (Object.keys(UNIT_METAS) as UnitType[]).length
+                    ? '全選択中'
+                    : `${filterOptions.units.length}組選択中`}
+                </span>
+              </div>
+              <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                <div className="flex gap-2 text-xs">
+                  <button
+                    type="button"
+                    onClick={() => handleSelectAllUnits(true)}
+                    className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                  >
+                    全選択
+                  </button>
+                  <span className="text-slate-300">|</span>
+                  <button
+                    type="button"
+                    onClick={() => handleSelectAllUnits(false)}
+                    className="text-slate-400 hover:underline cursor-pointer"
+                  >
+                    クリア
+                  </button>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => toggleSection('units')}
+                  className="p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
+                  aria-label="ユニット条件を展開・折りたたみ"
+                >
+                  {openSections.units ? (
+                    <ChevronUp className="w-4 h-4" />
+                  ) : (
+                    <ChevronDown className="w-4 h-4" />
+                  )}
+                </button>
+              </div>
+            </div>
+
+            {openSections.units && (
+              <div className="p-3 sm:p-4 border-t border-slate-100">
+                <div className="grid grid-cols-2 gap-2">
+                  {(Object.keys(UNIT_METAS) as UnitType[]).map((unitKey) => {
+                    const meta = UNIT_METAS[unitKey];
+                    const isSelected = filterOptions.units.includes(unitKey);
+                    return (
+                      <button
+                        key={unitKey}
+                        type="button"
+                        onClick={() => handleUnitToggle(unitKey)}
+                        className={`flex items-center gap-2 px-2.5 py-2 rounded-xl border text-left min-h-[42px] transition-all cursor-pointer ${
+                          isSelected
+                            ? 'border-slate-400/80 bg-white shadow-2xs text-slate-800'
+                            : 'border-slate-200/70 bg-slate-50/60 text-slate-400 opacity-60 hover:opacity-80'
+                        }`}
+                      >
+                        {meta.iconUrl ? (
+                          <img
+                            src={meta.iconUrl}
+                            alt={meta.name}
+                            className="w-4 h-4 object-contain shrink-0 drop-shadow-2xs"
+                          />
+                        ) : (
+                          <div
+                            className="w-3.5 h-3.5 rounded-full shrink-0 border border-slate-300/80 shadow-2xs"
+                            style={{ backgroundColor: meta.themeColor }}
+                          />
+                        )}
+                        <span className="flex-1 text-[11px] sm:text-xs font-bold leading-tight break-words">
+                          {meta.name}
+                        </span>
+                        {isSelected && <Check className="w-3.5 h-3.5 text-slate-600 shrink-0" />}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* 4. 歌唱キャラクターでの絞り込み */}
+          <div className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-2xs">
+            <div
+              onClick={() => toggleSection('characters')}
+              className="flex items-center justify-between p-3 cursor-pointer select-none bg-slate-50/60 hover:bg-slate-100/60 transition-colors"
+            >
+              <div className="flex items-center gap-2">
                 <Users className="w-4 h-4 text-[#33ccbb]" />
-                <span>歌唱キャラクター</span>
+                <span className="font-bold text-xs sm:text-sm text-slate-800">歌唱キャラクター</span>
                 {filterOptions.characters.length > 0 && (
                   <span className="text-[11px] bg-[#33ccbb]/15 text-[#0d9488] px-2 py-0.5 rounded-full font-bold">
                     {filterOptions.characters.length}人選択中
                   </span>
                 )}
               </div>
-              <div className="flex gap-2 text-xs">
+              <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                <div className="flex gap-2 text-xs">
+                  <button
+                    type="button"
+                    onClick={handleSelectAllCharacters}
+                    className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                  >
+                    全選択
+                  </button>
+                  <span className="text-slate-300">|</span>
+                  <button
+                    type="button"
+                    onClick={handleClearCharacters}
+                    className="text-slate-400 hover:underline cursor-pointer"
+                  >
+                    クリア
+                  </button>
+                </div>
                 <button
                   type="button"
-                  onClick={handleSelectAllCharacters}
-                  className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                  onClick={() => toggleSection('characters')}
+                  className="p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
+                  aria-label="キャラクター条件を展開・折りたたみ"
                 >
-                  全選択
-                </button>
-                <span className="text-slate-300">|</span>
-                <button
-                  type="button"
-                  onClick={handleClearCharacters}
-                  className="text-slate-400 hover:underline cursor-pointer"
-                >
-                  クリア
+                  {openSections.characters ? (
+                    <ChevronUp className="w-4 h-4" />
+                  ) : (
+                    <ChevronDown className="w-4 h-4" />
+                  )}
                 </button>
               </div>
             </div>
 
-            <div className="max-h-60 sm:max-h-72 overflow-y-auto p-1 space-y-3 bg-slate-50/60 rounded-2xl border border-slate-200/80">
+            {openSections.characters && (
+              <div className="p-3 sm:p-4 border-t border-slate-100">
+                <div className="max-h-60 sm:max-h-72 overflow-y-auto p-1 space-y-3 bg-slate-50/60 rounded-2xl border border-slate-200/80">
               {(Object.keys(UNIT_METAS) as UnitType[]).map((unitKey) => {
                 const unitMeta = UNIT_METAS[unitKey];
                 const unitChars = CHARACTERS.filter((c) => c.unit === unitKey);
@@ -412,11 +503,10 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                       key={char.id}
                       type="button"
                       onClick={() => handleCharacterToggle(char.id)}
-                      className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs text-left transition-all ${
-                        isSelected
+                      className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs text-left transition-all ${isSelected
                           ? 'bg-white border-[#33ccbb] text-[#0d9488] font-bold shadow-2xs'
                           : 'bg-white/80 border-slate-200/70 text-slate-600 hover:bg-white'
-                      }`}
+                        }`}
                     >
                       <div
                         className="w-2.5 h-2.5 rounded-full shrink-0 border border-slate-300/80 shadow-2xs"
@@ -513,11 +603,10 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                           <button
                             type="button"
                             onClick={() => setShowNonGameSingers(!showNonGameSingers)}
-                            className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-left text-xs font-bold transition-all border cursor-pointer ${
-                              showNonGameSingers
+                            className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-left text-xs font-bold transition-all border cursor-pointer ${showNonGameSingers
                                 ? 'bg-slate-200/80 border-slate-300 text-slate-800'
                                 : 'bg-slate-100/90 hover:bg-slate-200/60 border-slate-200 text-slate-600'
-                            }`}
+                              }`}
                           >
                             <span className="flex items-center gap-1.5 text-[11px]">
                               <span>シンガー一覧</span>
@@ -591,310 +680,415 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                   </div>
                 );
               })}
-            </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* 5. 歌唱バージョンでの絞り込み */}
-          <div className="pt-4 space-y-2">
-            <div className="flex items-center justify-between">
-              <div className="font-bold text-slate-700">歌唱バージョン条件</div>
-              <div className="flex gap-2 text-xs">
-                <button
-                  type="button"
-                  onClick={() => handleSelectAllVocalVersions(true)}
-                  className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
-                >
-                  全選択
-                </button>
-                <span className="text-slate-300">|</span>
-                <button
-                  type="button"
-                  onClick={() => handleSelectAllVocalVersions(false)}
-                  className="text-slate-400 hover:underline cursor-pointer"
-                >
-                  クリア
-                </button>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-2 text-xs">
-              {[
-                { key: 'sekai', label: 'セカイver あり' },
-                { key: 'virtualSinger', label: 'バーチャル・シンガーver あり' },
-                { key: 'connectLive', label: 'コネクトライブver あり' },
-                { key: 'anotherVocal', label: 'アナザーボーカル あり' },
-              ].map((v) => {
-                const active = filterOptions.vocalVersions[v.key as keyof typeof filterOptions.vocalVersions];
-                return (
-                  <button
-                    key={v.key}
-                    type="button"
-                    onClick={() =>
-                      onFilterChange({
-                        ...filterOptions,
-                        vocalVersions: {
-                          ...filterOptions.vocalVersions,
-                          [v.key]: !active,
-                        },
-                      })
-                    }
-                    className={`px-3 py-2 rounded-xl border text-left font-medium transition-all ${
-                      active
-                        ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] font-bold'
-                        : 'border-slate-200 text-slate-600 hover:bg-slate-50'
-                    }`}
-                  >
-                    {v.label}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
+          {(() => {
+            const vocalCount = [
+              filterOptions.vocalVersions.sekai,
+              filterOptions.vocalVersions.virtualSinger,
+              filterOptions.vocalVersions.connectLive,
+              filterOptions.vocalVersions.anotherVocal,
+              filterOptions.vocalVersions.inst,
+            ].filter(Boolean).length;
 
-          {/* 6. 書き下ろし楽曲の絞り込み */}
-          <div className="pt-4 space-y-2.5">
-            <div className="flex items-center justify-between">
-              <div className="font-bold text-slate-700 flex items-center gap-1.5">
-                <span>楽曲分類（書き下ろし楽曲）</span>
+            return (
+              <div className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-2xs">
+                <div
+                  onClick={() => toggleSection('vocalVersions')}
+                  className="flex items-center justify-between p-3 cursor-pointer select-none bg-slate-50/60 hover:bg-slate-100/60 transition-colors"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="font-bold text-xs sm:text-sm text-slate-800">歌唱バージョン条件</span>
+                    {vocalCount > 0 && (
+                      <span className="text-[11px] bg-[#33ccbb]/15 text-[#0d9488] px-2 py-0.5 rounded-full font-bold">
+                        {vocalCount}件選択中
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                    <div className="flex gap-2 text-xs">
+                      <button
+                        type="button"
+                        onClick={() => handleSelectAllVocalVersions(true)}
+                        className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                      >
+                        全選択
+                      </button>
+                      <span className="text-slate-300">|</span>
+                      <button
+                        type="button"
+                        onClick={() => handleSelectAllVocalVersions(false)}
+                        className="text-slate-400 hover:underline cursor-pointer"
+                      >
+                        クリア
+                      </button>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => toggleSection('vocalVersions')}
+                      className="p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
+                      aria-label="歌唱バージョン条件を展開・折りたたみ"
+                    >
+                      {openSections.vocalVersions ? (
+                        <ChevronUp className="w-4 h-4" />
+                      ) : (
+                        <ChevronDown className="w-4 h-4" />
+                      )}
+                    </button>
+                  </div>
+                </div>
+
+                {openSections.vocalVersions && (
+                  <div className="p-3 sm:p-4 border-t border-slate-100">
+                    <div className="grid grid-cols-2 gap-2 text-xs">
+                      {[
+                        { key: 'sekai', label: 'セカイver あり' },
+                        { key: 'virtualSinger', label: 'バーチャル・シンガーver あり' },
+                        { key: 'connectLive', label: 'コネクトライブver あり' },
+                        { key: 'anotherVocal', label: 'アナザーボーカル あり' },
+                        { key: 'inst', label: 'Inst. ver. あり' },
+                      ].map((v) => {
+                        const active = filterOptions.vocalVersions[v.key as keyof typeof filterOptions.vocalVersions];
+                        return (
+                          <button
+                            key={v.key}
+                            type="button"
+                            onClick={() =>
+                              onFilterChange({
+                                ...filterOptions,
+                                vocalVersions: {
+                                  ...filterOptions.vocalVersions,
+                                  [v.key]: !active,
+                                },
+                              })
+                            }
+                            className={`px-3 py-2 rounded-xl border text-left font-medium transition-all cursor-pointer ${
+                              active
+                                ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] font-bold shadow-2xs'
+                                : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+                            }`}
+                          >
+                            {v.label}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })()}
+
+          {/* 6. 楽曲分類での絞り込み */}
+          <div className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-2xs">
+            <div
+              onClick={() => toggleSection('originalTypes')}
+              className="flex items-center justify-between p-3 cursor-pointer select-none bg-slate-50/60 hover:bg-slate-100/60 transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <span className="font-bold text-xs sm:text-sm text-slate-800">楽曲分類（書き下ろし楽曲等）</span>
                 {filterOptions.originalTypes && filterOptions.originalTypes.length > 0 && (
                   <span className="text-[11px] bg-[#33ccbb]/15 text-[#0d9488] px-2 py-0.5 rounded-full font-bold">
                     {filterOptions.originalTypes.length}種選択中
                   </span>
                 )}
               </div>
-              <div className="flex gap-2 text-xs">
+              <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                <div className="flex gap-2 text-xs">
+                  <button
+                    type="button"
+                    onClick={() => handleSelectAllOriginalTypes(true)}
+                    className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                  >
+                    全選択
+                  </button>
+                  <span className="text-slate-300">|</span>
+                  <button
+                    type="button"
+                    onClick={() => handleSelectAllOriginalTypes(false)}
+                    className="text-slate-400 hover:underline cursor-pointer"
+                  >
+                    クリア
+                  </button>
+                </div>
                 <button
                   type="button"
-                  onClick={() => handleSelectAllOriginalTypes(true)}
-                  className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                  onClick={() => toggleSection('originalTypes')}
+                  className="p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
+                  aria-label="楽曲分類条件を展開・折りたたみ"
                 >
-                  全選択
-                </button>
-                <span className="text-slate-300">|</span>
-                <button
-                  type="button"
-                  onClick={() => handleSelectAllOriginalTypes(false)}
-                  className="text-slate-400 hover:underline cursor-pointer"
-                >
-                  クリア
+                  {openSections.originalTypes ? (
+                    <ChevronUp className="w-4 h-4" />
+                  ) : (
+                    <ChevronDown className="w-4 h-4" />
+                  )}
                 </button>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-2 text-xs">
-              {(Object.keys(ORIGINAL_TYPE_METAS) as OriginalSongType[])
-                .filter((typeKey) => typeKey !== 'cover')
-                .map((typeKey) => {
-                const meta = ORIGINAL_TYPE_METAS[typeKey];
-                const isSelected = filterOptions.originalTypes?.includes(typeKey) ?? false;
-                return (
-                  <button
-                    key={typeKey}
-                    type="button"
-                    onClick={() => {
-                      const current = filterOptions.originalTypes ?? [];
-                      const updated = isSelected
-                        ? current.filter((t) => t !== typeKey)
-                        : [...current, typeKey];
-                      onFilterChange({ ...filterOptions, originalTypes: updated });
-                    }}
-                    className={`px-3 py-2 rounded-xl border text-left font-medium transition-all ${
-                      isSelected
-                        ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] font-bold shadow-2xs'
-                        : 'border-slate-200 text-slate-600 hover:bg-slate-50'
-                    }`}
-                  >
-                    {meta.label}
-                  </button>
-                );
-              })}
-            </div>
+            {openSections.originalTypes && (
+              <div className="p-3 sm:p-4 border-t border-slate-100">
+                <div className="grid grid-cols-2 gap-2 text-xs">
+                  {(Object.keys(ORIGINAL_TYPE_METAS) as OriginalSongType[])
+                    .filter((typeKey) => typeKey !== 'cover')
+                    .map((typeKey) => {
+                      const meta = ORIGINAL_TYPE_METAS[typeKey];
+                      const isSelected = filterOptions.originalTypes?.includes(typeKey) ?? false;
+                      return (
+                        <button
+                          key={typeKey}
+                          type="button"
+                          onClick={() => {
+                            const current = filterOptions.originalTypes ?? [];
+                            const updated = isSelected
+                              ? current.filter((t) => t !== typeKey)
+                              : [...current, typeKey];
+                            onFilterChange({ ...filterOptions, originalTypes: updated });
+                          }}
+                          className={`px-3 py-2 rounded-xl border text-left font-medium transition-all cursor-pointer ${
+                            isSelected
+                              ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] font-bold shadow-2xs'
+                              : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+                          }`}
+                        >
+                          {meta.label}
+                        </button>
+                      );
+                    })}
+                </div>
+              </div>
+            )}
           </div>
 
-          {/* 7. イベントバナーキャラクターでの絞り込み（新設） */}
-          <div className="pt-4 space-y-2.5">
-            <div className="flex items-center justify-between">
-              <div className="font-bold text-slate-700 flex items-center gap-1.5">
-                <span>イベントバナーキャラクター</span>
+          {/* 7. イベントバナーキャラクターでの絞り込み */}
+          <div className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-2xs">
+            <div
+              onClick={() => toggleSection('bannerCharacters')}
+              className="flex items-center justify-between p-3 cursor-pointer select-none bg-slate-50/60 hover:bg-slate-100/60 transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <span className="font-bold text-xs sm:text-sm text-slate-800">イベントバナーキャラクター</span>
                 {filterOptions.bannerCharacters && filterOptions.bannerCharacters.length > 0 && (
                   <span className="text-[11px] bg-[#33ccbb]/15 text-[#0d9488] px-2 py-0.5 rounded-full font-bold">
                     {filterOptions.bannerCharacters.length}人選択中
                   </span>
                 )}
               </div>
-              <div className="flex gap-2 text-xs">
+              <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                <div className="flex gap-2 text-xs">
+                  <button
+                    type="button"
+                    onClick={() => handleSelectAllBannerCharacters(true)}
+                    className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                  >
+                    全選択
+                  </button>
+                  <span className="text-slate-300">|</span>
+                  <button
+                    type="button"
+                    onClick={() => handleSelectAllBannerCharacters(false)}
+                    className="text-slate-400 hover:underline cursor-pointer"
+                  >
+                    クリア
+                  </button>
+                </div>
                 <button
                   type="button"
-                  onClick={() => handleSelectAllBannerCharacters(true)}
-                  className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                  onClick={() => toggleSection('bannerCharacters')}
+                  className="p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
+                  aria-label="イベントバナーキャラクター条件を展開・折りたたみ"
                 >
-                  全選択
-                </button>
-                <span className="text-slate-300">|</span>
-                <button
-                  type="button"
-                  onClick={() => handleSelectAllBannerCharacters(false)}
-                  className="text-slate-400 hover:underline cursor-pointer"
-                >
-                  クリア
+                  {openSections.bannerCharacters ? (
+                    <ChevronUp className="w-4 h-4" />
+                  ) : (
+                    <ChevronDown className="w-4 h-4" />
+                  )}
                 </button>
               </div>
             </div>
 
-            <p className="text-[11px] text-slate-400 leading-tight">
-              ※ 各イベント書き下ろし楽曲のバナー対象キャラクターで絞り込みます。
-            </p>
+            {openSections.bannerCharacters && (
+              <div className="p-3 sm:p-4 border-t border-slate-100 space-y-2">
+                <p className="text-[11px] text-slate-400 leading-tight">
+                  ※ 各イベント書き下ろし楽曲のバナー対象キャラクターで絞り込みます。
+                </p>
 
-            <div className="space-y-2">
-              {(
-                [
-                  'leo_need',
-                  'more_more_jump',
-                  'vivid_bad_squad',
-                  'wonderlands_showtime',
-                  'nightcord_at_25',
-                ] as UnitType[]
-              ).map((uKey) => {
-                const uMeta = UNIT_METAS[uKey];
-                const members = CHARACTERS.filter((c) => c.unit === uKey);
+                {(
+                  [
+                    'leo_need',
+                    'more_more_jump',
+                    'vivid_bad_squad',
+                    'wonderlands_showtime',
+                    'nightcord_at_25',
+                  ] as UnitType[]
+                ).map((uKey) => {
+                  const uMeta = UNIT_METAS[uKey];
+                  const members = CHARACTERS.filter((c) => c.unit === uKey);
 
-                return (
-                  <div key={uKey} className="space-y-1">
-                    <div className="flex items-center justify-between px-0.5">
-                      <div className="flex items-center gap-1 text-[11px] font-bold text-slate-600">
-                        {uMeta.iconUrl && (
-                          <img src={uMeta.iconUrl} alt={uMeta.name} className="w-3 h-3 object-contain" />
-                        )}
-                        <span>{uMeta.name}</span>
-                      </div>
-                      <div className="flex gap-1.5 text-[10px]">
-                        <button
-                          type="button"
-                          onClick={() => {
-                            const memberIds = members.map((c) => c.id);
-                            const merged = Array.from(
-                              new Set([...(filterOptions.bannerCharacters || []), ...memberIds])
-                            );
-                            onFilterChange({ ...filterOptions, bannerCharacters: merged });
-                          }}
-                          className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
-                        >
-                          全選択
-                        </button>
-                        <span className="text-slate-300">|</span>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            const memberIds = members.map((c) => c.id);
-                            const remaining = (filterOptions.bannerCharacters || []).filter(
-                              (id) => !memberIds.includes(id)
-                            );
-                            onFilterChange({ ...filterOptions, bannerCharacters: remaining });
-                          }}
-                          className="text-slate-400 hover:underline cursor-pointer"
-                        >
-                          クリア
-                        </button>
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
-                      {members.map((char) => {
-                        const isSelected =
-                          filterOptions.bannerCharacters?.includes(char.id) ?? false;
-                        return (
+                  return (
+                    <div key={uKey} className="space-y-1">
+                      <div className="flex items-center justify-between px-0.5">
+                        <div className="flex items-center gap-1 text-[11px] font-bold text-slate-600">
+                          {uMeta.iconUrl && (
+                            <img src={uMeta.iconUrl} alt={uMeta.name} className="w-3 h-3 object-contain" />
+                          )}
+                          <span>{uMeta.name}</span>
+                        </div>
+                        <div className="flex gap-1.5 text-[10px]">
                           <button
-                            key={char.id}
                             type="button"
                             onClick={() => {
-                              const current = filterOptions.bannerCharacters ?? [];
-                              const updated = isSelected
-                                ? current.filter((id) => id !== char.id)
-                                : [...current, char.id];
-                              onFilterChange({ ...filterOptions, bannerCharacters: updated });
+                              const memberIds = members.map((c) => c.id);
+                              const merged = Array.from(
+                                new Set([...(filterOptions.bannerCharacters || []), ...memberIds])
+                              );
+                              onFilterChange({ ...filterOptions, bannerCharacters: merged });
                             }}
-                            className={`flex items-center gap-1.5 px-2 py-1.5 rounded-xl border text-left text-xs transition-all ${
-                              isSelected
-                                ? 'border-slate-800 bg-slate-800 text-white font-bold shadow-2xs'
-                                : 'border-slate-200/80 bg-white text-slate-700 hover:bg-slate-50'
-                            }`}
+                            className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
                           >
-                            <span
-                              className="w-2.5 h-2.5 rounded-full shrink-0 border border-black/10"
-                              style={{ backgroundColor: char.color }}
-                            />
-                            <span className="truncate">{char.name}</span>
+                            全選択
                           </button>
-                        );
-                      })}
+                          <span className="text-slate-300">|</span>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const memberIds = members.map((c) => c.id);
+                              const remaining = (filterOptions.bannerCharacters || []).filter(
+                                (id) => !memberIds.includes(id)
+                              );
+                              onFilterChange({ ...filterOptions, bannerCharacters: remaining });
+                            }}
+                            className="text-slate-400 hover:underline cursor-pointer"
+                          >
+                            クリア
+                          </button>
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+                        {members.map((char) => {
+                          const isSelected =
+                            filterOptions.bannerCharacters?.includes(char.id) ?? false;
+                          return (
+                            <button
+                              key={char.id}
+                              type="button"
+                              onClick={() => {
+                                const current = filterOptions.bannerCharacters ?? [];
+                                const updated = isSelected
+                                  ? current.filter((id) => id !== char.id)
+                                  : [...current, char.id];
+                                onFilterChange({ ...filterOptions, bannerCharacters: updated });
+                              }}
+                              className={`flex items-center gap-1.5 px-2 py-1.5 rounded-xl border text-left text-xs transition-all cursor-pointer ${
+                                isSelected
+                                  ? 'border-slate-800 bg-slate-800 text-white font-bold shadow-2xs'
+                                  : 'border-slate-200/80 bg-white text-slate-700 hover:bg-slate-50'
+                              }`}
+                            >
+                              <span
+                                className="w-2.5 h-2.5 rounded-full shrink-0 border border-black/10"
+                                style={{ backgroundColor: char.color }}
+                              />
+                              <span className="truncate">{char.name}</span>
+                            </button>
+                          );
+                        })}
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
-            </div>
+                  );
+                })}
+              </div>
+            )}
           </div>
 
           {/* 8. 実装年での絞り込み */}
-          <div className="pt-4 space-y-2.5">
-            <div className="flex items-center justify-between">
-              <div className="font-bold text-slate-700 flex items-center gap-1.5">
-                <span>実装年</span>
+          <div className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-2xs">
+            <div
+              onClick={() => toggleSection('releaseYears')}
+              className="flex items-center justify-between p-3 cursor-pointer select-none bg-slate-50/60 hover:bg-slate-100/60 transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <span className="font-bold text-xs sm:text-sm text-slate-800">実装年</span>
                 {filterOptions.releaseYears && filterOptions.releaseYears.length > 0 && (
                   <span className="text-[11px] bg-[#33ccbb]/15 text-[#0d9488] px-2 py-0.5 rounded-full font-bold">
                     {filterOptions.releaseYears.length}件選択中
                   </span>
                 )}
               </div>
-              <div className="flex gap-2 text-xs">
+              <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                <div className="flex gap-2 text-xs">
+                  <button
+                    type="button"
+                    onClick={() => handleSelectAllReleaseYears(true)}
+                    className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                  >
+                    全選択
+                  </button>
+                  <span className="text-slate-300">|</span>
+                  <button
+                    type="button"
+                    onClick={() => handleSelectAllReleaseYears(false)}
+                    className="text-slate-400 hover:underline cursor-pointer"
+                  >
+                    クリア
+                  </button>
+                </div>
                 <button
                   type="button"
-                  onClick={() => handleSelectAllReleaseYears(true)}
-                  className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                  onClick={() => toggleSection('releaseYears')}
+                  className="p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
+                  aria-label="実装年条件を展開・折りたたみ"
                 >
-                  全選択
-                </button>
-                <span className="text-slate-300">|</span>
-                <button
-                  type="button"
-                  onClick={() => handleSelectAllReleaseYears(false)}
-                  className="text-slate-400 hover:underline cursor-pointer"
-                >
-                  クリア
+                  {openSections.releaseYears ? (
+                    <ChevronUp className="w-4 h-4" />
+                  ) : (
+                    <ChevronDown className="w-4 h-4" />
+                  )}
                 </button>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-2 text-xs">
-              {[
-                { year: 1, label: '1年目 (2020.9.30〜)' },
-                { year: 2, label: '2年目 (2021.9.30〜)' },
-                { year: 3, label: '3年目 (2022.9.30〜)' },
-                { year: 4, label: '4年目 (2023.9.30〜)' },
-                { year: 5, label: '5年目 (2024.9.30〜)' },
-                { year: 6, label: '6年目 (2025.9.30〜)' },
-                { year: 7, label: '7年目 (2026.9.30〜)' },
-              ].map((item) => {
-                const isSelected = filterOptions.releaseYears?.includes(item.year) ?? false;
-                return (
-                  <button
-                    key={item.year}
-                    type="button"
-                    onClick={() => {
-                      const current = filterOptions.releaseYears ?? [];
-                      const updated = isSelected
-                        ? current.filter((y) => y !== item.year)
-                        : [...current, item.year];
-                      onFilterChange({ ...filterOptions, releaseYears: updated });
-                    }}
-                    className={`px-3 py-2 rounded-xl border text-left font-medium transition-all ${
-                      isSelected
-                        ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] font-bold shadow-2xs'
-                        : 'border-slate-200 text-slate-600 hover:bg-slate-50'
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                );
-              })}
-            </div>
+            {openSections.releaseYears && (
+              <div className="p-3 sm:p-4 border-t border-slate-100">
+                <div className="grid grid-cols-2 gap-2 text-xs">
+                  {[
+                    { year: 1, label: '1年目 (2020.9.30〜)' },
+                    { year: 2, label: '2年目 (2021.9.30〜)' },
+                    { year: 3, label: '3年目 (2022.9.30〜)' },
+                    { year: 4, label: '4年目 (2023.9.30〜)' },
+                    { year: 5, label: '5年目 (2024.9.30〜)' },
+                    { year: 6, label: '6年目 (2025.9.30〜)' },
+                    { year: 7, label: '7年目 (2026.9.30〜)' },
+                  ].map((item) => {
+                    const isSelected = filterOptions.releaseYears?.includes(item.year) ?? false;
+                    return (
+                      <button
+                        key={item.year}
+                        type="button"
+                        onClick={() => {
+                          const current = filterOptions.releaseYears ?? [];
+                          const updated = isSelected
+                            ? current.filter((y) => y !== item.year)
+                            : [...current, item.year];
+                          onFilterChange({ ...filterOptions, releaseYears: updated });
+                        }}
+                        className={`px-3 py-2 rounded-xl border text-left font-medium transition-all cursor-pointer ${
+                          isSelected
+                            ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] font-bold shadow-2xs'
+                            : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+                        }`}
+                      >
+                        {item.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
         </div>
 

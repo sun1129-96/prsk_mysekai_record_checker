@@ -1,21 +1,23 @@
 import React from 'react';
-import { Check, Calendar, Music } from 'lucide-react';
+import { Check, Calendar, Music, RotateCw } from 'lucide-react';
 import type {
   RecordItem,
   UnitType,
   DisplaySettings,
   TapActionMode,
 } from '../types/record';
-import { UNIT_METAS, CHARACTERS } from '../types/record';
+import { UNIT_METAS, CHARACTERS, getRecordJackets } from '../types/record';
 
 interface RecordRowProps {
   record: RecordItem;
   isOwned: boolean;
   displaySettings: DisplaySettings;
   tapMode: TapActionMode;
+  jacketIndex?: number;
   onRowClick: (record: RecordItem) => void;
   onToggleOwned: (id: string) => void;
   onBadgeClick: (record: RecordItem, trackId: string, e: React.MouseEvent) => void;
+  onRotateJacket?: (recordId: string, totalCount: number) => void;
 }
 
 export const RecordRow: React.FC<RecordRowProps> = React.memo(
@@ -24,9 +26,11 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
     isOwned,
     displaySettings,
     tapMode,
+    jacketIndex = 0,
     onRowClick,
     onToggleOwned,
     onBadgeClick,
+    onRotateJacket,
   }) => {
     const unitMeta = UNIT_METAS[record.unit];
     const vsMeta = UNIT_METAS.virtual_singer;
@@ -91,6 +95,19 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
 
     const tracks = record.vocalTracks || [];
 
+    // 楽曲のジャケット一覧を取得（2枚以上あれば切り替え可能）
+    const jackets = getRecordJackets(record);
+    const hasMultipleJackets = jackets.length > 1;
+    const activeIndex = jackets.length > 0 ? (jacketIndex % jackets.length + jackets.length) % jackets.length : 0;
+    const currentJacket = jackets[activeIndex] || { url: record.jacketUrl || '', label: '通常' };
+
+    const handleJacketClick = (e: React.MouseEvent) => {
+      if (hasMultipleJackets && onRotateJacket) {
+        e.stopPropagation();
+        onRotateJacket(record.id, jackets.length);
+      }
+    };
+
     return (
       <div
         onClick={() => onRowClick(record)}
@@ -126,55 +143,91 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
         {/* ジャケット画像（表示設定による） */}
         {displaySettings.showJacket && (
           <div
-            className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl shrink-0 flex items-center justify-center shadow-2xs overflow-hidden relative bg-slate-100"
+            onClick={hasMultipleJackets ? handleJacketClick : undefined}
+            className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl shrink-0 flex items-center justify-center shadow-2xs overflow-hidden relative bg-slate-100 ${
+              hasMultipleJackets ? 'cursor-pointer hover:ring-2 hover:ring-[#33ccbb]/60 active:scale-95 transition-all' : ''
+            }`}
             style={{
               border: `1px solid ${unitMeta.borderColor}`,
             }}
+            title={
+              hasMultipleJackets
+                ? `クリックでジャケットを切り替え（現在: ${currentJacket.label}）`
+                : undefined
+            }
           >
-            {record.jacketUrl ? (
+            {currentJacket.url ? (
               <img
-                src={record.jacketUrl}
+                key={currentJacket.url}
+                src={currentJacket.url}
                 alt={record.title}
                 loading="lazy"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-opacity duration-150"
                 onError={(e) => {
                   (e.target as HTMLImageElement).style.display = 'none';
+                }}
+                onLoad={(e) => {
+                  (e.target as HTMLImageElement).style.display = '';
                 }}
               />
             ) : (
               <Music className="w-5 h-5" style={{ color: unitMeta.textColor || unitMeta.themeColor }} />
+            )}
+
+            {/* 複数ジャケットが存在する場合の切り替え可能装飾（↻） */}
+            {hasMultipleJackets && (
+              <div
+                className="absolute bottom-0.5 right-0.5 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-slate-900/75 text-white flex items-center justify-center shadow-xs backdrop-blur-xs pointer-events-none"
+                aria-hidden="true"
+              >
+                <RotateCw className="w-2 sm:w-2.5 h-2 sm:h-2.5" />
+              </div>
             )}
           </div>
         )}
 
         {/* 曲情報 */}
         <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-1.5 mb-1 flex-wrap">
-            <span className="text-[10px] font-bold text-slate-600 shrink-0">
-              ユニット
-            </span>
-            <span
-              className="px-2 py-0.5 rounded-md text-[10px] font-bold shrink-0 truncate max-w-[120px]"
-              style={{
-                backgroundColor: unitMeta.bgColor,
-                color: unitMeta.textColor || unitMeta.themeColor,
-                border: `1px solid ${unitMeta.borderColor}`,
-                textShadow: badgeTextShadow,
-              }}
-            >
-              {unitMeta.shortName}
-            </span>
-
-            {displaySettings.showReleaseDate && (
-              <span className="text-[11px] text-slate-600 flex items-center gap-1 shrink-0 ml-1 font-medium">
-                <Calendar className="w-3 h-3 text-slate-500" />
-                {record.releaseDate}
+          {/* 上部ヘッダー（ユニット情報 ＆ 日付・No.） */}
+          <div className="flex flex-wrap items-start justify-between gap-x-2 gap-y-1 mb-1 min-w-0">
+            {/* ユニットバッジ表示エリア（表示領域が足りない場合は自然に折り返し） */}
+            <div className="flex flex-wrap items-center gap-1 min-w-0 flex-1">
+              <span className="text-[10px] font-bold text-slate-500 shrink-0 mr-0.5">
+                ユニット
               </span>
-            )}
+              {(record.units && record.units.length > 0 ? record.units : [record.unit]).map((u) => {
+                const uMeta = UNIT_METAS[u];
+                if (!uMeta) return null;
+                return (
+                  <span
+                    key={u}
+                    className="px-1.5 py-0.5 rounded-md text-[10px] font-bold shrink-0"
+                    style={{
+                      backgroundColor: uMeta.bgColor,
+                      color: uMeta.textColor || uMeta.themeColor,
+                      border: `1px solid ${uMeta.borderColor}`,
+                      textShadow: badgeTextShadow,
+                    }}
+                  >
+                    {uMeta.shortName}
+                  </span>
+                );
+              })}
+            </div>
 
-            <span className="text-[10px] text-slate-500 font-mono font-semibold">
-              No. {record.defaultOrder}
-            </span>
+            {/* 右側: リリース日 & No. (右端配置・重なり防止) */}
+            <div className="flex items-center gap-1.5 shrink-0 text-slate-500 ml-auto pt-0.5">
+              {displaySettings.showReleaseDate && (
+                <span className="text-[10px] sm:text-[11px] text-slate-600 flex items-center gap-1 shrink-0 font-medium whitespace-nowrap">
+                  <Calendar className="w-3 h-3 text-slate-400" />
+                  {record.releaseDate}
+                </span>
+              )}
+
+              <span className="text-[10px] text-slate-400 font-mono font-semibold shrink-0 whitespace-nowrap">
+                No. {record.defaultOrder}
+              </span>
+            </div>
           </div>
 
           {/* 曲名 */}
@@ -292,6 +345,34 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
                       </button>
                     );
                   }
+                  if (track.type === 'movie' || track.name.includes('劇場版')) {
+                    return (
+                      <button
+                        type="button"
+                        key={track.id}
+                        onClick={(e) => onBadgeClick(record, track.id, e)}
+                        className="px-1.5 py-0.5 rounded-md bg-amber-50 text-amber-800 border border-amber-300/80 font-bold shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
+                        style={{ textShadow: badgeTextShadow }}
+                        title={tapMode === 'detail' ? `${track.name} を詳細表示` : undefined}
+                      >
+                        劇場版
+                      </button>
+                    );
+                  }
+                  if (track.type === 'inst') {
+                    return (
+                      <button
+                        type="button"
+                        key={track.id}
+                        onClick={(e) => onBadgeClick(record, track.id, e)}
+                        className="px-1.5 py-0.5 rounded-md bg-slate-100 text-slate-700 border border-slate-300 font-bold shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
+                        style={{ textShadow: badgeTextShadow }}
+                        title={tapMode === 'detail' ? `${track.name} を詳細表示` : undefined}
+                      >
+                        Inst
+                      </button>
+                    );
+                  }
                   if (track.type === 'other') {
                     return (
                       <button
@@ -353,6 +434,17 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
                       コネライ
                     </button>
                   )}
+                  {record.vocalVersions.movie && (
+                    <button
+                      type="button"
+                      onClick={(e) => onBadgeClick(record, 'movie', e)}
+                      className="px-1.5 py-0.5 rounded-md bg-amber-50 text-amber-800 border border-amber-300/80 font-bold shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
+                      style={{ textShadow: badgeTextShadow }}
+                      title={tapMode === 'detail' ? '劇場版ver を詳細表示' : undefined}
+                    >
+                      劇場版
+                    </button>
+                  )}
                   {record.vocalVersions.anotherVocal && (
                     <button
                       type="button"
@@ -362,6 +454,17 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
                       title={tapMode === 'detail' ? 'アナザーボーカルver を詳細表示' : undefined}
                     >
                       アナボ
+                    </button>
+                  )}
+                  {record.vocalVersions.inst && (
+                    <button
+                      type="button"
+                      onClick={(e) => onBadgeClick(record, 'inst', e)}
+                      className="px-1.5 py-0.5 rounded-md bg-slate-100 text-slate-700 border border-slate-300 font-bold shadow-2xs cursor-pointer hover:opacity-80 active:scale-95"
+                      style={{ textShadow: badgeTextShadow }}
+                      title={tapMode === 'detail' ? 'Inst. ver. を詳細表示' : undefined}
+                    >
+                      Inst
                     </button>
                   )}
                 </>

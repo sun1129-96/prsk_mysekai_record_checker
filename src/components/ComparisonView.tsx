@@ -26,7 +26,7 @@ import {
   GAME_VIRTUAL_SINGER_IDS,
   ORIGINAL_TYPE_METAS,
 } from '../types/record';
-import { filterAndSortRecords, getAnniversaryYear } from '../utils/recordUtils';
+import { checkRecordMatchesCustomCondition } from '../utils/recordUtils';
 
 interface ComparisonViewProps {
   records: RecordItem[];
@@ -39,8 +39,8 @@ type SortMetric = 'default' | 'percentage_desc' | 'percentage_asc' | 'count_desc
 
 const CUSTOM_CONDITIONS_STORAGE_KEY = 'mysekai_custom_compare_conditions_v1';
 
-/** プロセカ公式キャラクター順（全64キャラクター：バーチャル・シンガー最上部、メイン26人先頭） */
-export const PROSEKA_DEFAULT_CHAR_ORDER: string[] = [
+/** ゲーム内メイン26キャラクターのID一覧（バーチャル・シンガー6人先頭、各ユニット4人順） */
+const PROSEKA_MAIN_26_CHAR_ORDER: string[] = [
   // バーチャル・シンガー（登場済み6人）
   'miku',
   'rin',
@@ -73,115 +73,7 @@ export const PROSEKA_DEFAULT_CHAR_ORDER: string[] = [
   'mafuyu',
   'ena',
   'mizuki',
-  // ゲーム未登場バーチャル・シンガー（30人）
-  'gumi',
-  'flower',
-  'teto',
-  'ia',
-  'una',
-  'kaf',
-  'yuki',
-  'gakupo',
-  'yukari',
-  'zundamon',
-  'kiritan',
-  'akane',
-  'aoi',
-  'chisei',
-  'adachi_rei',
-  'karin',
-  'chifuyu',
-  'rime',
-  'sekai_cevio',
-  'haru',
-  'koko',
-  'tsuina',
-  'merrow',
-  'gekiyaku',
-  'kanon',
-  'mikoto',
-  'lily',
-  'solaria',
-  'vy1',
-  'vy2',
-  // コラボ・ゲストキャラクター（その他8人）
-  'nenerobo',
-  'mikudayo',
-  'alkaloid',
-  'crazy_b',
-  'jun',
-  'izumi',
-  'chiaki',
-  'natsume',
 ];
-
-/** ゲーム内メイン26キャラクターのID一覧 */
-export const PROSEKA_MAIN_26_CHAR_ORDER: string[] = PROSEKA_DEFAULT_CHAR_ORDER.slice(0, 26);
-
-/**
- * カスタム比較条件に合致するか判定（AND / OR 条件評価）
- */
-export const checkRecordMatchesCustomCondition = (
-  record: RecordItem,
-  cond: SavedCompareCondition
-): boolean => {
-  const matchType = cond.matchType || 'and';
-  const units = cond.conditionUnits || [];
-  const characters = cond.conditionCharacters || [];
-  const originalTypes = cond.conditionOriginalTypes || [];
-  const vocalTypes = cond.conditionVocalTypes || [];
-  const releaseYears = cond.conditionReleaseYears || [];
-
-  const hasSpecificConditions =
-    units.length > 0 ||
-    characters.length > 0 ||
-    originalTypes.length > 0 ||
-    vocalTypes.length > 0 ||
-    releaseYears.length > 0;
-
-  if (!hasSpecificConditions) {
-    if (cond.filter) {
-      const filtered = filterAndSortRecords([record], {}, 'defaultOrder', 'asc', cond.filter);
-      return filtered.length > 0;
-    }
-    return true;
-  }
-
-  const results: boolean[] = [];
-
-  if (units.length > 0) {
-    results.push(units.includes(record.unit));
-  }
-
-  if (characters.length > 0) {
-    results.push(record.characters.some((c) => characters.includes(c)));
-  }
-
-  if (originalTypes.length > 0) {
-    const songType = record.originalType || 'cover';
-    results.push(originalTypes.includes(songType));
-  }
-
-  if (vocalTypes.length > 0) {
-    const hasAnyTrack = vocalTypes.some((vt) => {
-      if (vt === 'sekai') return Boolean(record.vocalVersions?.sekai);
-      if (vt === 'virtualSinger') return Boolean(record.vocalVersions?.virtualSinger);
-      if (vt === 'connectLive') return Boolean(record.vocalVersions?.connectLive);
-      if (vt === 'anotherVocal') return Boolean(record.vocalVersions?.anotherVocal);
-      return false;
-    });
-    results.push(hasAnyTrack);
-  }
-
-  if (releaseYears.length > 0) {
-    const year = getAnniversaryYear(record.releaseDate);
-    results.push(releaseYears.includes(year));
-  }
-
-  if (results.length === 0) return true;
-
-  return matchType === 'and' ? results.every(Boolean) : results.some(Boolean);
-};
 
 export const ComparisonView: React.FC<ComparisonViewProps> = ({
   records,
@@ -194,69 +86,55 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
   // ソート基準（デフォルト順 / 所持率降順 / 所持率昇順 / 曲数降順）
   const [sortMetric, setSortMetric] = useState<SortMetric>('default');
 
-  // 歌唱キャラ別タブ用: 選択されたキャラクターID（初期値: メイン26人選択）
-  const [selectedCharIds, setSelectedCharIds] = useState<string[]>(() => [
-    ...PROSEKA_MAIN_26_CHAR_ORDER,
-  ]);
-
-  // 歌唱キャラ別タブ用: キャラクター選択パネルの開閉状態
-  const [isCharSelectorOpen, setIsCharSelectorOpen] = useState(true);
-
-  // 歌唱キャラ別タブ用: ゲーム未登場シンガーの開閉状態
-  const [showNonGameSingersInCompare, setShowNonGameSingersInCompare] = useState(false);
-
   // カスタム比較用: ゲーム未登場シンガーの開閉状態
   const [showNonGameSingersInCustom, setShowNonGameSingersInCustom] = useState(false);
+
+  // カスタム比較用: 条件作成パネルの開閉状態（デフォルトは折りたたみ）
+  const [isCustomFormOpen, setIsCustomFormOpen] = useState(false);
+
+  // カスタム比較フォーム用: 条件グループごとの簡易アコーディオン開閉状態
+  const [customOpenSections, setCustomOpenSections] = useState<Record<string, boolean>>({
+    units: true,
+    originalTypes: false,
+    vocalTypes: false,
+    characters: false,
+    bannerCharacters: false,
+    releaseYears: false,
+  });
+
+  const toggleCustomSection = (key: string) => {
+    setCustomOpenSections((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+
+  const setAllCustomSections = (open: boolean) => {
+    setCustomOpenSections({
+      units: open,
+      originalTypes: open,
+      vocalTypes: open,
+      characters: open,
+      bannerCharacters: open,
+      releaseYears: open,
+    });
+  };
 
   // カスタム比較条件一覧（LocalStorage 永続化）
   const [savedConditions, setSavedConditions] = useState<SavedCompareCondition[]>(() => {
     try {
       const saved = localStorage.getItem(CUSTOM_CONDITIONS_STORAGE_KEY);
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const parsed: SavedCompareCondition[] = JSON.parse(saved);
+        // 過去のデフォルトプリセット（cond_preset_1, cond_preset_2, cond_preset_3）を除外
+        return parsed.filter(
+          (c) => !['cond_preset_1', 'cond_preset_2', 'cond_preset_3'].includes(c.id)
+        );
+      }
     } catch {
       // ignore
     }
-    // 初期プリセット
-    return [
-      {
-        id: 'cond_preset_1',
-        title: 'イベント書き下ろし楽曲（全ユニット）',
-        filter: {
-          ownership: 'all',
-          units: Object.keys(UNIT_METAS) as UnitType[],
-          characters: [],
-          vocalVersions: { virtualSinger: false, sekai: false, connectLive: false, anotherVocal: false },
-          searchQuery: '',
-          originalTypes: ['event'],
-        },
-        createdAt: Date.now() - 2000,
-      },
-      {
-        id: 'cond_preset_2',
-        title: 'Leo/need イベント書き下ろし',
-        filter: {
-          ownership: 'all',
-          units: ['leo_need'],
-          characters: [],
-          vocalVersions: { virtualSinger: false, sekai: false, connectLive: false, anotherVocal: false },
-          searchQuery: '',
-          originalTypes: ['event'],
-        },
-        createdAt: Date.now() - 1000,
-      },
-      {
-        id: 'cond_preset_3',
-        title: 'アナザーボーカルver 所持状況',
-        filter: {
-          ownership: 'all',
-          units: Object.keys(UNIT_METAS) as UnitType[],
-          characters: [],
-          vocalVersions: { virtualSinger: false, sekai: false, connectLive: false, anotherVocal: true },
-          searchQuery: '',
-        },
-        createdAt: Date.now(),
-      },
-    ];
+    return [];
   });
 
   useEffect(() => {
@@ -274,15 +152,18 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
   const [newSelectedChars, setNewSelectedChars] = useState<string[]>([]);
   const [newSelectedOriginalTypes, setNewSelectedOriginalTypes] = useState<OriginalSongType[]>([]);
   const [newSelectedVocalTypes, setNewSelectedVocalTypes] = useState<
-    ('sekai' | 'virtualSinger' | 'anotherVocal' | 'connectLive')[]
+    ('sekai' | 'virtualSinger' | 'anotherVocal' | 'connectLive' | 'inst')[]
   >([]);
+  const [newSelectedBannerCharacters, setNewSelectedBannerCharacters] = useState<string[]>([]);
   const [newSelectedReleaseYears, setNewSelectedReleaseYears] = useState<number[]>([]);
 
   // 1. ユニット別集計
   const unitStats = useMemo(() => {
     const list = (Object.keys(UNIT_METAS) as UnitType[]).map((unitKey, index) => {
       const meta = UNIT_METAS[unitKey];
-      const unitRecords = records.filter((r) => r.unit === unitKey);
+      const unitRecords = records.filter((r) =>
+        r.units && r.units.length > 0 ? r.units.includes(unitKey) : r.unit === unitKey
+      );
       const total = unitRecords.length;
       const owned = unitRecords.filter((r) => ownedRecordIds[r.id]).length;
       const percentage = total > 0 ? (owned / total) * 100 : 0;
@@ -307,10 +188,11 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
   // 2. 歌唱ver別集計（独立タブ化）
   const vocalStats = useMemo(() => {
     const vocalDefs = [
-      { key: 'sekai', label: 'セカイver', color: '#10b981', filter: { vocalVersions: { sekai: true, virtualSinger: false, connectLive: false, anotherVocal: false } } },
-      { key: 'virtualSinger', label: 'バーチャル・シンガーver', color: '#14b8a6', filter: { vocalVersions: { sekai: false, virtualSinger: true, connectLive: false, anotherVocal: false } } },
-      { key: 'anotherVocal', label: 'アナザーボーカルver', color: '#f59e0b', filter: { vocalVersions: { sekai: false, virtualSinger: false, connectLive: false, anotherVocal: true } } },
-      { key: 'connectLive', label: 'コネクトライブver', color: '#0ea5e9', filter: { vocalVersions: { sekai: false, virtualSinger: false, connectLive: true, anotherVocal: false } } },
+      { key: 'sekai', label: 'セカイver', color: '#10b981', filter: { vocalVersions: { sekai: true, virtualSinger: false, connectLive: false, anotherVocal: false, inst: false } } },
+      { key: 'virtualSinger', label: 'バーチャル・シンガーver', color: '#14b8a6', filter: { vocalVersions: { sekai: false, virtualSinger: true, connectLive: false, anotherVocal: false, inst: false } } },
+      { key: 'anotherVocal', label: 'アナザーボーカルver', color: '#f59e0b', filter: { vocalVersions: { sekai: false, virtualSinger: false, connectLive: false, anotherVocal: true, inst: false } } },
+      { key: 'connectLive', label: 'コネクトライブver', color: '#0ea5e9', filter: { vocalVersions: { sekai: false, virtualSinger: false, connectLive: true, anotherVocal: false, inst: false } } },
+      { key: 'inst', label: 'Inst. ver.', color: '#64748b', filter: { vocalVersions: { sekai: false, virtualSinger: false, connectLive: false, anotherVocal: false, inst: true } } },
     ];
 
     return vocalDefs.map((v, index) => {
@@ -377,16 +259,16 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
     });
   }, [records, ownedRecordIds]);
 
-  // 4. 歌唱キャラ別集計（プロセカのキャラクター選択画面に登場する順序でデフォルトソート）
+  // 4. 歌唱キャラ別集計（プロセカのメイン26人、キャラクター選択画面順）
   const characterStats = useMemo(() => {
-    return selectedCharIds.map((charId, index) => {
+    return PROSEKA_MAIN_26_CHAR_ORDER.map((charId, index) => {
       const char = CHARACTERS.find((c) => c.id === charId);
       const matched = records.filter((r) => r.characters.includes(charId));
       const total = matched.length;
       const owned = matched.filter((r) => ownedRecordIds[r.id]).length;
       const percentage = total > 0 ? (owned / total) * 100 : 0;
 
-      const orderInGame = PROSEKA_DEFAULT_CHAR_ORDER.indexOf(charId);
+      const orderInGame = PROSEKA_MAIN_26_CHAR_ORDER.indexOf(charId);
       const defaultOrderIndex = orderInGame !== -1 ? orderInGame : 100 + index;
 
       return {
@@ -401,7 +283,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
         filterParams: { characters: [charId] },
       };
     });
-  }, [records, ownedRecordIds, selectedCharIds]);
+  }, [records, ownedRecordIds]);
 
   // 5. カスタム比較集計（複数条件・AND/OR条件対応）
   const customStats = useMemo(() => {
@@ -490,8 +372,18 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                 ? 'バチャシン'
                 : vt === 'connectLive'
                 ? 'コネライ'
+                : vt === 'inst'
+                ? 'Inst'
                 : 'アナザー'
             )
+            .join('/')
+        );
+      }
+      if (newSelectedBannerCharacters.length > 0) {
+        parts.push(
+          newSelectedBannerCharacters
+            .map((c) => CHARACTERS.find((ch) => ch.id === c)?.name || c)
+            .map((n) => `バナー:${n}`)
             .join('/')
         );
       }
@@ -499,7 +391,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
         parts.push(newSelectedReleaseYears.map((y) => `${y}年目`).join('/'));
       }
       if (parts.length === 0) {
-        alert('少なくとも1つの条件（ユニット、楽曲分類、キャラ、歌唱ver、実装年）を選択してください');
+        alert('少なくとも1つの条件（ユニット、楽曲分類、キャラ、歌唱ver、バナーキャラ、実装年）を選択してください');
         return;
       }
       title = `${parts.join(' × ')} (${newMatchType.toUpperCase()})`;
@@ -514,9 +406,11 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
         sekai: newSelectedVocalTypes.includes('sekai'),
         connectLive: newSelectedVocalTypes.includes('connectLive'),
         anotherVocal: newSelectedVocalTypes.includes('anotherVocal'),
+        inst: newSelectedVocalTypes.includes('inst'),
       },
       searchQuery: '',
       originalTypes: newSelectedOriginalTypes.length > 0 ? newSelectedOriginalTypes : undefined,
+      bannerCharacters: newSelectedBannerCharacters.length > 0 ? newSelectedBannerCharacters : undefined,
       releaseYears: newSelectedReleaseYears.length > 0 ? newSelectedReleaseYears : undefined,
       matchType: newMatchType,
     };
@@ -531,12 +425,19 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
       conditionCharacters: newSelectedChars,
       conditionOriginalTypes: newSelectedOriginalTypes,
       conditionVocalTypes: newSelectedVocalTypes,
+      conditionBannerCharacters: newSelectedBannerCharacters,
       conditionReleaseYears: newSelectedReleaseYears,
     };
 
     setSavedConditions((prev) => [newCond, ...prev]);
     setNewTitle('');
+    setNewSelectedUnits([]);
+    setNewSelectedChars([]);
+    setNewSelectedOriginalTypes([]);
+    setNewSelectedVocalTypes([]);
+    setNewSelectedBannerCharacters([]);
     setNewSelectedReleaseYears([]);
+    setIsCustomFormOpen(false);
     alert(`比較条件「${title}」を追加しました！`);
   };
 
@@ -642,320 +543,68 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
 
       {/* メインコンテンツカード */}
       <div className="bg-white/90 backdrop-blur-md rounded-3xl p-4 sm:p-5 border border-slate-200/80 shadow-xs space-y-4">
-        {/* 歌唱キャラ別タブ時のキャラクター選択コントロール（折りたたみ可能） */}
-        {activeTab === 'character' && (
-          <div className="p-3 sm:p-4 bg-slate-50 rounded-2xl border border-slate-200/80 space-y-3">
-            <div className="flex items-center justify-between">
+        {/* カスタム比較タブ時の条件作成・追加パネル（折りたたみ可能） */}
+        {activeTab === 'custom' && (
+          <div
+            className={`p-3.5 sm:p-5 bg-slate-50/80 rounded-2xl sm:rounded-3xl border border-slate-200/90 shadow-2xs transition-all ${
+              isCustomFormOpen ? 'space-y-4' : ''
+            }`}
+          >
+            <div
+              className={`flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 ${
+                isCustomFormOpen ? 'pb-2 border-b border-slate-200/80' : ''
+              }`}
+            >
               <button
                 type="button"
-                onClick={() => setIsCharSelectorOpen((prev) => !prev)}
-                className="flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-slate-900 cursor-pointer transition-colors"
+                onClick={() => setIsCustomFormOpen((prev) => !prev)}
+                className="flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-800 hover:text-[#0d9488] cursor-pointer transition-colors text-left"
               >
-                <Users className="w-4 h-4 text-[#33ccbb]" />
-                <span>比較キャラクター選択 ({selectedCharIds.length}人選択中)</span>
-                {isCharSelectorOpen ? (
+                <Sparkles className="w-4 h-4 text-[#33ccbb] shrink-0" />
+                <span>カスタム比較条件を作成</span>
+                <span className="text-[11px] font-normal text-slate-400">
+                  {isCustomFormOpen ? '(タップして折りたたむ)' : '(タップして開く)'}
+                </span>
+                {isCustomFormOpen ? (
                   <ChevronUp className="w-4 h-4 text-slate-400" />
                 ) : (
                   <ChevronDown className="w-4 h-4 text-slate-400" />
                 )}
               </button>
 
-              <div className="flex gap-2 text-xs">
-                <button
-                  type="button"
-                  onClick={() => setSelectedCharIds(CHARACTERS.map((c) => c.id))}
-                  className="text-[#0d9488] font-bold hover:underline cursor-pointer"
-                >
-                  全選択
-                </button>
-                <span className="text-slate-300">|</span>
-                <button
-                  type="button"
-                  onClick={() => setSelectedCharIds([...PROSEKA_MAIN_26_CHAR_ORDER])}
-                  className="text-[#0d9488] font-bold hover:underline cursor-pointer"
-                >
-                  メイン26人
-                </button>
-                <span className="text-slate-300">|</span>
-                <button
-                  type="button"
-                  onClick={() => setSelectedCharIds([])}
-                  className="text-slate-400 hover:underline cursor-pointer"
-                >
-                  リセット
-                </button>
-              </div>
+              {isCustomFormOpen && (
+                /* AND / OR 条件の切り替えトグル */
+                <div className="flex items-center self-start sm:self-auto bg-white p-0.5 rounded-xl border border-slate-200/90 text-xs font-bold shadow-2xs">
+                  <button
+                    type="button"
+                    onClick={() => setNewMatchType('and')}
+                    className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
+                      newMatchType === 'and'
+                        ? 'bg-[#33ccbb] text-white shadow-2xs'
+                        : 'text-slate-500 hover:text-slate-700'
+                    }`}
+                    title="指定したすべての条件を満たす楽曲を対象にします"
+                  >
+                    AND (すべて一致)
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setNewMatchType('or')}
+                    className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
+                      newMatchType === 'or'
+                        ? 'bg-sky-500 text-white shadow-2xs'
+                        : 'text-slate-500 hover:text-slate-700'
+                    }`}
+                    title="指定したいずれかの条件を満たす楽曲を対象にします"
+                  >
+                    OR (いずれか一致)
+                  </button>
+                </div>
+              )}
             </div>
 
-            {/* 折りたたみ可能なキャラクター一覧 */}
-            {isCharSelectorOpen && (
-              <div className="space-y-2.5 pt-1 border-t border-slate-200/60">
-                {(
-                  [
-                    'virtual_singer',
-                    'leo_need',
-                    'more_more_jump',
-                    'vivid_bad_squad',
-                    'wonderlands_showtime',
-                    'nightcord_at_25',
-                    'other',
-                  ] as UnitType[]
-                ).map((uKey) => {
-                  const uMeta = UNIT_METAS[uKey];
-                  const unitChars = CHARACTERS.filter((c) => c.unit === uKey);
-                  if (unitChars.length === 0) return null;
-
-                  const displayName =
-                    uKey === 'other' ? 'その他（コラボ・ゲスト）' : uMeta.name;
-
-                  // 単一キャラクターボタン描画ヘルパー
-                  const renderCharButton = (char: (typeof CHARACTERS)[number]) => {
-                    const isSelected = selectedCharIds.includes(char.id);
-                    return (
-                      <button
-                        key={char.id}
-                        type="button"
-                        onClick={() => {
-                          if (isSelected) {
-                            setSelectedCharIds(selectedCharIds.filter((id) => id !== char.id));
-                          } else {
-                            setSelectedCharIds([...selectedCharIds, char.id]);
-                          }
-                        }}
-                        className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border text-xs text-left transition-all cursor-pointer ${
-                          isSelected
-                            ? 'bg-slate-800 text-white font-bold border-slate-800 shadow-2xs'
-                            : 'bg-white text-slate-600 border-slate-200/80 hover:bg-slate-100'
-                        }`}
-                      >
-                        <span
-                          className="w-2.5 h-2.5 rounded-full shrink-0 border border-black/10"
-                          style={{ backgroundColor: char.color }}
-                        />
-                        <span className="truncate">{char.name}</span>
-                      </button>
-                    );
-                  };
-
-                  // バーチャル・シンガーの場合：ゲーム内登場（6人）とゲーム未登場（30人）を分離
-                  if (uKey === 'virtual_singer') {
-                    const mainChars = unitChars.filter((c) =>
-                      GAME_VIRTUAL_SINGER_IDS.includes(c.id as any)
-                    );
-                    const extraChars = unitChars.filter(
-                      (c) => !GAME_VIRTUAL_SINGER_IDS.includes(c.id as any)
-                    );
-                    const selectedExtraCount = extraChars.filter((c) =>
-                      selectedCharIds.includes(c.id)
-                    ).length;
-
-                    return (
-                      <div key={uKey} className="space-y-1.5">
-                        <div className="flex items-center justify-between px-1">
-                          <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-600">
-                            {uMeta.iconUrl && (
-                              <img src={uMeta.iconUrl} alt={uMeta.name} className="w-3.5 h-3.5 object-contain" />
-                            )}
-                            <span>{displayName}</span>
-                          </div>
-                          <div className="flex gap-1.5 text-[10px]">
-                            <button
-                              type="button"
-                              onClick={() => {
-                                const mainIds = mainChars.map((c) => c.id);
-                                setSelectedCharIds((prev) =>
-                                  Array.from(new Set([...prev, ...mainIds]))
-                                );
-                              }}
-                              className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
-                            >
-                              全選択
-                            </button>
-                            <span className="text-slate-300">|</span>
-                            <button
-                              type="button"
-                              onClick={() => {
-                                const mainIds = mainChars.map((c) => c.id);
-                                setSelectedCharIds((prev) =>
-                                  prev.filter((id) => !mainIds.includes(id))
-                                );
-                              }}
-                              className="text-slate-400 hover:underline cursor-pointer"
-                            >
-                              クリア
-                            </button>
-                          </div>
-                        </div>
-
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
-                          {mainChars.map(renderCharButton)}
-                        </div>
-
-                        {/* ゲーム未登場シンガー（折りたたみ表示） */}
-                        {extraChars.length > 0 && (
-                          <div className="pt-1 space-y-1">
-                            <div className="flex items-center justify-between px-1">
-                              <span className="text-[11px] font-bold text-slate-600">
-                                ゲーム未登場シンガー ({extraChars.length}人)
-                              </span>
-                              <div className="flex gap-1.5 text-[10px]">
-                                <button
-                                  type="button"
-                                  onClick={() => {
-                                    const extraIds = extraChars.map((c) => c.id);
-                                    setSelectedCharIds((prev) =>
-                                      Array.from(new Set([...prev, ...extraIds]))
-                                    );
-                                  }}
-                                  className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
-                                >
-                                  全選択
-                                </button>
-                                <span className="text-slate-300">|</span>
-                                <button
-                                  type="button"
-                                  onClick={() => {
-                                    const extraIds = extraChars.map((c) => c.id);
-                                    setSelectedCharIds((prev) =>
-                                      prev.filter((id) => !extraIds.includes(id))
-                                    );
-                                  }}
-                                  className="text-slate-400 hover:underline cursor-pointer"
-                                >
-                                  クリア
-                                </button>
-                              </div>
-                            </div>
-
-                            <button
-                              type="button"
-                              onClick={() => setShowNonGameSingersInCompare(!showNonGameSingersInCompare)}
-                              className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-left text-xs font-bold transition-all border cursor-pointer ${
-                                showNonGameSingersInCompare
-                                  ? 'bg-slate-200/80 border-slate-300 text-slate-800'
-                                  : 'bg-slate-100/90 hover:bg-slate-200/60 border-slate-200 text-slate-600'
-                              }`}
-                            >
-                              <span className="flex items-center gap-1.5 text-[11px]">
-                                <span>シンガー一覧</span>
-                                {selectedExtraCount > 0 && (
-                                  <span className="bg-[#33ccbb] text-white px-1.5 py-0.5 rounded-full text-[10px] font-bold leading-none shadow-2xs">
-                                    {selectedExtraCount}人選択中
-                                  </span>
-                                )}
-                              </span>
-                              <span className="flex items-center gap-1 text-[11px] text-slate-500">
-                                <span>{showNonGameSingersInCompare ? '閉じる' : '表示する'}</span>
-                                {showNonGameSingersInCompare ? (
-                                  <ChevronUp className="w-3.5 h-3.5 text-slate-500" />
-                                ) : (
-                                  <ChevronDown className="w-3.5 h-3.5 text-slate-500" />
-                                )}
-                              </span>
-                            </button>
-
-                            {showNonGameSingersInCompare && (
-                              <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 mt-1.5 pt-1.5 pl-2 border-l-2 border-slate-200 animate-in fade-in duration-150">
-                                {extraChars.map(renderCharButton)}
-                              </div>
-                            )}
-                          </div>
-                        )}
-                      </div>
-                    );
-                  }
-
-                  // その他のユニット（レオニ、モモジャン、ビビバス、ワンダショ、ニーゴ、その他）
-                  return (
-                    <div key={uKey} className="space-y-1">
-                      <div className="flex items-center justify-between px-1">
-                        <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-600">
-                          {uMeta.iconUrl && (
-                            <img src={uMeta.iconUrl} alt={uMeta.name} className="w-3.5 h-3.5 object-contain" />
-                          )}
-                          <span>{displayName}</span>
-                        </div>
-                        <div className="flex gap-1.5 text-[10px]">
-                          <button
-                            type="button"
-                            onClick={() => {
-                              const ids = unitChars.map((c) => c.id);
-                              setSelectedCharIds((prev) =>
-                                Array.from(new Set([...prev, ...ids]))
-                              );
-                            }}
-                            className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
-                          >
-                            全選択
-                          </button>
-                          <span className="text-slate-300">|</span>
-                          <button
-                            type="button"
-                            onClick={() => {
-                              const ids = unitChars.map((c) => c.id);
-                              setSelectedCharIds((prev) =>
-                                prev.filter((id) => !ids.includes(id))
-                              );
-                            }}
-                            className="text-slate-400 hover:underline cursor-pointer"
-                          >
-                            クリア
-                          </button>
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
-                        {unitChars.map(renderCharButton)}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* カスタム比較タブ時の条件作成・追加パネル（リスト表示の絞り込みUIと統一） */}
-        {activeTab === 'custom' && (
-          <div className="p-4 sm:p-5 bg-slate-50/80 rounded-3xl border border-slate-200/90 space-y-4 shadow-2xs">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-2 border-b border-slate-200/80">
-              <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-[#33ccbb]" />
-                <h3 className="font-bold text-xs sm:text-sm text-slate-800">
-                  カスタム比較条件を作成
-                </h3>
-              </div>
-
-              {/* AND / OR 条件の切り替えトグル */}
-              <div className="flex items-center self-start sm:self-auto bg-white p-0.5 rounded-xl border border-slate-200/90 text-xs font-bold shadow-2xs">
-                <button
-                  type="button"
-                  onClick={() => setNewMatchType('and')}
-                  className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
-                    newMatchType === 'and'
-                      ? 'bg-[#33ccbb] text-white shadow-2xs'
-                      : 'text-slate-500 hover:text-slate-700'
-                  }`}
-                  title="指定したすべての条件を満たす楽曲を対象にします"
-                >
-                  AND (すべて一致)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setNewMatchType('or')}
-                  className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
-                    newMatchType === 'or'
-                      ? 'bg-sky-500 text-white shadow-2xs'
-                      : 'text-slate-500 hover:text-slate-700'
-                  }`}
-                  title="指定したいずれかの条件を満たす楽曲を対象にします"
-                >
-                  OR (いずれか一致)
-                </button>
-              </div>
-            </div>
-
-            <form onSubmit={handleAddCustomCondition} className="space-y-4">
+            {isCustomFormOpen && (
+              <form onSubmit={handleAddCustomCondition} className="space-y-4">
               {/* 条件タイトル入力 */}
               <div>
                 <label className="block text-xs font-bold text-slate-700 mb-1.5">
@@ -970,109 +619,171 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                 />
               </div>
 
-              {/* 1. ユニットでの絞り込み（リスト絞り込みUIと統一） */}
-              <div className="space-y-2">
-                <div className="flex items-center justify-between text-xs font-bold">
-                  <div className="flex items-center gap-1.5 text-slate-700">
-                    <span>対象ユニット</span>
+              {/* 条件グループの一括展開/折りたたみバー */}
+              <div className="flex items-center justify-between px-1 pt-1 text-xs">
+                <span className="text-[11px] font-bold text-slate-500">条件グループ（クリックで開閉）</span>
+                <div className="flex gap-2 text-[11px]">
+                  <button
+                    type="button"
+                    onClick={() => setAllCustomSections(true)}
+                    className="text-[#0d9488] font-bold hover:underline cursor-pointer"
+                  >
+                    すべて展開
+                  </button>
+                  <span className="text-slate-300">|</span>
+                  <button
+                    type="button"
+                    onClick={() => setAllCustomSections(false)}
+                    className="text-slate-400 font-bold hover:underline cursor-pointer"
+                  >
+                    すべて折りたたむ
+                  </button>
+                </div>
+              </div>
+
+              {/* 1. ユニットでの絞り込み */}
+              <div className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-2xs">
+                <div
+                  onClick={() => toggleCustomSection('units')}
+                  className="flex items-center justify-between p-3 cursor-pointer select-none bg-slate-50/60 hover:bg-slate-100/60 transition-colors"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="font-bold text-xs sm:text-sm text-slate-800">1. 対象ユニット</span>
                     {newSelectedUnits.length > 0 && (
                       <span className="text-[11px] bg-[#33ccbb]/15 text-[#0d9488] px-2 py-0.5 rounded-full font-bold">
                         {newSelectedUnits.length}組選択中
                       </span>
                     )}
                   </div>
-                  <div className="flex gap-2 text-xs">
+                  <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                    <div className="flex gap-2 text-xs">
+                      <button
+                        type="button"
+                        onClick={() => setNewSelectedUnits(Object.keys(UNIT_METAS) as UnitType[])}
+                        className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                      >
+                        全選択
+                      </button>
+                      <span className="text-slate-300">|</span>
+                      <button
+                        type="button"
+                        onClick={() => setNewSelectedUnits([])}
+                        className="text-slate-400 hover:underline cursor-pointer"
+                      >
+                        クリア
+                      </button>
+                    </div>
                     <button
                       type="button"
-                      onClick={() => setNewSelectedUnits(Object.keys(UNIT_METAS) as UnitType[])}
-                      className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                      onClick={() => toggleCustomSection('units')}
+                      className="p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
+                      aria-label="ユニット条件を展開・折りたたみ"
                     >
-                      全選択
-                    </button>
-                    <span className="text-slate-300">|</span>
-                    <button
-                      type="button"
-                      onClick={() => setNewSelectedUnits([])}
-                      className="text-slate-400 hover:underline cursor-pointer"
-                    >
-                      クリア
+                      {customOpenSections.units ? (
+                        <ChevronUp className="w-4 h-4" />
+                      ) : (
+                        <ChevronDown className="w-4 h-4" />
+                      )}
                     </button>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2">
-                  {(Object.keys(UNIT_METAS) as UnitType[]).map((unitKey) => {
-                    const meta = UNIT_METAS[unitKey];
-                    const isSelected = newSelectedUnits.includes(unitKey);
-                    return (
-                      <button
-                        key={unitKey}
-                        type="button"
-                        onClick={() => {
-                          setNewSelectedUnits((prev) =>
-                            isSelected ? prev.filter((u) => u !== unitKey) : [...prev, unitKey]
-                          );
-                        }}
-                        className={`flex items-center gap-2 px-2.5 py-2 rounded-xl border text-left min-h-[42px] transition-all cursor-pointer ${
-                          isSelected
-                            ? 'border-slate-400/80 bg-white shadow-2xs text-slate-800'
-                            : 'border-slate-200/70 bg-slate-50/60 text-slate-400 opacity-60 hover:opacity-80'
-                        }`}
-                      >
-                        {meta.iconUrl ? (
-                          <img
-                            src={meta.iconUrl}
-                            alt={meta.name}
-                            className="w-4 h-4 object-contain shrink-0 drop-shadow-2xs"
-                          />
-                        ) : (
-                          <div
-                            className="w-3.5 h-3.5 rounded-full shrink-0 border border-slate-300/80 shadow-2xs"
-                            style={{ backgroundColor: meta.themeColor }}
-                          />
-                        )}
-                        <span className="flex-1 text-[11px] sm:text-xs font-bold leading-tight break-words">
-                          {meta.name}
-                        </span>
-                        {isSelected && <Check className="w-3.5 h-3.5 text-slate-600 shrink-0" />}
-                      </button>
-                    );
-                  })}
-                </div>
+                {customOpenSections.units && (
+                  <div className="p-3 sm:p-4 border-t border-slate-100">
+                    <div className="grid grid-cols-2 gap-2">
+                      {(Object.keys(UNIT_METAS) as UnitType[]).map((unitKey) => {
+                        const meta = UNIT_METAS[unitKey];
+                        const isSelected = newSelectedUnits.includes(unitKey);
+                        return (
+                          <button
+                            key={unitKey}
+                            type="button"
+                            onClick={() => {
+                              setNewSelectedUnits((prev) =>
+                                isSelected ? prev.filter((u) => u !== unitKey) : [...prev, unitKey]
+                              );
+                            }}
+                            className={`flex items-center gap-2 px-2.5 py-2 rounded-xl border text-left min-h-[42px] transition-all cursor-pointer ${
+                              isSelected
+                                ? 'border-slate-400/80 bg-white shadow-2xs text-slate-800'
+                                : 'border-slate-200/70 bg-slate-50/60 text-slate-400 opacity-60 hover:opacity-80'
+                            }`}
+                          >
+                            {meta.iconUrl ? (
+                              <img
+                                src={meta.iconUrl}
+                                alt={meta.name}
+                                className="w-4 h-4 object-contain shrink-0 drop-shadow-2xs"
+                              />
+                            ) : (
+                              <div
+                                className="w-3.5 h-3.5 rounded-full shrink-0 border border-slate-300/80 shadow-2xs"
+                                style={{ backgroundColor: meta.themeColor }}
+                              />
+                            )}
+                            <span className="flex-1 text-[11px] sm:text-xs font-bold leading-tight break-words">
+                              {meta.name}
+                            </span>
+                            {isSelected && <Check className="w-3.5 h-3.5 text-slate-600 shrink-0" />}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* 2. 歌唱キャラクターでの絞り込み（リスト絞り込みUIと統一） */}
-              <div className="space-y-2">
-                <div className="flex items-center justify-between text-xs font-bold">
-                  <div className="flex items-center gap-1.5 text-slate-700">
+              <div className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-2xs">
+                <div
+                  onClick={() => toggleCustomSection('characters')}
+                  className="flex items-center justify-between p-3 cursor-pointer select-none bg-slate-50/60 hover:bg-slate-100/60 transition-colors"
+                >
+                  <div className="flex items-center gap-2">
                     <Users className="w-4 h-4 text-[#33ccbb]" />
-                    <span>歌唱キャラクター</span>
+                    <span className="font-bold text-xs sm:text-sm text-slate-800">2. 歌唱キャラクター</span>
                     {newSelectedChars.length > 0 && (
                       <span className="text-[11px] bg-[#33ccbb]/15 text-[#0d9488] px-2 py-0.5 rounded-full font-bold">
                         {newSelectedChars.length}人選択中
                       </span>
                     )}
                   </div>
-                  <div className="flex gap-2 text-xs">
+                  <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                    <div className="flex gap-2 text-xs">
+                      <button
+                        type="button"
+                        onClick={() => setNewSelectedChars(CHARACTERS.map((c) => c.id))}
+                        className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                      >
+                        全選択
+                      </button>
+                      <span className="text-slate-300">|</span>
+                      <button
+                        type="button"
+                        onClick={() => setNewSelectedChars([])}
+                        className="text-slate-400 hover:underline cursor-pointer"
+                      >
+                        クリア
+                      </button>
+                    </div>
                     <button
                       type="button"
-                      onClick={() => setNewSelectedChars(CHARACTERS.map((c) => c.id))}
-                      className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                      onClick={() => toggleCustomSection('characters')}
+                      className="p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
+                      aria-label="キャラクター条件を展開・折りたたみ"
                     >
-                      全選択
-                    </button>
-                    <span className="text-slate-300">|</span>
-                    <button
-                      type="button"
-                      onClick={() => setNewSelectedChars([])}
-                      className="text-slate-400 hover:underline cursor-pointer"
-                    >
-                      クリア
+                      {customOpenSections.characters ? (
+                        <ChevronUp className="w-4 h-4" />
+                      ) : (
+                        <ChevronDown className="w-4 h-4" />
+                      )}
                     </button>
                   </div>
                 </div>
 
-                <div className="max-h-60 sm:max-h-72 overflow-y-auto p-2 space-y-3 bg-white/70 rounded-2xl border border-slate-200/80">
+                {customOpenSections.characters && (
+                  <div className="p-3 sm:p-4 border-t border-slate-100">
+                    <div className="max-h-60 sm:max-h-72 overflow-y-auto p-2 space-y-3 bg-white/70 rounded-2xl border border-slate-200/80">
                   {(
                     [
                       'virtual_singer',
@@ -1305,196 +1016,407 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                       </div>
                     );
                   })}
-                </div>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* 3. 歌唱バージョンでの絞り込み（リスト絞り込みUIと統一） */}
-              <div className="space-y-2">
-                <div className="flex items-center justify-between text-xs font-bold">
-                  <div className="flex items-center gap-1.5 text-slate-700">
-                    <span>歌唱バージョン条件</span>
+              <div className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-2xs">
+                <div
+                  onClick={() => toggleCustomSection('vocalTypes')}
+                  className="flex items-center justify-between p-3 cursor-pointer select-none bg-slate-50/60 hover:bg-slate-100/60 transition-colors"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="font-bold text-xs sm:text-sm text-slate-800">3. 歌唱バージョン条件</span>
                     {newSelectedVocalTypes.length > 0 && (
                       <span className="text-[11px] bg-[#33ccbb]/15 text-[#0d9488] px-2 py-0.5 rounded-full font-bold">
                         {newSelectedVocalTypes.length}件選択中
                       </span>
                     )}
                   </div>
-                  <div className="flex gap-2 text-xs">
+                  <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                    <div className="flex gap-2 text-xs">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setNewSelectedVocalTypes(['sekai', 'virtualSinger', 'connectLive', 'anotherVocal', 'inst'])
+                        }
+                        className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                      >
+                        全選択
+                      </button>
+                      <span className="text-slate-300">|</span>
+                      <button
+                        type="button"
+                        onClick={() => setNewSelectedVocalTypes([])}
+                        className="text-slate-400 hover:underline cursor-pointer"
+                      >
+                        クリア
+                      </button>
+                    </div>
                     <button
                       type="button"
-                      onClick={() =>
-                        setNewSelectedVocalTypes(['sekai', 'virtualSinger', 'connectLive', 'anotherVocal'])
-                      }
-                      className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                      onClick={() => toggleCustomSection('vocalTypes')}
+                      className="p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
+                      aria-label="歌唱バージョン条件を展開・折りたたみ"
                     >
-                      全選択
-                    </button>
-                    <span className="text-slate-300">|</span>
-                    <button
-                      type="button"
-                      onClick={() => setNewSelectedVocalTypes([])}
-                      className="text-slate-400 hover:underline cursor-pointer"
-                    >
-                      クリア
+                      {customOpenSections.vocalTypes ? (
+                        <ChevronUp className="w-4 h-4" />
+                      ) : (
+                        <ChevronDown className="w-4 h-4" />
+                      )}
                     </button>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2 text-xs">
-                  {[
-                    { id: 'sekai', label: 'セカイver あり' },
-                    { id: 'virtualSinger', label: 'バーチャル・シンガーver あり' },
-                    { id: 'connectLive', label: 'コネクトライブver あり' },
-                    { id: 'anotherVocal', label: 'アナザーボーカル あり' },
-                  ].map((v) => {
-                    const isSelected = newSelectedVocalTypes.includes(v.id as any);
-                    return (
-                      <button
-                        key={v.id}
-                        type="button"
-                        onClick={() => {
-                          setNewSelectedVocalTypes((prev) =>
-                            isSelected ? prev.filter((id) => id !== v.id) : [...prev, v.id as any]
-                          );
-                        }}
-                        className={`px-3 py-2 rounded-xl border text-left font-medium transition-all cursor-pointer ${
-                          isSelected
-                            ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] font-bold shadow-2xs'
-                            : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
-                        }`}
-                      >
-                        {v.label}
-                      </button>
-                    );
-                  })}
-                </div>
+                {customOpenSections.vocalTypes && (
+                  <div className="p-3 sm:p-4 border-t border-slate-100">
+                    <div className="grid grid-cols-2 gap-2 text-xs">
+                      {[
+                        { id: 'sekai', label: 'セカイver あり' },
+                        { id: 'virtualSinger', label: 'バーチャル・シンガーver あり' },
+                        { id: 'connectLive', label: 'コネクトライブver あり' },
+                        { id: 'anotherVocal', label: 'アナザーボーカル あり' },
+                        { id: 'inst', label: 'Inst. ver. あり' },
+                      ].map((v) => {
+                        const isSelected = newSelectedVocalTypes.includes(v.id as any);
+                        return (
+                          <button
+                            key={v.id}
+                            type="button"
+                            onClick={() => {
+                              setNewSelectedVocalTypes((prev) =>
+                                isSelected ? prev.filter((id) => id !== v.id) : [...prev, v.id as any]
+                              );
+                            }}
+                            className={`px-3 py-2 rounded-xl border text-left font-medium transition-all cursor-pointer ${
+                              isSelected
+                                ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] font-bold shadow-2xs'
+                                : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+                            }`}
+                          >
+                            {v.label}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* 4. 楽曲分類での絞り込み（書き下ろし楽曲のみ・カバー除外） */}
-              <div className="space-y-2">
-                <div className="flex items-center justify-between text-xs font-bold">
-                  <div className="flex items-center gap-1.5 text-slate-700">
-                    <span>楽曲分類（書き下ろし楽曲）</span>
+              <div className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-2xs">
+                <div
+                  onClick={() => toggleCustomSection('originalTypes')}
+                  className="flex items-center justify-between p-3 cursor-pointer select-none bg-slate-50/60 hover:bg-slate-100/60 transition-colors"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="font-bold text-xs sm:text-sm text-slate-800">4. 楽曲分類（書き下ろし等）</span>
                     {newSelectedOriginalTypes.length > 0 && (
                       <span className="text-[11px] bg-[#33ccbb]/15 text-[#0d9488] px-2 py-0.5 rounded-full font-bold">
                         {newSelectedOriginalTypes.length}種選択中
                       </span>
                     )}
                   </div>
-                  <div className="flex gap-2 text-xs">
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setNewSelectedOriginalTypes(
-                          (Object.keys(ORIGINAL_TYPE_METAS) as OriginalSongType[]).filter(
-                            (t) => t !== 'cover'
+                  <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                    <div className="flex gap-2 text-xs">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setNewSelectedOriginalTypes(
+                            (Object.keys(ORIGINAL_TYPE_METAS) as OriginalSongType[]).filter(
+                              (t) => t !== 'cover'
+                            )
                           )
-                        )
-                      }
-                      className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
-                    >
-                      全選択
-                    </button>
-                    <span className="text-slate-300">|</span>
+                        }
+                        className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                      >
+                        全選択
+                      </button>
+                      <span className="text-slate-300">|</span>
+                      <button
+                        type="button"
+                        onClick={() => setNewSelectedOriginalTypes([])}
+                        className="text-slate-400 hover:underline cursor-pointer"
+                      >
+                        クリア
+                      </button>
+                    </div>
                     <button
                       type="button"
-                      onClick={() => setNewSelectedOriginalTypes([])}
-                      className="text-slate-400 hover:underline cursor-pointer"
+                      onClick={() => toggleCustomSection('originalTypes')}
+                      className="p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
+                      aria-label="楽曲分類条件を展開・折りたたみ"
                     >
-                      クリア
+                      {customOpenSections.originalTypes ? (
+                        <ChevronUp className="w-4 h-4" />
+                      ) : (
+                        <ChevronDown className="w-4 h-4" />
+                      )}
                     </button>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2 text-xs">
-                  {(Object.keys(ORIGINAL_TYPE_METAS) as OriginalSongType[])
-                    .filter((typeKey) => typeKey !== 'cover')
-                    .map((typeKey) => {
-                      const meta = ORIGINAL_TYPE_METAS[typeKey];
-                      const isSelected = newSelectedOriginalTypes.includes(typeKey);
-                      return (
-                        <button
-                          key={typeKey}
-                          type="button"
-                          onClick={() => {
-                            setNewSelectedOriginalTypes((prev) =>
-                              isSelected ? prev.filter((t) => t !== typeKey) : [...prev, typeKey]
-                            );
-                          }}
-                          className={`px-3 py-2 rounded-xl border text-left font-medium transition-all cursor-pointer ${
-                            isSelected
-                              ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] font-bold shadow-2xs'
-                              : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
-                          }`}
-                        >
-                          {meta.label}
-                        </button>
-                      );
-                    })}
-                </div>
+                {customOpenSections.originalTypes && (
+                  <div className="p-3 sm:p-4 border-t border-slate-100">
+                    <div className="grid grid-cols-2 gap-2 text-xs">
+                      {(Object.keys(ORIGINAL_TYPE_METAS) as OriginalSongType[])
+                        .filter((typeKey) => typeKey !== 'cover')
+                        .map((typeKey) => {
+                          const meta = ORIGINAL_TYPE_METAS[typeKey];
+                          const isSelected = newSelectedOriginalTypes.includes(typeKey);
+                          return (
+                            <button
+                              key={typeKey}
+                              type="button"
+                              onClick={() => {
+                                setNewSelectedOriginalTypes((prev) =>
+                                  isSelected ? prev.filter((t) => t !== typeKey) : [...prev, typeKey]
+                                );
+                              }}
+                              className={`px-3 py-2 rounded-xl border text-left font-medium transition-all cursor-pointer ${
+                                isSelected
+                                  ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] font-bold shadow-2xs'
+                                  : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+                              }`}
+                            >
+                              {meta.label}
+                            </button>
+                          );
+                        })}
+                    </div>
+                  </div>
+                )}
               </div>
 
-              {/* 5. 実装年での絞り込み */}
-              <div className="space-y-2">
-                <div className="flex items-center justify-between text-xs font-bold">
-                  <div className="flex items-center gap-1.5 text-slate-700">
-                    <span>実装年</span>
+              {/* 5. イベントバナーキャラクターでの絞り込み */}
+              <div className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-2xs">
+                <div
+                  onClick={() => toggleCustomSection('bannerCharacters')}
+                  className="flex items-center justify-between p-3 cursor-pointer select-none bg-slate-50/60 hover:bg-slate-100/60 transition-colors"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="font-bold text-xs sm:text-sm text-slate-800">5. イベントバナーキャラクター</span>
+                    {newSelectedBannerCharacters.length > 0 && (
+                      <span className="text-[11px] bg-[#33ccbb]/15 text-[#0d9488] px-2 py-0.5 rounded-full font-bold">
+                        {newSelectedBannerCharacters.length}人選択中
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                    <div className="flex gap-2 text-xs">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const original20 = CHARACTERS.filter((c) =>
+                            [
+                              'leo_need',
+                              'more_more_jump',
+                              'vivid_bad_squad',
+                              'wonderlands_showtime',
+                              'nightcord_at_25',
+                            ].includes(c.unit)
+                          ).map((c) => c.id);
+                          setNewSelectedBannerCharacters(original20);
+                        }}
+                        className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                      >
+                        全選択
+                      </button>
+                      <span className="text-slate-300">|</span>
+                      <button
+                        type="button"
+                        onClick={() => setNewSelectedBannerCharacters([])}
+                        className="text-slate-400 hover:underline cursor-pointer"
+                      >
+                        クリア
+                      </button>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => toggleCustomSection('bannerCharacters')}
+                      className="p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
+                      aria-label="イベントバナーキャラクター条件を展開・折りたたみ"
+                    >
+                      {customOpenSections.bannerCharacters ? (
+                        <ChevronUp className="w-4 h-4" />
+                      ) : (
+                        <ChevronDown className="w-4 h-4" />
+                      )}
+                    </button>
+                  </div>
+                </div>
+
+                {customOpenSections.bannerCharacters && (
+                  <div className="p-3 sm:p-4 border-t border-slate-100 space-y-2">
+                    {(
+                      [
+                        'leo_need',
+                        'more_more_jump',
+                        'vivid_bad_squad',
+                        'wonderlands_showtime',
+                        'nightcord_at_25',
+                      ] as UnitType[]
+                    ).map((uKey) => {
+                      const uMeta = UNIT_METAS[uKey];
+                      const members = CHARACTERS.filter((c) => c.unit === uKey);
+
+                      return (
+                        <div key={uKey} className="space-y-1">
+                          <div className="flex items-center justify-between px-0.5">
+                            <div className="flex items-center gap-1 text-[11px] font-bold text-slate-600">
+                              {uMeta.iconUrl && (
+                                <img src={uMeta.iconUrl} alt={uMeta.name} className="w-3 h-3 object-contain" />
+                              )}
+                              <span>{uMeta.name}</span>
+                            </div>
+                            <div className="flex gap-1.5 text-[10px]">
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  const memberIds = members.map((c) => c.id);
+                                  setNewSelectedBannerCharacters((prev) =>
+                                    Array.from(new Set([...prev, ...memberIds]))
+                                  );
+                                }}
+                                className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                              >
+                                全選択
+                              </button>
+                              <span className="text-slate-300">|</span>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  const memberIds = members.map((c) => c.id);
+                                  setNewSelectedBannerCharacters((prev) =>
+                                    prev.filter((id) => !memberIds.includes(id))
+                                  );
+                                }}
+                                className="text-slate-400 hover:underline cursor-pointer"
+                              >
+                                クリア
+                              </button>
+                            </div>
+                          </div>
+                          <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+                            {members.map((char) => {
+                              const isSelected = newSelectedBannerCharacters.includes(char.id);
+                              return (
+                                <button
+                                  key={char.id}
+                                  type="button"
+                                  onClick={() => {
+                                    setNewSelectedBannerCharacters((prev) =>
+                                      isSelected
+                                        ? prev.filter((id) => id !== char.id)
+                                        : [...prev, char.id]
+                                    );
+                                  }}
+                                  className={`flex items-center gap-1.5 px-2 py-1.5 rounded-xl border text-left text-xs transition-all cursor-pointer ${
+                                    isSelected
+                                      ? 'border-slate-800 bg-slate-800 text-white font-bold shadow-2xs'
+                                      : 'border-slate-200/80 bg-white text-slate-700 hover:bg-slate-50'
+                                  }`}
+                                >
+                                  <span
+                                    className="w-2.5 h-2.5 rounded-full shrink-0 border border-black/10"
+                                    style={{ backgroundColor: char.color }}
+                                  />
+                                  <span className="truncate">{char.name}</span>
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+
+              {/* 6. 実装年での絞り込み */}
+              <div className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-2xs">
+                <div
+                  onClick={() => toggleCustomSection('releaseYears')}
+                  className="flex items-center justify-between p-3 cursor-pointer select-none bg-slate-50/60 hover:bg-slate-100/60 transition-colors"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="font-bold text-xs sm:text-sm text-slate-800">6. 実装年</span>
                     {newSelectedReleaseYears.length > 0 && (
                       <span className="text-[11px] bg-[#33ccbb]/15 text-[#0d9488] px-2 py-0.5 rounded-full font-bold">
                         {newSelectedReleaseYears.length}件選択中
                       </span>
                     )}
                   </div>
-                  <div className="flex gap-2 text-xs">
+                  <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                    <div className="flex gap-2 text-xs">
+                      <button
+                        type="button"
+                        onClick={() => setNewSelectedReleaseYears([1, 2, 3, 4, 5, 6, 7])}
+                        className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                      >
+                        全選択
+                      </button>
+                      <span className="text-slate-300">|</span>
+                      <button
+                        type="button"
+                        onClick={() => setNewSelectedReleaseYears([])}
+                        className="text-slate-400 hover:underline cursor-pointer"
+                      >
+                        クリア
+                      </button>
+                    </div>
                     <button
                       type="button"
-                      onClick={() => setNewSelectedReleaseYears([1, 2, 3, 4, 5, 6, 7])}
-                      className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                      onClick={() => toggleCustomSection('releaseYears')}
+                      className="p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
+                      aria-label="実装年条件を展開・折りたたみ"
                     >
-                      全選択
-                    </button>
-                    <span className="text-slate-300">|</span>
-                    <button
-                      type="button"
-                      onClick={() => setNewSelectedReleaseYears([])}
-                      className="text-slate-400 hover:underline cursor-pointer"
-                    >
-                      クリア
+                      {customOpenSections.releaseYears ? (
+                        <ChevronUp className="w-4 h-4" />
+                      ) : (
+                        <ChevronDown className="w-4 h-4" />
+                      )}
                     </button>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2 text-xs">
-                  {[
-                    { year: 1, label: '1年目 (2020.9.30〜)' },
-                    { year: 2, label: '2年目 (2021.9.30〜)' },
-                    { year: 3, label: '3年目 (2022.9.30〜)' },
-                    { year: 4, label: '4年目 (2023.9.30〜)' },
-                    { year: 5, label: '5年目 (2024.9.30〜)' },
-                    { year: 6, label: '6年目 (2025.9.30〜)' },
-                    { year: 7, label: '7年目 (2026.9.30〜)' },
-                  ].map((item) => {
-                    const isSelected = newSelectedReleaseYears.includes(item.year);
-                    return (
-                      <button
-                        key={item.year}
-                        type="button"
-                        onClick={() => {
-                          setNewSelectedReleaseYears((prev) =>
-                            isSelected ? prev.filter((y) => y !== item.year) : [...prev, item.year]
-                          );
-                        }}
-                        className={`px-3 py-2 rounded-xl border text-left font-medium transition-all cursor-pointer ${
-                          isSelected
-                            ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] font-bold shadow-2xs'
-                            : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
-                        }`}
-                      >
-                        {item.label}
-                      </button>
-                    );
-                  })}
-                </div>
+                {customOpenSections.releaseYears && (
+                  <div className="p-3 sm:p-4 border-t border-slate-100">
+                    <div className="grid grid-cols-2 gap-2 text-xs">
+                      {[
+                        { year: 1, label: '1年目 (2020.9.30〜)' },
+                        { year: 2, label: '2年目 (2021.9.30〜)' },
+                        { year: 3, label: '3年目 (2022.9.30〜)' },
+                        { year: 4, label: '4年目 (2023.9.30〜)' },
+                        { year: 5, label: '5年目 (2024.9.30〜)' },
+                        { year: 6, label: '6年目 (2025.9.30〜)' },
+                        { year: 7, label: '7年目 (2026.9.30〜)' },
+                      ].map((item) => {
+                        const isSelected = newSelectedReleaseYears.includes(item.year);
+                        return (
+                          <button
+                            key={item.year}
+                            type="button"
+                            onClick={() => {
+                              setNewSelectedReleaseYears((prev) =>
+                                isSelected ? prev.filter((y) => y !== item.year) : [...prev, item.year]
+                              );
+                            }}
+                            className={`px-3 py-2 rounded-xl border text-left font-medium transition-all cursor-pointer ${
+                              isSelected
+                                ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] font-bold shadow-2xs'
+                                : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+                            }`}
+                          >
+                            {item.label}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* 追加ボタン & マッチタイプ補足説明 */}
@@ -1519,6 +1441,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                 </button>
               </div>
             </form>
+            )}
           </div>
         )}
 
@@ -1526,8 +1449,8 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
         <div className="space-y-3">
           {sortedList.length === 0 ? (
             <div className="p-8 text-center text-slate-400 text-xs">
-              {activeTab === 'character'
-                ? 'キャラクターが選択されていません。上の「比較キャラクター選択」から選択してください。'
+              {activeTab === 'custom'
+                ? 'カスタム比較条件が登録されていません。上の「カスタム比較条件を作成」から新しい条件を追加してください。'
                 : '比較条件に該当する項目がありません。'}
             </div>
           ) : (
@@ -1604,9 +1527,25 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                         })}
                         {(item as any).cond.conditionVocalTypes?.map((vt: string) => (
                           <span key={vt} className="px-1.5 py-0.2 rounded bg-indigo-50 text-indigo-700">
-                            {vt === 'sekai' ? 'セカイver' : vt === 'virtualSinger' ? 'バチャシンver' : 'アナザー'}
+                            {vt === 'sekai'
+                              ? 'セカイver'
+                              : vt === 'virtualSinger'
+                              ? 'バチャシンver'
+                              : vt === 'connectLive'
+                              ? 'コネライ'
+                              : vt === 'inst'
+                              ? 'Inst. ver.'
+                              : 'アナザー'}
                           </span>
                         ))}
+                        {(item as any).cond.conditionBannerCharacters?.map((cId: string) => {
+                          const c = CHARACTERS.find((ch) => ch.id === cId);
+                          return (
+                            <span key={cId} className="px-1.5 py-0.2 rounded bg-slate-800 text-white font-medium">
+                              バナー:{c?.name || cId}
+                            </span>
+                          );
+                        })}
                       </div>
                     )}
                   </div>

@@ -18,40 +18,48 @@ const DEFAULT_DISPLAY_SETTINGS: DisplaySettings = {
   compactMode: false,
 };
 
+const DEFAULT_FILTER_OPTIONS: FilterOptions = {
+  ownership: 'all',
+  units: [
+    'virtual_singer',
+    'leo_need',
+    'more_more_jump',
+    'vivid_bad_squad',
+    'wonderlands_showtime',
+    'nightcord_at_25',
+    'other',
+  ],
+  characters: [],
+  vocalVersions: {
+    virtualSinger: false,
+    sekai: false,
+    connectLive: false,
+    anotherVocal: false,
+    inst: false,
+  },
+  searchQuery: '',
+  originalTypes: [],
+  bannerCharacters: [],
+  releaseYears: [],
+  matchType: 'and',
+};
+
 export const App: React.FC = () => {
   const [currentTab, setCurrentTab] = useState<TabType>('list');
 
   // リスト画面の絞り込み状態（比較画面からのダイレクト遷移連携用）
-  const [filterOptions, setFilterOptions] = useState<FilterOptions>({
-    ownership: 'all',
-    units: [
-      'virtual_singer',
-      'leo_need',
-      'more_more_jump',
-      'vivid_bad_squad',
-      'wonderlands_showtime',
-      'nightcord_at_25',
-      'other',
-    ],
-    characters: [],
-    vocalVersions: {
-      virtualSinger: false,
-      sekai: false,
-      connectLive: false,
-      anotherVocal: false,
-    },
-    searchQuery: '',
-    originalTypes: [],
-    bannerCharacters: [],
-    releaseYears: [],
-  });
+  const [filterOptions, setFilterOptions] = useState<FilterOptions>(DEFAULT_FILTER_OPTIONS);
 
-  // 比較画面等から特定の絞り込み条件でリスト画面へ遷移する
+  // 比較画面等から特定の絞り込み条件でリスト画面へ遷移する（直前の検索や絞り込みをリセットして指定条件のみ適用）
   const handleNavigateToListWithFilter = (newFilter: Partial<FilterOptions>) => {
-    setFilterOptions((prev) => ({
-      ...prev,
+    setFilterOptions({
+      ...DEFAULT_FILTER_OPTIONS,
       ...newFilter,
-    }));
+      vocalVersions: {
+        ...DEFAULT_FILTER_OPTIONS.vocalVersions,
+        ...(newFilter.vocalVersions || {}),
+      },
+    });
     setCurrentTab('list');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -160,6 +168,7 @@ export const App: React.FC = () => {
             ownedRecordIds={ownedRecordIds}
             onToggleOwned={handleToggleOwned}
             displaySettings={displaySettings}
+            onDisplaySettingsChange={setDisplaySettings}
             filterOptions={filterOptions}
             onFilterOptionsChange={setFilterOptions}
           />

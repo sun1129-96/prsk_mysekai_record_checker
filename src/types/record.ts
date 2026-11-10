@@ -206,6 +206,8 @@ export interface VocalVersions {
   sekai: boolean;         // セカイver
   connectLive: boolean;   // コネクトライブver
   anotherVocal: boolean;  // アナザーボーカル
+  movie?: boolean;        // 劇場版ver
+  inst?: boolean;         // Inst ver.
 }
 
 /**
@@ -213,8 +215,8 @@ export interface VocalVersions {
  */
 export interface VocalTrackDetail {
   id: string;
-  name: string; // 例: "セカイver", "バチャシンver", "コネクトライブver", "アナザーボーカル (一歌ver)"
-  type: 'sekai' | 'virtual_singer' | 'connect_live' | 'another_vocal' | 'other';
+  name: string; // 例: "セカイver", "バチャシンver", "コネクトライブver", "「劇場版プロジェクトセカイ」ver.", "アナザーボーカル (一歌ver)", "Inst. ver."
+  type: 'sekai' | 'virtual_singer' | 'connect_live' | 'another_vocal' | 'movie' | 'inst' | 'other';
   singers: string[]; // 歌唱キャラクターID一覧
 }
 
@@ -251,20 +253,131 @@ export const ORIGINAL_TYPE_METAS: Record<OriginalSongType, OriginalTypeMeta> = {
 };
 
 /**
+ * 複数ジャケットのバッジ表示名称メタ
+ */
+export interface JacketVariantLabels {
+  defaultLabel: string; // 通常（VS）側バッジ名
+  altLabel: string;     // 別バージョン（セカイ/コラボ/劇場版）側バッジ名
+}
+
+export const SONG_JACKET_LABELS: Record<string, JacketVariantLabels> = {
+  'フラジール': { defaultLabel: 'セカイ・バチャシン', altLabel: 'コラボ' },
+  'KING': { defaultLabel: 'セカイ・バチャシン', altLabel: 'コラボ' },
+  '群青讃歌': { defaultLabel: 'セカイ・バチャシン', altLabel: '劇場版' },
+};
+
+export const getJacketLabels = (songTitle: string): JacketVariantLabels => {
+  return SONG_JACKET_LABELS[songTitle] || { defaultLabel: 'バチャシン', altLabel: 'セカイ' };
+};
+
+/**
+ * ジャケットバリアント定義（3つ以上のジャケットにも対応）
+ */
+export interface JacketVariant {
+  url: string;
+  label: string;
+}
+
+/**
+ * 楽曲レコードからジャケットバリアント配列を取得するヘルパー関数
+ */
+export const getRecordJackets = (record: RecordItem): JacketVariant[] => {
+  if (record.jackets && record.jackets.length > 0) {
+    return record.jackets;
+  }
+  if (record.jacketUrlVs && record.jacketUrlSekai && record.jacketUrlVs !== record.jacketUrlSekai) {
+    const labels = getJacketLabels(record.title);
+    return [
+      { url: record.jacketUrlVs, label: labels.defaultLabel },
+      { url: record.jacketUrlSekai, label: labels.altLabel },
+    ];
+  }
+  const defaultUrl = record.jacketUrl || record.jacketUrlVs || record.jacketUrlSekai || '';
+  return defaultUrl ? [{ url: defaultUrl, label: '通常' }] : [];
+};
+
+/**
+ * 歌唱トラックIDに対応するジャケットのインデックスを取得するヘルパー関数
+ * - 「セカイ・バチャシン」を持つ楽曲（フラジール、KING、群青讃歌等）:
+ *   セカイverもバチャシンverも（通常アナボも）「セカイ・バチャシン」（インデックス 0）に対応
+ *   コラボverや劇場版verのみ、別verジャケット（インデックス 1）に対応
+ * - 『ノマド』: 初音ミクアナボは「アナボ(ミク)」（インデックス 2）、VSは「バチャシン」（0）、セカイverや他アナボは「セカイ」（1）
+ * - その他一般の複数ジャケット曲: VSは「バチャシン」（0）、セカイverやアナボverは「セカイ」（1）
+ */
+export const getJacketIndexForTrack = (record: RecordItem, trackId: string): number => {
+  const jackets = getRecordJackets(record);
+  if (jackets.length <= 1) return 0;
+
+  const track = record.vocalTracks?.find((t) => t.id === trackId);
+  if (!track) return 0;
+
+  // 1. 「セカイ・バチャシン」ジャケットを持つ楽曲（フラジール、KING、群青讃歌など）
+  const hasSekaiVsJacket = jackets.some((j) => j.label === 'セカイ・バチャシン');
+  if (hasSekaiVsJacket) {
+    // トラック名またはシンガーがコラボ / 劇場版 の場合は別ver（コラボ / 劇場版 = インデックス 1）
+    const isCollabOrMovieTrack =
+      track.name.includes('コラボ') ||
+      track.name.includes('あんさんぶるスターズ') ||
+      track.name.includes('劇場版') ||
+      track.singers?.some((s) => ['alkaloid', 'crazy_b', 'jun', 'izumi', 'chiaki', 'natsume'].includes(s));
+
+    if (isCollabOrMovieTrack) {
+      const altIndex = jackets.findIndex((j) => j.label === 'コラボ' || j.label === '劇場版');
+      return altIndex !== -1 ? altIndex : 1;
+    }
+
+    // セカイverもバチャシンverも（通常アナザーボーカルも）、すべて「セカイ・バチャシン」（インデックス 0）に対応
+    const sekaiVsIndex = jackets.findIndex((j) => j.label === 'セカイ・バチャシン');
+    return sekaiVsIndex !== -1 ? sekaiVsIndex : 0;
+  }
+
+  // 2. ノマドの初音ミクアナザーボーカルver
+  if (record.title === 'ノマド' && track.type === 'another_vocal') {
+    if (track.singers?.includes('miku') || track.name.includes('ミク')) {
+      const mikuIndex = jackets.findIndex(
+        (j) => j.label.includes('ミク') || j.label.includes('アナボ') || j.url.includes('初音ミク')
+      );
+      if (mikuIndex !== -1) return mikuIndex;
+      return 2;
+    }
+  }
+
+  // 3. バーチャル・シンガーver
+  if (track.type === 'virtual_singer') {
+    const vsIndex = jackets.findIndex(
+      (j) => j.label === 'バチャシン' || j.url === record.jacketUrlVs
+    );
+    return vsIndex !== -1 ? vsIndex : 0;
+  }
+
+  // 4. セカイver または 通常のアナザーボーカルver
+  const sekaiIndex = jackets.findIndex(
+    (j) => j.label === 'セカイ' || j.url === record.jacketUrlSekai
+  );
+  if (sekaiIndex !== -1) return sekaiIndex;
+
+  return 1;
+};
+
+/**
  * 楽曲レコードマスターデータ型
  */
 export interface RecordItem {
   id: string;
   title: string;
   reading: string;          // 五十音ソート用よみがな
-  unit: UnitType;
+  unit: UnitType;           // メインユニット
+  units?: UnitType[];       // 所属ユニット一覧（複数ユニットを持つ楽曲用）
   releaseDate: string;      // YYYY-MM-DD
   defaultOrder: number;     // 実装順 (ゲーム内配置順 No.)
   defaultSort?: number;     // デフォルト順コード (並び替え用)
   vocalVersions: VocalVersions;
   characters: string[];     // 全歌唱キャラクターID一覧
   vocalTracks?: VocalTrackDetail[]; // 各バージョンの詳細トラック情報
-  jacketUrl?: string;       // ジャケット画像URL
+  jacketUrl?: string;       // デフォルトジャケット画像URL（バーチャル・シンガーver優先）
+  jacketUrlVs?: string;     // バーチャル・シンガーverジャケット画像URL
+  jacketUrlSekai?: string;  // セカイverジャケット画像URL（存在しない場合はjacketUrlVsと同一）
+  jackets?: JacketVariant[]; // 複数ジャケットバリアント一覧（3つ以上に対応）
   source?: string;          // 入手方法
   originalType?: OriginalSongType;  // 書き下ろし分類種別
   bannerCharacter?: string;         // イベント書き下ろしバナーキャラクターID
@@ -293,6 +406,7 @@ export interface FilterOptions {
     sekai: boolean;
     connectLive: boolean;
     anotherVocal: boolean;
+    inst?: boolean;
   };
   searchQuery: string;
   originalTypes?: OriginalSongType[];  // 書き下ろし種別絞り込み
@@ -313,7 +427,8 @@ export interface SavedCompareCondition {
   conditionUnits?: UnitType[];
   conditionCharacters?: string[];
   conditionOriginalTypes?: OriginalSongType[];
-  conditionVocalTypes?: ('sekai' | 'virtualSinger' | 'anotherVocal' | 'connectLive')[];
+  conditionVocalTypes?: ('sekai' | 'virtualSinger' | 'anotherVocal' | 'connectLive' | 'inst')[];
+  conditionBannerCharacters?: string[];
   conditionReleaseYears?: number[];
 }
 

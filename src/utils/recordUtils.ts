@@ -3,6 +3,7 @@ import type {
   SortType,
   SortDirection,
   FilterOptions,
+  SavedCompareCondition,
 } from '../types/record';
 
 /**
@@ -82,7 +83,8 @@ export const filterAndSortRecords = (
     filterOptions.vocalVersions.sekai ||
     filterOptions.vocalVersions.virtualSinger ||
     filterOptions.vocalVersions.connectLive ||
-    filterOptions.vocalVersions.anotherVocal
+    filterOptions.vocalVersions.anotherVocal ||
+    filterOptions.vocalVersions.inst
   );
   const isOriginalTypeFiltered = Boolean(filterOptions.originalTypes && filterOptions.originalTypes.length > 0);
   const isBannerFiltered = Boolean(filterOptions.bannerCharacters && filterOptions.bannerCharacters.length > 0);
@@ -109,7 +111,9 @@ export const filterAndSortRecords = (
 
       // 1. ユニット
       if (isUnitFiltered) {
-        criteriaResults.push(filterOptions.units.includes(record.unit));
+        const recordUnits =
+          record.units && record.units.length > 0 ? record.units : [record.unit];
+        criteriaResults.push(recordUnits.some((u) => filterOptions.units.includes(u)));
       }
 
       // 2. キャラクター
@@ -126,7 +130,8 @@ export const filterAndSortRecords = (
           (filterOptions.vocalVersions.sekai && record.vocalVersions.sekai) ||
           (filterOptions.vocalVersions.virtualSinger && record.vocalVersions.virtualSinger) ||
           (filterOptions.vocalVersions.connectLive && record.vocalVersions.connectLive) ||
-          (filterOptions.vocalVersions.anotherVocal && record.vocalVersions.anotherVocal);
+          (filterOptions.vocalVersions.anotherVocal && record.vocalVersions.anotherVocal) ||
+          (filterOptions.vocalVersions.inst && record.vocalVersions.inst);
         criteriaResults.push(Boolean(vocalMatch));
       }
 
@@ -264,4 +269,77 @@ export const decodeShareData = (shareString: string): Record<string, boolean> =>
   } catch {
     return {};
   }
+};
+
+/**
+ * カスタム比較条件に合致するか判定（AND / OR 条件評価）
+ */
+export const checkRecordMatchesCustomCondition = (
+  record: RecordItem,
+  cond: SavedCompareCondition
+): boolean => {
+  const matchType = cond.matchType || 'and';
+  const units = cond.conditionUnits || [];
+  const characters = cond.conditionCharacters || [];
+  const originalTypes = cond.conditionOriginalTypes || [];
+  const vocalTypes = cond.conditionVocalTypes || [];
+  const bannerCharacters = cond.conditionBannerCharacters || [];
+  const releaseYears = cond.conditionReleaseYears || [];
+
+  const hasSpecificConditions =
+    units.length > 0 ||
+    characters.length > 0 ||
+    originalTypes.length > 0 ||
+    vocalTypes.length > 0 ||
+    bannerCharacters.length > 0 ||
+    releaseYears.length > 0;
+
+  if (!hasSpecificConditions) {
+    return true;
+  }
+
+  const results: boolean[] = [];
+
+  if (units.length > 0) {
+    const recordUnits =
+      record.units && record.units.length > 0 ? record.units : [record.unit];
+    results.push(recordUnits.some((u) => units.includes(u)));
+  }
+
+  if (characters.length > 0) {
+    results.push(characters.some((c) => record.characters.includes(c)));
+  }
+
+  if (originalTypes.length > 0) {
+    const type = record.originalType || 'cover';
+    results.push(originalTypes.includes(type));
+  }
+
+  if (vocalTypes.length > 0) {
+    const hasAnyTrack = vocalTypes.some((vt) => {
+      if (vt === 'sekai') return Boolean(record.vocalVersions?.sekai);
+      if (vt === 'virtualSinger') return Boolean(record.vocalVersions?.virtualSinger);
+      if (vt === 'connectLive') return Boolean(record.vocalVersions?.connectLive);
+      if (vt === 'anotherVocal') return Boolean(record.vocalVersions?.anotherVocal);
+      if (vt === 'inst') return Boolean(record.vocalVersions?.inst);
+      return false;
+    });
+    results.push(hasAnyTrack);
+  }
+
+  if (bannerCharacters.length > 0) {
+    results.push(Boolean(record.bannerCharacter && bannerCharacters.includes(record.bannerCharacter)));
+  }
+
+  if (releaseYears.length > 0) {
+    const year = getAnniversaryYear(record.releaseDate);
+    results.push(releaseYears.includes(year));
+  }
+
+  if (results.length === 0) return true;
+
+  if (matchType === 'or') {
+    return results.some((r) => r === true);
+  }
+  return results.every((r) => r === true);
 };

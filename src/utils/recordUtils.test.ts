@@ -5,8 +5,10 @@ import {
   filterAndSortRecords,
   encodeShareData,
   decodeShareData,
+  checkRecordMatchesCustomCondition,
 } from './recordUtils';
-import type { RecordItem, FilterOptions } from '../types/record';
+import type { RecordItem, FilterOptions, SavedCompareCondition } from '../types/record';
+import { getJacketIndexForTrack } from '../types/record';
 
 const mockItems: RecordItem[] = [
   {
@@ -49,6 +51,7 @@ const mockItems: RecordItem[] = [
     title: '群青讃歌',
     reading: 'ぐんじょうさんか',
     unit: 'other',
+    units: ['leo_need', 'more_more_jump', 'vivid_bad_squad', 'wonderlands_showtime', 'nightcord_at_25', 'other'],
     releaseDate: '2021-09-30',
     defaultOrder: 4,
     vocalVersions: { virtualSinger: true, sekai: true, connectLive: true, anotherVocal: false },
@@ -143,6 +146,52 @@ describe('filterAndSortRecords', () => {
     );
     expect(res.length).toBe(1);
     expect(res[0].id).toBe('rec_3');
+  });
+
+  it('ユニットで絞り込める（複数ユニットを持つ楽曲もヒットする）', () => {
+    const res = filterAndSortRecords(
+      mockItems,
+      {},
+      'releaseDate',
+      'asc',
+      { ...defaultFilter, units: ['leo_need'] }
+    );
+    // rec_2 (ステラ / unit: leo_need) と rec_4 (群青讃歌 / unitsに leo_need を含む)
+    expect(res.length).toBe(2);
+    expect(res.map((r) => r.id)).toEqual(['rec_2', 'rec_4']);
+  });
+
+  it('歌唱ver（Inst. ver.）で正しく絞り込める', () => {
+    const instItem: RecordItem = {
+      id: 'rec_inst',
+      title: 'エンドマークに希望と涙を添えて',
+      reading: 'えんどまーくにきぼうとなみだをそえて',
+      unit: 'other',
+      releaseDate: '2022-01-08',
+      defaultOrder: 153,
+      vocalVersions: { virtualSinger: false, sekai: false, connectLive: false, anotherVocal: false, inst: true },
+      vocalTracks: [{ id: 'rec_inst_t1', name: 'Inst. ver.', type: 'inst', singers: [] }],
+      characters: [],
+      originalType: 'collab',
+    };
+    const res = filterAndSortRecords(
+      [...mockItems, instItem],
+      {},
+      'defaultOrder',
+      'asc',
+      {
+        ...defaultFilter,
+        vocalVersions: {
+          virtualSinger: false,
+          sekai: false,
+          connectLive: false,
+          anotherVocal: false,
+          inst: true,
+        },
+      }
+    );
+    expect(res.length).toBe(1);
+    expect(res[0].id).toBe('rec_inst');
   });
 
   it('五十音順で昇順・降順に正しくソートできる', () => {
@@ -309,7 +358,8 @@ describe('filterAndSortRecords', () => {
     expect(andRes.length).toBe(1);
     expect(andRes[0].id).toBe('rec_2');
 
-    // OR条件: ユニットが leo_need または イベント書き下ろし (rec_2は両方、rec_3はeventのみでヒット)
+    // OR条件: ユニットが leo_need または イベント書き下ろし
+    // rec_2は両方、rec_3はevent、rec_4は複数ユニットにleo_needを含むためヒット
     const orRes = filterAndSortRecords(
       mockItems,
       {},
@@ -322,8 +372,8 @@ describe('filterAndSortRecords', () => {
         matchType: 'or',
       }
     );
-    expect(orRes.length).toBe(2);
-    expect(orRes.map((r) => r.id)).toEqual(['rec_2', 'rec_3']);
+    expect(orRes.length).toBe(3);
+    expect(orRes.map((r) => r.id)).toEqual(['rec_2', 'rec_3', 'rec_4']);
 
     // OR条件: 歌唱verにコネクトライブverがある OR 実装年が2年目 (rec_3はconnectLive、rec_4はconnectLiveかつyear 2)
     const orRes2 = filterAndSortRecords(
@@ -378,5 +428,111 @@ describe('encodeShareData / decodeShareData', () => {
     expect(decoded).toEqual({});
     const decodedB1 = decodeShareData('b1_!!!not_valid_b64!!!');
     expect(decodedB1).toEqual({});
+  });
+
+  describe('getJacketIndexForTrack の連動テスト', () => {
+    const fragileRecord: RecordItem = {
+      id: 'rec_15',
+      title: 'フラジール',
+      reading: 'ふらじーる',
+      unit: 'vivid_bad_squad',
+      releaseDate: '2020-10-01',
+      defaultOrder: 15,
+      jacketUrlVs: 'https://example.com/vs.jpg',
+      jacketUrlSekai: 'https://example.com/collab.jpg',
+      vocalVersions: { virtualSinger: true, sekai: true, connectLive: false, anotherVocal: true },
+      characters: ['akito', 'toya'],
+      vocalTracks: [
+        { id: 't1', name: 'セカイver', type: 'sekai', singers: ['akito', 'toya'] },
+        { id: 't2', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['gumi'] },
+        { id: 't3', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['akito'] },
+        { id: 't4', name: 'あんさんぶるスターズ！！コラボver.', type: 'other', singers: ['akito', 'toya', 'alkaloid'] },
+      ],
+    };
+
+    const nomadRecord: RecordItem = {
+      id: 'rec_173',
+      title: 'ノマド',
+      reading: 'のまど',
+      unit: 'nightcord_at_25',
+      releaseDate: '2022-03-28',
+      defaultOrder: 173,
+      jackets: [
+        { url: 'https://example.com/vs.jpg', label: 'バチャシン' },
+        { url: 'https://example.com/sekai.jpg', label: 'セカイ' },
+        { url: 'https://example.com/miku.jpg', label: 'アナボ(ミク)' },
+      ],
+      vocalVersions: { virtualSinger: true, sekai: true, connectLive: false, anotherVocal: true },
+      characters: ['ena', 'miku'],
+      vocalTracks: [
+        { id: 'n1', name: 'セカイver', type: 'sekai', singers: ['ena', 'rin'] },
+        { id: 'n2', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['flower'] },
+        { id: 'n3', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['miku'] },
+        { id: 'n4', name: 'アナザーボーカルver', type: 'another_vocal', singers: ['ena'] },
+      ],
+    };
+
+    it('セカイ・バチャシンを持つ楽曲（フラジール）はセカイverもVSverも通常アナボもインデックス0に対応する', () => {
+      // セカイver -> 0 (セカイ・バチャシン)
+      expect(getJacketIndexForTrack(fragileRecord, 't1')).toBe(0);
+      // VSver -> 0 (セカイ・バチャシン)
+      expect(getJacketIndexForTrack(fragileRecord, 't2')).toBe(0);
+      // 通常アナボ -> 0 (セカイ・バチャシン)
+      expect(getJacketIndexForTrack(fragileRecord, 't3')).toBe(0);
+      // コラボver -> 1 (コラボ)
+      expect(getJacketIndexForTrack(fragileRecord, 't4')).toBe(1);
+    });
+
+    it('ノマドの初音ミクアナボはアナボ(ミク)ジャケット（インデックス2）に対応する', () => {
+      // セカイver -> 1 (セカイ)
+      expect(getJacketIndexForTrack(nomadRecord, 'n1')).toBe(1);
+      // VSver -> 0 (バチャシン)
+      expect(getJacketIndexForTrack(nomadRecord, 'n2')).toBe(0);
+      // 初音ミクアナボ -> 2 (アナボ(ミク))
+      expect(getJacketIndexForTrack(nomadRecord, 'n3')).toBe(2);
+      // その他アナボ(絵名) -> 1 (セカイ)
+      expect(getJacketIndexForTrack(nomadRecord, 'n4')).toBe(1);
+    });
+  });
+
+  describe('checkRecordMatchesCustomCondition', () => {
+    const instSong: RecordItem = {
+      id: 'rec_inst',
+      title: 'エンドマークに希望と涙を添えて',
+      reading: 'えんどまーくにきぼうとなみだをそえて',
+      unit: 'other',
+      releaseDate: '2022-01-08',
+      defaultOrder: 153,
+      vocalVersions: { virtualSinger: false, sekai: false, connectLive: false, anotherVocal: false, inst: true },
+      vocalTracks: [{ id: 'rec_inst_t1', name: 'Inst. ver.', type: 'inst', singers: [] }],
+      characters: [],
+      originalType: 'collab',
+    };
+
+    it('Inst. ver. のカスタム比較条件で正しくマッチする', () => {
+      const cond: SavedCompareCondition = {
+        id: 'c1',
+        title: 'Inst曲',
+        filter: { ...defaultFilter },
+        createdAt: 0,
+        conditionVocalTypes: ['inst'],
+      };
+      expect(checkRecordMatchesCustomCondition(instSong, cond)).toBe(true);
+      expect(checkRecordMatchesCustomCondition(mockItems[0], cond)).toBe(false);
+    });
+
+    it('イベントバナーキャラクターのカスタム比較条件で正しくマッチする', () => {
+      const cond: SavedCompareCondition = {
+        id: 'c2',
+        title: '咲希バナー',
+        filter: { ...defaultFilter },
+        createdAt: 0,
+        conditionBannerCharacters: ['saki'],
+      };
+      // rec_2 (ステラ / bannerCharacter: saki)
+      expect(checkRecordMatchesCustomCondition(mockItems[1], cond)).toBe(true);
+      // rec_3 (トンデモワンダーズ / bannerCharacter: tsukasa)
+      expect(checkRecordMatchesCustomCondition(mockItems[2], cond)).toBe(false);
+    });
   });
 });
