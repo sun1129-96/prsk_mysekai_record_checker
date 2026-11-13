@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import {
   Share2,
   RotateCcw,
@@ -14,6 +15,7 @@ import {
 } from 'lucide-react';
 import type { RecordItem, DisplaySettings } from '../types/record';
 import { encodeShareData, decodeShareData } from '../utils/recordUtils';
+import { useBodyScrollLock } from '../utils/useBodyScrollLock';
 
 interface MenuViewProps {
   records: RecordItem[];
@@ -39,6 +41,9 @@ export const MenuView: React.FC<MenuViewProps> = ({
 
   // 一括操作モーダル用State
   const [batchModalTarget, setBatchModalTarget] = useState<'all_owned' | 'all_clear' | null>(null);
+
+  // モーダル表示時に背後のスクロールを防止
+  useBodyScrollLock(showCodeRestoreDialog || Boolean(batchModalTarget));
 
   // Undo (元に戻す) 用のバックアップState
   const [undoBackup, setUndoBackup] = useState<Record<string, boolean> | null>(null);
@@ -134,7 +139,7 @@ export const MenuView: React.FC<MenuViewProps> = ({
   const currentOwnedCount = Object.values(ownedRecordIds).filter(Boolean).length;
 
   return (
-    <div className="max-w-4xl mx-auto px-3 sm:px-6 py-6 space-y-6">
+    <div className="max-w-4xl mx-auto px-3 sm:px-6 py-4 space-y-4 sm:space-y-6">
       {/* 1. 進捗の共有・引継ぎカード */}
       <div className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-xs">
         <div className="flex items-center gap-2.5 mb-3">
@@ -449,115 +454,134 @@ export const MenuView: React.FC<MenuViewProps> = ({
       </div>
 
       {/* 共有コード / URL 復元モーダル */}
-      {showCodeRestoreDialog && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs">
-          <div className="bg-white rounded-2xl max-w-md w-full p-5 shadow-xl border border-slate-100 animate-in fade-in zoom-in-95 duration-150">
-            <h4 className="font-bold text-slate-800 mb-2 flex items-center gap-2">
-              <KeyRound className="w-4 h-4 text-[#33ccbb]" />
-              <span>進捗コード / URL から復元</span>
-            </h4>
-            <p className="text-xs text-slate-500 mb-3">
-              コピーした進捗コード（例: <code className="text-[11px] font-mono bg-slate-100 px-1 py-0.5 rounded">b1_...</code>）または共有URLを貼り付けてください。現在のチェック状態が上書き復元されます。
-            </p>
-            <textarea
-              rows={4}
-              value={shareCodeInput}
-              onChange={(e) => setShareCodeInput(e.target.value)}
-              placeholder="b1_Ab9_xK3... または https://.../?share=b1_..."
-              className="w-full text-xs font-mono p-3 border border-slate-200 rounded-xl focus:border-[#33ccbb] focus:ring-2 focus:ring-[#33ccbb]/20 focus:outline-hidden"
-            />
-            <div className="mt-4 flex justify-end gap-2">
-              <button
-                onClick={() => {
-                  setShowCodeRestoreDialog(false);
-                  setShareCodeInput('');
-                }}
-                className="px-4 py-2 text-xs font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition-colors cursor-pointer"
-              >
-                キャンセル
-              </button>
-              <button
-                onClick={handleApplyShareCode}
-                className="px-4 py-2 text-xs font-bold bg-[#33ccbb] hover:bg-[#2cb3a5] text-white rounded-xl shadow-xs transition-colors cursor-pointer"
-              >
-                復元を実行
-              </button>
+      {showCodeRestoreDialog &&
+        createPortal(
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs overscroll-contain animate-in fade-in duration-150"
+            onClick={() => {
+              setShowCodeRestoreDialog(false);
+              setShareCodeInput('');
+            }}
+          >
+            <div
+              className="bg-white rounded-2xl max-w-md w-full p-5 shadow-xl border border-slate-100 animate-in zoom-in-95 duration-150"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h4 className="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                <KeyRound className="w-4 h-4 text-[#33ccbb]" />
+                <span>進捗コード / URL から復元</span>
+              </h4>
+              <p className="text-xs text-slate-500 mb-3">
+                コピーした進捗コード（例: <code className="text-[11px] font-mono bg-slate-100 px-1 py-0.5 rounded">b1_...</code>）または共有URLを貼り付けてください。現在のチェック状態が上書き復元されます。
+              </p>
+              <textarea
+                rows={4}
+                value={shareCodeInput}
+                onChange={(e) => setShareCodeInput(e.target.value)}
+                placeholder="b1_Ab9_xK3... または https://.../?share=b1_..."
+                className="w-full text-xs font-mono p-3 border border-slate-200 rounded-xl focus:border-[#33ccbb] focus:ring-2 focus:ring-[#33ccbb]/20 focus:outline-hidden"
+              />
+              <div className="mt-4 flex justify-end gap-2">
+                <button
+                  onClick={() => {
+                    setShowCodeRestoreDialog(false);
+                    setShareCodeInput('');
+                  }}
+                  className="px-4 py-2 text-xs font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition-colors cursor-pointer"
+                >
+                  キャンセル
+                </button>
+                <button
+                  onClick={handleApplyShareCode}
+                  className="px-4 py-2 text-xs font-bold bg-[#33ccbb] hover:bg-[#2cb3a5] text-white rounded-xl shadow-xs transition-colors cursor-pointer"
+                >
+                  復元を実行
+                </button>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
 
       {/* 一括操作のカスタム確認モーダル（新設） */}
-      {batchModalTarget && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs">
-          <div className="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 animate-in fade-in zoom-in-95 duration-150 space-y-4">
-            <div className="flex items-center gap-3">
-              <div
-                className={`p-3 rounded-2xl ${
-                  batchModalTarget === 'all_owned'
-                    ? 'bg-emerald-50 text-emerald-600'
-                    : 'bg-rose-50 text-rose-600'
-                }`}
-              >
-                {batchModalTarget === 'all_owned' ? (
-                  <CheckCheck className="w-6 h-6" />
-                ) : (
-                  <AlertTriangle className="w-6 h-6" />
-                )}
-              </div>
-              <div>
-                <h4 className="font-bold text-base text-slate-800">
-                  {batchModalTarget === 'all_owned'
-                    ? 'すべて所持済みにしますか？'
-                    : 'すべてのチェックを解除しますか？'}
-                </h4>
-                <p className="text-xs text-slate-400">一括操作の確認</p>
-              </div>
-            </div>
-
-            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/70 text-xs text-slate-600 space-y-2">
-              <div className="flex justify-between items-center">
-                <span>現在の所持曲数:</span>
-                <span className="font-bold font-mono text-slate-800">
-                  {currentOwnedCount} / {records.length} 曲
-                </span>
-              </div>
-              <div className="flex justify-between items-center pt-1 border-t border-slate-200/60">
-                <span>変更後の所持曲数:</span>
-                <span
-                  className={`font-bold font-mono text-sm ${
-                    batchModalTarget === 'all_owned' ? 'text-emerald-600' : 'text-rose-600'
+      {batchModalTarget &&
+        createPortal(
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs overscroll-contain animate-in fade-in duration-150"
+            onClick={() => setBatchModalTarget(null)}
+          >
+            <div
+              className="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 animate-in zoom-in-95 duration-150 space-y-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center gap-3">
+                <div
+                  className={`p-3 rounded-2xl ${
+                    batchModalTarget === 'all_owned'
+                      ? 'bg-emerald-50 text-emerald-600'
+                      : 'bg-rose-50 text-rose-600'
                   }`}
                 >
-                  {batchModalTarget === 'all_owned' ? records.length : 0} / {records.length} 曲
-                </span>
+                  {batchModalTarget === 'all_owned' ? (
+                    <CheckCheck className="w-6 h-6" />
+                  ) : (
+                    <AlertTriangle className="w-6 h-6" />
+                  )}
+                </div>
+                <div>
+                  <h4 className="font-bold text-base text-slate-800">
+                    {batchModalTarget === 'all_owned'
+                      ? 'すべて所持済みにしますか？'
+                      : 'すべてのチェックを解除しますか？'}
+                  </h4>
+                  <p className="text-xs text-slate-400">一括操作の確認</p>
+                </div>
               </div>
-              <p className="text-[11px] text-slate-400 pt-1">
-                ※ 実行後も画面下の「元に戻す」ボタンから直前の状態に復元できます。
-              </p>
-            </div>
 
-            <div className="flex items-center justify-end gap-2.5 pt-1">
-              <button
-                onClick={() => setBatchModalTarget(null)}
-                className="px-4 py-2.5 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-xl transition-colors cursor-pointer"
-              >
-                キャンセル
-              </button>
-              <button
-                onClick={handleConfirmBatch}
-                className={`px-5 py-2.5 text-xs font-bold text-white rounded-xl shadow-xs transition-all cursor-pointer active:scale-95 ${
-                  batchModalTarget === 'all_owned'
-                    ? 'bg-emerald-600 hover:bg-emerald-700'
-                    : 'bg-rose-600 hover:bg-rose-700'
-                }`}
-              >
-                {batchModalTarget === 'all_owned' ? 'すべて所持済みにする' : 'チェックを全解除'}
-              </button>
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/70 text-xs text-slate-600 space-y-2">
+                <div className="flex justify-between items-center">
+                  <span>現在の所持曲数:</span>
+                  <span className="font-bold font-mono text-slate-800">
+                    {currentOwnedCount} / {records.length} 曲
+                  </span>
+                </div>
+                <div className="flex justify-between items-center pt-1 border-t border-slate-200/60">
+                  <span>変更後の所持曲数:</span>
+                  <span
+                    className={`font-bold font-mono text-sm ${
+                      batchModalTarget === 'all_owned' ? 'text-emerald-600' : 'text-rose-600'
+                    }`}
+                  >
+                    {batchModalTarget === 'all_owned' ? records.length : 0} / {records.length} 曲
+                  </span>
+                </div>
+                <p className="text-[11px] text-slate-400 pt-1">
+                  ※ 実行後も画面下の「元に戻す」ボタンから直前の状態に復元できます。
+                </p>
+              </div>
+
+              <div className="flex items-center justify-end gap-2.5 pt-1">
+                <button
+                  onClick={() => setBatchModalTarget(null)}
+                  className="px-4 py-2.5 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-xl transition-colors cursor-pointer"
+                >
+                  キャンセル
+                </button>
+                <button
+                  onClick={handleConfirmBatch}
+                  className={`px-5 py-2.5 text-xs font-bold text-white rounded-xl shadow-xs transition-all cursor-pointer active:scale-95 ${
+                    batchModalTarget === 'all_owned'
+                      ? 'bg-emerald-600 hover:bg-emerald-700'
+                      : 'bg-rose-600 hover:bg-rose-700'
+                  }`}
+                >
+                  {batchModalTarget === 'all_owned' ? 'すべて所持済みにする' : 'チェックを全解除'}
+                </button>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
 
       {/* Undo (元に戻す) スナックバー */}
       {undoBackup && (

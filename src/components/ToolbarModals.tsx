@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import {
   X,
   ArrowUpDown,
@@ -23,6 +24,7 @@ import {
   GAME_VIRTUAL_SINGER_IDS,
   ORIGINAL_TYPE_METAS,
 } from '../types/record';
+import { useBodyScrollLock } from '../utils/useBodyScrollLock';
 
 interface FilterSortModalProps {
   isOpen: boolean;
@@ -75,6 +77,9 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
       releaseYears: open,
     });
   };
+
+  // モーダル表示時に背後のスクロールを防止
+  useBodyScrollLock(isOpen);
 
   if (!isOpen) return null;
 
@@ -163,9 +168,15 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
     });
   };
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/40 backdrop-blur-xs">
-      <div className="bg-white/95 backdrop-blur-md rounded-3xl max-w-lg w-full max-h-[88vh] flex flex-col shadow-2xl overflow-hidden border border-slate-100 animate-in fade-in zoom-in-95 duration-150">
+  return createPortal(
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/40 backdrop-blur-xs overscroll-contain animate-in fade-in duration-150"
+      onClick={onClose}
+    >
+      <div
+        className="bg-white/95 backdrop-blur-md rounded-3xl max-w-lg w-full max-h-[88vh] flex flex-col shadow-2xl overflow-hidden border border-slate-100 animate-in zoom-in-95 duration-150"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* モーダルヘッダー */}
         <div className="px-5 py-4 border-b border-slate-100 flex items-center justify-between bg-gradient-to-r from-emerald-50/50 via-teal-50/30 to-sky-50/50">
           <div className="flex items-center gap-2">
@@ -187,7 +198,7 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
         </div>
 
         {/* モーダル本体（スクロール可） */}
-        <div className="p-5 overflow-y-auto space-y-6 text-sm divide-y divide-slate-100">
+        <div className="p-5 overflow-y-auto overscroll-contain space-y-6 text-sm divide-y divide-slate-100">
           {/* 1. 並べ替え設定（基準と昇順・降順を明示的に選択） */}
           <div className="space-y-3">
             <div className="flex items-center gap-1.5 font-bold text-slate-700">
@@ -1097,7 +1108,8 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 
@@ -1114,11 +1126,20 @@ export const DisplaySettingsModal: React.FC<DisplaySettingsModalProps> = ({
   settings,
   onSettingsChange,
 }) => {
+  // モーダル表示時に背後のスクロールを防止
+  useBodyScrollLock(isOpen);
+
   if (!isOpen) return null;
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs">
-      <div className="bg-white/95 backdrop-blur-md rounded-3xl max-w-sm w-full p-5 shadow-2xl border border-slate-100 animate-in fade-in zoom-in-95 duration-150">
+  return createPortal(
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs overscroll-contain animate-in fade-in duration-150"
+      onClick={onClose}
+    >
+      <div
+        className="bg-white/95 backdrop-blur-md rounded-3xl max-w-sm w-full p-5 shadow-2xl border border-slate-100 animate-in zoom-in-95 duration-150"
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="flex items-center justify-between pb-3 border-b border-slate-100">
           <div className="flex items-center gap-2">
             <div className="p-1.5 rounded-xl bg-[#33ccbb]/20 text-[#0d9488]">
@@ -1222,6 +1243,7 @@ export const DisplaySettingsModal: React.FC<DisplaySettingsModalProps> = ({
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };

@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { X, Calendar, Hash, Music, Check } from 'lucide-react';
 import type { RecordItem } from '../types/record';
 import { UNIT_METAS, CHARACTERS, ORIGINAL_TYPE_METAS, getRecordJackets } from '../types/record';
+import { useBodyScrollLock } from '../utils/useBodyScrollLock';
 
 interface RecordDetailModalProps {
   record: RecordItem | null;
@@ -26,6 +28,9 @@ export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
 }) => {
   const tracksListRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
+
+  // モーダル表示時に背後のスクロールを防止
+  useBodyScrollLock(isOpen);
 
   useEffect(() => {
     setActiveIndex(currentJacketIndex || 0);
@@ -80,21 +85,27 @@ export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
             : []),
         ];
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs">
-      <div className="bg-white rounded-3xl max-w-sm w-full shadow-2xl overflow-hidden border border-slate-100 animate-in fade-in zoom-in-95 duration-150 flex flex-col max-h-[90vh]">
-        {/* 上部ヘッダー */}
-        <div className="relative p-6 pb-4 bg-gradient-to-b from-slate-50 to-white flex flex-col items-center border-b border-slate-100 shrink-0">
-          <button
-            type="button"
-            onClick={onClose}
-            className="absolute top-4 right-4 p-2 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-200/60 transition-colors cursor-pointer"
-            aria-label="閉じる"
-          >
-            <X className="w-5 h-5" />
-          </button>
+  return createPortal(
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/40 backdrop-blur-xs overscroll-contain animate-in fade-in duration-150"
+      onClick={onClose}
+    >
+      <div
+        className="relative bg-white rounded-3xl max-w-md md:max-w-lg w-full shadow-2xl overflow-hidden border border-slate-100 animate-in zoom-in-95 duration-150 flex flex-col max-h-[90vh]"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* 常時固定表示される閉じるボタン */}
+        <button
+          type="button"
+          onClick={onClose}
+          className="absolute top-3.5 right-3.5 p-2 rounded-full text-slate-400 hover:text-slate-600 bg-white/80 hover:bg-white backdrop-blur-xs shadow-2xs border border-slate-200/60 transition-all cursor-pointer z-20"
+          aria-label="閉じる"
+        >
+          <X className="w-5 h-5" />
+        </button>
 
-          {/* ジャケットプレビュー */}
+        {/* 固定ヘッダー（ジャケットプレビュー・曲名・ふりがな） */}
+        <div className="relative pt-5 pb-3.5 px-6 bg-gradient-to-b from-slate-50 to-white flex flex-col items-center border-b border-slate-100 shrink-0 text-center">
           {(() => {
             const jackets = getRecordJackets(record);
             const hasMultiple = jackets.length > 1;
@@ -102,7 +113,7 @@ export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
             const currentJacket = jackets[safeIndex] || { url: record.jacketUrl || '', label: '通常' };
 
             return (
-              <div className="flex flex-col items-center mb-3">
+              <div className="flex flex-col items-center">
                 <div
                   onClick={() => {
                     if (hasMultiple) {
@@ -135,9 +146,9 @@ export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
                   )}
                 </div>
 
-                {/* 複数ジャケットが存在する場合の切り替えタブ（3枚以上にも動的対応） */}
+                {/* 複数ジャケットが存在する場合の切り替えタブ */}
                 {hasMultiple && (
-                  <div className="flex items-center gap-1 mt-2 bg-slate-100 p-1 rounded-xl text-[10px] font-bold flex-wrap justify-center max-w-[280px]">
+                  <div className="flex items-center gap-1 mt-2 bg-slate-100 p-1 rounded-xl text-[10px] font-bold flex-wrap justify-center max-w-xs sm:max-w-sm">
                     {jackets.map((j, idx) => (
                       <button
                         key={idx}
@@ -158,63 +169,69 @@ export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
             );
           })()}
 
-          {/* ユニットバッジ（複数ユニット対応・正式名称表示） */}
-          <div className="flex flex-wrap items-center justify-center gap-1.5 mb-1.5 max-w-sm mx-auto">
-            {(record.units && record.units.length > 0 ? record.units : [record.unit]).map((u) => {
-              const uMeta = UNIT_METAS[u];
-              if (!uMeta) return null;
-              return (
-                <span
-                  key={u}
-                  className="px-2.5 py-0.5 rounded-full text-[11px] font-bold"
-                  style={{
-                    backgroundColor: uMeta.bgColor,
-                    color: uMeta.textColor || uMeta.themeColor,
-                    border: `1px solid ${uMeta.borderColor}`,
-                    textShadow: '0 0 2px #ffffff, 0 0 4px #ffffff',
-                  }}
-                >
-                  {uMeta.name}
-                </span>
-              );
-            })}
+          {/* ジャケット下の曲名とふりがな（固定表示） */}
+          <div className="mt-2.5 max-w-xs sm:max-w-sm md:max-w-md">
+            <h3 className="text-sm sm:text-base font-bold text-slate-800 tracking-tight leading-snug">
+              {record.title}
+            </h3>
+            <p className="text-[11px] sm:text-xs text-slate-400 mt-0.5">{record.reading}</p>
           </div>
-
-          {/* 書き下ろし楽曲のみ表示する楽曲分類・バナーキャラ情報 */}
-          {record.originalType && record.originalType !== 'cover' && (
-            <div className="flex flex-wrap items-center justify-center gap-1.5 mb-1.5">
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#33ccbb]/15 text-[#0d9488] border border-[#33ccbb]/30">
-                {ORIGINAL_TYPE_METAS[record.originalType]?.label || record.originalType}
-              </span>
-              {record.bannerCharacter && (
-                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">
-                  {(() => {
-                    const bChar = CHARACTERS.find((c) => c.id === record.bannerCharacter);
-                    return (
-                      <>
-                        {bChar && (
-                          <span
-                            className="w-2 h-2 rounded-full shrink-0 border border-black/10"
-                            style={{ backgroundColor: bChar.color }}
-                          />
-                        )}
-                        <span>{bChar ? bChar.name : record.bannerCharacter} バナー</span>
-                      </>
-                    );
-                  })()}
-                </span>
-              )}
-            </div>
-          )}
-
-          <h3 className="text-base font-bold text-slate-800 text-center tracking-tight">
-            {record.title}
-          </h3>
-          <p className="text-xs text-slate-400 mt-0.5">{record.reading}</p>
         </div>
 
-        {/* 詳細データ（スクロール領域） */}
-        <div className="p-5 space-y-4 text-xs overflow-y-auto flex-1">
+        {/* スクロール領域（ユニット情報、実装情報、歌唱バージョン一覧） */}
+        <div className="overflow-y-auto overscroll-contain flex-1 p-5 space-y-4 text-xs">
+          {/* ユニット・バナー情報 */}
+          <div className="flex flex-col items-center text-center space-y-1.5 pb-0.5">
+            {/* ユニットバッジ（複数ユニット対応・正式名称表示） */}
+            <div className="flex flex-wrap items-center justify-center gap-1.5 max-w-sm mx-auto">
+              {(record.units && record.units.length > 0 ? record.units : [record.unit]).map((u) => {
+                const uMeta = UNIT_METAS[u];
+                if (!uMeta) return null;
+                return (
+                  <span
+                    key={u}
+                    className="px-2.5 py-0.5 rounded-full text-[11px] font-bold"
+                    style={{
+                      backgroundColor: uMeta.bgColor,
+                      color: uMeta.textColor || uMeta.themeColor,
+                      border: `1px solid ${uMeta.borderColor}`,
+                      textShadow: '0 0 2px #ffffff, 0 0 4px #ffffff',
+                    }}
+                  >
+                    {uMeta.name}
+                  </span>
+                );
+              })}
+            </div>
+
+            {/* 書き下ろし楽曲のみ表示する楽曲分類・バナーキャラ情報 */}
+            {record.originalType && record.originalType !== 'cover' && (
+              <div className="flex flex-wrap items-center justify-center gap-1.5">
+                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#33ccbb]/15 text-[#0d9488] border border-[#33ccbb]/30">
+                  {ORIGINAL_TYPE_METAS[record.originalType]?.label || record.originalType}
+                </span>
+                {record.bannerCharacter && (
+                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">
+                    {(() => {
+                      const bChar = CHARACTERS.find((c) => c.id === record.bannerCharacter);
+                      return (
+                        <>
+                          {bChar && (
+                            <span
+                              className="w-2 h-2 rounded-full shrink-0 border border-black/10"
+                              style={{ backgroundColor: bChar.color }}
+                            />
+                          )}
+                          <span>{bChar ? bChar.name : record.bannerCharacter} バナー</span>
+                        </>
+                      );
+                    })()}
+                  </span>
+                )}
+              </div>
+            )}
+          </div>
+
           {/* 実装日 & 実装順 */}
           <div className="grid grid-cols-2 gap-2 bg-slate-50 p-3 rounded-2xl border border-slate-100">
             <div className="flex items-center gap-2">
@@ -234,7 +251,7 @@ export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
             </div>
           </div>
 
-          {/* 収録歌唱バージョン（横1列・縦並び・スクロールバー対応） */}
+          {/* 収録歌唱バージョン（自然に展開し二重スクロールを解消） */}
           <div>
             <div className="flex items-center justify-between mb-2">
               <span className="font-bold text-slate-700">収録歌唱バージョン</span>
@@ -243,7 +260,7 @@ export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
               </span>
             </div>
 
-            <div ref={tracksListRef} className="space-y-2 max-h-52 overflow-y-auto pr-1">
+            <div ref={tracksListRef} className="space-y-2">
               {tracks.length === 0 ? (
                 <div className="p-3 text-center text-slate-400 bg-slate-50 rounded-xl">
                   歌唱トラック情報がありません
@@ -325,6 +342,7 @@ export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };

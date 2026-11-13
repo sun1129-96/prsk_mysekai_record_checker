@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useRef, useCallback, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import {
   Search,
   SlidersHorizontal,
@@ -24,6 +25,7 @@ import { FilterSortModal } from './ToolbarModals';
 import { RecordDetailModal } from './RecordDetailModal';
 import { filterAndSortRecords } from '../utils/recordUtils';
 import { RecordRow } from './RecordRow';
+import { useBodyScrollLock } from '../utils/useBodyScrollLock';
 
 interface ListViewProps {
   records: RecordItem[];
@@ -76,7 +78,10 @@ export const ListView: React.FC<ListViewProps> = ({
   const [selectedRecordForDetail, setSelectedRecordForDetail] = useState<RecordItem | null>(null);
   const [selectedTrackIdForDetail, setSelectedTrackIdForDetail] = useState<string | null>(null);
 
-  // Escキーでクイックチェック説明ダイアログを閉じる
+  // クイックチェック説明モーダル表示時に背後のスクロールを防止
+  useBodyScrollLock(showQuickCheckHelp);
+
+  // Escキーで各種説明ダイアログを閉じる
   useEffect(() => {
     if (!showQuickCheckHelp) return;
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -201,79 +206,104 @@ export const ListView: React.FC<ListViewProps> = ({
       <div className="sticky top-[96px] z-30 -mx-3 sm:-mx-6 px-3 sm:px-6 pt-2 pb-2.5 bg-pjsk-fixed border-b border-slate-200/60 shadow-xs">
         <div className="max-w-4xl mx-auto space-y-2">
           {/* 2連操作ツールバー */}
-          <div className="bg-white/95 backdrop-blur-md p-2 rounded-2xl shadow-xs border border-slate-200/90 flex items-center justify-between gap-2">
-            {/* 左側: 並べ替え・絞り込みボタン & 絞込中インジケーター */}
-            <div className="flex items-center gap-1.5 flex-wrap">
-              <button
-                onClick={() => setIsFilterModalOpen(true)}
-                className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 transition-all border cursor-pointer ${
-                  isFilterActive
-                    ? 'bg-[#33ccbb]/15 border-[#33ccbb] text-[#0d9488]'
-                    : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
-                }`}
-              >
-                <SlidersHorizontal className="w-3.5 h-3.5 text-[#33ccbb]" />
-                <span>並替・絞込</span>
-                {isFilterActive && (
-                  <span className="w-2 h-2 rounded-full bg-[#33ccbb]" />
-                )}
-              </button>
+          <div className="bg-white/95 backdrop-blur-md p-1.5 sm:p-2 rounded-2xl shadow-xs border border-slate-200/90 flex flex-col gap-1.5 sm:gap-2">
+            {/* メイン操作行: 並替・絞込ボタン & クイックチェック */}
+            <div className="flex items-center justify-between gap-1.5 sm:gap-2">
+              {/* 左側: 並べ替え・絞り込みボタン & (PC用)絞込中インジケーター */}
+              <div className="flex items-center gap-1.5">
+                <button
+                  onClick={() => setIsFilterModalOpen(true)}
+                  className={`px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 transition-all border cursor-pointer shrink-0 ${
+                    isFilterActive
+                      ? 'bg-[#33ccbb]/15 border-[#33ccbb] text-[#0d9488]'
+                      : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
+                  }`}
+                >
+                  <SlidersHorizontal className="w-3.5 h-3.5 text-[#33ccbb] shrink-0" />
+                  <span className="whitespace-nowrap">並替・絞込</span>
+                  {isFilterActive && (
+                    <span className="w-2 h-2 rounded-full bg-[#33ccbb] shrink-0" />
+                  )}
+                </button>
 
-              {isFilterActive && (
-                <div className="flex items-center gap-1">
-                  <span className="px-2 py-1 rounded-lg bg-teal-50 border border-teal-200/80 text-teal-700 text-xs font-bold flex items-center gap-1">
-                    <Filter className="w-3 h-3 text-teal-600" />
-                    <span>絞込中</span>
+                {/* PC表示時は絞込中バッジとクリアボタンを同じ行に表示 */}
+                {isFilterActive && (
+                  <div className="hidden sm:flex items-center gap-1">
+                    <span className="px-2 py-1 rounded-lg bg-teal-50 border border-teal-200/80 text-teal-700 text-xs font-bold flex items-center gap-1 whitespace-nowrap">
+                      <Filter className="w-3 h-3 text-teal-600 shrink-0" />
+                      <span>絞込中</span>
+                    </span>
+                    <button
+                      type="button"
+                      onClick={handleResetFilter}
+                      className="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-rose-50 border border-slate-200 hover:border-rose-200 text-slate-600 hover:text-rose-600 text-xs font-semibold transition-colors flex items-center gap-1 cursor-pointer shadow-2xs whitespace-nowrap"
+                      title="絞り込みをすべて解除"
+                    >
+                      <RotateCcw className="w-3 h-3 shrink-0" />
+                      <span>クリア</span>
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              {/* 右側: 詳細表示とクイックチェックのトグルスイッチ */}
+              <div className="flex items-center gap-1 sm:gap-2 bg-slate-50 px-1.5 sm:px-3 py-1 sm:py-1.5 rounded-xl border border-slate-200/80 shrink-0">
+                <div className="flex items-center gap-1 text-[11px] sm:text-xs whitespace-nowrap">
+                  <Zap className={`w-3.5 h-3.5 shrink-0 ${tapMode === 'quick_check' ? 'text-[#33ccbb]' : 'text-slate-400'}`} />
+                  <span className={`font-bold whitespace-nowrap ${tapMode === 'quick_check' ? 'text-slate-800' : 'text-slate-500'}`}>
+                    クイックチェック
                   </span>
                   <button
                     type="button"
-                    onClick={handleResetFilter}
-                    className="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-rose-50 border border-slate-200 hover:border-rose-200 text-slate-600 hover:text-rose-600 text-xs font-semibold transition-colors flex items-center gap-1.5 cursor-pointer shadow-2xs"
-                    title="絞り込みをすべて解除"
+                    onClick={() => setShowQuickCheckHelp(true)}
+                    className="relative p-1.5 sm:p-2 rounded-full text-slate-400 hover:text-[#0d9488] hover:bg-slate-200/80 active:bg-slate-200 active:scale-90 transition-all cursor-pointer shrink-0 after:absolute after:-inset-1.5 after:content-['']"
+                    title="クイックチェックの操作説明を表示"
+                    aria-label="クイックチェックの操作説明を表示"
                   >
-                    <RotateCcw className="w-3 h-3" />
-                    <span>クリア</span>
+                    <Info className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </button>
                 </div>
-              )}
+
+                {/* スイッチ型トグルUI */}
+                <button
+                  type="button"
+                  role="switch"
+                  aria-checked={tapMode === 'quick_check'}
+                  onClick={() =>
+                    setTapMode(tapMode === 'quick_check' ? 'detail' : 'quick_check')
+                  }
+                  className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-hidden ${
+                    tapMode === 'quick_check' ? 'bg-[#33ccbb]' : 'bg-slate-300'
+                  }`}
+                >
+                  <span
+                    aria-hidden="true"
+                    className={`pointer-events-none inline-block h-5 w-5 shrink-0 transform rounded-full bg-white shadow-md ring-0 transition duration-200 ease-in-out ${
+                      tapMode === 'quick_check' ? 'translate-x-5' : 'translate-x-0'
+                    }`}
+                  />
+                </button>
+              </div>
             </div>
 
-            {/* 右側: 詳細表示とクイックチェックのトグルスイッチ */}
-            <div className="flex items-center gap-2 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200/80">
-              <div className="flex items-center gap-1 text-xs">
-                <Zap className={`w-3.5 h-3.5 ${tapMode === 'quick_check' ? 'text-[#33ccbb]' : 'text-slate-400'}`} />
-                <span className={`font-bold ${tapMode === 'quick_check' ? 'text-slate-800' : 'text-slate-500'}`}>
-                  クイックチェック
+            {/* スマホ表示時かつ絞り込み有効時は、白枠内の2行目に絞込中バッジ＆クリアボタンを表示してはみ出しを防止 */}
+            {isFilterActive && (
+              <div className="flex sm:hidden items-center justify-between pt-1 border-t border-slate-100/90 text-xs">
+                <span className="px-2 py-0.5 rounded-md bg-teal-50 border border-teal-200/80 text-teal-700 text-[11px] font-bold flex items-center gap-1 whitespace-nowrap">
+                  <Filter className="w-3 h-3 text-teal-600 shrink-0" />
+                  <span>条件で絞込中</span>
                 </span>
                 <button
                   type="button"
-                  onClick={() => setShowQuickCheckHelp(true)}
-                  className="p-1.5 rounded-full text-slate-400 hover:text-[#0d9488] hover:bg-slate-200/80 transition-colors cursor-pointer"
-                  title="クイックチェックの操作説明を表示"
-                  aria-label="クイックチェックの操作説明を表示"
+                  onClick={handleResetFilter}
+                  className="px-2.5 py-1 rounded-md bg-slate-100 hover:bg-rose-50 border border-slate-200 hover:border-rose-200 text-slate-600 hover:text-rose-600 text-[11px] font-semibold transition-colors flex items-center gap-1 cursor-pointer shadow-2xs whitespace-nowrap"
+                  title="絞り込みをすべて解除"
                 >
-                  <Info className="w-3.5 h-3.5" />
+                  <RotateCcw className="w-3 h-3 shrink-0" />
+                  <span>条件をクリア</span>
                 </button>
               </div>
-
-              {/* スイッチ型トグルUI */}
-              <button
-                type="button"
-                role="switch"
-                aria-checked={tapMode === 'quick_check'}
-                onClick={() =>
-                  setTapMode(tapMode === 'quick_check' ? 'detail' : 'quick_check')
-                }
-                className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-hidden ${tapMode === 'quick_check' ? 'bg-[#33ccbb]' : 'bg-slate-300'
-                  }`}
-              >
-                <span
-                  aria-hidden="true"
-                  className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow-md ring-0 transition duration-200 ease-in-out ${tapMode === 'quick_check' ? 'translate-x-5' : 'translate-x-0'
-                    }`}
-                />
-              </button>
-            </div>
+            )}
           </div>
 
           {/* 固定検索バー */}
@@ -330,27 +360,35 @@ export const ListView: React.FC<ListViewProps> = ({
 
         {/* 絞り込み中の情報表示 */}
         {isFilterActive && (
-          <div className="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
-            <div className="flex items-center gap-1.5">
-              <span className="px-1.5 py-0.5 rounded bg-teal-100/80 text-teal-800 font-bold text-[10px]">
-                絞込中
+          <div className="mt-2.5 pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-x-2.5 gap-y-1.5 text-[11px] text-slate-500">
+            {/* 絞り込み情報（左揃えで一体化し、折り返し時も文字列が左右に分かれないようにする） */}
+            <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-slate-600">
+              <div className="flex items-center gap-1.5 whitespace-nowrap">
+                <span className="px-1.5 py-0.5 rounded bg-teal-100/80 text-teal-800 font-bold text-[10px]">
+                  絞込中
+                </span>
+                <span>
+                  該当曲数: <strong className="text-slate-700 font-bold">{filteredCount}</strong>曲
+                </span>
+              </div>
+              <span className="whitespace-nowrap">
+                所持数: <strong className="text-slate-700 font-bold">{filteredOwnedCount}</strong>/{filteredCount}曲
+                <span className="text-[#0d9488] font-bold ml-1">
+                  ({filteredCount > 0 ? ((filteredOwnedCount / filteredCount) * 100).toFixed(1) : '0'}%)
+                </span>
               </span>
-              <span>絞り込み結果: {filteredCount}曲</span>
             </div>
-            <div className="flex items-center gap-3">
-              <span>
-                該当の所持数: <strong className="text-slate-700 font-bold">{filteredOwnedCount}</strong> / {filteredCount}曲
-              </span>
-              <button
-                type="button"
-                onClick={handleResetFilter}
-                className="text-[11px] text-slate-400 hover:text-rose-600 flex items-center gap-0.5 transition-colors cursor-pointer"
-                title="絞り込みをすべて解除"
-              >
-                <RotateCcw className="w-3 h-3" />
-                <span>クリア</span>
-              </button>
-            </div>
+
+            {/* クリアボタン */}
+            <button
+              type="button"
+              onClick={handleResetFilter}
+              className="px-1.5 py-0.5 rounded-md text-[11px] text-slate-400 hover:text-rose-600 hover:bg-rose-50 flex items-center gap-0.5 transition-colors cursor-pointer shrink-0"
+              title="絞り込みをすべて解除"
+            >
+              <RotateCcw className="w-3 h-3 shrink-0" />
+              <span>クリア</span>
+            </button>
           </div>
         )}
       </div>
@@ -422,77 +460,79 @@ export const ListView: React.FC<ListViewProps> = ({
         onSelectJacketIndex={handleSetJacketIndex}
       />
 
-      {/* クイックチェック操作説明モーダル */}
-      {showQuickCheckHelp && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs animate-in fade-in duration-150"
-          onClick={() => setShowQuickCheckHelp(false)}
-        >
+      {/* クイックチェック操作説明モーダル (画面中央に確実に表示するため createPortal で document.body に描画) */}
+      {showQuickCheckHelp &&
+        createPortal(
           <div
-            className="bg-white rounded-3xl max-w-sm w-full p-5 sm:p-6 shadow-2xl border border-slate-100 animate-in zoom-in-95 duration-150 flex flex-col gap-4 text-slate-800"
-            onClick={(e) => e.stopPropagation()}
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/40 backdrop-blur-xs overscroll-contain animate-in fade-in duration-150"
+            onClick={() => setShowQuickCheckHelp(false)}
           >
-            {/* モーダルヘッダー */}
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-              <div className="flex items-center gap-2">
-                <div className="p-2 rounded-xl bg-[#33ccbb]/10 text-[#0d9488]">
-                  <Zap className="w-5 h-5 text-[#33ccbb]" />
+            <div
+              className="bg-white rounded-3xl max-w-md md:max-w-lg w-full p-4 sm:p-6 shadow-2xl border border-slate-100 animate-in zoom-in-95 duration-150 flex flex-col gap-3.5 sm:gap-4 text-slate-800 max-h-[85vh] overflow-y-auto overscroll-contain"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* モーダルヘッダー */}
+              <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+                <div className="flex items-center gap-2">
+                  <div className="p-2 rounded-xl bg-[#33ccbb]/10 text-[#0d9488]">
+                    <Zap className="w-5 h-5 text-[#33ccbb]" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-sm sm:text-base text-slate-800">クイックチェックとは？</h3>
+                    <p className="text-[11px] text-slate-500">所持チェックの操作切り替え</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-bold text-base text-slate-800">クイックチェックとは？</h3>
-                  <p className="text-[11px] text-slate-500">所持登録の操作切り替え機能</p>
-                </div>
+                <button
+                  type="button"
+                  onClick={() => setShowQuickCheckHelp(false)}
+                  className="p-2 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
+                  aria-label="閉じる"
+                >
+                  <X className="w-5 h-5" />
+                </button>
               </div>
+
+              {/* モーダル本文 */}
+              <div className="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <div className="bg-slate-50 rounded-2xl p-3 sm:p-3.5 border border-slate-200/80 space-y-1 sm:space-y-1.5">
+                  <div className="flex items-center gap-1.5 font-bold text-slate-800">
+                    <span className="w-2 h-2 rounded-full bg-slate-400"></span>
+                    <span className="whitespace-nowrap">OFF（通常モード）</span>
+                  </div>
+                  <div className="text-slate-600 pl-2.5 sm:pl-3.5 text-xs space-y-1 leading-relaxed">
+                    <p>・曲カードをタップすると<span className="font-semibold text-slate-800">詳細画面</span>（歌唱バージョンやジャケットなど）が開きます。</p>
+                    <p>・所持チェックはカード右端の<span className="font-semibold text-slate-800">チェックボタン</span>をタップして切り替えます。</p>
+                  </div>
+                </div>
+
+                <div className="bg-[#33ccbb]/5 rounded-2xl p-3 sm:p-3.5 border border-[#33ccbb]/30 space-y-1 sm:space-y-1.5">
+                  <div className="flex items-center gap-1.5 font-bold text-[#0d9488]">
+                    <span className="w-2 h-2 rounded-full bg-[#33ccbb]"></span>
+                    <span className="whitespace-nowrap">ON（クイックチェックモード）</span>
+                  </div>
+                  <div className="text-slate-600 pl-2.5 sm:pl-3.5 text-xs space-y-1 leading-relaxed">
+                    <p>・曲カードの<span className="font-semibold text-slate-800">どこをタップしても即座に所持チェックを切り替え</span>できます。</p>
+                    <p>・手持ちのレコードを一覧から連続で素早く登録したいときに便利です。</p>
+                  </div>
+                </div>
+
+                <p className="text-[11px] text-slate-400 pl-1 leading-normal">
+                  ※クイックチェックON中は楽曲詳細画面が開きません。詳細画面を確認したい場合はスイッチをOFFにしてください。
+                </p>
+              </div>
+
+              {/* モーダルフッター */}
               <button
                 type="button"
                 onClick={() => setShowQuickCheckHelp(false)}
-                className="p-2 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
-                aria-label="閉じる"
+                className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm transition-colors text-center cursor-pointer"
               >
-                <X className="w-5 h-5" />
+                閉じる
               </button>
             </div>
-
-            {/* モーダル本文 */}
-            <div className="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
-              <div className="bg-slate-50 rounded-2xl p-3 border border-slate-200/80 space-y-1">
-                <div className="flex items-center gap-1.5 font-bold text-slate-800">
-                  <span className="w-2 h-2 rounded-full bg-slate-400"></span>
-                  <span>OFF（通常モード）</span>
-                </div>
-                <p className="text-slate-600 pl-3.5 text-xs">
-                  楽曲カードをタップすると<span className="font-semibold text-slate-800">詳細画面</span>（歌唱バージョンやジャケットなど）が開きます。<br />
-                  所持チェックはカード右端の<span className="font-semibold text-slate-800">チェックボタン</span>をタップして切り替えます。
-                </p>
-              </div>
-
-              <div className="bg-[#33ccbb]/5 rounded-2xl p-3 border border-[#33ccbb]/30 space-y-1">
-                <div className="flex items-center gap-1.5 font-bold text-[#0d9488]">
-                  <span className="w-2 h-2 rounded-full bg-[#33ccbb]"></span>
-                  <span>ON（クイックチェックモード）</span>
-                </div>
-                <p className="text-slate-600 pl-3.5 text-xs">
-                  楽曲カードの<span className="font-semibold text-slate-800">どこをタップしても即座に所持チェックを切り替え</span>できます。<br />
-                  手持ちのレコードを一覧から連続で素早く登録したいときに便利です。
-                </p>
-              </div>
-
-              <p className="text-[11px] text-slate-400 pl-1 leading-normal">
-                ※クイックチェックON中は楽曲詳細画面が開きません。詳細画面を確認・編集したい場合はスイッチをOFFにしてください。
-              </p>
-            </div>
-
-            {/* モーダルフッター */}
-            <button
-              type="button"
-              onClick={() => setShowQuickCheckHelp(false)}
-              className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm transition-colors text-center cursor-pointer"
-            >
-              閉じる
-            </button>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
     </div>
   );
 };

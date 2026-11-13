@@ -1,6 +1,5 @@
 import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import {
-  BarChart2,
   Award,
   Sparkles,
   ArrowUpDown,
@@ -645,25 +644,6 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
 
   return (
     <div className="max-w-4xl mx-auto px-3 sm:px-6 py-4 space-y-4">
-      {/* 画面上部カード（説明文） */}
-      <div className="bg-white/90 backdrop-blur-md rounded-3xl p-4 sm:p-5 border border-slate-200/80 shadow-xs flex items-center gap-3">
-        <div className="p-2.5 rounded-2xl bg-[#33ccbb]/15 text-[#0d9488] shrink-0">
-          <BarChart2 className="w-5 h-5" />
-        </div>
-        <div>
-          <h2 className="text-sm sm:text-base font-bold text-slate-800">
-            所持率の比較・進捗分析
-          </h2>
-          <p className="text-xs text-slate-500 flex flex-wrap items-center gap-1">
-            <span>各条件の所持率を棒グラフで比較できます。各条件右側の</span>
-            <span className="inline-flex items-center justify-center p-1 rounded-md border border-slate-200 bg-slate-50 text-slate-600 shadow-2xs">
-              <ExternalLink className="w-3 h-3" />
-            </span>
-            <span>ボタンをクリックすると、その条件の楽曲リストが表示されます。</span>
-          </p>
-        </div>
-      </div>
-
       {/* 固定表示されるタブ切り替え & 並び替えツールバー (スクロール追従) */}
       <div className="sticky top-[97px] z-30 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 border border-slate-200/90 shadow-sm flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5">
         {/* 5大タブ切り替え（横スクロール対応＋左右インジケーター） */}
@@ -1750,9 +1730,9 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                     : 'bg-white/80 border-slate-200/80 shadow-2xs'
                 }`}
               >
-                <div className="flex items-center justify-between mb-2">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
+                <div className="flex items-center justify-between mb-2 gap-2">
+                  <div className="space-y-1 min-w-0 flex-1">
+                    <div className="flex items-center gap-2 flex-wrap">
                       {'iconUrl' in item && item.iconUrl ? (
                         <img
                           src={item.iconUrl as string}
@@ -1765,12 +1745,12 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                           style={{ backgroundColor: item.themeColor }}
                         />
                       )}
-                      <span className="font-bold text-xs sm:text-sm text-slate-800">
+                      <span className="font-bold text-xs sm:text-sm text-slate-800 break-words">
                         {item.name}
                       </span>
 
                       {item.isComplete && (
-                        <span className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500 text-white font-bold text-[10px] shadow-2xs">
+                        <span className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500 text-white font-bold text-[10px] shadow-2xs shrink-0 whitespace-nowrap">
                           <Award className="w-3 h-3" />
                           COMPLETE
                         </span>
@@ -1781,7 +1761,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                     {'cond' in item && (item as any).cond && (
                       <div className="flex flex-wrap items-center gap-1 pl-5 text-[10px]">
                         <span
-                          className={`px-1.5 py-0.2 rounded font-bold ${
+                          className={`px-1.5 py-0.2 rounded font-bold shrink-0 whitespace-nowrap ${
                             (item as any).cond.matchType === 'or'
                               ? 'bg-sky-100 text-sky-700'
                               : 'bg-emerald-100 text-emerald-700'
@@ -1790,14 +1770,14 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                           {(item as any).cond.matchType === 'or' ? 'OR条件' : 'AND条件'}
                         </span>
                         {(item as any).cond.conditionUnits?.map((u: UnitType) => (
-                          <span key={u} className="px-1.5 py-0.2 rounded bg-slate-100 text-slate-600">
+                          <span key={u} className="px-1.5 py-0.2 rounded bg-slate-100 text-slate-600 shrink-0 whitespace-nowrap">
                             {UNIT_METAS[u]?.shortName || u}
                           </span>
                         ))}
                         {(item as any).cond.conditionOriginalTypes?.map((t: OriginalSongType) => (
                           <span
                             key={t}
-                            className="px-1.5 py-0.2 rounded bg-teal-50 text-teal-700 border border-teal-200"
+                            className="px-1.5 py-0.2 rounded bg-teal-50 text-teal-700 border border-teal-200 shrink-0 whitespace-nowrap"
                           >
                             {ORIGINAL_TYPE_METAS[t]?.shortLabel || t}
                           </span>
@@ -1805,13 +1785,13 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                         {(item as any).cond.conditionCharacters?.map((cId: string) => {
                           const c = CHARACTERS.find((ch) => ch.id === cId);
                           return (
-                            <span key={cId} className="px-1.5 py-0.2 rounded bg-purple-50 text-purple-700">
+                            <span key={cId} className="px-1.5 py-0.2 rounded bg-purple-50 text-purple-700 shrink-0 whitespace-nowrap">
                               {c?.name || cId}
                             </span>
                           );
                         })}
                         {(item as any).cond.conditionVocalTypes?.map((vt: string) => (
-                          <span key={vt} className="px-1.5 py-0.2 rounded bg-indigo-50 text-indigo-700">
+                          <span key={vt} className="px-1.5 py-0.2 rounded bg-indigo-50 text-indigo-700 shrink-0 whitespace-nowrap">
                             {vt === 'sekai'
                               ? 'セカイver'
                               : vt === 'virtualSinger'
@@ -1826,7 +1806,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                         {(item as any).cond.conditionBannerCharacters?.map((cId: string) => {
                           const c = CHARACTERS.find((ch) => ch.id === cId);
                           return (
-                            <span key={cId} className="px-1.5 py-0.2 rounded bg-slate-800 text-white font-medium">
+                            <span key={cId} className="px-1.5 py-0.2 rounded bg-slate-800 text-white font-medium shrink-0 whitespace-nowrap">
                               バナー:{c?.name || cId}
                             </span>
                           );
@@ -1835,12 +1815,12 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                     )}
                   </div>
 
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <div className="flex items-baseline gap-1.5 font-bold">
-                      <span className="text-base sm:text-lg text-slate-800">
+                  <div className="flex items-center gap-1.5 sm:gap-3 shrink-0 whitespace-nowrap">
+                    <div className="flex items-baseline gap-1 sm:gap-1.5 font-bold whitespace-nowrap">
+                      <span className="text-sm sm:text-base md:text-lg text-slate-800">
                         {item.percentage.toFixed(1)}%
                       </span>
-                      <span className="text-xs text-slate-500 font-medium">
+                      <span className="text-[11px] sm:text-xs text-slate-500 font-medium whitespace-nowrap">
                         ({item.owned} / {item.total}曲)
                       </span>
                     </div>
@@ -1849,21 +1829,21 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                     <button
                       type="button"
                       onClick={() => onNavigateToList(item.filterParams as any)}
-                      className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center text-slate-500 hover:text-[#0d9488] hover:bg-[#33ccbb]/15 rounded-xl transition-colors cursor-pointer border border-slate-200 hover:border-[#33ccbb]/40 shadow-2xs"
+                      className="p-1.5 sm:p-2 min-w-[32px] sm:min-w-[36px] min-h-[32px] sm:min-h-[36px] flex items-center justify-center text-slate-500 hover:text-[#0d9488] hover:bg-[#33ccbb]/15 rounded-xl transition-colors cursor-pointer border border-slate-200 hover:border-[#33ccbb]/40 shadow-2xs shrink-0"
                       title="この条件で楽曲リストを表示"
                       aria-label="この条件で楽曲リストを表示"
                     >
-                      <ExternalLink className="w-4 h-4" />
+                      <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     </button>
 
                     {Boolean((item as any).isCustom) && (
                       <button
                         type="button"
                         onClick={(e) => handleDeleteCustomCondition(item.key, item.name, e)}
-                        className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center text-slate-400 hover:text-rose-500 hover:bg-rose-50 rounded-xl transition-colors cursor-pointer border border-slate-200/60 hover:border-rose-200"
+                        className="p-1.5 sm:p-2 min-w-[32px] sm:min-w-[36px] min-h-[32px] sm:min-h-[36px] flex items-center justify-center text-slate-400 hover:text-rose-500 hover:bg-rose-50 rounded-xl transition-colors cursor-pointer border border-slate-200/60 hover:border-rose-200 shrink-0"
                         title="この比較条件を削除"
                       >
-                        <Trash2 className="w-4 h-4" />
+                        <Trash2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       </button>
                     )}
                   </div>

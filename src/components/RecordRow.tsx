@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { Check, Calendar, Music, RotateCw } from 'lucide-react';
 import type {
   RecordItem,
@@ -7,6 +7,132 @@ import type {
   TapActionMode,
 } from '../types/record';
 import { UNIT_METAS, CHARACTERS, getRecordJackets } from '../types/record';
+
+// 各ユニットバッジの最小必要幅（文字数 × 10px + パディング・ボーダー14px + gap 4px）を計算
+const calculateUnitsRequiredWidth = (units: UnitType[]): number => {
+  return units.reduce((acc, u, index) => {
+    const name = UNIT_METAS[u]?.shortName || u;
+    const badgeW = name.length * 10 + 14;
+    return acc + badgeW + (index > 0 ? 4 : 0);
+  }, 0);
+};
+
+// ユニットバッジの個別表示コンポーネント
+const UnitBadgeItem: React.FC<{ unit: UnitType; badgeTextShadow: string }> = ({
+  unit,
+  badgeTextShadow,
+}) => {
+  const uMeta = UNIT_METAS[unit];
+  if (!uMeta) return null;
+  return (
+    <span
+      className="px-1.5 py-0.5 rounded-md text-[10px] font-bold shrink-0 whitespace-nowrap"
+      style={{
+        backgroundColor: uMeta.bgColor,
+        color: uMeta.textColor || uMeta.themeColor,
+        border: `1px solid ${uMeta.borderColor}`,
+        textShadow: badgeTextShadow,
+      }}
+    >
+      {uMeta.shortName}
+    </span>
+  );
+};
+
+// ユニット表示コンポーネント（1行で収まりきる場合は全ユニット表示、日付等で見切れる場合は2ユニットでも「複合」表記）
+const RecordUnitDisplay: React.FC<{
+  units: UnitType[];
+  badgeTextShadow: string;
+}> = ({ units, badgeTextShadow }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // 単一ユニットの場合は常に通常表示
+  if (units.length <= 1) {
+    const u = units[0];
+    const uMeta = u ? UNIT_METAS[u] : null;
+    if (!uMeta) return null;
+    return (
+      <div className="flex items-center gap-1 min-w-0">
+        <span className="text-[10px] font-bold text-slate-500 shrink-0 mr-0.5 hidden min-[400px]:inline">
+          ユニット
+        </span>
+        <UnitBadgeItem unit={u} badgeTextShadow={badgeTextShadow} />
+      </div>
+    );
+  }
+
+  // 複数ユニットの場合の必要幅（ラベルの約34pxを加味）
+  const requiredWidth = useMemo(
+    () => calculateUnitsRequiredWidth(units) + 34,
+    [units]
+  );
+
+  // 初期判定: PC幅（640px以上）なら全表示可能、それ未満で3ユニット以上なら初期collapsed
+  const [isCollapsed, setIsCollapsed] = useState(() => {
+    if (typeof window === 'undefined') return units.length >= 3;
+    return window.innerWidth < 640 && units.length >= 3;
+  });
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const checkOverflow = () => {
+      const available = el.clientWidth;
+      if (available > 0) {
+        // 利用可能幅が表示しきるのに不足している場合は2ユニットでも「複合」表記にする
+        setIsCollapsed(available < requiredWidth);
+      }
+    };
+
+    checkOverflow();
+
+    const observer = new ResizeObserver(checkOverflow);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [requiredWidth]);
+
+  return (
+    <div
+      ref={containerRef}
+      className="flex items-center gap-1 min-w-0 flex-1 overflow-hidden"
+    >
+      <span className="text-[10px] font-bold text-slate-500 shrink-0 mr-0.5 hidden min-[400px]:inline">
+        ユニット
+      </span>
+      {isCollapsed ? (
+        // 見切れてすべて表示しきれない場合は「複合」表記（各ユニットのカラーアイコン付き）
+        <div className="flex items-center gap-1 shrink-0">
+          <span
+            className="px-1.5 py-0.5 rounded-md text-[10px] font-bold shrink-0 bg-slate-800 text-white shadow-2xs whitespace-nowrap"
+            title={`参加ユニット: ${units.map((u) => UNIT_METAS[u]?.name || u).join('、')}`}
+          >
+            複合
+          </span>
+          <div className="flex items-center -space-x-1 shrink-0">
+            {units.map((u) => {
+              const uMeta = UNIT_METAS[u];
+              if (!uMeta) return null;
+              return (
+                <span
+                  key={u}
+                  className="w-2.5 h-2.5 rounded-full border border-white shrink-0 shadow-2xs"
+                  style={{ backgroundColor: uMeta.themeColor }}
+                  title={uMeta.name}
+                />
+              );
+            })}
+          </div>
+        </div>
+      ) : (
+        // 表示しきれる場合は従来通りすべてのユニットを表示
+        units.map((u) => (
+          <UnitBadgeItem key={u} unit={u} badgeTextShadow={badgeTextShadow} />
+        ))
+      )}
+    </div>
+  );
+};
 
 interface RecordRowProps {
   record: RecordItem;
@@ -189,37 +315,18 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
         {/* 曲情報 */}
         <div className="flex-1 min-w-0">
           {/* 上部ヘッダー（ユニット情報 ＆ 日付・No.） */}
-          <div className="flex flex-wrap items-start justify-between gap-x-2 gap-y-1 mb-1 min-w-0">
-            {/* ユニットバッジ表示エリア（表示領域が足りない場合は自然に折り返し） */}
-            <div className="flex flex-wrap items-center gap-1 min-w-0 flex-1">
-              <span className="text-[10px] font-bold text-slate-500 shrink-0 mr-0.5">
-                ユニット
-              </span>
-              {(record.units && record.units.length > 0 ? record.units : [record.unit]).map((u) => {
-                const uMeta = UNIT_METAS[u];
-                if (!uMeta) return null;
-                return (
-                  <span
-                    key={u}
-                    className="px-1.5 py-0.5 rounded-md text-[10px] font-bold shrink-0"
-                    style={{
-                      backgroundColor: uMeta.bgColor,
-                      color: uMeta.textColor || uMeta.themeColor,
-                      border: `1px solid ${uMeta.borderColor}`,
-                      textShadow: badgeTextShadow,
-                    }}
-                  >
-                    {uMeta.shortName}
-                  </span>
-                );
-              })}
-            </div>
+          <div className="flex items-center justify-between gap-1.5 mb-1 min-w-0">
+            {/* ユニットバッジ表示エリア (1行で収まりきる場合は全表示、見切れる場合は「複合」表記に自動切り替え) */}
+            <RecordUnitDisplay
+              units={record.units && record.units.length > 0 ? record.units : [record.unit]}
+              badgeTextShadow={badgeTextShadow}
+            />
 
             {/* 右側: リリース日 & No. (右端配置・重なり防止) */}
-            <div className="flex items-center gap-1.5 shrink-0 text-slate-500 ml-auto pt-0.5">
+            <div className="flex items-center gap-1 sm:gap-1.5 shrink-0 text-slate-500 ml-auto whitespace-nowrap">
               {displaySettings.showReleaseDate && (
-                <span className="text-[10px] sm:text-[11px] text-slate-600 flex items-center gap-1 shrink-0 font-medium whitespace-nowrap">
-                  <Calendar className="w-3 h-3 text-slate-400" />
+                <span className="text-[10px] sm:text-[11px] text-slate-600 flex items-center gap-0.5 sm:gap-1 shrink-0 font-medium whitespace-nowrap">
+                  <Calendar className="w-3 h-3 text-slate-400 shrink-0" />
                   {record.releaseDate}
                 </span>
               )}
