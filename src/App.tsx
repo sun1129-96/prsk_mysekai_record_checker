@@ -5,10 +5,16 @@ import { ComparisonView } from './components/ComparisonView';
 import { MenuView } from './components/MenuView';
 import { MOCK_RECORDS } from './data/mockRecords';
 import { decodeShareData } from './utils/recordUtils';
-import type { DisplaySettings, FilterOptions } from './types/record';
+import type { DisplaySettings, FilterOptions, SortSettings } from './types/record';
 
 const STORAGE_KEY = 'mysekai_owned_record_ids_v1';
 const DISPLAY_SETTINGS_STORAGE_KEY = 'mysekai_display_settings_v1';
+const SORT_SETTINGS_STORAGE_KEY = 'mysekai_sort_settings_v1';
+
+const DEFAULT_SORT_SETTINGS: SortSettings = {
+  sortType: 'defaultSort',
+  sortDirection: 'asc',
+};
 
 const DEFAULT_DISPLAY_SETTINGS: DisplaySettings = {
   showJacket: true,
@@ -85,6 +91,27 @@ export const App: React.FC = () => {
       // ignore
     }
   }, [displaySettings]);
+
+  // 並び替え設定（localStorageに保存・永続化してリロードやタブ遷移時も維持）
+  const [sortSettings, setSortSettings] = useState<SortSettings>(() => {
+    try {
+      const saved = localStorage.getItem(SORT_SETTINGS_STORAGE_KEY);
+      if (saved) {
+        return { ...DEFAULT_SORT_SETTINGS, ...JSON.parse(saved) };
+      }
+    } catch {
+      // ignore
+    }
+    return DEFAULT_SORT_SETTINGS;
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(SORT_SETTINGS_STORAGE_KEY, JSON.stringify(sortSettings));
+    } catch {
+      // ignore
+    }
+  }, [sortSettings]);
 
   // 所持状態管理（localStorage + URL共有デコード）
   const [ownedRecordIds, setOwnedRecordIds] = useState<Record<string, boolean>>(() => {
@@ -172,6 +199,8 @@ export const App: React.FC = () => {
             onDisplaySettingsChange={setDisplaySettings}
             filterOptions={filterOptions}
             onFilterOptionsChange={setFilterOptions}
+            sortSettings={sortSettings}
+            onSortSettingsChange={setSortSettings}
           />
         )}
 

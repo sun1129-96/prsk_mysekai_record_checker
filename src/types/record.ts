@@ -390,6 +390,14 @@ export type SortType = 'defaultSort' | 'defaultOrder' | 'releaseDate' | 'reading
 export type SortDirection = 'asc' | 'desc';
 
 /**
+ * 並び替え設定
+ */
+export interface SortSettings {
+  sortType: SortType;
+  sortDirection: SortDirection;
+}
+
+/**
  * タップ動作モード
  */
 export type TapActionMode = 'detail' | 'quick_check';

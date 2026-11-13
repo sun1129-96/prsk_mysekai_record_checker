@@ -14,6 +14,7 @@ import type {
   RecordItem,
   SortType,
   SortDirection,
+  SortSettings,
   FilterOptions,
   DisplaySettings,
   TapActionMode,
@@ -32,6 +33,8 @@ interface ListViewProps {
   onDisplaySettingsChange?: React.Dispatch<React.SetStateAction<DisplaySettings>>;
   filterOptions: FilterOptions;
   onFilterOptionsChange: React.Dispatch<React.SetStateAction<FilterOptions>>;
+  sortSettings?: SortSettings;
+  onSortSettingsChange?: React.Dispatch<React.SetStateAction<SortSettings>>;
 }
 
 export const ListView: React.FC<ListViewProps> = ({
@@ -41,12 +44,28 @@ export const ListView: React.FC<ListViewProps> = ({
   displaySettings,
   filterOptions,
   onFilterOptionsChange,
+  sortSettings,
+  onSortSettingsChange,
 }) => {
   const listRef = useRef<HTMLDivElement>(null);
 
-  // 並び替え状態（初期値: デフォルト順昇順）
-  const [sortType, setSortType] = useState<SortType>('defaultSort');
-  const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
+  // 並び替え状態（Appから渡された永続化設定を使用）
+  const [localSortSettings, setLocalSortSettings] = useState<SortSettings>({
+    sortType: 'defaultSort',
+    sortDirection: 'asc',
+  });
+
+  const currentSortSettings = sortSettings ?? localSortSettings;
+  const sortType = currentSortSettings.sortType;
+  const sortDirection = currentSortSettings.sortDirection;
+
+  const handleSortChange = useCallback((newType: SortType, newDir: SortDirection) => {
+    if (onSortSettingsChange) {
+      onSortSettingsChange({ sortType: newType, sortDirection: newDir });
+    } else {
+      setLocalSortSettings({ sortType: newType, sortDirection: newDir });
+    }
+  }, [onSortSettingsChange]);
 
   // タップ動作モード: 'detail' (詳細モーダル) vs 'quick_check' (行全体でチェック切り替え)
   const [tapMode, setTapMode] = useState<TapActionMode>('detail');
@@ -383,10 +402,7 @@ export const ListView: React.FC<ListViewProps> = ({
         onClose={() => setIsFilterModalOpen(false)}
         sortType={sortType}
         sortDirection={sortDirection}
-        onSortChange={(type, dir) => {
-          setSortType(type);
-          setSortDirection(dir);
-        }}
+        onSortChange={handleSortChange}
         filterOptions={filterOptions}
         onFilterChange={onFilterOptionsChange}
         onResetFilter={handleResetFilter}
