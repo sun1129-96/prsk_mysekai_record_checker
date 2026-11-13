@@ -174,7 +174,9 @@ export const ListView: React.FC<ListViewProps> = ({
     onFilterOptionsChange({
       ownership: 'all',
       units: Object.keys(UNIT_METAS) as any,
+      unitMatchType: 'or',
       characters: [],
+      characterMatchType: 'or',
       vocalVersions: {
         virtualSinger: false,
         sekai: false,
@@ -182,6 +184,7 @@ export const ListView: React.FC<ListViewProps> = ({
         anotherVocal: false,
         inst: false,
       },
+      vocalMatchType: 'or',
       searchQuery: '',
       originalTypes: [],
       bannerCharacters: [],
@@ -192,8 +195,11 @@ export const ListView: React.FC<ListViewProps> = ({
   const isFilterActive =
     filterOptions.ownership !== 'all' ||
     filterOptions.units.length !== Object.keys(UNIT_METAS).length ||
+    filterOptions.unitMatchType === 'and' ||
     filterOptions.characters.length > 0 ||
+    (Boolean(filterOptions.characterMatchType) && filterOptions.characterMatchType !== 'or') ||
     Object.values(filterOptions.vocalVersions).some(Boolean) ||
+    filterOptions.vocalMatchType === 'and' ||
     filterOptions.searchQuery !== '' ||
     Boolean(filterOptions.originalTypes && filterOptions.originalTypes.length > 0) ||
     Boolean(filterOptions.bannerCharacters && filterOptions.bannerCharacters.length > 0) ||

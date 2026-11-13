@@ -74,31 +74,30 @@ export const filterAndSortRecords = (
   sortDirection: SortDirection,
   filterOptions: FilterOptions
 ): RecordItem[] => {
-  const matchType = filterOptions.matchType || 'and';
-  const isUnitFiltered =
-    filterOptions.units.length === 0 ||
-    !ALL_UNIT_KEYS.every((u) => filterOptions.units.includes(u));
-  const isCharFiltered = filterOptions.characters.length > 0;
-  const isVocalFiltered = Boolean(
-    filterOptions.vocalVersions.sekai ||
-    filterOptions.vocalVersions.virtualSinger ||
-    filterOptions.vocalVersions.connectLive ||
-    filterOptions.vocalVersions.anotherVocal ||
-    filterOptions.vocalVersions.inst
-  );
-  const isOriginalTypeFiltered = Boolean(filterOptions.originalTypes && filterOptions.originalTypes.length > 0);
-  const isBannerFiltered = Boolean(filterOptions.bannerCharacters && filterOptions.bannerCharacters.length > 0);
-  const isYearFiltered = Boolean(filterOptions.releaseYears && filterOptions.releaseYears.length > 0);
+  const isAllUnitsSelected =
+    filterOptions.units.length === ALL_UNIT_KEYS.length &&
+    ALL_UNIT_KEYS.every((u) => filterOptions.units.includes(u));
+  const unitMatchMode = filterOptions.unitMatchType || 'or';
+  const charMatchMode = filterOptions.characterMatchType || 'or';
+  const vocalMatchMode = filterOptions.vocalMatchType || 'or';
+
+  // 選択されている歌唱バージョンキーの抽出
+  const selectedVocals: ('sekai' | 'virtualSinger' | 'connectLive' | 'anotherVocal' | 'inst')[] = [];
+  if (filterOptions.vocalVersions.sekai) selectedVocals.push('sekai');
+  if (filterOptions.vocalVersions.virtualSinger) selectedVocals.push('virtualSinger');
+  if (filterOptions.vocalVersions.connectLive) selectedVocals.push('connectLive');
+  if (filterOptions.vocalVersions.anotherVocal) selectedVocals.push('anotherVocal');
+  if (filterOptions.vocalVersions.inst) selectedVocals.push('inst');
 
   return records
     .filter((record) => {
       const isOwned = !!ownedRecordIds[record.id];
 
-      // 所持ステータス絞り込み（基本フィルター）
+      // 1. 所持ステータス絞り込み
       if (filterOptions.ownership === 'owned' && !isOwned) return false;
       if (filterOptions.ownership === 'unowned' && isOwned) return false;
 
-      // 検索クエリ（基本フィルター）
+      // 2. 検索クエリ
       if (filterOptions.searchQuery.trim() !== '') {
         const q = filterOptions.searchQuery.toLowerCase();
         const matchTitle = record.title.toLowerCase().includes(q);
@@ -106,60 +105,77 @@ export const filterAndSortRecords = (
         if (!matchTitle && !matchReading) return false;
       }
 
-      // AND / OR 対象の個別条件を評価
-      const criteriaResults: boolean[] = [];
-
-      // 1. ユニット
-      if (isUnitFiltered) {
-        const recordUnits =
-          record.units && record.units.length > 0 ? record.units : [record.unit];
-        criteriaResults.push(recordUnits.some((u) => filterOptions.units.includes(u)));
+      // 3. 対象ユニット絞り込み
+      if (filterOptions.units.length === 0) {
+        return false;
+      }
+      const recordUnits =
+        record.units && record.units.length > 0 ? record.units : [record.unit];
+      if (unitMatchMode === 'and') {
+        const hasAllUnits = filterOptions.units.every((u) => recordUnits.includes(u));
+        if (!hasAllUnits) return false;
+      } else {
+        if (!isAllUnitsSelected) {
+          const hasAnyUnit = recordUnits.some((u) => filterOptions.units.includes(u));
+          if (!hasAnyUnit) return false;
+        }
       }
 
-      // 2. キャラクター
-      if (isCharFiltered) {
-        const hasChar = filterOptions.characters.some((cId) =>
-          record.characters.includes(cId)
-        );
-        criteriaResults.push(hasChar);
+      // 4. 歌唱キャラクター絞り込み
+      if (filterOptions.characters.length > 0) {
+        if (charMatchMode === 'and_same_track') {
+          // 1つの歌唱バージョン（トラック）で選択キャラ全員が歌唱しているか
+          const tracks = record.vocalTracks || [];
+          const hasTrackWithAllChars = tracks.some((track) =>
+            filterOptions.characters.every((cId) => track.singers && track.singers.includes(cId))
+          );
+          if (!hasTrackWithAllChars) return false;
+        } else if (charMatchMode === 'and_all') {
+          // 曲全体（いずれかのVer）で選択キャラ全員が存在するか
+          const hasAllCharsInSong = filterOptions.characters.every((cId) =>
+            record.characters.includes(cId)
+          );
+          if (!hasAllCharsInSong) return false;
+        } else {
+          // OR: 選択キャラのいずれかが歌唱しているか
+          const hasAnyChar = filterOptions.characters.some((cId) =>
+            record.characters.includes(cId)
+          );
+          if (!hasAnyChar) return false;
+        }
       }
 
-      // 3. 歌唱ver
-      if (isVocalFiltered) {
-        const vocalMatch =
-          (filterOptions.vocalVersions.sekai && record.vocalVersions.sekai) ||
-          (filterOptions.vocalVersions.virtualSinger && record.vocalVersions.virtualSinger) ||
-          (filterOptions.vocalVersions.connectLive && record.vocalVersions.connectLive) ||
-          (filterOptions.vocalVersions.anotherVocal && record.vocalVersions.anotherVocal) ||
-          (filterOptions.vocalVersions.inst && record.vocalVersions.inst);
-        criteriaResults.push(Boolean(vocalMatch));
+      // 5. 歌唱バージョン条件絞り込み
+      if (selectedVocals.length > 0) {
+        if (vocalMatchMode === 'and') {
+          const hasAllVocals = selectedVocals.every((vKey) => Boolean(record.vocalVersions[vKey]));
+          if (!hasAllVocals) return false;
+        } else {
+          const hasAnyVocal = selectedVocals.some((vKey) => Boolean(record.vocalVersions[vKey]));
+          if (!hasAnyVocal) return false;
+        }
       }
 
-      // 4. 書き下ろし種別
-      if (isOriginalTypeFiltered && filterOptions.originalTypes) {
+      // 6. 楽曲分類（書き下ろし種別）
+      if (filterOptions.originalTypes && filterOptions.originalTypes.length > 0) {
         const type = record.originalType || 'cover';
-        criteriaResults.push(filterOptions.originalTypes.includes(type));
+        if (!filterOptions.originalTypes.includes(type)) return false;
       }
 
-      // 5. バナーキャラクター
-      if (isBannerFiltered && filterOptions.bannerCharacters) {
-        criteriaResults.push(
-          Boolean(record.bannerCharacter && filterOptions.bannerCharacters.includes(record.bannerCharacter))
-        );
+      // 7. バナーキャラクター
+      if (filterOptions.bannerCharacters && filterOptions.bannerCharacters.length > 0) {
+        if (!record.bannerCharacter || !filterOptions.bannerCharacters.includes(record.bannerCharacter)) {
+          return false;
+        }
       }
 
-      // 6. 実装年
-      if (isYearFiltered && filterOptions.releaseYears) {
+      // 8. 実装年
+      if (filterOptions.releaseYears && filterOptions.releaseYears.length > 0) {
         const year = getAnniversaryYear(record.releaseDate);
-        criteriaResults.push(filterOptions.releaseYears.includes(year));
+        if (!filterOptions.releaseYears.includes(year)) return false;
       }
 
-      // どの条件も指定されていない場合は全件通過
-      if (criteriaResults.length === 0) return true;
-
-      return matchType === 'and'
-        ? criteriaResults.every(Boolean)
-        : criteriaResults.some(Boolean);
+      return true;
     })
     .sort((a, b) => {
       let compare = 0;
@@ -272,13 +288,12 @@ export const decodeShareData = (shareString: string): Record<string, boolean> =>
 };
 
 /**
- * カスタム比較条件に合致するか判定（AND / OR 条件評価）
+ * カスタム比較条件に合致するか判定（各条件枠ごとの AND / OR 条件評価、条件間はすべて AND）
  */
 export const checkRecordMatchesCustomCondition = (
   record: RecordItem,
   cond: SavedCompareCondition
 ): boolean => {
-  const matchType = cond.matchType || 'and';
   const units = cond.conditionUnits || [];
   const characters = cond.conditionCharacters || [];
   const originalTypes = cond.conditionOriginalTypes || [];
@@ -298,48 +313,98 @@ export const checkRecordMatchesCustomCondition = (
     return true;
   }
 
-  const results: boolean[] = [];
+  // 過去の保存データで全体ORが指定され、個別MatchTypeが未定義の場合の後方互換
+  const isLegacyGlobalOr =
+    cond.matchType === 'or' &&
+    !cond.unitMatchType &&
+    !cond.characterMatchType &&
+    !cond.vocalMatchType;
 
+  if (isLegacyGlobalOr) {
+    const legacyResults: boolean[] = [];
+    if (units.length > 0) {
+      const recordUnits = record.units && record.units.length > 0 ? record.units : [record.unit];
+      legacyResults.push(recordUnits.some((u) => units.includes(u)));
+    }
+    if (characters.length > 0) {
+      legacyResults.push(characters.some((c) => record.characters.includes(c)));
+    }
+    if (originalTypes.length > 0) {
+      const type = record.originalType || 'cover';
+      legacyResults.push(originalTypes.includes(type));
+    }
+    if (vocalTypes.length > 0) {
+      const hasAny = vocalTypes.some((vt) => Boolean(record.vocalVersions?.[vt]));
+      legacyResults.push(hasAny);
+    }
+    if (bannerCharacters.length > 0) {
+      legacyResults.push(Boolean(record.bannerCharacter && bannerCharacters.includes(record.bannerCharacter)));
+    }
+    if (releaseYears.length > 0) {
+      const year = getAnniversaryYear(record.releaseDate);
+      legacyResults.push(releaseYears.includes(year));
+    }
+    return legacyResults.some((r) => r === true);
+  }
+
+  // 1. ユニット判定
   if (units.length > 0) {
-    const recordUnits =
-      record.units && record.units.length > 0 ? record.units : [record.unit];
-    results.push(recordUnits.some((u) => units.includes(u)));
+    const recordUnits = record.units && record.units.length > 0 ? record.units : [record.unit];
+    if (cond.unitMatchType === 'and') {
+      const hasAll = units.every((u) => recordUnits.includes(u));
+      if (!hasAll) return false;
+    } else {
+      const hasAny = recordUnits.some((u) => units.includes(u));
+      if (!hasAny) return false;
+    }
   }
 
+  // 2. キャラクター判定
   if (characters.length > 0) {
-    results.push(characters.some((c) => record.characters.includes(c)));
+    if (cond.characterMatchType === 'and_same_track') {
+      const tracks = record.vocalTracks || [];
+      const hasSameTrack = tracks.some((track) =>
+        characters.every((cId) => track.singers && track.singers.includes(cId))
+      );
+      if (!hasSameTrack) return false;
+    } else if (cond.characterMatchType === 'and_all') {
+      const hasAll = characters.every((cId) => record.characters.includes(cId));
+      if (!hasAll) return false;
+    } else {
+      const hasAny = characters.some((cId) => record.characters.includes(cId));
+      if (!hasAny) return false;
+    }
   }
 
+  // 3. 歌唱バージョン判定
+  if (vocalTypes.length > 0) {
+    if (cond.vocalMatchType === 'and') {
+      const hasAll = vocalTypes.every((vt) => Boolean(record.vocalVersions?.[vt]));
+      if (!hasAll) return false;
+    } else {
+      const hasAny = vocalTypes.some((vt) => Boolean(record.vocalVersions?.[vt]));
+      if (!hasAny) return false;
+    }
+  }
+
+  // 4. 楽曲分類判定
   if (originalTypes.length > 0) {
     const type = record.originalType || 'cover';
-    results.push(originalTypes.includes(type));
+    if (!originalTypes.includes(type)) return false;
   }
 
-  if (vocalTypes.length > 0) {
-    const hasAnyTrack = vocalTypes.some((vt) => {
-      if (vt === 'sekai') return Boolean(record.vocalVersions?.sekai);
-      if (vt === 'virtualSinger') return Boolean(record.vocalVersions?.virtualSinger);
-      if (vt === 'connectLive') return Boolean(record.vocalVersions?.connectLive);
-      if (vt === 'anotherVocal') return Boolean(record.vocalVersions?.anotherVocal);
-      if (vt === 'inst') return Boolean(record.vocalVersions?.inst);
-      return false;
-    });
-    results.push(hasAnyTrack);
-  }
-
+  // 5. バナーキャラクター判定
   if (bannerCharacters.length > 0) {
-    results.push(Boolean(record.bannerCharacter && bannerCharacters.includes(record.bannerCharacter)));
+    if (!record.bannerCharacter || !bannerCharacters.includes(record.bannerCharacter)) {
+      return false;
+    }
   }
 
+  // 6. 実装年判定
   if (releaseYears.length > 0) {
     const year = getAnniversaryYear(record.releaseDate);
-    results.push(releaseYears.includes(year));
+    if (!releaseYears.includes(year)) return false;
   }
 
-  if (results.length === 0) return true;
-
-  if (matchType === 'or') {
-    return results.some((r) => r === true);
-  }
-  return results.every((r) => r === true);
+  return true;
 };

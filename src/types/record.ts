@@ -224,7 +224,7 @@ export interface VocalTrackDetail {
  * 書き下ろし楽曲の分類種別
  */
 export type OriginalSongType =
-  | 'event'        // イベント書き下ろし楽曲
+  | 'event'        // 箱イベ書下ろし楽曲
   | 'unit'         // ユニットソング
   | 'collab'       // コラボ楽曲
   | 'sekai_no_oto' // セカイノオト
@@ -241,7 +241,7 @@ export interface OriginalTypeMeta {
 }
 
 export const ORIGINAL_TYPE_METAS: Record<OriginalSongType, OriginalTypeMeta> = {
-  event: { id: 'event', label: 'イベント書き下ろし楽曲', shortLabel: 'イベント' },
+  event: { id: 'event', label: '箱イベ書下ろし楽曲', shortLabel: '箱イベ' },
   unit: { id: 'unit', label: 'ユニットソング', shortLabel: 'ユニット曲' },
   collab: { id: 'collab', label: 'コラボ楽曲', shortLabel: 'コラボ' },
   sekai_no_oto: { id: 'sekai_no_oto', label: 'セカイノオト', shortLabel: 'セカイノオト' },
@@ -380,7 +380,7 @@ export interface RecordItem {
   jackets?: JacketVariant[]; // 複数ジャケットバリアント一覧（3つ以上に対応）
   source?: string;          // 入手方法
   originalType?: OriginalSongType;  // 書き下ろし分類種別
-  bannerCharacter?: string;         // イベント書き下ろしバナーキャラクターID
+  bannerCharacter?: string;         // 箱イベ書下ろしバナーキャラクターID
 }
 
 /**
@@ -403,12 +403,21 @@ export interface SortSettings {
 export type TapActionMode = 'detail' | 'quick_check';
 
 /**
+ * ユニット・歌唱バージョン・キャラクターの枠内結合方式
+ */
+export type UnitMatchType = 'or' | 'and';
+export type CharacterMatchType = 'or' | 'and_all' | 'and_same_track';
+export type VocalMatchType = 'or' | 'and';
+
+/**
  * 絞り込み条件
  */
 export interface FilterOptions {
   ownership: 'all' | 'owned' | 'unowned';
   units: UnitType[];
+  unitMatchType?: UnitMatchType;       // 対象ユニット内結合方式 (デフォルト: 'or')
   characters: string[]; // 選択されたキャラクターID
+  characterMatchType?: CharacterMatchType; // 歌唱キャラクター内結合方式 (デフォルト: 'or')
   vocalVersions: {
     virtualSinger: boolean;
     sekai: boolean;
@@ -416,11 +425,12 @@ export interface FilterOptions {
     anotherVocal: boolean;
     inst?: boolean;
   };
+  vocalMatchType?: VocalMatchType;     // 歌唱バージョン内結合方式 (デフォルト: 'or')
   searchQuery: string;
   originalTypes?: OriginalSongType[];  // 書き下ろし種別絞り込み
   bannerCharacters?: string[];         // バナーキャラクター絞り込み
   releaseYears?: number[];             // 実装年（1年目〜6年目等）絞り込み
-  matchType?: 'and' | 'or';            // 条件結合方式 (AND: すべて一致, OR: いずれか一致)
+  matchType?: 'and' | 'or';            // 後方互換用
 }
 
 /**
@@ -431,7 +441,10 @@ export interface SavedCompareCondition {
   title: string;
   filter: FilterOptions;
   createdAt: number;
-  matchType?: 'and' | 'or';
+  matchType?: 'and' | 'or';            // 後方互換用
+  unitMatchType?: UnitMatchType;
+  characterMatchType?: CharacterMatchType;
+  vocalMatchType?: VocalMatchType;
   conditionUnits?: UnitType[];
   conditionCharacters?: string[];
   conditionOriginalTypes?: OriginalSongType[];

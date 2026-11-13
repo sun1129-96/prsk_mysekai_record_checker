@@ -60,6 +60,54 @@ const mockItems: RecordItem[] = [
   },
 ];
 
+const advancedMockItems: RecordItem[] = [
+  {
+    id: 'adv_1',
+    title: '曲1 (一歌&奏が同一トラックで共演)',
+    reading: 'きょく1',
+    unit: 'leo_need',
+    units: ['leo_need', 'nightcord_at_25'],
+    releaseDate: '2021-10-01',
+    defaultOrder: 1,
+    vocalVersions: { virtualSinger: true, sekai: true, connectLive: false, anotherVocal: true },
+    characters: ['ichika', 'kanade', 'miku'],
+    originalType: 'event',
+    vocalTracks: [
+      { id: 't1_sekai', name: 'セカイver', type: 'sekai', singers: ['ichika', 'kanade', 'miku'] },
+      { id: 't1_vs', name: 'バーチャル・シンガーver', type: 'virtual_singer', singers: ['miku'] },
+    ],
+  },
+  {
+    id: 'adv_2',
+    title: '曲2 (一歌と奏が別バージョンで歌唱・同一トラック共演なし)',
+    reading: 'きょく2',
+    unit: 'leo_need',
+    releaseDate: '2021-11-01',
+    defaultOrder: 2,
+    vocalVersions: { virtualSinger: false, sekai: true, connectLive: false, anotherVocal: true },
+    characters: ['ichika', 'kanade'],
+    originalType: 'cover',
+    vocalTracks: [
+      { id: 't2_sekai', name: 'セカイver(一歌)', type: 'sekai', singers: ['ichika'] },
+      { id: 't2_another', name: 'アナザーボーカルver(奏)', type: 'another_vocal', singers: ['kanade'] },
+    ],
+  },
+  {
+    id: 'adv_3',
+    title: '曲3 (一歌のみ歌唱)',
+    reading: 'きょく3',
+    unit: 'leo_need',
+    releaseDate: '2021-12-01',
+    defaultOrder: 3,
+    vocalVersions: { virtualSinger: false, sekai: true, connectLive: false, anotherVocal: false },
+    characters: ['ichika'],
+    originalType: 'event',
+    vocalTracks: [
+      { id: 't3_sekai', name: 'セカイver', type: 'sekai', singers: ['ichika'] },
+    ],
+  },
+];
+
 const defaultFilter: FilterOptions = {
   ownership: 'all',
   units: [
@@ -335,14 +383,8 @@ describe('filterAndSortRecords', () => {
     expect(year2Res[0].id).toBe('rec_4');
   });
 
-  it('AND/OR 条件指定が正しく機能する', () => {
-    // mockItems:
-    // rec_1: virtual_singer, miku, cover, year 1
-    // rec_2: leo_need, ichika/saki/miku, event, year 1
-    // rec_3: wonderlands_showtime, tsukasa/emu, event, year 1
-    // rec_4: other, ichika/miku, anniversary, year 2
-
-    // AND条件 (デフォルト): ユニットが leo_need かつ イベント書き下ろし
+  it('条件グループ同士は常にAND（すべて満たす）で判定される', () => {
+    // ユニットが leo_need かつ 箱イベ書下ろし (rec_2のみ)
     const andRes = filterAndSortRecords(
       mockItems,
       {},
@@ -352,44 +394,115 @@ describe('filterAndSortRecords', () => {
         ...defaultFilter,
         units: ['leo_need'],
         originalTypes: ['event'],
-        matchType: 'and',
       }
     );
     expect(andRes.length).toBe(1);
     expect(andRes[0].id).toBe('rec_2');
+  });
 
-    // OR条件: ユニットが leo_need または イベント書き下ろし
-    // rec_2は両方、rec_3はevent、rec_4は複数ユニットにleo_needを含むためヒット
+  it('対象ユニット枠内のOR/AND判定が正しく機能する', () => {
+    // OR: leo_need または nightcord_at_25 を含む楽曲
     const orRes = filterAndSortRecords(
-      mockItems,
+      advancedMockItems,
       {},
       'defaultOrder',
       'asc',
       {
         ...defaultFilter,
-        units: ['leo_need'],
-        originalTypes: ['event'],
-        matchType: 'or',
+        units: ['leo_need', 'nightcord_at_25'],
+        unitMatchType: 'or',
       }
     );
-    expect(orRes.length).toBe(3);
-    expect(orRes.map((r) => r.id)).toEqual(['rec_2', 'rec_3', 'rec_4']);
+    expect(orRes.length).toBe(3); // adv_1, adv_2, adv_3
 
-    // OR条件: 歌唱verにコネクトライブverがある OR 実装年が2年目 (rec_3はconnectLive、rec_4はconnectLiveかつyear 2)
-    const orRes2 = filterAndSortRecords(
-      mockItems,
+    // AND: leo_need と nightcord_at_25 の両方に所属している楽曲 (adv_1のみ)
+    const andRes = filterAndSortRecords(
+      advancedMockItems,
       {},
       'defaultOrder',
       'asc',
       {
         ...defaultFilter,
-        vocalVersions: { virtualSinger: false, sekai: false, connectLive: true, anotherVocal: false },
-        releaseYears: [2],
-        matchType: 'or',
+        units: ['leo_need', 'nightcord_at_25'],
+        unitMatchType: 'and',
       }
     );
-    expect(orRes2.length).toBe(2);
-    expect(orRes2.map((r) => r.id)).toEqual(['rec_3', 'rec_4']);
+    expect(andRes.length).toBe(1);
+    expect(andRes[0].id).toBe('adv_1');
+  });
+
+  it('歌唱バージョン枠内のOR/AND判定が正しく機能する', () => {
+    // OR: virtualSinger または anotherVocal を持つ曲
+    const orRes = filterAndSortRecords(
+      advancedMockItems,
+      {},
+      'defaultOrder',
+      'asc',
+      {
+        ...defaultFilter,
+        vocalVersions: { virtualSinger: true, sekai: false, connectLive: false, anotherVocal: true },
+        vocalMatchType: 'or',
+      }
+    );
+    expect(orRes.map((r) => r.id)).toEqual(['adv_1', 'adv_2']);
+
+    // AND: virtualSinger と anotherVocal の両方を持つ曲 (adv_1のみ)
+    const andRes = filterAndSortRecords(
+      advancedMockItems,
+      {},
+      'defaultOrder',
+      'asc',
+      {
+        ...defaultFilter,
+        vocalVersions: { virtualSinger: true, sekai: false, connectLive: false, anotherVocal: true },
+        vocalMatchType: 'and',
+      }
+    );
+    expect(andRes.map((r) => r.id)).toEqual(['adv_1']);
+  });
+
+  it('歌唱キャラクター枠内のOR / AND_ALL / AND_SAME_TRACK判定が正しく機能する', () => {
+    // OR: 一歌または奏が歌唱（3曲ともヒット）
+    const orRes = filterAndSortRecords(
+      advancedMockItems,
+      {},
+      'defaultOrder',
+      'asc',
+      {
+        ...defaultFilter,
+        characters: ['ichika', 'kanade'],
+        characterMatchType: 'or',
+      }
+    );
+    expect(orRes.map((r) => r.id)).toEqual(['adv_1', 'adv_2', 'adv_3']);
+
+    // AND_ALL (曲全体で全員): 一歌と奏の両方が曲に歌唱参加している（adv_1 と adv_2）
+    const andAllRes = filterAndSortRecords(
+      advancedMockItems,
+      {},
+      'defaultOrder',
+      'asc',
+      {
+        ...defaultFilter,
+        characters: ['ichika', 'kanade'],
+        characterMatchType: 'and_all',
+      }
+    );
+    expect(andAllRes.map((r) => r.id)).toEqual(['adv_1', 'adv_2']);
+
+    // AND_SAME_TRACK (同一Verで全員歌唱): 少なくとも1つの歌唱トラック内で一歌と奏が共演している（adv_1のみ）
+    const andSameTrackRes = filterAndSortRecords(
+      advancedMockItems,
+      {},
+      'defaultOrder',
+      'asc',
+      {
+        ...defaultFilter,
+        characters: ['ichika', 'kanade'],
+        characterMatchType: 'and_same_track',
+      }
+    );
+    expect(andSameTrackRes.map((r) => r.id)).toEqual(['adv_1']);
   });
 });
 

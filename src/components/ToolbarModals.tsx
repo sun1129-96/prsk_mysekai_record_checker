@@ -275,42 +275,6 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
             </div>
           </div>
 
-          {/* 条件の判定方式 (AND / OR) */}
-          <div className="pt-4 space-y-2">
-            <div className="flex items-center justify-between">
-              <div className="font-bold text-slate-700 flex items-center gap-1.5">
-                <span>条件の判定方式</span>
-              </div>
-              <div className="flex items-center bg-slate-100 p-0.5 rounded-xl border border-slate-200 text-xs font-bold">
-                <button
-                  type="button"
-                  onClick={() => onFilterChange({ ...filterOptions, matchType: 'and' })}
-                  className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${(filterOptions.matchType || 'and') === 'and'
-                    ? 'bg-[#33ccbb] text-white shadow-2xs'
-                    : 'text-slate-500 hover:text-slate-700'
-                    }`}
-                >
-                  AND (すべて一致)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => onFilterChange({ ...filterOptions, matchType: 'or' })}
-                  className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${filterOptions.matchType === 'or'
-                    ? 'bg-sky-500 text-white shadow-2xs'
-                    : 'text-slate-500 hover:text-slate-700'
-                    }`}
-                >
-                  OR (いずれか一致)
-                </button>
-              </div>
-            </div>
-            <div className="text-[11px] text-slate-500">
-              {(filterOptions.matchType || 'and') === 'and'
-                ? '※指定したすべての絞り込み条件（ユニット、キャラ、ver、分類、実装年等）を満たす楽曲を表示します'
-                : '※指定したいずれかの絞り込み条件を満たす楽曲を表示します（所持ステータスと検索語は常に適用）'}
-            </div>
-          </div>
-
           {/* 2. 所持状態での絞り込み */}
           <div className="pt-4 space-y-2">
             <div className="font-bold text-slate-700">所持ステータス</div>
@@ -407,7 +371,41 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
             </div>
 
             {openSections.units && (
-              <div className="p-3 sm:p-4 border-t border-slate-100">
+              <div className="p-3 sm:p-4 border-t border-slate-100 space-y-3">
+                {/* 絞り込み条件（いずれかを含む / すべて含む） */}
+                <div className="flex items-center justify-between bg-slate-50 p-2 rounded-xl border border-slate-200/80">
+                  <div className="text-[11px] font-bold text-slate-700">
+                    <span>絞り込み条件</span>
+                    <span className="block text-[10px] font-normal text-slate-500">
+                      {(filterOptions.unitMatchType || 'or') === 'or'
+                        ? '選択したユニットのいずれかが参加'
+                        : '選択したすべてのユニットが参加'}
+                    </span>
+                  </div>
+                  <div className="flex items-center bg-white p-0.5 rounded-lg border border-slate-200 text-xs font-bold shrink-0">
+                    <button
+                      type="button"
+                      onClick={() => onFilterChange({ ...filterOptions, unitMatchType: 'or' })}
+                      className={`px-2.5 py-1 rounded-md text-[11px] transition-all cursor-pointer ${(filterOptions.unitMatchType || 'or') === 'or'
+                        ? 'bg-[#33ccbb] text-white shadow-2xs'
+                        : 'text-slate-500 hover:text-slate-700'
+                        }`}
+                    >
+                      いずれかを含む
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => onFilterChange({ ...filterOptions, unitMatchType: 'and' })}
+                      className={`px-2.5 py-1 rounded-md text-[11px] transition-all cursor-pointer ${filterOptions.unitMatchType === 'and'
+                        ? 'bg-[#33ccbb] text-white shadow-2xs'
+                        : 'text-slate-500 hover:text-slate-700'
+                        }`}
+                    >
+                      すべて含む
+                    </button>
+                  </div>
+                </div>
+
                 <div className="grid grid-cols-2 gap-2">
                   {(Object.keys(UNIT_METAS) as UnitType[]).map((unitKey) => {
                     const meta = UNIT_METAS[unitKey];
@@ -494,7 +492,51 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
             </div>
 
             {openSections.characters && (
-              <div className="p-3 sm:p-4 border-t border-slate-100">
+              <div className="p-3 sm:p-4 border-t border-slate-100 space-y-3">
+                {/* 歌唱条件（いずれかが歌唱 / 全員歌唱 / 同一Verで全員） */}
+                <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-200/80 space-y-1.5">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-[11px] font-bold text-slate-700">歌唱条件</span>
+                    <span className="text-[10px] text-slate-500 font-normal">
+                      {(filterOptions.characterMatchType || 'or') === 'or' && 'いずれかのキャラが歌唱'}
+                      {filterOptions.characterMatchType === 'and_all' && '曲全体で全員が歌唱（別Ver可）'}
+                      {filterOptions.characterMatchType === 'and_same_track' && '1つのVerで全員が同時歌唱'}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-3 gap-1 bg-white p-1 rounded-xl border border-slate-200 text-center font-bold">
+                    <button
+                      type="button"
+                      onClick={() => onFilterChange({ ...filterOptions, characterMatchType: 'or' })}
+                      className={`py-1.5 px-1 rounded-lg text-[10px] sm:text-[11px] transition-all cursor-pointer ${(filterOptions.characterMatchType || 'or') === 'or'
+                        ? 'bg-[#33ccbb] text-white shadow-2xs'
+                        : 'text-slate-500 hover:text-slate-700'
+                        }`}
+                    >
+                      いずれかが歌唱
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => onFilterChange({ ...filterOptions, characterMatchType: 'and_all' })}
+                      className={`py-1.5 px-1 rounded-lg text-[10px] sm:text-[11px] transition-all cursor-pointer ${filterOptions.characterMatchType === 'and_all'
+                        ? 'bg-[#33ccbb] text-white shadow-2xs'
+                        : 'text-slate-500 hover:text-slate-700'
+                        }`}
+                    >
+                      全員 (曲全体)
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => onFilterChange({ ...filterOptions, characterMatchType: 'and_same_track' })}
+                      className={`py-1.5 px-1 rounded-lg text-[10px] sm:text-[11px] transition-all cursor-pointer ${filterOptions.characterMatchType === 'and_same_track'
+                        ? 'bg-[#33ccbb] text-white shadow-2xs'
+                        : 'text-slate-500 hover:text-slate-700'
+                        }`}
+                    >
+                      全員 (同一Ver)
+                    </button>
+                  </div>
+                </div>
+
                 <div className="max-h-60 sm:max-h-72 overflow-y-auto p-1 space-y-3 bg-slate-50/60 rounded-2xl border border-slate-200/80">
                   {(Object.keys(UNIT_METAS) as UnitType[]).map((unitKey) => {
                     const unitMeta = UNIT_METAS[unitKey];
@@ -748,7 +790,41 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                 </div>
 
                 {openSections.vocalVersions && (
-                  <div className="p-3 sm:p-4 border-t border-slate-100">
+                  <div className="p-3 sm:p-4 border-t border-slate-100 space-y-3">
+                    {/* 絞り込み条件（いずれかを含む / すべて含む） */}
+                    <div className="flex items-center justify-between bg-slate-50 p-2 rounded-xl border border-slate-200/80">
+                      <div className="text-[11px] font-bold text-slate-700">
+                        <span>絞り込み条件</span>
+                        <span className="block text-[10px] font-normal text-slate-500">
+                          {(filterOptions.vocalMatchType || 'or') === 'or'
+                            ? '選択したVerのいずれかが存在'
+                            : '選択したすべてのVerが存在'}
+                        </span>
+                      </div>
+                      <div className="flex items-center bg-white p-0.5 rounded-lg border border-slate-200 text-xs font-bold shrink-0">
+                        <button
+                          type="button"
+                          onClick={() => onFilterChange({ ...filterOptions, vocalMatchType: 'or' })}
+                          className={`px-2.5 py-1 rounded-md text-[11px] transition-all cursor-pointer ${(filterOptions.vocalMatchType || 'or') === 'or'
+                            ? 'bg-[#33ccbb] text-white shadow-2xs'
+                            : 'text-slate-500 hover:text-slate-700'
+                            }`}
+                        >
+                          いずれかを含む
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => onFilterChange({ ...filterOptions, vocalMatchType: 'and' })}
+                          className={`px-2.5 py-1 rounded-md text-[11px] transition-all cursor-pointer ${filterOptions.vocalMatchType === 'and'
+                            ? 'bg-[#33ccbb] text-white shadow-2xs'
+                            : 'text-slate-500 hover:text-slate-700'
+                            }`}
+                        >
+                          すべて含む
+                        </button>
+                      </div>
+                    </div>
+
                     <div className="grid grid-cols-2 gap-2 text-xs">
                       {[
                         { key: 'sekai', label: 'セカイver あり' },
@@ -915,7 +991,7 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
             {openSections.bannerCharacters && (
               <div className="p-3 sm:p-4 border-t border-slate-100 space-y-2">
                 <p className="text-[11px] text-slate-400 leading-tight">
-                  ※ 各イベント書き下ろし楽曲のバナー対象キャラクターで絞り込みます。
+                  ※ 各箱イベ書下ろし楽曲のバナー対象キャラクターで絞り込みます。
                 </p>
 
                 {(

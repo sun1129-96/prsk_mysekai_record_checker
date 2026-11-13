@@ -23,6 +23,9 @@ import type {
   FilterOptions,
   OriginalSongType,
   SavedCompareCondition,
+  UnitMatchType,
+  CharacterMatchType,
+  VocalMatchType,
 } from '../types/record';
 import {
   UNIT_METAS,
@@ -288,9 +291,11 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
     }
   }, [savedConditions]);
 
-  // 新規カスタム条件作成フォームのステート（複数選択・AND/OR対応）
+  // 新規カスタム条件作成フォームのステート
   const [newTitle, setNewTitle] = useState('');
-  const [newMatchType, setNewMatchType] = useState<'and' | 'or'>('and');
+  const [newUnitMatchType, setNewUnitMatchType] = useState<UnitMatchType>('or');
+  const [newCharacterMatchType, setNewCharacterMatchType] = useState<CharacterMatchType>('or');
+  const [newVocalMatchType, setNewVocalMatchType] = useState<VocalMatchType>('or');
   const [newSelectedUnits, setNewSelectedUnits] = useState<UnitType[]>([]);
   const [newSelectedChars, setNewSelectedChars] = useState<string[]>([]);
   const [newSelectedOriginalTypes, setNewSelectedOriginalTypes] = useState<OriginalSongType[]>([]);
@@ -529,7 +534,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
     return list;
   }, [rawList, effectiveSortMetric]);
 
-  // 新規カスタム条件の追加（複数選択・AND/OR対応）
+  // 新規カスタム条件の追加（枠内AND/OR対応、条件間はすべてAND）
   const handleAddCustomCondition = (e: React.FormEvent) => {
     e.preventDefault();
     let title = newTitle.trim();
@@ -537,30 +542,47 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
       // 選択された条件から自動命名
       const parts: string[] = [];
       if (newSelectedUnits.length > 0) {
-        parts.push(newSelectedUnits.map((u) => UNIT_METAS[u]?.shortName || u).join('/'));
+        const unitLabels = newSelectedUnits.map((u) => UNIT_METAS[u]?.shortName || u);
+        if (newSelectedUnits.length > 1 && newUnitMatchType === 'and') {
+          parts.push(`${unitLabels.join('+')}(すべて)`);
+        } else {
+          parts.push(unitLabels.join('/'));
+        }
       }
       if (newSelectedOriginalTypes.length > 0) {
         parts.push(newSelectedOriginalTypes.map((t) => ORIGINAL_TYPE_METAS[t]?.shortLabel || t).join('/'));
       }
       if (newSelectedChars.length > 0) {
-        parts.push(newSelectedChars.map((c) => CHARACTERS.find((ch) => ch.id === c)?.name || c).join('/'));
+        const charNames = newSelectedChars.map((c) => CHARACTERS.find((ch) => ch.id === c)?.name || c);
+        if (newSelectedChars.length > 1) {
+          if (newCharacterMatchType === 'and_same_track') {
+            parts.push(`${charNames.join('×')}(同一Ver全員)`);
+          } else if (newCharacterMatchType === 'and_all') {
+            parts.push(`${charNames.join('×')}(全員)`);
+          } else {
+            parts.push(charNames.join('/'));
+          }
+        } else {
+          parts.push(charNames[0]);
+        }
       }
       if (newSelectedVocalTypes.length > 0) {
-        parts.push(
-          newSelectedVocalTypes
-            .map((vt) =>
-              vt === 'sekai'
-                ? 'セカイ'
-                : vt === 'virtualSinger'
-                ? 'バチャシン'
-                : vt === 'connectLive'
-                ? 'コネライ'
-                : vt === 'inst'
-                ? 'Inst'
-                : 'アナザー'
-            )
-            .join('/')
+        const vocalLabels = newSelectedVocalTypes.map((vt) =>
+          vt === 'sekai'
+            ? 'セカイ'
+            : vt === 'virtualSinger'
+            ? 'バチャシン'
+            : vt === 'connectLive'
+            ? 'コネライ'
+            : vt === 'inst'
+            ? 'Inst'
+            : 'アナザー'
         );
+        if (newSelectedVocalTypes.length > 1 && newVocalMatchType === 'and') {
+          parts.push(`${vocalLabels.join('+')}(すべて)`);
+        } else {
+          parts.push(vocalLabels.join('/'));
+        }
       }
       if (newSelectedBannerCharacters.length > 0) {
         parts.push(
@@ -580,13 +602,15 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
         });
         return;
       }
-      title = `${parts.join(' × ')} (${newMatchType.toUpperCase()})`;
+      title = parts.join(' × ');
     }
 
     const newFilter: FilterOptions = {
       ownership: 'all',
       units: newSelectedUnits.length > 0 ? newSelectedUnits : (Object.keys(UNIT_METAS) as UnitType[]),
+      unitMatchType: newUnitMatchType,
       characters: newSelectedChars,
+      characterMatchType: newCharacterMatchType,
       vocalVersions: {
         virtualSinger: newSelectedVocalTypes.includes('virtualSinger'),
         sekai: newSelectedVocalTypes.includes('sekai'),
@@ -594,11 +618,11 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
         anotherVocal: newSelectedVocalTypes.includes('anotherVocal'),
         inst: newSelectedVocalTypes.includes('inst'),
       },
+      vocalMatchType: newVocalMatchType,
       searchQuery: '',
       originalTypes: newSelectedOriginalTypes.length > 0 ? newSelectedOriginalTypes : undefined,
       bannerCharacters: newSelectedBannerCharacters.length > 0 ? newSelectedBannerCharacters : undefined,
       releaseYears: newSelectedReleaseYears.length > 0 ? newSelectedReleaseYears : undefined,
-      matchType: newMatchType,
     };
 
     const newCond: SavedCompareCondition = {
@@ -606,7 +630,9 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
       title,
       filter: newFilter,
       createdAt: Date.now(),
-      matchType: newMatchType,
+      unitMatchType: newUnitMatchType,
+      characterMatchType: newCharacterMatchType,
+      vocalMatchType: newVocalMatchType,
       conditionUnits: newSelectedUnits,
       conditionCharacters: newSelectedChars,
       conditionOriginalTypes: newSelectedOriginalTypes,
@@ -617,6 +643,9 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
 
     setSavedConditions((prev) => [newCond, ...prev]);
     setNewTitle('');
+    setNewUnitMatchType('or');
+    setNewCharacterMatchType('or');
+    setNewVocalMatchType('or');
     setNewSelectedUnits([]);
     setNewSelectedChars([]);
     setNewSelectedOriginalTypes([]);
@@ -831,36 +860,6 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                   <ChevronDown className="w-4 h-4 text-slate-400" />
                 )}
               </button>
-
-              {isCustomFormOpen && (
-                /* AND / OR 条件の切り替えトグル */
-                <div className="flex items-center self-start sm:self-auto bg-white p-0.5 rounded-xl border border-slate-200/90 text-xs font-bold shadow-2xs">
-                  <button
-                    type="button"
-                    onClick={() => setNewMatchType('and')}
-                    className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
-                      newMatchType === 'and'
-                        ? 'bg-[#33ccbb] text-white shadow-2xs'
-                        : 'text-slate-500 hover:text-slate-700'
-                    }`}
-                    title="指定したすべての条件を満たす楽曲を対象にします"
-                  >
-                    AND (すべて一致)
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setNewMatchType('or')}
-                    className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
-                      newMatchType === 'or'
-                        ? 'bg-sky-500 text-white shadow-2xs'
-                        : 'text-slate-500 hover:text-slate-700'
-                    }`}
-                    title="指定したいずれかの条件を満たす楽曲を対象にします"
-                  >
-                    OR (いずれか一致)
-                  </button>
-                </div>
-              )}
             </div>
 
             {isCustomFormOpen && (
@@ -947,7 +946,41 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                 </div>
 
                 {customOpenSections.units && (
-                  <div className="p-3 sm:p-4 border-t border-slate-100">
+                  <div className="p-3 sm:p-4 border-t border-slate-100 space-y-3">
+                    {/* 絞り込み条件（いずれかを含む / すべて含む） */}
+                    <div className="flex items-center justify-between bg-slate-50 p-2 rounded-xl border border-slate-200/80">
+                      <div className="text-[11px] font-bold text-slate-700">
+                        <span>絞り込み条件</span>
+                        <span className="block text-[10px] font-normal text-slate-500">
+                          {newUnitMatchType === 'or'
+                            ? '選択したユニットのいずれかが参加'
+                            : '選択したすべてのユニットが参加'}
+                        </span>
+                      </div>
+                      <div className="flex items-center bg-white p-0.5 rounded-lg border border-slate-200 text-xs font-bold shrink-0">
+                        <button
+                          type="button"
+                          onClick={() => setNewUnitMatchType('or')}
+                          className={`px-2.5 py-1 rounded-md text-[11px] transition-all cursor-pointer ${newUnitMatchType === 'or'
+                            ? 'bg-[#33ccbb] text-white shadow-2xs'
+                            : 'text-slate-500 hover:text-slate-700'
+                            }`}
+                        >
+                          いずれかを含む
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setNewUnitMatchType('and')}
+                          className={`px-2.5 py-1 rounded-md text-[11px] transition-all cursor-pointer ${newUnitMatchType === 'and'
+                            ? 'bg-[#33ccbb] text-white shadow-2xs'
+                            : 'text-slate-500 hover:text-slate-700'
+                            }`}
+                        >
+                          すべて含む
+                        </button>
+                      </div>
+                    </div>
+
                     <div className="grid grid-cols-2 gap-2">
                       {(Object.keys(UNIT_METAS) as UnitType[]).map((unitKey) => {
                         const meta = UNIT_METAS[unitKey];
@@ -1039,7 +1072,51 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                 </div>
 
                 {customOpenSections.characters && (
-                  <div className="p-3 sm:p-4 border-t border-slate-100">
+                  <div className="p-3 sm:p-4 border-t border-slate-100 space-y-3">
+                    {/* 歌唱条件（いずれかが歌唱 / 全員歌唱 / 同一Verで全員） */}
+                    <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-200/80 space-y-1.5">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-[11px] font-bold text-slate-700">歌唱条件</span>
+                        <span className="text-[10px] text-slate-500 font-normal">
+                          {newCharacterMatchType === 'or' && 'いずれかのキャラが歌唱'}
+                          {newCharacterMatchType === 'and_all' && '曲全体で全員が歌唱（別Ver可）'}
+                          {newCharacterMatchType === 'and_same_track' && '1つのVerで全員が同時歌唱'}
+                        </span>
+                      </div>
+                      <div className="grid grid-cols-3 gap-1 bg-white p-1 rounded-xl border border-slate-200 text-center font-bold">
+                        <button
+                          type="button"
+                          onClick={() => setNewCharacterMatchType('or')}
+                          className={`py-1.5 px-1 rounded-lg text-[10px] sm:text-[11px] transition-all cursor-pointer ${newCharacterMatchType === 'or'
+                            ? 'bg-[#33ccbb] text-white shadow-2xs'
+                            : 'text-slate-500 hover:text-slate-700'
+                            }`}
+                        >
+                          いずれかが歌唱
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setNewCharacterMatchType('and_all')}
+                          className={`py-1.5 px-1 rounded-lg text-[10px] sm:text-[11px] transition-all cursor-pointer ${newCharacterMatchType === 'and_all'
+                            ? 'bg-[#33ccbb] text-white shadow-2xs'
+                            : 'text-slate-500 hover:text-slate-700'
+                            }`}
+                        >
+                          全員 (曲全体)
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setNewCharacterMatchType('and_same_track')}
+                          className={`py-1.5 px-1 rounded-lg text-[10px] sm:text-[11px] transition-all cursor-pointer ${newCharacterMatchType === 'and_same_track'
+                            ? 'bg-[#33ccbb] text-white shadow-2xs'
+                            : 'text-slate-500 hover:text-slate-700'
+                            }`}
+                        >
+                          全員 (同一Ver)
+                        </button>
+                      </div>
+                    </div>
+
                     <div className="max-h-60 sm:max-h-72 overflow-y-auto p-2 space-y-3 bg-white/70 rounded-2xl border border-slate-200/80">
                   {(
                     [
@@ -1324,7 +1401,41 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                 </div>
 
                 {customOpenSections.vocalTypes && (
-                  <div className="p-3 sm:p-4 border-t border-slate-100">
+                  <div className="p-3 sm:p-4 border-t border-slate-100 space-y-3">
+                    {/* 絞り込み条件（いずれかを含む / すべて含む） */}
+                    <div className="flex items-center justify-between bg-slate-50 p-2 rounded-xl border border-slate-200/80">
+                      <div className="text-[11px] font-bold text-slate-700">
+                        <span>絞り込み条件</span>
+                        <span className="block text-[10px] font-normal text-slate-500">
+                          {newVocalMatchType === 'or'
+                            ? '選択したVerのいずれかが存在'
+                            : '選択したすべてのVerが存在'}
+                        </span>
+                      </div>
+                      <div className="flex items-center bg-white p-0.5 rounded-lg border border-slate-200 text-xs font-bold shrink-0">
+                        <button
+                          type="button"
+                          onClick={() => setNewVocalMatchType('or')}
+                          className={`px-2.5 py-1 rounded-md text-[11px] transition-all cursor-pointer ${newVocalMatchType === 'or'
+                            ? 'bg-[#33ccbb] text-white shadow-2xs'
+                            : 'text-slate-500 hover:text-slate-700'
+                            }`}
+                        >
+                          いずれかを含む
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setNewVocalMatchType('and')}
+                          className={`px-2.5 py-1 rounded-md text-[11px] transition-all cursor-pointer ${newVocalMatchType === 'and'
+                            ? 'bg-[#33ccbb] text-white shadow-2xs'
+                            : 'text-slate-500 hover:text-slate-700'
+                            }`}
+                        >
+                          すべて含む
+                        </button>
+                      </div>
+                    </div>
+
                     <div className="grid grid-cols-2 gap-2 text-xs">
                       {[
                         { id: 'sekai', label: 'セカイver あり' },
@@ -1686,18 +1797,10 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                 </div>
               )}
 
-              {/* 追加ボタン & マッチタイプ補足説明 */}
+              {/* 追加ボタン & 各条件枠AND説明 */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-slate-200/80">
-                <div className="text-[11px] text-slate-500">
-                  {newMatchType === 'and' ? (
-                    <span className="text-[#0d9488] font-bold">
-                      ※指定したすべての条件を満たす楽曲を対象にします (AND)
-                    </span>
-                  ) : (
-                    <span className="text-sky-600 font-bold">
-                      ※指定したいずれかの条件を満たす楽曲を対象にします (OR)
-                    </span>
-                  )}
+                <div className="text-[11px] text-slate-500 font-medium">
+                  ※各条件グループ（ユニット・キャラ・歌唱Ver等）同士は<span className="text-[#0d9488] font-bold">すべて満たす (AND)</span> 楽曲が対象になります
                 </div>
                 <button
                   type="submit"
@@ -1760,15 +1863,41 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                     {/* カスタム条件の条件詳細バッジ */}
                     {'cond' in item && (item as any).cond && (
                       <div className="flex flex-wrap items-center gap-1 pl-5 text-[10px]">
-                        <span
-                          className={`px-1.5 py-0.2 rounded font-bold shrink-0 whitespace-nowrap ${
-                            (item as any).cond.matchType === 'or'
-                              ? 'bg-sky-100 text-sky-700'
-                              : 'bg-emerald-100 text-emerald-700'
-                          }`}
-                        >
-                          {(item as any).cond.matchType === 'or' ? 'OR条件' : 'AND条件'}
-                        </span>
+                        {/* 過去データ互換: 個別MatchTypeがない場合の全体バッジ */}
+                        {!(item as any).cond.unitMatchType && !(item as any).cond.characterMatchType && !(item as any).cond.vocalMatchType && (
+                          <span
+                            className={`px-1.5 py-0.2 rounded font-bold shrink-0 whitespace-nowrap ${
+                              (item as any).cond.matchType === 'or'
+                                ? 'bg-sky-100 text-sky-700'
+                                : 'bg-emerald-100 text-emerald-700'
+                            }`}
+                          >
+                            {(item as any).cond.matchType === 'or' ? 'いずれか一致' : 'すべて一致'}
+                          </span>
+                        )}
+                        {/* ユニットAND指定時 */}
+                        {(item as any).cond.unitMatchType === 'and' && (item as any).cond.conditionUnits?.length > 1 && (
+                          <span className="px-1.5 py-0.2 rounded font-bold bg-emerald-100 text-emerald-700 shrink-0 whitespace-nowrap">
+                            ユニットすべて
+                          </span>
+                        )}
+                        {/* キャラクター歌唱条件 */}
+                        {(item as any).cond.characterMatchType === 'and_same_track' && (
+                          <span className="px-1.5 py-0.2 rounded font-bold bg-purple-100 text-purple-700 shrink-0 whitespace-nowrap">
+                            同一Verで全員
+                          </span>
+                        )}
+                        {(item as any).cond.characterMatchType === 'and_all' && (
+                          <span className="px-1.5 py-0.2 rounded font-bold bg-purple-100 text-purple-700 shrink-0 whitespace-nowrap">
+                            曲全体で全員
+                          </span>
+                        )}
+                        {/* 歌唱Ver AND指定時 */}
+                        {(item as any).cond.vocalMatchType === 'and' && (item as any).cond.conditionVocalTypes?.length > 1 && (
+                          <span className="px-1.5 py-0.2 rounded font-bold bg-indigo-100 text-indigo-700 shrink-0 whitespace-nowrap">
+                            歌唱Verすべて
+                          </span>
+                        )}
                         {(item as any).cond.conditionUnits?.map((u: UnitType) => (
                           <span key={u} className="px-1.5 py-0.2 rounded bg-slate-100 text-slate-600 shrink-0 whitespace-nowrap">
                             {UNIT_METAS[u]?.shortName || u}

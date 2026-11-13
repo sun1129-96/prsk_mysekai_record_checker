@@ -36,7 +36,9 @@ const DEFAULT_FILTER_OPTIONS: FilterOptions = {
     'nightcord_at_25',
     'other',
   ],
+  unitMatchType: 'or',
   characters: [],
+  characterMatchType: 'or',
   vocalVersions: {
     virtualSinger: false,
     sekai: false,
@@ -44,11 +46,11 @@ const DEFAULT_FILTER_OPTIONS: FilterOptions = {
     anotherVocal: false,
     inst: false,
   },
+  vocalMatchType: 'or',
   searchQuery: '',
   originalTypes: [],
   bannerCharacters: [],
   releaseYears: [],
-  matchType: 'and',
 };
 
 export const App: React.FC = () => {
