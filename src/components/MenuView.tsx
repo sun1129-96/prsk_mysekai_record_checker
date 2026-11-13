@@ -325,37 +325,125 @@ export const MenuView: React.FC<MenuViewProps> = ({
         </div>
       </div>
 
-      {/* 4. 更新履歴（Changelog）カード */}
+      {/* 4. 更新履歴カード */}
       <div className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-xs space-y-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-xl bg-sky-50 text-sky-600">
-              <History className="w-5 h-5" />
-            </div>
-            <div>
-              <h3 className="font-bold text-sm sm:text-base text-slate-800">
-                更新履歴（Changelog）
-              </h3>
-              <p className="text-xs text-slate-400">
-                アプリの新機能追加・楽曲データの更新履歴
-              </p>
-            </div>
+        <div className="flex items-center gap-2.5">
+          <div className="p-2 rounded-xl bg-sky-50 text-sky-600">
+            <History className="w-5 h-5" />
           </div>
-          <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/60 font-mono">
-            全{records.length}曲対応
-          </span>
+          <div>
+            <h3 className="font-bold text-sm sm:text-base text-slate-800">
+              更新履歴
+            </h3>
+            <p className="text-xs text-slate-400">
+              アプリの新機能追加・楽曲データの更新履歴
+            </p>
+          </div>
         </div>
 
         <div className="pt-1 text-xs text-slate-600 border-l-2 border-slate-200 ml-3 pl-4">
+          {/* 2026.11.13 */}
           <div className="relative">
             <div className="absolute -left-[21px] top-1 w-2.5 h-2.5 rounded-full bg-[#33ccbb] border-2 border-white ring-2 ring-[#33ccbb]/20" />
-            <div className="flex items-center gap-2 mb-1">
-              <span className="font-bold text-slate-800">楽曲データ最終追加</span>
-              <span className="text-[11px] font-mono text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">2026.11.08</span>
+            
+            {/* 日付ヘッダー */}
+            <div className="flex items-center gap-2 mb-1.5">
+              <span className="text-[12px] font-mono font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">2026.11.13</span>
             </div>
-            <p className="text-slate-500 text-[11px] leading-relaxed">
-              最新の追加楽曲を含む全{records.length}曲のレコードマスターデータ（ジャケット・公式読み仮名・歌唱ver音源情報）を反映済みです。
-            </p>
+
+            {/* 新機能見出し */}
+            <div className="font-bold text-slate-800 text-xs sm:text-sm mb-2 flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>
+              <span>新機能</span>
+            </div>
+
+            {/* 箇条書きリスト */}
+            <div className="space-y-3 text-[11px] sm:text-xs text-slate-600 leading-relaxed">
+              <div className="flex items-center gap-1.5">
+                <span className="text-slate-400 select-none">-</span>
+                <span className="font-semibold text-slate-800">初期リリース</span>
+              </div>
+
+              {/* リスト表示 */}
+              <div className="space-y-1.5 pt-0.5">
+                <div className="font-bold text-slate-700 flex items-center gap-1.5 text-[11px]">
+                  <span className="w-1 h-3 bg-[#33ccbb] rounded-full inline-block" />
+                  <span>リスト表示</span>
+                </div>
+                <ul className="space-y-1.5 pl-2">
+                  <li className="flex items-start gap-1.5">
+                    <span className="text-slate-400 select-none">-</span>
+                    <span>
+                      <strong className="text-slate-700 font-semibold">[チェック] 所持・未所持チェック</strong>（ワンタップでレコードの所持状況を記録し達成率を表示。クイックチェックモードでチェックに特化）
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-1.5">
+                    <span className="text-slate-400 select-none">-</span>
+                    <span>
+                      <strong className="text-slate-700 font-semibold">[並替・絞込] 多彩な検索・フィルター</strong>（ユニット、キャラクター、音源ver、書き下ろし種別、バナーキャラ等の詳細な絞り込みや五十音・実装日等の並べ替え）
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-1.5">
+                    <span className="text-slate-400 select-none">-</span>
+                    <span>
+                      <strong className="text-slate-700 font-semibold">[楽曲詳細] 楽曲の詳細情報</strong>（ジャケット画像、収録verの詳細等）の確認
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* 所持率比較 */}
+              <div className="space-y-1.5 pt-0.5">
+                <div className="font-bold text-slate-700 flex items-center gap-1.5 text-[11px]">
+                  <span className="w-1 h-3 bg-indigo-400 rounded-full inline-block" />
+                  <span>所持率比較</span>
+                </div>
+                <ul className="space-y-1.5 pl-2">
+                  <li className="flex items-start gap-1.5">
+                    <span className="text-slate-400 select-none">-</span>
+                    <span>
+                      <strong className="text-slate-700 font-semibold">[比較・集計] 達成率の比較機能</strong>（ユニット別、音源ver別、周年・年度別、キャラクター別の収集率グラフ表示や、自由な条件で集計できるカスタム比較）
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* メニュー */}
+              <div className="space-y-1.5 pt-0.5">
+                <div className="font-bold text-slate-700 flex items-center gap-1.5 text-[11px]">
+                  <span className="w-1 h-3 bg-amber-400 rounded-full inline-block" />
+                  <span>メニュー</span>
+                </div>
+                <ul className="space-y-1.5 pl-2">
+                  <li className="flex items-start gap-1.5">
+                    <span className="text-slate-400 select-none">-</span>
+                    <span>
+                      <strong className="text-slate-700 font-semibold">[データ管理] 進捗保存・共有機能</strong>（URL共有および進捗コードによる端末間のデータ引き継ぎや、楽曲の全選択・全解除機能）
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-1.5">
+                    <span className="text-slate-400 select-none">-</span>
+                    <span>
+                      <strong className="text-slate-700 font-semibold">[表示設定] リスト表示のカスタマイズ</strong>（ジャケット、実装日、実装順、歌唱バッジ等の表示・非表示切り替えやコンパクト表示対応）
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* データ見出し */}
+            <div className="font-bold text-slate-800 text-xs sm:text-sm mt-3.5 mb-2 flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-sky-500 inline-block"></span>
+              <span>データ</span>
+            </div>
+
+            {/* データリスト */}
+            <ul className="space-y-1.5 text-[11px] sm:text-xs text-slate-600 leading-relaxed">
+              <li className="flex items-start gap-1.5">
+                <span className="text-slate-400 select-none">-</span>
+                <span>2026.11.11までに追加された楽曲、楽曲バージョンの情報を反映</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
