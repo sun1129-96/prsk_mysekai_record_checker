@@ -1797,11 +1797,8 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                 </div>
               )}
 
-              {/* 追加ボタン & 各条件枠AND説明 */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-slate-200/80">
-                <div className="text-[11px] text-slate-500 font-medium">
-                  ※各条件グループ（ユニット・キャラ・歌唱Ver等）同士は<span className="text-[#0d9488] font-bold">すべて満たす (AND)</span> 楽曲が対象になります
-                </div>
+              {/* 追加ボタン */}
+              <div className="flex justify-end pt-3 border-t border-slate-200/80">
                 <button
                   type="submit"
                   className="px-5 py-2.5 bg-[#33ccbb] hover:bg-[#2cb3a5] text-white font-bold text-xs sm:text-sm rounded-xl shadow-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer active:scale-95"
