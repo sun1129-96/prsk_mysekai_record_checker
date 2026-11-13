@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { Header, type TabType } from './components/Header';
 import { ListView } from './components/ListView';
 import { ComparisonView } from './components/ComparisonView';
@@ -236,6 +237,8 @@ export const App: React.FC = () => {
           </p>
         </div>
       </footer>
+      {/* Vercel Web Analytics 計測コンポーネント */}
+      <Analytics />
     </div>
   );
 };
