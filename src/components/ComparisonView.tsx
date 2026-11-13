@@ -148,13 +148,33 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
     };
   }, [checkTabsScrollable]);
 
-  // アクティブタブ切り替え時にスクロール位置を調整
+  // アクティブタブ切り替え時にスクロール位置を調整（左右インジケーターに重ならず完全に視界に入るよう余白を確保）
   useEffect(() => {
-    if (!tabsRef.current) return;
-    const activeBtn = tabsRef.current.querySelector<HTMLElement>('[data-active="true"]');
-    if (activeBtn) {
-      activeBtn.scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' });
+    const el = tabsRef.current;
+    if (!el) return;
+    const activeBtn = el.querySelector<HTMLElement>('[data-active="true"]');
+    if (!activeBtn) return;
+
+    const leftEdge = el.scrollLeft;
+    const rightEdge = leftEdge + el.clientWidth;
+    const btnLeft = activeBtn.offsetLeft;
+    const btnRight = btnLeft + activeBtn.offsetWidth;
+    const indicatorPadding = 36; // 左右インジケーター（w-8 = 32px）と適度なマージン
+
+    // 左端インジケーターと重なっているか、左にはみ出ている場合
+    if (btnLeft < leftEdge + indicatorPadding) {
+      const targetScroll = Math.max(0, btnLeft - indicatorPadding);
+      el.scrollTo({ left: targetScroll, behavior: 'smooth' });
     }
+    // 右端インジケーターと重なっているか、右にはみ出ている場合
+    else if (btnRight > rightEdge - indicatorPadding) {
+      const targetScroll = Math.min(
+        el.scrollWidth - el.clientWidth,
+        btnRight - el.clientWidth + indicatorPadding
+      );
+      el.scrollTo({ left: targetScroll, behavior: 'smooth' });
+    }
+
     checkTabsScrollable();
   }, [activeTab, checkTabsScrollable]);
 
@@ -165,6 +185,45 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
       if (scrollWidth > clientWidth) {
         tabsRef.current.scrollLeft += e.deltaY;
       }
+    }
+  };
+
+  // タブバーの左右スクロールボタン操作（端にある項目が移動して視界に入る形でスクロール）
+  const handleScrollLeft = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const el = tabsRef.current;
+    if (!el) return;
+    const leftEdge = el.scrollLeft;
+    const indicatorPadding = 36;
+    const buttons = Array.from(el.querySelectorAll<HTMLButtonElement>('button'));
+    const prevBtns = buttons.filter((btn) => btn.offsetLeft < leftEdge + indicatorPadding);
+    const targetBtn = prevBtns[prevBtns.length - 1];
+    if (targetBtn) {
+      const targetScrollLeft = Math.max(0, targetBtn.offsetLeft - indicatorPadding);
+      el.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
+    } else {
+      el.scrollBy({ left: -100, behavior: 'smooth' });
+    }
+  };
+
+  const handleScrollRight = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const el = tabsRef.current;
+    if (!el) return;
+    const rightEdge = el.scrollLeft + el.clientWidth;
+    const indicatorPadding = 36;
+    const buttons = Array.from(el.querySelectorAll<HTMLButtonElement>('button'));
+    const targetBtn = buttons.find(
+      (btn) => btn.offsetLeft + btn.offsetWidth > rightEdge - indicatorPadding
+    );
+    if (targetBtn) {
+      const targetScrollLeft = Math.min(
+        el.scrollWidth - el.clientWidth,
+        targetBtn.offsetLeft + targetBtn.offsetWidth - el.clientWidth + indicatorPadding
+      );
+      el.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
+    } else {
+      el.scrollBy({ left: 100, behavior: 'smooth' });
     }
   };
 
@@ -609,20 +668,23 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
       <div className="sticky top-[97px] z-30 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 border border-slate-200/90 shadow-sm flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5">
         {/* 5大タブ切り替え（横スクロール対応＋左右インジケーター） */}
         <div className="relative min-w-0 max-w-full overflow-hidden rounded-xl">
-          {/* 左スクロール可能インジケーター */}
+          {/* 左スクロール可能インジケーター (タップでスクロール) */}
           {canScrollLeft && (
-            <div
-              className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-slate-200 via-slate-100/90 to-transparent pointer-events-none flex items-center justify-start pl-1 text-slate-500 z-10 animate-in fade-in duration-150"
-              aria-hidden="true"
+            <button
+              type="button"
+              onClick={handleScrollLeft}
+              className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-slate-200 via-slate-100/90 to-transparent flex items-center justify-start pl-1 text-slate-500 hover:text-slate-800 transition-colors z-10 animate-in fade-in duration-150 cursor-pointer"
+              aria-label="前のタブを表示"
+              title="前のタブを表示"
             >
               <ChevronLeft className="w-3.5 h-3.5" />
-            </div>
+            </button>
           )}
 
           <div
             ref={tabsRef}
             onWheel={handleTabsWheel}
-            className="flex items-center gap-1 overflow-x-auto no-scrollbar scroll-smooth p-1 bg-slate-100/90 rounded-xl border border-slate-200/60 text-xs"
+            className="flex items-center gap-1 overflow-x-auto no-scrollbar scroll-smooth p-1 scroll-px-9 bg-slate-100/90 rounded-xl border border-slate-200/60 text-xs"
           >
             <button
               type="button"
@@ -687,14 +749,17 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
             </button>
           </div>
 
-          {/* 右スクロール可能インジケーター */}
+          {/* 右スクロール可能インジケーター (タップでスクロール) */}
           {canScrollRight && (
-            <div
-              className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-slate-200 via-slate-100/90 to-transparent pointer-events-none flex items-center justify-end pr-1 text-slate-500 z-10 animate-in fade-in duration-150"
-              aria-hidden="true"
+            <button
+              type="button"
+              onClick={handleScrollRight}
+              className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-slate-200 via-slate-100/90 to-transparent flex items-center justify-end pr-1 text-slate-500 hover:text-slate-800 transition-colors z-10 animate-in fade-in duration-150 cursor-pointer"
+              aria-label="次のタブを表示"
+              title="次のタブを表示"
             >
               <ChevronRight className="w-3.5 h-3.5" />
-            </div>
+            </button>
           )}
         </div>
 
