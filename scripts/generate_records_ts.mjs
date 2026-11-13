@@ -118,10 +118,11 @@ async function fetchOfficialPronunciations() {
           'https://raw.githubusercontent.com/Sekai-World/sekai-master-db-diff/master/musics.json',
           { headers: { 'User-Agent': 'Mozilla/5.0' } },
           (res) => {
-            let b = '';
-            res.on('data', (c) => (b += c));
+            const chunks = [];
+            res.on('data', (c) => chunks.push(c));
             res.on('end', () => {
               try {
+                const b = Buffer.concat(chunks).toString('utf8');
                 resolve(JSON.parse(b));
               } catch {
                 resolve([]);
@@ -144,6 +145,11 @@ async function fetchOfficialPronunciations() {
         }
         // カタカナ「ヴ」をひらがな「ゔ」に変換
         pron = pron.replace(/ヴ/g, 'ゔ');
+        // 全角カタカナをひらがなに変換
+        pron = pron.replace(/[\u30a1-\u30f6]/g, (match) => {
+          const chr = match.charCodeAt(0) - 0x60;
+          return String.fromCharCode(chr);
+        });
 
         map.set(m.title.trim(), pron);
         map.set(m.title.trim().toLowerCase(), pron);

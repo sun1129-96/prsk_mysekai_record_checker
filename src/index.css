@@ -35,3 +35,12 @@
   background-attachment: fixed;
 }
 
+/* スクロールバー非表示用ユーティリティ */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

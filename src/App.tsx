@@ -13,6 +13,7 @@ const DISPLAY_SETTINGS_STORAGE_KEY = 'mysekai_display_settings_v1';
 const DEFAULT_DISPLAY_SETTINGS: DisplaySettings = {
   showJacket: true,
   showReleaseDate: true,
+  showReleaseOrder: true,
   showVocalBadges: true,
   showCharacters: true,
   compactMode: false,

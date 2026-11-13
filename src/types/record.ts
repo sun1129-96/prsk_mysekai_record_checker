@@ -438,6 +438,7 @@ export interface SavedCompareCondition {
 export interface DisplaySettings {
   showJacket: boolean;
   showReleaseDate: boolean;
+  showReleaseOrder: boolean;
   showVocalBadges: boolean;
   showCharacters: boolean;
   compactMode: boolean;

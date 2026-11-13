@@ -260,11 +260,25 @@ export const MenuView: React.FC<MenuViewProps> = ({
             />
           </label>
 
+          {/* 実装順表示 */}
+          <label className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-slate-100/80 border border-slate-200/70 transition-colors cursor-pointer">
+            <div>
+              <span className="block font-bold text-xs sm:text-sm text-slate-800">実装順</span>
+              <span className="block text-[11px] text-slate-400">楽曲の通し番号（No.）の表示</span>
+            </div>
+            <input
+              type="checkbox"
+              checked={displaySettings.showReleaseOrder}
+              onChange={() => handleToggleDisplay('showReleaseOrder')}
+              className="w-4 h-4 accent-[#33ccbb] rounded cursor-pointer"
+            />
+          </label>
+
           {/* コンパクトモード */}
           <label className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-slate-100/80 border border-slate-200/70 transition-colors cursor-pointer sm:col-span-2">
             <div>
               <span className="block font-bold text-xs sm:text-sm text-slate-800">コンパクト表示モード</span>
-              <span className="block text-[11px] text-slate-400">行間を狭め、1画面にたくさんの楽曲を一覧表示します</span>
+              <span className="block text-[11px] text-slate-400">行間を狭め、1画面にたくさんの楽曲を一覧表示</span>
             </div>
             <input
               type="checkbox"

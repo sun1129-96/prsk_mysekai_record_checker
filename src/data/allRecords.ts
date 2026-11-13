@@ -1,4 +1,4 @@
-// 自動生成ファイル (pjsekai.com より全732曲インポート・公式pronunciation読み仮名適用済み・シンガーID正規化済み・書き下ろし分類およびバナーキャラ付与済み)
+// 自動生成ファイル (pjsekai.com より全733曲インポート・公式pronunciation読み仮名適用済み・シンガーID正規化済み・書き下ろし分類およびバナーキャラ付与済み)
 import type { RecordItem } from '../types/record';
 
 export const ALL_RECORDS: RecordItem[] = [
@@ -15797,7 +15797,8 @@ export const ALL_RECORDS: RecordItem[] = [
       "haruka",
       "airi",
       "shizuku",
-      "una"
+      "una",
+      "miku"
     ],
     "vocalTracks": [
       {
@@ -15834,6 +15835,14 @@ export const ALL_RECORDS: RecordItem[] = [
         "type": "another_vocal",
         "singers": [
           "shizuku"
+        ]
+      },
+      {
+        "id": "rec_281_t5",
+        "name": "アナザーボーカルver.",
+        "type": "another_vocal",
+        "singers": [
+          "miku"
         ]
       }
     ],
@@ -26535,11 +26544,19 @@ export const ALL_RECORDS: RecordItem[] = [
         "name": "アナザーボーカルver.",
         "type": "another_vocal",
         "singers": [
-          "miku"
+          "shizuku"
         ]
       },
       {
         "id": "rec_489_t4",
+        "name": "アナザーボーカルver.",
+        "type": "another_vocal",
+        "singers": [
+          "miku"
+        ]
+      },
+      {
+        "id": "rec_489_t5",
         "name": "アナザーボーカルver.",
         "type": "another_vocal",
         "singers": [
@@ -38149,5 +38166,57 @@ export const ALL_RECORDS: RecordItem[] = [
     ],
     "originalType": "event",
     "bannerCharacter": "kanade"
+  },
+  {
+    "id": "rec_733",
+    "title": "ノーモアフィクション",
+    "reading": "のーもあふぃくしょん",
+    "unit": "more_more_jump",
+    "releaseDate": "2026-11-11",
+    "defaultOrder": 733,
+    "defaultSort": 22032,
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%8E%E3%83%BC%E3%83%A2%E3%82%A2%E3%83%95%E3%82%A3%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3&src=%E3%83%8E%E3%83%BC%E3%83%A2%E3%82%A2%E3%83%95%E3%82%A3%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3.jpg",
+    "jacketUrlVs": "https://pjsekai.com/?plugin=ref&page=%E3%83%8E%E3%83%BC%E3%83%A2%E3%82%A2%E3%83%95%E3%82%A3%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3&src=%E3%83%8E%E3%83%BC%E3%83%A2%E3%82%A2%E3%83%95%E3%82%A3%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3.jpg",
+    "jacketUrlSekai": "https://pjsekai.com/?plugin=ref&page=%E3%83%8E%E3%83%BC%E3%83%A2%E3%82%A2%E3%83%95%E3%82%A3%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3&src=%E3%83%8E%E3%83%BC%E3%83%A2%E3%82%A2%E3%83%95%E3%82%A3%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3.jpg",
+    "vocalVersions": {
+      "sekai": true,
+      "virtualSinger": true,
+      "connectLive": false,
+      "anotherVocal": false,
+      "movie": false,
+      "inst": false
+    },
+    "characters": [
+      "shizuku",
+      "rin",
+      "minori",
+      "haruka",
+      "airi",
+      "miku"
+    ],
+    "vocalTracks": [
+      {
+        "id": "rec_733_t1",
+        "name": "セカイver.",
+        "type": "sekai",
+        "singers": [
+          "shizuku",
+          "rin",
+          "minori",
+          "haruka",
+          "airi"
+        ]
+      },
+      {
+        "id": "rec_733_t2",
+        "name": "バーチャル・シンガーver.",
+        "type": "virtual_singer",
+        "singers": [
+          "miku"
+        ]
+      }
+    ],
+    "originalType": "event",
+    "bannerCharacter": "shizuku"
   }
 ];

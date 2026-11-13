@@ -15582,6 +15582,16 @@
         "singers": [
           "shizuku"
         ]
+      },
+      {
+        "rawType": "アナザーボーカルver.",
+        "type": "another_vocal",
+        "rawSingers": [
+          "初音ミク"
+        ],
+        "singers": [
+          "miku"
+        ]
       }
     ],
     "vocalVersions": {
@@ -25821,6 +25831,16 @@
         ],
         "singers": [
           "teto"
+        ]
+      },
+      {
+        "rawType": "アナザーボーカルver.",
+        "type": "another_vocal",
+        "rawSingers": [
+          "日野森雫"
+        ],
+        "singers": [
+          "shizuku"
         ]
       },
       {
@@ -36648,5 +36668,53 @@
       "anotherVocal": false
     },
     "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E6%98%9F%E3%82%92%E6%8E%A2%E3%81%97%E3%81%A6%E2%99%AD%E2%99%AD&src=%E6%98%9F%E3%82%92%E6%8E%A2%E3%81%97%E3%81%A6%E2%99%AD%E2%99%AD.jpg"
+  },
+  {
+    "no": 733,
+    "defaultSort": 22032,
+    "category": "書",
+    "title": "ノーモアフィクション",
+    "unitRaw": "2_MMJ",
+    "unitId": "more_more_jump",
+    "unitName": "MORE MORE JUMP!",
+    "releaseDate": "2026/11/11",
+    "detailUrl": "https://pjsekai.com/?ecf88acc03",
+    "vocalTracks": [
+      {
+        "rawType": "セカイver.",
+        "type": "sekai",
+        "rawSingers": [
+          "日野森雫",
+          "鏡音リン",
+          "花里みのり",
+          "桐谷遥",
+          "桃井愛莉"
+        ],
+        "singers": [
+          "shizuku",
+          "rin",
+          "minori",
+          "haruka",
+          "airi"
+        ]
+      },
+      {
+        "rawType": "バーチャル・シンガーver.",
+        "type": "virtual_singer",
+        "rawSingers": [
+          "初音ミク"
+        ],
+        "singers": [
+          "miku"
+        ]
+      }
+    ],
+    "vocalVersions": {
+      "sekai": true,
+      "virtualSinger": true,
+      "connectLive": false,
+      "anotherVocal": false
+    },
+    "jacketUrl": "https://pjsekai.com/?plugin=ref&page=%E3%83%8E%E3%83%BC%E3%83%A2%E3%82%A2%E3%83%95%E3%82%A3%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3&src=%E3%83%8E%E3%83%BC%E3%83%A2%E3%82%A2%E3%83%95%E3%82%A3%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3.jpg"
   }
 ]

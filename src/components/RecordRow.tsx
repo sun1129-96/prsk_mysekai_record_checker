@@ -224,9 +224,11 @@ export const RecordRow: React.FC<RecordRowProps> = React.memo(
                 </span>
               )}
 
-              <span className="text-[10px] text-slate-400 font-mono font-semibold shrink-0 whitespace-nowrap">
-                No. {record.defaultOrder}
-              </span>
+              {displaySettings.showReleaseOrder && (
+                <span className="text-[10px] text-slate-400 font-mono font-semibold shrink-0 whitespace-nowrap">
+                  No. {record.defaultOrder}
+                </span>
+              )}
             </div>
           </div>
 

@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import {
   BarChart2,
   Award,
@@ -11,7 +11,12 @@ import {
   SlidersHorizontal,
   ChevronDown,
   ChevronUp,
+  ChevronLeft,
+  ChevronRight,
   Check,
+  AlertCircle,
+  CheckCircle2,
+  X,
 } from 'lucide-react';
 import type {
   RecordItem,
@@ -35,7 +40,31 @@ interface ComparisonViewProps {
 }
 
 type CompareTab = 'unit' | 'vocal' | 'year' | 'character' | 'custom';
-type SortMetric = 'default' | 'percentage_desc' | 'percentage_asc' | 'count_desc' | 'count_asc';
+type SortMetric =
+  | 'default'
+  | 'created_desc'
+  | 'created_asc'
+  | 'percentage_desc'
+  | 'percentage_asc'
+  | 'count_desc'
+  | 'count_asc';
+
+interface CompareStatItem {
+  key: string;
+  name: string;
+  shortName?: string;
+  themeColor: string;
+  iconUrl?: string;
+  total: number;
+  owned: number;
+  percentage: number;
+  isComplete: boolean;
+  defaultOrderIndex: number;
+  filterParams: Partial<FilterOptions>;
+  isCustom?: boolean;
+  cond?: SavedCompareCondition;
+  createdAt?: number;
+}
 
 const CUSTOM_CONDITIONS_STORAGE_KEY = 'mysekai_custom_compare_conditions_v1';
 
@@ -82,6 +111,62 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
 }) => {
   // 5大タブ（ユニット別 / 歌唱ver別 / 実装年別 / 歌唱キャラ別 / カスタム比較）
   const [activeTab, setActiveTab] = useState<CompareTab>('unit');
+
+  // タブバーの横スクロール管理用
+  const tabsRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  // タブバーのスクロール可否判定
+  const checkTabsScrollable = useCallback(() => {
+    const el = tabsRef.current;
+    if (!el) return;
+    const { scrollLeft, scrollWidth, clientWidth } = el;
+    setCanScrollLeft(scrollLeft > 2);
+    setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 2);
+  }, []);
+
+  // スクロール・リサイズイベント監視
+  useEffect(() => {
+    const el = tabsRef.current;
+    if (!el) return;
+
+    checkTabsScrollable();
+
+    const handleScroll = () => checkTabsScrollable();
+    el.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+
+    // リサイズ監視（フォントロードや動的リサイズに対応）
+    const resizeObserver = new ResizeObserver(() => checkTabsScrollable());
+    resizeObserver.observe(el);
+
+    return () => {
+      el.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+      resizeObserver.disconnect();
+    };
+  }, [checkTabsScrollable]);
+
+  // アクティブタブ切り替え時にスクロール位置を調整
+  useEffect(() => {
+    if (!tabsRef.current) return;
+    const activeBtn = tabsRef.current.querySelector<HTMLElement>('[data-active="true"]');
+    if (activeBtn) {
+      activeBtn.scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' });
+    }
+    checkTabsScrollable();
+  }, [activeTab, checkTabsScrollable]);
+
+  // ホイールスクロール対応（狭小幅時に縦ホイールで横スクロール）
+  const handleTabsWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    if (e.deltaY !== 0 && tabsRef.current) {
+      const { scrollWidth, clientWidth } = tabsRef.current;
+      if (scrollWidth > clientWidth) {
+        tabsRef.current.scrollLeft += e.deltaY;
+      }
+    }
+  };
 
   // ソート基準（デフォルト順 / 所持率降順 / 所持率昇順 / 曲数降順）
   const [sortMetric, setSortMetric] = useState<SortMetric>('default');
@@ -156,6 +241,21 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
   >([]);
   const [newSelectedBannerCharacters, setNewSelectedBannerCharacters] = useState<string[]>([]);
   const [newSelectedReleaseYears, setNewSelectedReleaseYears] = useState<number[]>([]);
+
+  // カスタム比較パネル内メッセージ（エラー・成功通知）
+  const [customMessage, setCustomMessage] = useState<{
+    type: 'error' | 'success';
+    text: string;
+  } | null>(null);
+
+  // パネル内メッセージの自動消去（4秒後）
+  useEffect(() => {
+    if (!customMessage) return;
+    const timer = setTimeout(() => {
+      setCustomMessage(null);
+    }, 4000);
+    return () => clearTimeout(timer);
+  }, [customMessage]);
 
   // 1. ユニット別集計
   const unitStats = useMemo(() => {
@@ -293,6 +393,13 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
       const owned = matched.filter((r) => ownedRecordIds[r.id]).length;
       const percentage = total > 0 ? (owned / total) * 100 : 0;
 
+      // 作成日時の取得（古い保存データの場合はIDのタイムスタンプまたは登録順インデックスから算出）
+      let createdAt = cond.createdAt;
+      if (!createdAt) {
+        const match = cond.id.match(/^cond_(\d+)$/);
+        createdAt = match ? parseInt(match[1], 10) : Date.now() - index * 1000;
+      }
+
       return {
         key: cond.id,
         name: cond.title,
@@ -305,6 +412,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
         filterParams: cond.filter,
         isCustom: true,
         cond,
+        createdAt,
       };
     });
   }, [records, ownedRecordIds, savedConditions]);
@@ -325,26 +433,43 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
     }
   }, [activeTab, unitStats, vocalStats, releaseYearStats, characterStats, customStats]);
 
-  // ソート適用（デフォルト順 / 所持率高い順 / 所持率低い順 / 曲数多い順）
+  // タブに応じた実効ソート方式の算出（カスタム比較時はデフォルト順を廃止し、追加が新しい順・古い順に対応）
+  const effectiveSortMetric = useMemo<SortMetric>(() => {
+    if (activeTab === 'custom') {
+      if (sortMetric === 'default') return 'created_desc';
+      return sortMetric;
+    } else {
+      if (sortMetric === 'created_desc' || sortMetric === 'created_asc') return 'default';
+      return sortMetric;
+    }
+  }, [activeTab, sortMetric]);
+
+  // ソート適用（追加順 / デフォルト順 / 所持率高い順 / 所持率低い順 / 曲数多い順）
   const sortedList = useMemo(() => {
-    const list = [...rawList];
-    if (sortMetric === 'default') {
+    const list = [...rawList] as CompareStatItem[];
+    if (effectiveSortMetric === 'created_desc') {
+      return list.sort((a, b) => (b.createdAt ?? 0) - (a.createdAt ?? 0));
+    }
+    if (effectiveSortMetric === 'created_asc') {
+      return list.sort((a, b) => (a.createdAt ?? 0) - (b.createdAt ?? 0));
+    }
+    if (effectiveSortMetric === 'default') {
       return list.sort((a, b) => a.defaultOrderIndex - b.defaultOrderIndex);
     }
-    if (sortMetric === 'percentage_desc') {
+    if (effectiveSortMetric === 'percentage_desc') {
       return list.sort((a, b) => b.percentage - a.percentage || b.total - a.total);
     }
-    if (sortMetric === 'percentage_asc') {
+    if (effectiveSortMetric === 'percentage_asc') {
       return list.sort((a, b) => a.percentage - b.percentage || b.total - a.total);
     }
-    if (sortMetric === 'count_desc') {
+    if (effectiveSortMetric === 'count_desc') {
       return list.sort((a, b) => b.total - a.total || b.percentage - a.percentage);
     }
-    if (sortMetric === 'count_asc') {
+    if (effectiveSortMetric === 'count_asc') {
       return list.sort((a, b) => a.total - b.total || a.percentage - b.percentage);
     }
     return list;
-  }, [rawList, sortMetric]);
+  }, [rawList, effectiveSortMetric]);
 
   // 新規カスタム条件の追加（複数選択・AND/OR対応）
   const handleAddCustomCondition = (e: React.FormEvent) => {
@@ -391,7 +516,10 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
         parts.push(newSelectedReleaseYears.map((y) => `${y}年目`).join('/'));
       }
       if (parts.length === 0) {
-        alert('少なくとも1つの条件（ユニット、楽曲分類、キャラ、歌唱ver、バナーキャラ、実装年）を選択してください');
+        setCustomMessage({
+          type: 'error',
+          text: '少なくとも1つの条件（ユニット、楽曲分類、キャラ、歌唱ver、バナーキャラ、実装年）を選択してください',
+        });
         return;
       }
       title = `${parts.join(' × ')} (${newMatchType.toUpperCase()})`;
@@ -438,7 +566,10 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
     setNewSelectedBannerCharacters([]);
     setNewSelectedReleaseYears([]);
     setIsCustomFormOpen(false);
-    alert(`比較条件「${title}」を追加しました！`);
+    setCustomMessage({
+      type: 'success',
+      text: `比較条件「${title}」を追加しました！`,
+    });
   };
 
   // カスタム条件の削除
@@ -446,6 +577,10 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
     e.stopPropagation();
     if (confirm(`比較条件「${title}」を削除しますか？`)) {
       setSavedConditions((prev) => prev.filter((c) => c.id !== id));
+      setCustomMessage({
+        type: 'success',
+        text: `比較条件「${title}」を削除しました`,
+      });
     }
   };
 
@@ -460,67 +595,107 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
           <h2 className="text-sm sm:text-base font-bold text-slate-800">
             所持率の比較・進捗分析
           </h2>
-          <p className="text-xs text-slate-500">
-            各条件の所持率を棒グラフで比較できます。バーをクリックすると、その条件の楽曲リストが表示されます。
+          <p className="text-xs text-slate-500 flex flex-wrap items-center gap-1">
+            <span>各条件の所持率を棒グラフで比較できます。各条件右側の</span>
+            <span className="inline-flex items-center justify-center p-1 rounded-md border border-slate-200 bg-slate-50 text-slate-600 shadow-2xs">
+              <ExternalLink className="w-3 h-3" />
+            </span>
+            <span>ボタンをクリックすると、その条件の楽曲リストが表示されます。</span>
           </p>
         </div>
       </div>
 
       {/* 固定表示されるタブ切り替え & 並び替えツールバー (スクロール追従) */}
       <div className="sticky top-[97px] z-30 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 border border-slate-200/90 shadow-sm flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5">
-        {/* 5大タブ切り替え */}
-        <div className="flex flex-wrap items-center gap-1 bg-slate-100/90 p-1 rounded-xl border border-slate-200/60 text-xs">
-          <button
-            onClick={() => setActiveTab('unit')}
-            className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
-              activeTab === 'unit'
-                ? 'bg-white text-slate-800 shadow-2xs'
-                : 'text-slate-500 hover:text-slate-700'
-            }`}
+        {/* 5大タブ切り替え（横スクロール対応＋左右インジケーター） */}
+        <div className="relative min-w-0 max-w-full overflow-hidden rounded-xl">
+          {/* 左スクロール可能インジケーター */}
+          {canScrollLeft && (
+            <div
+              className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-slate-200 via-slate-100/90 to-transparent pointer-events-none flex items-center justify-start pl-1 text-slate-500 z-10 animate-in fade-in duration-150"
+              aria-hidden="true"
+            >
+              <ChevronLeft className="w-3.5 h-3.5" />
+            </div>
+          )}
+
+          <div
+            ref={tabsRef}
+            onWheel={handleTabsWheel}
+            className="flex items-center gap-1 overflow-x-auto no-scrollbar scroll-smooth p-1 bg-slate-100/90 rounded-xl border border-slate-200/60 text-xs"
           >
-            ユニット別
-          </button>
-          <button
-            onClick={() => setActiveTab('vocal')}
-            className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
-              activeTab === 'vocal'
-                ? 'bg-white text-slate-800 shadow-2xs'
-                : 'text-slate-500 hover:text-slate-700'
-            }`}
-          >
-            歌唱ver別
-          </button>
-          <button
-            onClick={() => setActiveTab('year')}
-            className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
-              activeTab === 'year'
-                ? 'bg-white text-slate-800 shadow-2xs'
-                : 'text-slate-500 hover:text-slate-700'
-            }`}
-          >
-            実装年別
-          </button>
-          <button
-            onClick={() => setActiveTab('character')}
-            className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
-              activeTab === 'character'
-                ? 'bg-white text-slate-800 shadow-2xs'
-                : 'text-slate-500 hover:text-slate-700'
-            }`}
-          >
-            歌唱キャラ別
-          </button>
-          <button
-            onClick={() => setActiveTab('custom')}
-            className={`px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1 cursor-pointer ${
-              activeTab === 'custom'
-                ? 'bg-[#33ccbb] text-white shadow-2xs'
-                : 'text-slate-500 hover:text-slate-700'
-            }`}
-          >
-            <SlidersHorizontal className="w-3.5 h-3.5" />
-            <span>カスタム比較</span>
-          </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab('unit')}
+              data-active={activeTab === 'unit'}
+              className={`px-3 py-1.5 rounded-lg font-bold transition-all shrink-0 whitespace-nowrap cursor-pointer ${
+                activeTab === 'unit'
+                  ? 'bg-white text-slate-800 shadow-2xs'
+                  : 'text-slate-500 hover:text-slate-700'
+              }`}
+            >
+              ユニット別
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab('vocal')}
+              data-active={activeTab === 'vocal'}
+              className={`px-3 py-1.5 rounded-lg font-bold transition-all shrink-0 whitespace-nowrap cursor-pointer ${
+                activeTab === 'vocal'
+                  ? 'bg-white text-slate-800 shadow-2xs'
+                  : 'text-slate-500 hover:text-slate-700'
+              }`}
+            >
+              歌唱ver別
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab('year')}
+              data-active={activeTab === 'year'}
+              className={`px-3 py-1.5 rounded-lg font-bold transition-all shrink-0 whitespace-nowrap cursor-pointer ${
+                activeTab === 'year'
+                  ? 'bg-white text-slate-800 shadow-2xs'
+                  : 'text-slate-500 hover:text-slate-700'
+              }`}
+            >
+              実装年別
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab('character')}
+              data-active={activeTab === 'character'}
+              className={`px-3 py-1.5 rounded-lg font-bold transition-all shrink-0 whitespace-nowrap cursor-pointer ${
+                activeTab === 'character'
+                  ? 'bg-white text-slate-800 shadow-2xs'
+                  : 'text-slate-500 hover:text-slate-700'
+              }`}
+            >
+              歌唱キャラ別
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab('custom')}
+              data-active={activeTab === 'custom'}
+              className={`px-3 py-1.5 rounded-lg font-bold transition-all shrink-0 whitespace-nowrap flex items-center gap-1 cursor-pointer ${
+                activeTab === 'custom'
+                  ? 'bg-[#33ccbb] text-white shadow-2xs'
+                  : 'text-slate-500 hover:text-slate-700'
+              }`}
+            >
+              <SlidersHorizontal className="w-3.5 h-3.5" />
+              <span>カスタム比較</span>
+            </button>
+          </div>
+
+          {/* 右スクロール可能インジケーター */}
+          {canScrollRight && (
+            <div
+              className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-slate-200 via-slate-100/90 to-transparent pointer-events-none flex items-center justify-end pr-1 text-slate-500 z-10 animate-in fade-in duration-150"
+              aria-hidden="true"
+            >
+              <ChevronRight className="w-3.5 h-3.5" />
+            </div>
+          )}
         </div>
 
         {/* ソートセレクター（固定表示） */}
@@ -528,21 +703,61 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
           <ArrowUpDown className="w-3.5 h-3.5 text-slate-400" />
           <span className="text-[11px] text-slate-500 font-normal hidden sm:inline">並び替え:</span>
           <select
-            value={sortMetric}
+            value={effectiveSortMetric}
             onChange={(e) => setSortMetric(e.target.value as SortMetric)}
             className="bg-transparent border-none text-xs font-bold text-slate-700 focus:outline-hidden cursor-pointer"
           >
-            <option value="default">デフォルト順</option>
-            <option value="percentage_desc">所持率が高い順</option>
-            <option value="percentage_asc">所持率が低い順</option>
-            <option value="count_desc">楽曲数が多い順</option>
-            <option value="count_asc">楽曲数が少ない順</option>
+            {activeTab === 'custom' ? (
+              <>
+                <option value="created_desc">追加が新しい順</option>
+                <option value="created_asc">追加が古い順</option>
+                <option value="percentage_desc">所持率が高い順</option>
+                <option value="percentage_asc">所持率が低い順</option>
+                <option value="count_desc">楽曲数が多い順</option>
+                <option value="count_asc">楽曲数が少ない順</option>
+              </>
+            ) : (
+              <>
+                <option value="default">デフォルト順</option>
+                <option value="percentage_desc">所持率が高い順</option>
+                <option value="percentage_asc">所持率が低い順</option>
+                <option value="count_desc">楽曲数が多い順</option>
+                <option value="count_asc">楽曲数が少ない順</option>
+              </>
+            )}
           </select>
         </div>
       </div>
 
       {/* メインコンテンツカード */}
       <div className="bg-white/90 backdrop-blur-md rounded-3xl p-4 sm:p-5 border border-slate-200/80 shadow-xs space-y-4">
+        {/* カスタム比較タブ時のメッセージ通知（追加成功・エラー・削除） */}
+        {activeTab === 'custom' && customMessage && (
+          <div
+            className={`p-3 sm:p-3.5 rounded-2xl flex items-center justify-between gap-2 text-xs sm:text-sm font-bold border transition-all animate-in fade-in slide-in-from-top-1 duration-200 ${
+              customMessage.type === 'error'
+                ? 'bg-rose-50 border-rose-200 text-rose-700'
+                : 'bg-emerald-50 border-emerald-200 text-emerald-700'
+            }`}
+          >
+            <div className="flex items-center gap-2">
+              {customMessage.type === 'error' ? (
+                <AlertCircle className="w-4 h-4 shrink-0 text-rose-600" />
+              ) : (
+                <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600" />
+              )}
+              <span>{customMessage.text}</span>
+            </div>
+            <button
+              type="button"
+              onClick={() => setCustomMessage(null)}
+              className="p-1 rounded-lg hover:bg-black/5 transition-colors cursor-pointer"
+              aria-label="閉じる"
+            >
+              <X className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        )}
         {/* カスタム比較タブ時の条件作成・追加パネル（折りたたみ可能） */}
         {activeTab === 'custom' && (
           <div
@@ -622,19 +837,18 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
               {/* 条件グループの一括展開/折りたたみバー */}
               <div className="flex items-center justify-between px-1 pt-1 text-xs">
                 <span className="text-[11px] font-bold text-slate-500">条件グループ（クリックで開閉）</span>
-                <div className="flex gap-2 text-[11px]">
+                <div className="flex items-center gap-1.5 text-[11px]">
                   <button
                     type="button"
                     onClick={() => setAllCustomSections(true)}
-                    className="text-[#0d9488] font-bold hover:underline cursor-pointer"
+                    className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-[#33ccbb]/15 text-[#0d9488] font-bold transition-colors cursor-pointer"
                   >
                     すべて展開
                   </button>
-                  <span className="text-slate-300">|</span>
                   <button
                     type="button"
                     onClick={() => setAllCustomSections(false)}
-                    className="text-slate-400 font-bold hover:underline cursor-pointer"
+                    className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 font-bold transition-colors cursor-pointer"
                   >
                     すべて折りたたむ
                   </button>
@@ -656,19 +870,18 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                     )}
                   </div>
                   <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
-                    <div className="flex gap-2 text-xs">
+                    <div className="flex items-center gap-1.5 text-xs">
                       <button
                         type="button"
                         onClick={() => setNewSelectedUnits(Object.keys(UNIT_METAS) as UnitType[])}
-                        className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                        className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-[#33ccbb]/15 text-[#0d9488] font-bold transition-colors cursor-pointer text-[11px]"
                       >
                         全選択
                       </button>
-                      <span className="text-slate-300">|</span>
                       <button
                         type="button"
                         onClick={() => setNewSelectedUnits([])}
-                        className="text-slate-400 hover:underline cursor-pointer"
+                        className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 font-medium transition-colors cursor-pointer text-[11px]"
                       >
                         クリア
                       </button>
@@ -676,7 +889,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                     <button
                       type="button"
                       onClick={() => toggleCustomSection('units')}
-                      className="p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
+                      className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
                       aria-label="ユニット条件を展開・折りたたみ"
                     >
                       {customOpenSections.units ? (
@@ -749,19 +962,18 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                     )}
                   </div>
                   <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
-                    <div className="flex gap-2 text-xs">
+                    <div className="flex items-center gap-1.5 text-xs">
                       <button
                         type="button"
                         onClick={() => setNewSelectedChars(CHARACTERS.map((c) => c.id))}
-                        className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                        className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-[#33ccbb]/15 text-[#0d9488] font-bold transition-colors cursor-pointer text-[11px]"
                       >
                         全選択
                       </button>
-                      <span className="text-slate-300">|</span>
                       <button
                         type="button"
                         onClick={() => setNewSelectedChars([])}
-                        className="text-slate-400 hover:underline cursor-pointer"
+                        className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 font-medium transition-colors cursor-pointer text-[11px]"
                       >
                         クリア
                       </button>
@@ -769,7 +981,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                     <button
                       type="button"
                       onClick={() => toggleCustomSection('characters')}
-                      className="p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
+                      className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
                       aria-label="キャラクター条件を展開・折りたたみ"
                     >
                       {customOpenSections.characters ? (
@@ -858,7 +1070,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                               )}
                               <span>{displayName}</span>
                             </div>
-                            <div className="flex gap-1.5 text-[10px]">
+                            <div className="flex items-center gap-1 text-[10px]">
                               <button
                                 type="button"
                                 onClick={() => {
@@ -867,11 +1079,10 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                                     Array.from(new Set([...prev, ...mainIds]))
                                   );
                                 }}
-                                className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                                className="px-2 py-0.5 rounded-md bg-white border border-slate-200/80 hover:bg-[#33ccbb]/10 text-[#0d9488] font-bold transition-colors cursor-pointer"
                               >
                                 全選択
                               </button>
-                              <span className="text-slate-300">|</span>
                               <button
                                 type="button"
                                 onClick={() => {
@@ -880,7 +1091,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                                     prev.filter((id) => !mainIds.includes(id))
                                   );
                                 }}
-                                className="text-slate-400 hover:underline cursor-pointer"
+                                className="px-2 py-0.5 rounded-md bg-white border border-slate-200/80 hover:bg-slate-100 text-slate-500 font-medium transition-colors cursor-pointer"
                               >
                                 クリア
                               </button>
@@ -897,7 +1108,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                                 <span className="text-[11px] font-bold text-slate-600">
                                   ゲーム未登場シンガー ({extraChars.length}人)
                                 </span>
-                                <div className="flex gap-1.5 text-[10px]">
+                                <div className="flex items-center gap-1 text-[10px]">
                                   <button
                                     type="button"
                                     onClick={() => {
@@ -906,11 +1117,10 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                                         Array.from(new Set([...prev, ...extraIds]))
                                       );
                                     }}
-                                    className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                                    className="px-2 py-0.5 rounded-md bg-white border border-slate-200/80 hover:bg-[#33ccbb]/10 text-[#0d9488] font-bold transition-colors cursor-pointer"
                                   >
                                     全選択
                                   </button>
-                                  <span className="text-slate-300">|</span>
                                   <button
                                     type="button"
                                     onClick={() => {
@@ -919,7 +1129,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                                         prev.filter((id) => !extraIds.includes(id))
                                       );
                                     }}
-                                    className="text-slate-400 hover:underline cursor-pointer"
+                                    className="px-2 py-0.5 rounded-md bg-white border border-slate-200/80 hover:bg-slate-100 text-slate-500 font-medium transition-colors cursor-pointer"
                                   >
                                     クリア
                                   </button>
@@ -982,7 +1192,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                             )}
                             <span>{displayName}</span>
                           </div>
-                          <div className="flex gap-1.5 text-[10px]">
+                          <div className="flex items-center gap-1 text-[10px]">
                             <button
                               type="button"
                               onClick={() => {
@@ -991,11 +1201,10 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                                   Array.from(new Set([...prev, ...ids]))
                                 );
                               }}
-                              className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                              className="px-2 py-0.5 rounded-md bg-white border border-slate-200/80 hover:bg-[#33ccbb]/10 text-[#0d9488] font-bold transition-colors cursor-pointer"
                             >
                               全選択
                             </button>
-                            <span className="text-slate-300">|</span>
                             <button
                               type="button"
                               onClick={() => {
@@ -1004,7 +1213,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                                   prev.filter((id) => !ids.includes(id))
                                 );
                               }}
-                              className="text-slate-400 hover:underline cursor-pointer"
+                              className="px-2 py-0.5 rounded-md bg-white border border-slate-200/80 hover:bg-slate-100 text-slate-500 font-medium transition-colors cursor-pointer"
                             >
                               クリア
                             </button>
@@ -1036,21 +1245,20 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                     )}
                   </div>
                   <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
-                    <div className="flex gap-2 text-xs">
+                    <div className="flex items-center gap-1.5 text-xs">
                       <button
                         type="button"
                         onClick={() =>
                           setNewSelectedVocalTypes(['sekai', 'virtualSinger', 'connectLive', 'anotherVocal', 'inst'])
                         }
-                        className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                        className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-[#33ccbb]/15 text-[#0d9488] font-bold transition-colors cursor-pointer text-[11px]"
                       >
                         全選択
                       </button>
-                      <span className="text-slate-300">|</span>
                       <button
                         type="button"
                         onClick={() => setNewSelectedVocalTypes([])}
-                        className="text-slate-400 hover:underline cursor-pointer"
+                        className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 font-medium transition-colors cursor-pointer text-[11px]"
                       >
                         クリア
                       </button>
@@ -1058,7 +1266,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                     <button
                       type="button"
                       onClick={() => toggleCustomSection('vocalTypes')}
-                      className="p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
+                      className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
                       aria-label="歌唱バージョン条件を展開・折りたたみ"
                     >
                       {customOpenSections.vocalTypes ? (
@@ -1120,7 +1328,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                     )}
                   </div>
                   <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
-                    <div className="flex gap-2 text-xs">
+                    <div className="flex items-center gap-1.5 text-xs">
                       <button
                         type="button"
                         onClick={() =>
@@ -1130,15 +1338,14 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                             )
                           )
                         }
-                        className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                        className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-[#33ccbb]/15 text-[#0d9488] font-bold transition-colors cursor-pointer text-[11px]"
                       >
                         全選択
                       </button>
-                      <span className="text-slate-300">|</span>
                       <button
                         type="button"
                         onClick={() => setNewSelectedOriginalTypes([])}
-                        className="text-slate-400 hover:underline cursor-pointer"
+                        className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 font-medium transition-colors cursor-pointer text-[11px]"
                       >
                         クリア
                       </button>
@@ -1146,7 +1353,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                     <button
                       type="button"
                       onClick={() => toggleCustomSection('originalTypes')}
-                      className="p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
+                      className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
                       aria-label="楽曲分類条件を展開・折りたたみ"
                     >
                       {customOpenSections.originalTypes ? (
@@ -1205,7 +1412,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                     )}
                   </div>
                   <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
-                    <div className="flex gap-2 text-xs">
+                    <div className="flex items-center gap-1.5 text-xs">
                       <button
                         type="button"
                         onClick={() => {
@@ -1220,15 +1427,14 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                           ).map((c) => c.id);
                           setNewSelectedBannerCharacters(original20);
                         }}
-                        className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                        className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-[#33ccbb]/15 text-[#0d9488] font-bold transition-colors cursor-pointer text-[11px]"
                       >
                         全選択
                       </button>
-                      <span className="text-slate-300">|</span>
                       <button
                         type="button"
                         onClick={() => setNewSelectedBannerCharacters([])}
-                        className="text-slate-400 hover:underline cursor-pointer"
+                        className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 font-medium transition-colors cursor-pointer text-[11px]"
                       >
                         クリア
                       </button>
@@ -1236,7 +1442,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                     <button
                       type="button"
                       onClick={() => toggleCustomSection('bannerCharacters')}
-                      className="p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
+                      className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
                       aria-label="イベントバナーキャラクター条件を展開・折りたたみ"
                     >
                       {customOpenSections.bannerCharacters ? (
@@ -1271,7 +1477,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                               )}
                               <span>{uMeta.name}</span>
                             </div>
-                            <div className="flex gap-1.5 text-[10px]">
+                            <div className="flex items-center gap-1 text-[10px]">
                               <button
                                 type="button"
                                 onClick={() => {
@@ -1280,11 +1486,10 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                                     Array.from(new Set([...prev, ...memberIds]))
                                   );
                                 }}
-                                className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                                className="px-2 py-0.5 rounded-md bg-white border border-slate-200/80 hover:bg-[#33ccbb]/10 text-[#0d9488] font-bold transition-colors cursor-pointer"
                               >
                                 全選択
                               </button>
-                              <span className="text-slate-300">|</span>
                               <button
                                 type="button"
                                 onClick={() => {
@@ -1293,7 +1498,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                                     prev.filter((id) => !memberIds.includes(id))
                                   );
                                 }}
-                                className="text-slate-400 hover:underline cursor-pointer"
+                                className="px-2 py-0.5 rounded-md bg-white border border-slate-200/80 hover:bg-slate-100 text-slate-500 font-medium transition-colors cursor-pointer"
                               >
                                 クリア
                               </button>
@@ -1350,19 +1555,18 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                     )}
                   </div>
                   <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
-                    <div className="flex gap-2 text-xs">
+                    <div className="flex items-center gap-1.5 text-xs">
                       <button
                         type="button"
                         onClick={() => setNewSelectedReleaseYears([1, 2, 3, 4, 5, 6, 7])}
-                        className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                        className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-[#33ccbb]/15 text-[#0d9488] font-bold transition-colors cursor-pointer text-[11px]"
                       >
                         全選択
                       </button>
-                      <span className="text-slate-300">|</span>
                       <button
                         type="button"
                         onClick={() => setNewSelectedReleaseYears([])}
-                        className="text-slate-400 hover:underline cursor-pointer"
+                        className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 font-medium transition-colors cursor-pointer text-[11px]"
                       >
                         クリア
                       </button>
@@ -1370,7 +1574,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                     <button
                       type="button"
                       onClick={() => toggleCustomSection('releaseYears')}
-                      className="p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
+                      className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
                       aria-label="実装年条件を展開・折りたたみ"
                     >
                       {customOpenSections.releaseYears ? (
@@ -1419,6 +1623,24 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                 )}
               </div>
 
+              {/* 条件未選択時のエラーメッセージバナー（フォーム内） */}
+              {customMessage?.type === 'error' && (
+                <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 shrink-0 text-rose-600" />
+                    <span>{customMessage.text}</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setCustomMessage(null)}
+                    className="p-0.5 rounded-md hover:bg-black/5 text-rose-500 cursor-pointer"
+                    aria-label="閉じる"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              )}
+
               {/* 追加ボタン & マッチタイプ補足説明 */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-slate-200/80">
                 <div className="text-[11px] text-slate-500">
@@ -1457,11 +1679,10 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
             sortedList.map((item) => (
               <div
                 key={item.key}
-                onClick={() => onNavigateToList(item.filterParams as any)}
-                className={`group p-4 rounded-2xl border transition-all cursor-pointer ${
+                className={`p-4 rounded-2xl border transition-all ${
                   item.isComplete
-                    ? 'bg-emerald-50/50 border-emerald-300 hover:border-emerald-400 shadow-2xs'
-                    : 'bg-white/80 border-slate-200/80 hover:border-[#33ccbb]/60 hover:shadow-xs'
+                    ? 'bg-emerald-50/50 border-emerald-300 shadow-2xs'
+                    : 'bg-white/80 border-slate-200/80 shadow-2xs'
                 }`}
               >
                 <div className="flex items-center justify-between mb-2">
@@ -1479,9 +1700,8 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                           style={{ backgroundColor: item.themeColor }}
                         />
                       )}
-                      <span className="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-[#0d9488] transition-colors flex items-center gap-1">
-                        <span>{item.name}</span>
-                        <ExternalLink className="w-3 h-3 text-slate-300 group-hover:text-[#33ccbb] transition-colors inline" />
+                      <span className="font-bold text-xs sm:text-sm text-slate-800">
+                        {item.name}
                       </span>
 
                       {item.isComplete && (
@@ -1550,7 +1770,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                     )}
                   </div>
 
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2 sm:gap-3">
                     <div className="flex items-baseline gap-1.5 font-bold">
                       <span className="text-base sm:text-lg text-slate-800">
                         {item.percentage.toFixed(1)}%
@@ -1560,11 +1780,22 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({
                       </span>
                     </div>
 
+                    {/* リスト画面へジャンプするボタン */}
+                    <button
+                      type="button"
+                      onClick={() => onNavigateToList(item.filterParams as any)}
+                      className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center text-slate-500 hover:text-[#0d9488] hover:bg-[#33ccbb]/15 rounded-xl transition-colors cursor-pointer border border-slate-200 hover:border-[#33ccbb]/40 shadow-2xs"
+                      title="この条件で楽曲リストを表示"
+                      aria-label="この条件で楽曲リストを表示"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </button>
+
                     {Boolean((item as any).isCustom) && (
                       <button
                         type="button"
                         onClick={(e) => handleDeleteCustomCondition(item.key, item.name, e)}
-                        className="p-1.5 text-slate-300 hover:text-rose-500 hover:bg-rose-50 rounded-lg transition-colors cursor-pointer"
+                        className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center text-slate-400 hover:text-rose-500 hover:bg-rose-50 rounded-xl transition-colors cursor-pointer border border-slate-200/60 hover:border-rose-200"
                         title="この比較条件を削除"
                       >
                         <Trash2 className="w-4 h-4" />

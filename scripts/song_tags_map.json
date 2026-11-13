@@ -2328,5 +2328,9 @@
   "星を探して♭♭": {
     "originalType": "event",
     "bannerCharacter": "kanade"
+  },
+  "ノーモアフィクション": {
+    "originalType": "event",
+    "bannerCharacter": "shizuku"
   }
 }

@@ -86,8 +86,10 @@ export const RecordDetailModal: React.FC<RecordDetailModalProps> = ({
         {/* 上部ヘッダー */}
         <div className="relative p-6 pb-4 bg-gradient-to-b from-slate-50 to-white flex flex-col items-center border-b border-slate-100 shrink-0">
           <button
+            type="button"
             onClick={onClose}
-            className="absolute top-4 right-4 p-1 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-200/50"
+            className="absolute top-4 right-4 p-2 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-200/60 transition-colors cursor-pointer"
+            aria-label="閉じる"
           >
             <X className="w-5 h-5" />
           </button>

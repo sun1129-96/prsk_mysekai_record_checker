@@ -177,8 +177,10 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
             </h2>
           </div>
           <button
+            type="button"
             onClick={onClose}
-            className="p-1 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-200/60 transition-colors"
+            className="p-2 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-200/60 transition-colors cursor-pointer"
+            aria-label="閉じる"
           >
             <X className="w-5 h-5" />
           </button>
@@ -199,8 +201,8 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                 type="button"
                 onClick={() => onSortChange('defaultSort', sortDirection)}
                 className={`py-2.5 px-2 rounded-xl border font-bold text-xs sm:text-sm text-center transition-all ${sortType === 'defaultSort'
-                    ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] shadow-2xs'
-                    : 'border-slate-200 text-slate-600 hover:bg-slate-50'
+                  ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] shadow-2xs'
+                  : 'border-slate-200 text-slate-600 hover:bg-slate-50'
                   }`}
               >
                 デフォルト順
@@ -210,8 +212,8 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                 type="button"
                 onClick={() => onSortChange('releaseDate', sortDirection)}
                 className={`py-2.5 px-2 rounded-xl border font-bold text-xs sm:text-sm text-center transition-all ${sortType === 'releaseDate'
-                    ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] shadow-2xs'
-                    : 'border-slate-200 text-slate-600 hover:bg-slate-50'
+                  ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] shadow-2xs'
+                  : 'border-slate-200 text-slate-600 hover:bg-slate-50'
                   }`}
               >
                 実装日順
@@ -221,8 +223,8 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                 type="button"
                 onClick={() => onSortChange('reading', sortDirection)}
                 className={`py-2.5 px-2 rounded-xl border font-bold text-xs sm:text-sm text-center transition-all ${sortType === 'reading'
-                    ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] shadow-2xs'
-                    : 'border-slate-200 text-slate-600 hover:bg-slate-50'
+                  ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] shadow-2xs'
+                  : 'border-slate-200 text-slate-600 hover:bg-slate-50'
                   }`}
               >
                 五十音順
@@ -237,8 +239,8 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                   type="button"
                   onClick={() => onSortChange(sortType, 'asc')}
                   className={`py-2 px-3 rounded-xl border text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${sortDirection === 'asc'
-                      ? 'border-[#33ccbb] bg-white text-[#0d9488] shadow-xs'
-                      : 'border-transparent text-slate-500 hover:bg-slate-200/50'
+                    ? 'border-[#33ccbb] bg-white text-[#0d9488] shadow-xs'
+                    : 'border-transparent text-slate-500 hover:bg-slate-200/50'
                     }`}
                 >
                   {sortType === 'defaultSort' && 'デフォルト順 (昇順)'}
@@ -250,8 +252,8 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                   type="button"
                   onClick={() => onSortChange(sortType, 'desc')}
                   className={`py-2 px-3 rounded-xl border text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${sortDirection === 'desc'
-                      ? 'border-[#33ccbb] bg-white text-[#0d9488] shadow-xs'
-                      : 'border-transparent text-slate-500 hover:bg-slate-200/50'
+                    ? 'border-[#33ccbb] bg-white text-[#0d9488] shadow-xs'
+                    : 'border-transparent text-slate-500 hover:bg-slate-200/50'
                     }`}
                 >
                   {sortType === 'defaultSort' && '逆順 (降順)'}
@@ -273,8 +275,8 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                   type="button"
                   onClick={() => onFilterChange({ ...filterOptions, matchType: 'and' })}
                   className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${(filterOptions.matchType || 'and') === 'and'
-                      ? 'bg-[#33ccbb] text-white shadow-2xs'
-                      : 'text-slate-500 hover:text-slate-700'
+                    ? 'bg-[#33ccbb] text-white shadow-2xs'
+                    : 'text-slate-500 hover:text-slate-700'
                     }`}
                 >
                   AND (すべて一致)
@@ -283,8 +285,8 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                   type="button"
                   onClick={() => onFilterChange({ ...filterOptions, matchType: 'or' })}
                   className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${filterOptions.matchType === 'or'
-                      ? 'bg-sky-500 text-white shadow-2xs'
-                      : 'text-slate-500 hover:text-slate-700'
+                    ? 'bg-sky-500 text-white shadow-2xs'
+                    : 'text-slate-500 hover:text-slate-700'
                     }`}
                 >
                   OR (いずれか一致)
@@ -316,8 +318,8 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                     onFilterChange({ ...filterOptions, ownership: status.id })
                   }
                   className={`py-2 px-3 rounded-xl border text-xs sm:text-sm font-medium transition-all ${filterOptions.ownership === status.id
-                      ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] font-bold'
-                      : 'border-slate-200 text-slate-600 hover:bg-slate-50'
+                    ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] font-bold'
+                    : 'border-slate-200 text-slate-600 hover:bg-slate-50'
                     }`}
                 >
                   {status.label}
@@ -329,19 +331,18 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
           {/* 絞り込み条件グループの一括展開/折りたたみバー */}
           <div className="pt-2 flex items-center justify-between px-1 text-xs">
             <span className="text-[11px] font-bold text-slate-500">絞り込み条件グループ（クリックで開閉）</span>
-            <div className="flex gap-2 text-[11px]">
+            <div className="flex items-center gap-1.5 text-[11px]">
               <button
                 type="button"
                 onClick={() => setAllSections(true)}
-                className="text-[#0d9488] font-bold hover:underline cursor-pointer"
+                className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-[#33ccbb]/15 text-[#0d9488] font-bold transition-colors cursor-pointer"
               >
                 すべて展開
               </button>
-              <span className="text-slate-300">|</span>
               <button
                 type="button"
                 onClick={() => setAllSections(false)}
-                className="text-slate-400 font-bold hover:underline cursor-pointer"
+                className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 font-bold transition-colors cursor-pointer"
               >
                 すべて折りたたむ
               </button>
@@ -363,19 +364,18 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                 </span>
               </div>
               <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
-                <div className="flex gap-2 text-xs">
+                <div className="flex items-center gap-1.5 text-xs">
                   <button
                     type="button"
                     onClick={() => handleSelectAllUnits(true)}
-                    className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                    className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-[#33ccbb]/15 text-[#0d9488] font-bold transition-colors cursor-pointer text-[11px]"
                   >
                     全選択
                   </button>
-                  <span className="text-slate-300">|</span>
                   <button
                     type="button"
                     onClick={() => handleSelectAllUnits(false)}
-                    className="text-slate-400 hover:underline cursor-pointer"
+                    className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 font-medium transition-colors cursor-pointer text-[11px]"
                   >
                     クリア
                   </button>
@@ -383,7 +383,7 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                 <button
                   type="button"
                   onClick={() => toggleSection('units')}
-                  className="p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
+                  className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
                   aria-label="ユニット条件を展開・折りたたみ"
                 >
                   {openSections.units ? (
@@ -406,11 +406,10 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                         key={unitKey}
                         type="button"
                         onClick={() => handleUnitToggle(unitKey)}
-                        className={`flex items-center gap-2 px-2.5 py-2 rounded-xl border text-left min-h-[42px] transition-all cursor-pointer ${
-                          isSelected
+                        className={`flex items-center gap-2 px-2.5 py-2 rounded-xl border text-left min-h-[42px] transition-all cursor-pointer ${isSelected
                             ? 'border-slate-400/80 bg-white shadow-2xs text-slate-800'
                             : 'border-slate-200/70 bg-slate-50/60 text-slate-400 opacity-60 hover:opacity-80'
-                        }`}
+                          }`}
                       >
                         {meta.iconUrl ? (
                           <img
@@ -452,19 +451,18 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                 )}
               </div>
               <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
-                <div className="flex gap-2 text-xs">
+                <div className="flex items-center gap-1.5 text-xs">
                   <button
                     type="button"
                     onClick={handleSelectAllCharacters}
-                    className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                    className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-[#33ccbb]/15 text-[#0d9488] font-bold transition-colors cursor-pointer text-[11px]"
                   >
                     全選択
                   </button>
-                  <span className="text-slate-300">|</span>
                   <button
                     type="button"
                     onClick={handleClearCharacters}
-                    className="text-slate-400 hover:underline cursor-pointer"
+                    className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 font-medium transition-colors cursor-pointer text-[11px]"
                   >
                     クリア
                   </button>
@@ -472,7 +470,7 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                 <button
                   type="button"
                   onClick={() => toggleSection('characters')}
-                  className="p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
+                  className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
                   aria-label="キャラクター条件を展開・折りたたみ"
                 >
                   {openSections.characters ? (
@@ -487,199 +485,196 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
             {openSections.characters && (
               <div className="p-3 sm:p-4 border-t border-slate-100">
                 <div className="max-h-60 sm:max-h-72 overflow-y-auto p-1 space-y-3 bg-slate-50/60 rounded-2xl border border-slate-200/80">
-              {(Object.keys(UNIT_METAS) as UnitType[]).map((unitKey) => {
-                const unitMeta = UNIT_METAS[unitKey];
-                const unitChars = CHARACTERS.filter((c) => c.unit === unitKey);
-                if (unitChars.length === 0) return null;
+                  {(Object.keys(UNIT_METAS) as UnitType[]).map((unitKey) => {
+                    const unitMeta = UNIT_METAS[unitKey];
+                    const unitChars = CHARACTERS.filter((c) => c.unit === unitKey);
+                    if (unitChars.length === 0) return null;
 
-                const displayName =
-                  unitKey === 'other' ? 'その他（コラボ・ゲスト）' : unitMeta.name;
+                    const displayName =
+                      unitKey === 'other' ? 'その他（コラボ・ゲスト）' : unitMeta.name;
 
-                // 単一キャラクターボタン描画ヘルパー
-                const renderCharButton = (char: (typeof CHARACTERS)[number]) => {
-                  const isSelected = filterOptions.characters.includes(char.id);
-                  return (
-                    <button
-                      key={char.id}
-                      type="button"
-                      onClick={() => handleCharacterToggle(char.id)}
-                      className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs text-left transition-all ${isSelected
-                          ? 'bg-white border-[#33ccbb] text-[#0d9488] font-bold shadow-2xs'
-                          : 'bg-white/80 border-slate-200/70 text-slate-600 hover:bg-white'
-                        }`}
-                    >
-                      <div
-                        className="w-2.5 h-2.5 rounded-full shrink-0 border border-slate-300/80 shadow-2xs"
-                        style={{ backgroundColor: char.color }}
-                      />
-                      <span className="truncate flex-1">{char.name}</span>
-                      {isSelected && (
-                        <Check className="w-3 h-3 text-[#0d9488] shrink-0" />
-                      )}
-                    </button>
-                  );
-                };
-
-                // バーチャル・シンガーの場合：ゲーム内登場（6人）とゲーム未登場（30人）を分離
-                if (unitKey === 'virtual_singer') {
-                  const mainChars = unitChars.filter((c) =>
-                    GAME_VIRTUAL_SINGER_IDS.includes(c.id as any)
-                  );
-                  const extraChars = unitChars.filter(
-                    (c) => !GAME_VIRTUAL_SINGER_IDS.includes(c.id as any)
-                  );
-                  const selectedExtraCount = extraChars.filter((c) =>
-                    filterOptions.characters.includes(c.id)
-                  ).length;
-
-                  return (
-                    <div key={unitKey} className="space-y-1.5">
-                      <div className="flex items-center justify-between px-1 pt-1">
-                        <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-700">
-                          {unitMeta.iconUrl ? (
-                            <img
-                              src={unitMeta.iconUrl}
-                              alt={unitMeta.name}
-                              className="w-3.5 h-3.5 object-contain shrink-0 drop-shadow-2xs"
-                            />
-                          ) : (
-                            <div
-                              className="w-2.5 h-2.5 rounded-full shrink-0 border border-slate-300"
-                              style={{ backgroundColor: unitMeta.themeColor }}
-                            />
+                    // 単一キャラクターボタン描画ヘルパー
+                    const renderCharButton = (char: (typeof CHARACTERS)[number]) => {
+                      const isSelected = filterOptions.characters.includes(char.id);
+                      return (
+                        <button
+                          key={char.id}
+                          type="button"
+                          onClick={() => handleCharacterToggle(char.id)}
+                          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs text-left transition-all ${isSelected
+                            ? 'bg-white border-[#33ccbb] text-[#0d9488] font-bold shadow-2xs'
+                            : 'bg-white/80 border-slate-200/70 text-slate-600 hover:bg-white'
+                            }`}
+                        >
+                          <div
+                            className="w-2.5 h-2.5 rounded-full shrink-0 border border-slate-300/80 shadow-2xs"
+                            style={{ backgroundColor: char.color }}
+                          />
+                          <span className="truncate flex-1">{char.name}</span>
+                          {isSelected && (
+                            <Check className="w-3 h-3 text-[#0d9488] shrink-0" />
                           )}
-                          <span>{displayName}</span>
-                        </div>
-                        <div className="flex gap-1.5 text-[10px]">
-                          <button
-                            type="button"
-                            onClick={() => handleBatchSelectChars(mainChars.map((c) => c.id), true)}
-                            className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
-                          >
-                            全選択
-                          </button>
-                          <span className="text-slate-300">|</span>
-                          <button
-                            type="button"
-                            onClick={() => handleBatchSelectChars(mainChars.map((c) => c.id), false)}
-                            className="text-slate-400 hover:underline cursor-pointer"
-                          >
-                            クリア
-                          </button>
-                        </div>
-                      </div>
+                        </button>
+                      );
+                    };
 
-                      {/* ゲーム内登場の6人（初音ミク、鏡音リン、鏡音レン、巡音ルカ、MEIKO、KAITO） */}
-                      <div className="grid grid-cols-2 gap-1.5">
-                        {mainChars.map(renderCharButton)}
-                      </div>
+                    // バーチャル・シンガーの場合：ゲーム内登場（6人）とゲーム未登場（30人）を分離
+                    if (unitKey === 'virtual_singer') {
+                      const mainChars = unitChars.filter((c) =>
+                        GAME_VIRTUAL_SINGER_IDS.includes(c.id as any)
+                      );
+                      const extraChars = unitChars.filter(
+                        (c) => !GAME_VIRTUAL_SINGER_IDS.includes(c.id as any)
+                      );
+                      const selectedExtraCount = extraChars.filter((c) =>
+                        filterOptions.characters.includes(c.id)
+                      ).length;
 
-                      {/* ゲーム未登場シンガー（折りたたみ表示 & 全選択/クリア） */}
-                      {extraChars.length > 0 && (
-                        <div className="pt-1 space-y-1">
-                          <div className="flex items-center justify-between px-1">
-                            <span className="text-[11px] font-bold text-slate-600">
-                              ゲーム未登場シンガー ({extraChars.length}人)
-                            </span>
-                            <div className="flex gap-1.5 text-[10px]">
+                      return (
+                        <div key={unitKey} className="space-y-1.5">
+                          <div className="flex items-center justify-between px-1 pt-1">
+                            <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-700">
+                              {unitMeta.iconUrl ? (
+                                <img
+                                  src={unitMeta.iconUrl}
+                                  alt={unitMeta.name}
+                                  className="w-3.5 h-3.5 object-contain shrink-0 drop-shadow-2xs"
+                                />
+                              ) : (
+                                <div
+                                  className="w-2.5 h-2.5 rounded-full shrink-0 border border-slate-300"
+                                  style={{ backgroundColor: unitMeta.themeColor }}
+                                />
+                              )}
+                              <span>{displayName}</span>
+                            </div>
+                            <div className="flex items-center gap-1 text-[10px]">
                               <button
                                 type="button"
-                                onClick={() => handleBatchSelectChars(extraChars.map((c) => c.id), true)}
-                                className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                                onClick={() => handleBatchSelectChars(mainChars.map((c) => c.id), true)}
+                                className="px-2 py-0.5 rounded-md bg-white border border-slate-200/80 hover:bg-[#33ccbb]/10 text-[#0d9488] font-bold transition-colors cursor-pointer"
                               >
                                 全選択
                               </button>
-                              <span className="text-slate-300">|</span>
                               <button
                                 type="button"
-                                onClick={() => handleBatchSelectChars(extraChars.map((c) => c.id), false)}
-                                className="text-slate-400 hover:underline cursor-pointer"
+                                onClick={() => handleBatchSelectChars(mainChars.map((c) => c.id), false)}
+                                className="px-2 py-0.5 rounded-md bg-white border border-slate-200/80 hover:bg-slate-100 text-slate-500 font-medium transition-colors cursor-pointer"
                               >
                                 クリア
                               </button>
                             </div>
                           </div>
 
-                          <button
-                            type="button"
-                            onClick={() => setShowNonGameSingers(!showNonGameSingers)}
-                            className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-left text-xs font-bold transition-all border cursor-pointer ${showNonGameSingers
-                                ? 'bg-slate-200/80 border-slate-300 text-slate-800'
-                                : 'bg-slate-100/90 hover:bg-slate-200/60 border-slate-200 text-slate-600'
-                              }`}
-                          >
-                            <span className="flex items-center gap-1.5 text-[11px]">
-                              <span>シンガー一覧</span>
-                              {selectedExtraCount > 0 && (
-                                <span className="bg-[#33ccbb] text-white px-1.5 py-0.5 rounded-full text-[10px] font-bold leading-none shadow-2xs">
-                                  {selectedExtraCount}人選択中
-                                </span>
-                              )}
-                            </span>
-                            <span className="flex items-center gap-1 text-[11px] text-slate-500">
-                              <span>{showNonGameSingers ? '閉じる' : '表示する'}</span>
-                              {showNonGameSingers ? (
-                                <ChevronUp className="w-3.5 h-3.5 text-slate-500" />
-                              ) : (
-                                <ChevronDown className="w-3.5 h-3.5 text-slate-500" />
-                              )}
-                            </span>
-                          </button>
+                          {/* ゲーム内登場の6人（初音ミク、鏡音リン、鏡音レン、巡音ルカ、MEIKO、KAITO） */}
+                          <div className="grid grid-cols-2 gap-1.5">
+                            {mainChars.map(renderCharButton)}
+                          </div>
 
-                          {showNonGameSingers && (
-                            <div className="grid grid-cols-2 gap-1.5 mt-1.5 pt-1.5 pl-2 border-l-2 border-slate-200 animate-in fade-in duration-150">
-                              {extraChars.map(renderCharButton)}
+                          {/* ゲーム未登場シンガー（折りたたみ表示 & 全選択/クリア） */}
+                          {extraChars.length > 0 && (
+                            <div className="pt-1 space-y-1">
+                              <div className="flex items-center justify-between px-1">
+                                <span className="text-[11px] font-bold text-slate-600">
+                                  ゲーム未登場シンガー ({extraChars.length}人)
+                                </span>
+                                <div className="flex items-center gap-1 text-[10px]">
+                                  <button
+                                    type="button"
+                                    onClick={() => handleBatchSelectChars(extraChars.map((c) => c.id), true)}
+                                    className="px-2 py-0.5 rounded-md bg-white border border-slate-200/80 hover:bg-[#33ccbb]/10 text-[#0d9488] font-bold transition-colors cursor-pointer"
+                                  >
+                                    全選択
+                                  </button>
+                                  <button
+                                    type="button"
+                                    onClick={() => handleBatchSelectChars(extraChars.map((c) => c.id), false)}
+                                    className="px-2 py-0.5 rounded-md bg-white border border-slate-200/80 hover:bg-slate-100 text-slate-500 font-medium transition-colors cursor-pointer"
+                                  >
+                                    クリア
+                                  </button>
+                                </div>
+                              </div>
+
+                              <button
+                                type="button"
+                                onClick={() => setShowNonGameSingers(!showNonGameSingers)}
+                                className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-left text-xs font-bold transition-all border cursor-pointer ${showNonGameSingers
+                                  ? 'bg-slate-200/80 border-slate-300 text-slate-800'
+                                  : 'bg-slate-100/90 hover:bg-slate-200/60 border-slate-200 text-slate-600'
+                                  }`}
+                              >
+                                <span className="flex items-center gap-1.5 text-[11px]">
+                                  <span>シンガー一覧</span>
+                                  {selectedExtraCount > 0 && (
+                                    <span className="bg-[#33ccbb] text-white px-1.5 py-0.5 rounded-full text-[10px] font-bold leading-none shadow-2xs">
+                                      {selectedExtraCount}人選択中
+                                    </span>
+                                  )}
+                                </span>
+                                <span className="flex items-center gap-1 text-[11px] text-slate-500">
+                                  <span>{showNonGameSingers ? '閉じる' : '表示する'}</span>
+                                  {showNonGameSingers ? (
+                                    <ChevronUp className="w-3.5 h-3.5 text-slate-500" />
+                                  ) : (
+                                    <ChevronDown className="w-3.5 h-3.5 text-slate-500" />
+                                  )}
+                                </span>
+                              </button>
+
+                              {showNonGameSingers && (
+                                <div className="grid grid-cols-2 gap-1.5 mt-1.5 pt-1.5 pl-2 border-l-2 border-slate-200 animate-in fade-in duration-150">
+                                  {extraChars.map(renderCharButton)}
+                                </div>
+                              )}
                             </div>
                           )}
                         </div>
-                      )}
-                    </div>
-                  );
-                }
+                      );
+                    }
 
-                // その他のユニット（レオニ、モモジャン、ビビバス、ワンダショ、ニーゴ、その他）
-                return (
-                  <div key={unitKey} className="space-y-1.5">
-                    <div className="flex items-center justify-between px-1 pt-1">
-                      <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-700">
-                        {unitMeta.iconUrl ? (
-                          <img
-                            src={unitMeta.iconUrl}
-                            alt={unitMeta.name}
-                            className="w-3.5 h-3.5 object-contain shrink-0 drop-shadow-2xs"
-                          />
-                        ) : (
-                          <div
-                            className="w-2.5 h-2.5 rounded-full shrink-0 border border-slate-300"
-                            style={{ backgroundColor: unitMeta.themeColor }}
-                          />
-                        )}
-                        <span>{displayName}</span>
+                    // その他のユニット（レオニ、モモジャン、ビビバス、ワンダショ、ニーゴ、その他）
+                    return (
+                      <div key={unitKey} className="space-y-1.5">
+                        <div className="flex items-center justify-between px-1 pt-1">
+                          <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-700">
+                            {unitMeta.iconUrl ? (
+                              <img
+                                src={unitMeta.iconUrl}
+                                alt={unitMeta.name}
+                                className="w-3.5 h-3.5 object-contain shrink-0 drop-shadow-2xs"
+                              />
+                            ) : (
+                              <div
+                                className="w-2.5 h-2.5 rounded-full shrink-0 border border-slate-300"
+                                style={{ backgroundColor: unitMeta.themeColor }}
+                              />
+                            )}
+                            <span>{displayName}</span>
+                          </div>
+                          <div className="flex items-center gap-1 text-[10px]">
+                            <button
+                              type="button"
+                              onClick={() => handleBatchSelectChars(unitChars.map((c) => c.id), true)}
+                              className="px-2 py-0.5 rounded-md bg-white border border-slate-200/80 hover:bg-[#33ccbb]/10 text-[#0d9488] font-bold transition-colors cursor-pointer"
+                            >
+                              全選択
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => handleBatchSelectChars(unitChars.map((c) => c.id), false)}
+                              className="px-2 py-0.5 rounded-md bg-white border border-slate-200/80 hover:bg-slate-100 text-slate-500 font-medium transition-colors cursor-pointer"
+                            >
+                              クリア
+                            </button>
+                          </div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-1.5">
+                          {unitChars.map(renderCharButton)}
+                        </div>
                       </div>
-                      <div className="flex gap-1.5 text-[10px]">
-                        <button
-                          type="button"
-                          onClick={() => handleBatchSelectChars(unitChars.map((c) => c.id), true)}
-                          className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
-                        >
-                          全選択
-                        </button>
-                        <span className="text-slate-300">|</span>
-                        <button
-                          type="button"
-                          onClick={() => handleBatchSelectChars(unitChars.map((c) => c.id), false)}
-                          className="text-slate-400 hover:underline cursor-pointer"
-                        >
-                          クリア
-                        </button>
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-2 gap-1.5">
-                      {unitChars.map(renderCharButton)}
-                    </div>
-                  </div>
-                );
-              })}
+                    );
+                  })}
                 </div>
               </div>
             )}
@@ -710,19 +705,18 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                     )}
                   </div>
                   <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
-                    <div className="flex gap-2 text-xs">
+                    <div className="flex items-center gap-1.5 text-xs">
                       <button
                         type="button"
                         onClick={() => handleSelectAllVocalVersions(true)}
-                        className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                        className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-[#33ccbb]/15 text-[#0d9488] font-bold transition-colors cursor-pointer text-[11px]"
                       >
                         全選択
                       </button>
-                      <span className="text-slate-300">|</span>
                       <button
                         type="button"
                         onClick={() => handleSelectAllVocalVersions(false)}
-                        className="text-slate-400 hover:underline cursor-pointer"
+                        className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 font-medium transition-colors cursor-pointer text-[11px]"
                       >
                         クリア
                       </button>
@@ -730,7 +724,7 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                     <button
                       type="button"
                       onClick={() => toggleSection('vocalVersions')}
-                      className="p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
+                      className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
                       aria-label="歌唱バージョン条件を展開・折りたたみ"
                     >
                       {openSections.vocalVersions ? (
@@ -766,11 +760,10 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                                 },
                               })
                             }
-                            className={`px-3 py-2 rounded-xl border text-left font-medium transition-all cursor-pointer ${
-                              active
+                            className={`px-3 py-2 rounded-xl border text-left font-medium transition-all cursor-pointer ${active
                                 ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] font-bold shadow-2xs'
                                 : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
-                            }`}
+                              }`}
                           >
                             {v.label}
                           </button>
@@ -798,19 +791,18 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                 )}
               </div>
               <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
-                <div className="flex gap-2 text-xs">
+                <div className="flex items-center gap-1.5 text-xs">
                   <button
                     type="button"
                     onClick={() => handleSelectAllOriginalTypes(true)}
-                    className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                    className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-[#33ccbb]/15 text-[#0d9488] font-bold transition-colors cursor-pointer text-[11px]"
                   >
                     全選択
                   </button>
-                  <span className="text-slate-300">|</span>
                   <button
                     type="button"
                     onClick={() => handleSelectAllOriginalTypes(false)}
-                    className="text-slate-400 hover:underline cursor-pointer"
+                    className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 font-medium transition-colors cursor-pointer text-[11px]"
                   >
                     クリア
                   </button>
@@ -818,7 +810,7 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                 <button
                   type="button"
                   onClick={() => toggleSection('originalTypes')}
-                  className="p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
+                  className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
                   aria-label="楽曲分類条件を展開・折りたたみ"
                 >
                   {openSections.originalTypes ? (
@@ -849,11 +841,10 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                               : [...current, typeKey];
                             onFilterChange({ ...filterOptions, originalTypes: updated });
                           }}
-                          className={`px-3 py-2 rounded-xl border text-left font-medium transition-all cursor-pointer ${
-                            isSelected
+                          className={`px-3 py-2 rounded-xl border text-left font-medium transition-all cursor-pointer ${isSelected
                               ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] font-bold shadow-2xs'
                               : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
-                          }`}
+                            }`}
                         >
                           {meta.label}
                         </button>
@@ -879,19 +870,18 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                 )}
               </div>
               <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
-                <div className="flex gap-2 text-xs">
+                <div className="flex items-center gap-1.5 text-xs">
                   <button
                     type="button"
                     onClick={() => handleSelectAllBannerCharacters(true)}
-                    className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                    className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-[#33ccbb]/15 text-[#0d9488] font-bold transition-colors cursor-pointer text-[11px]"
                   >
                     全選択
                   </button>
-                  <span className="text-slate-300">|</span>
                   <button
                     type="button"
                     onClick={() => handleSelectAllBannerCharacters(false)}
-                    className="text-slate-400 hover:underline cursor-pointer"
+                    className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 font-medium transition-colors cursor-pointer text-[11px]"
                   >
                     クリア
                   </button>
@@ -899,7 +889,7 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                 <button
                   type="button"
                   onClick={() => toggleSection('bannerCharacters')}
-                  className="p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
+                  className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
                   aria-label="イベントバナーキャラクター条件を展開・折りたたみ"
                 >
                   {openSections.bannerCharacters ? (
@@ -983,11 +973,10 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                                   : [...current, char.id];
                                 onFilterChange({ ...filterOptions, bannerCharacters: updated });
                               }}
-                              className={`flex items-center gap-1.5 px-2 py-1.5 rounded-xl border text-left text-xs transition-all cursor-pointer ${
-                                isSelected
+                              className={`flex items-center gap-1.5 px-2 py-1.5 rounded-xl border text-left text-xs transition-all cursor-pointer ${isSelected
                                   ? 'border-slate-800 bg-slate-800 text-white font-bold shadow-2xs'
                                   : 'border-slate-200/80 bg-white text-slate-700 hover:bg-slate-50'
-                              }`}
+                                }`}
                             >
                               <span
                                 className="w-2.5 h-2.5 rounded-full shrink-0 border border-black/10"
@@ -1020,19 +1009,18 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                 )}
               </div>
               <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
-                <div className="flex gap-2 text-xs">
+                <div className="flex items-center gap-1.5 text-xs">
                   <button
                     type="button"
                     onClick={() => handleSelectAllReleaseYears(true)}
-                    className="text-[#0d9488] font-semibold hover:underline cursor-pointer"
+                    className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-[#33ccbb]/15 text-[#0d9488] font-bold transition-colors cursor-pointer text-[11px]"
                   >
                     全選択
                   </button>
-                  <span className="text-slate-300">|</span>
                   <button
                     type="button"
                     onClick={() => handleSelectAllReleaseYears(false)}
-                    className="text-slate-400 hover:underline cursor-pointer"
+                    className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 font-medium transition-colors cursor-pointer text-[11px]"
                   >
                     クリア
                   </button>
@@ -1040,7 +1028,7 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                 <button
                   type="button"
                   onClick={() => toggleSection('releaseYears')}
-                  className="p-1 rounded-md text-slate-400 hover:text-slate-600 cursor-pointer"
+                  className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
                   aria-label="実装年条件を展開・折りたたみ"
                 >
                   {openSections.releaseYears ? (
@@ -1076,11 +1064,10 @@ export const FilterSortModal: React.FC<FilterSortModalProps> = ({
                             : [...current, item.year];
                           onFilterChange({ ...filterOptions, releaseYears: updated });
                         }}
-                        className={`px-3 py-2 rounded-xl border text-left font-medium transition-all cursor-pointer ${
-                          isSelected
+                        className={`px-3 py-2 rounded-xl border text-left font-medium transition-all cursor-pointer ${isSelected
                             ? 'border-[#33ccbb] bg-[#33ccbb]/10 text-[#0d9488] font-bold shadow-2xs'
                             : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
-                        }`}
+                          }`}
                       >
                         {item.label}
                       </button>
@@ -1140,8 +1127,10 @@ export const DisplaySettingsModal: React.FC<DisplaySettingsModalProps> = ({
             <h2 className="text-base font-bold text-slate-800">表示情報の設定</h2>
           </div>
           <button
+            type="button"
             onClick={onClose}
-            className="p-1 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100"
+            className="p-2 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
+            aria-label="閉じる"
           >
             <X className="w-5 h-5" />
           </button>
@@ -1173,6 +1162,21 @@ export const DisplaySettingsModal: React.FC<DisplaySettingsModalProps> = ({
               checked={settings.showReleaseDate}
               onChange={(e) =>
                 onSettingsChange({ ...settings, showReleaseDate: e.target.checked })
+              }
+              className="w-5 h-5 accent-[#33ccbb] rounded"
+            />
+          </label>
+
+          <label className="flex items-center justify-between cursor-pointer p-2 rounded-xl hover:bg-slate-50 transition-colors">
+            <div>
+              <span className="block text-slate-800 font-medium">実装順</span>
+              <span className="text-[11px] text-slate-400">楽曲の通し番号（No.）を表示する</span>
+            </div>
+            <input
+              type="checkbox"
+              checked={settings.showReleaseOrder}
+              onChange={(e) =>
+                onSettingsChange({ ...settings, showReleaseOrder: e.target.checked })
               }
               className="w-5 h-5 accent-[#33ccbb] rounded"
             />
