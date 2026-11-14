@@ -69,11 +69,15 @@ jobs:
             --body-file scripts/.update_summary.md
 
       - name: Discord Webhook で更新通知（任意設定時のみ）
-        if: steps.update.outputs.has_changes == 'true' && env.DISCORD_WEBHOOK_URL != ''
+        if: steps.update.outputs.has_changes == 'true'
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: |
-          curl -fsS -X POST -H "Content-Type: application/json" -d @scripts/.discord_summary.json "$DISCORD_WEBHOOK_URL"
+          if [ -n "$DISCORD_WEBHOOK_URL" ]; then
+            curl -fsS -X POST -H "Content-Type: application/json" -d @scripts/.discord_summary.json "$DISCORD_WEBHOOK_URL"
+          else
+            echo "DISCORD_WEBHOOK_URL が未設定のためスキップしました。"
+          fi
 
       - name: エラー発生時の通知 Issue 作成
         if: failure()
