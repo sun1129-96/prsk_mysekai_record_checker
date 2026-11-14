@@ -407,6 +407,17 @@ export const Header: React.FC<HeaderProps> = ({
                       アプリの新しい機能や追加された楽曲データなどの更新内容を確認できます。
                     </p>
                   </div>
+
+                  {/* お問い合わせ */}
+                  <div className="bg-slate-50 rounded-2xl p-3 sm:p-3.5 border border-slate-200/80 space-y-1 sm:space-y-1.5">
+                    <div className="flex items-center gap-1.5 font-bold text-slate-800">
+                      <span className="w-2 h-2 rounded-full bg-rose-500"></span>
+                      <span>お問い合わせ</span>
+                    </div>
+                    <p className="text-slate-600 text-xs pl-2.5 sm:pl-3.5 leading-relaxed">
+                      「ご意見・ご要望」や「不具合・バグ報告」を匿名で開発者へ送信できます。不具合報告の際は、利用環境（画面サイズ・ブラウザ情報）を自動で添付することも可能です。
+                    </p>
+                  </div>
                 </div>
 
                 {/* モーダルフッター */}

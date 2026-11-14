@@ -12,6 +12,11 @@ import {
   History,
   AlertTriangle,
   Sparkles,
+  MessageSquarePlus,
+  Bug,
+  Send,
+  CheckCircle2,
+  AlertCircle,
 } from 'lucide-react';
 import type { RecordItem, DisplaySettings } from '../types/record';
 import { encodeShareData, decodeShareData } from '../utils/recordUtils';
@@ -60,6 +65,104 @@ export const MenuView: React.FC<MenuViewProps> = ({
   // Undo (元に戻す) 用のバックアップState
   const [undoBackup, setUndoBackup] = useState<Record<string, boolean> | null>(null);
   const undoTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // ご意見・ご要望 / 不具合・バグ報告フォーム用State
+  const [feedbackType, setFeedbackType] = useState<'feedback' | 'bug'>('feedback');
+  const [feedbackCategory, setFeedbackCategory] = useState<string>('機能追加・改善');
+  const [feedbackMessage, setFeedbackMessage] = useState<string>('');
+  const [includeEnvironment, setIncludeEnvironment] = useState<boolean>(true);
+  const [honeypot, setHoneypot] = useState<string>('');
+  const [isSubmittingFeedback, setIsSubmittingFeedback] = useState<boolean>(false);
+  const [feedbackStatus, setFeedbackStatus] = useState<{
+    kind: 'success' | 'error';
+    text: string;
+  } | null>(null);
+
+  const feedbackCategories = [
+    '機能追加・改善',
+    'UI・デザイン',
+    'データ・表記',
+    'その他',
+  ];
+  const bugCategories = [
+    '表示崩れ・UI',
+    'データ不備・誤り',
+    '共有・保存の不具合',
+    'その他',
+  ];
+
+  // フォーム種別切り替え時にカテゴリとステータスをリセット
+  const handleChangeFeedbackType = (nextType: 'feedback' | 'bug') => {
+    setFeedbackType(nextType);
+    setFeedbackCategory(nextType === 'feedback' ? feedbackCategories[0] : bugCategories[0]);
+    setFeedbackStatus(null);
+  };
+
+  // ご意見・不具合報告の送信ハンドラ
+  const handleSubmitFeedback = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const trimmed = feedbackMessage.trim();
+    if (trimmed.length < 5) {
+      setFeedbackStatus({
+        kind: 'error',
+        text: '内容は5文字以上で入力してください。',
+      });
+      return;
+    }
+
+    setIsSubmittingFeedback(true);
+    setFeedbackStatus(null);
+
+    try {
+      const environment =
+        feedbackType === 'bug' && includeEnvironment
+          ? [
+              `画面サイズ: ${window.innerWidth}x${window.innerHeight}`,
+              `UserAgent: ${navigator.userAgent}`,
+            ].join('\n')
+          : '';
+
+      const res = await fetch('/api/feedback', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: feedbackType,
+          category: feedbackCategory,
+          message: trimmed,
+          environment,
+          website: honeypot,
+        }),
+      });
+
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(
+          typeof data?.error === 'string'
+            ? data.error
+            : '送信に失敗しました。時間をおいて再度お試しください。'
+        );
+      }
+
+      setFeedbackMessage('');
+      setFeedbackStatus({
+        kind: 'success',
+        text:
+          feedbackType === 'bug'
+            ? '不具合・バグ報告を送信しました。ご協力ありがとうございます！'
+            : 'ご意見・ご要望を送信しました。ありがとうございます！',
+      });
+    } catch (err) {
+      setFeedbackStatus({
+        kind: 'error',
+        text:
+          err instanceof Error
+            ? err.message
+            : '通信エラーが発生しました。時間をおいて再度お試しください。',
+      });
+    } finally {
+      setIsSubmittingFeedback(false);
+    }
+  };
 
   // サーバーレス・ゼロコスト共有URL生成（BitSet Base64URL 圧縮: 約122文字）
   const handleGenerateShareUrl = () => {
@@ -359,6 +462,26 @@ export const MenuView: React.FC<MenuViewProps> = ({
         </div>
 
         <div className="pt-1 text-xs text-slate-600 border-l-2 border-slate-200 ml-3 pl-4 space-y-6">
+          {/* 2026.11.14 */}
+          <div className="relative">
+            <span className="absolute -left-[21px] top-1 w-2.5 h-2.5 rounded-full bg-[#33ccbb] ring-4 ring-white" />
+            <div className="flex items-center gap-2 mb-2">
+              <span className="font-bold font-mono text-slate-800 text-sm">2026.11.14</span>
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#33ccbb]/15 text-[#22998c]">
+                <Sparkles className="w-2.5 h-2.5" />
+                <span>新機能</span>
+              </span>
+            </div>
+            <ul className="space-y-1.5 text-[11px] sm:text-xs text-slate-600 leading-relaxed pl-1">
+              <li className="flex items-start gap-1.5">
+                <span className="text-slate-400 select-none">-</span>
+                <span>
+                  <strong className="text-slate-700 font-semibold">[メニュー] お問い合わせフォームを追加</strong>（ご意見・ご要望フォームおよび不具合・バグ報告フォームから直接開発者へ送信できるようになりました）
+                </span>
+              </li>
+            </ul>
+          </div>
+
           {/* 自動更新されたデータ更新履歴 */}
           {(dataChangelog as DataChangelogEntry[]).map((entry) => (
             <div key={entry.date} className="relative">
@@ -512,6 +635,190 @@ export const MenuView: React.FC<MenuViewProps> = ({
             </ul>
           </div>
         </div>
+      </div>
+
+      {/* ご意見・ご要望 / 不具合・バグ報告フォーム */}
+      <div className="bg-white rounded-2xl border border-slate-100 shadow-xs p-5 space-y-4">
+        <div className="flex items-center gap-2.5 border-b border-slate-100 pb-3">
+          <div
+            className={`p-2 rounded-xl transition-colors ${
+              feedbackType === 'bug'
+                ? 'bg-rose-50 text-rose-500'
+                : 'bg-[#33ccbb]/10 text-[#22998c]'
+            }`}
+          >
+            {feedbackType === 'bug' ? (
+              <Bug className="w-5 h-5" />
+            ) : (
+              <MessageSquarePlus className="w-5 h-5" />
+            )}
+          </div>
+          <div>
+            <h3 className="font-bold text-slate-800 text-base">お問い合わせ</h3>
+            <p className="text-xs text-slate-400">
+              機能のリクエストやバグのご報告を匿名で送信できます
+            </p>
+          </div>
+        </div>
+
+        {/* フォーム種別切り替えタブ */}
+        <div className="grid grid-cols-2 gap-2 p-1 bg-slate-100/80 rounded-xl">
+          <button
+            type="button"
+            onClick={() => handleChangeFeedbackType('feedback')}
+            className={`flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+              feedbackType === 'feedback'
+                ? 'bg-white text-[#22998c] shadow-xs'
+                : 'text-slate-500 hover:text-slate-700'
+            }`}
+          >
+            <MessageSquarePlus className="w-3.5 h-3.5" />
+            <span>ご意見・ご要望</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => handleChangeFeedbackType('bug')}
+            className={`flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+              feedbackType === 'bug'
+                ? 'bg-white text-rose-600 shadow-xs'
+                : 'text-slate-500 hover:text-slate-700'
+            }`}
+          >
+            <Bug className="w-3.5 h-3.5" />
+            <span>不具合・バグ報告</span>
+          </button>
+        </div>
+
+        <form onSubmit={handleSubmitFeedback} className="space-y-3.5">
+          {/* スパム対策用ハニーポット */}
+          <input
+            type="text"
+            name="website"
+            value={honeypot}
+            onChange={(e) => setHoneypot(e.target.value)}
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="hidden"
+          />
+
+          {/* カテゴリ選択 */}
+          <div className="space-y-1.5">
+            <label className="block text-xs font-semibold text-slate-600">
+              カテゴリ
+            </label>
+            <div className="flex flex-wrap gap-1.5">
+              {(feedbackType === 'feedback' ? feedbackCategories : bugCategories).map(
+                (cat) => {
+                  const isSelected = feedbackCategory === cat;
+                  return (
+                    <button
+                      key={cat}
+                      type="button"
+                      onClick={() => setFeedbackCategory(cat)}
+                      className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all cursor-pointer border ${
+                        isSelected
+                          ? feedbackType === 'bug'
+                            ? 'bg-rose-50 border-rose-200 text-rose-600 font-bold'
+                            : 'bg-[#33ccbb]/10 border-[#33ccbb]/40 text-[#22998c] font-bold'
+                          : 'bg-white border-slate-200 text-slate-500 hover:bg-slate-50'
+                      }`}
+                    >
+                      {cat}
+                    </button>
+                  );
+                }
+              )}
+            </div>
+          </div>
+
+          {/* 本文入力 */}
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between">
+              <label
+                htmlFor="feedback-message-input"
+                className="block text-xs font-semibold text-slate-600"
+              >
+                {feedbackType === 'bug' ? '不具合の詳細・発生手順' : 'ご意見・ご要望の内容'}
+              </label>
+              <span className="text-[11px] font-mono text-slate-400">
+                {feedbackMessage.length} / 2000
+              </span>
+            </div>
+            <textarea
+              id="feedback-message-input"
+              rows={4}
+              maxLength={2000}
+              value={feedbackMessage}
+              onChange={(e) => {
+                setFeedbackMessage(e.target.value);
+                if (feedbackStatus) setFeedbackStatus(null);
+              }}
+              placeholder={
+                feedbackType === 'bug'
+                  ? '例：〇〇の画面で△△の操作をしたときに表示が崩れる、楽曲「□□」のデータが誤っている 等'
+                  : '例：〇〇のような絞り込み機能がほしい、△△の表示を見やすくしてほしい 等'
+              }
+              className="w-full text-xs leading-relaxed p-3 bg-slate-50/70 border border-slate-200 rounded-xl focus:bg-white focus:border-[#33ccbb] focus:ring-2 focus:ring-[#33ccbb]/20 focus:outline-hidden resize-y transition-colors"
+            />
+          </div>
+
+          {/* バグ報告時の環境情報添付オプション */}
+          {feedbackType === 'bug' && (
+            <label className="flex items-center gap-2 text-xs text-slate-600 cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={includeEnvironment}
+                onChange={(e) => setIncludeEnvironment(e.target.checked)}
+                className="w-4 h-4 rounded border-slate-300 text-rose-500 focus:ring-rose-400"
+              />
+              <span>利用環境（画面サイズ・ブラウザ情報）を自動で添付する</span>
+            </label>
+          )}
+
+          {/* 送信結果メッセージ */}
+          {feedbackStatus && (
+            <div
+              className={`flex items-start gap-2 p-3 rounded-xl text-xs border ${
+                feedbackStatus.kind === 'success'
+                  ? 'bg-emerald-50 border-emerald-200 text-emerald-700'
+                  : 'bg-rose-50 border-rose-200 text-rose-700'
+              }`}
+            >
+              {feedbackStatus.kind === 'success' ? (
+                <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
+              ) : (
+                <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+              )}
+              <span>{feedbackStatus.text}</span>
+            </div>
+          )}
+
+          {/* 送信ボタン */}
+          <div className="flex items-center justify-between pt-1">
+            <span className="text-[11px] text-slate-400">
+              ※ 個人情報は入力しないでください
+            </span>
+            <button
+              type="submit"
+              disabled={isSubmittingFeedback || feedbackMessage.trim().length < 5}
+              className={`inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold text-white shadow-xs transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed active:scale-95 ${
+                feedbackType === 'bug'
+                  ? 'bg-rose-500 hover:bg-rose-600'
+                  : 'bg-[#33ccbb] hover:bg-[#2cb3a5]'
+              }`}
+            >
+              <Send className="w-3.5 h-3.5" />
+              <span>
+                {isSubmittingFeedback
+                  ? '送信中...'
+                  : feedbackType === 'bug'
+                  ? '不具合を報告する'
+                  : 'ご意見を送信する'}
+              </span>
+            </button>
+          </div>
+        </form>
       </div>
 
       {/* 共有コード / URL 復元モーダル */}
