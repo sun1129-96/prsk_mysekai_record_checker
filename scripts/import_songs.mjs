@@ -179,11 +179,18 @@ function parseSongDetail(html) {
         // 注釈記号（*1など）を除去
         const cleanedType = versionTypeCell.replace(/\*\d+/g, '').trim();
         const cleanedSingers = singerListCell.replace(/\*\d+/g, '').trim();
+
+        // Wiki内に未定・未実装・予定などの未確定表記がある場合は誤取り込み防止のためスキップ
+        const UNCONFIRMED_REGEX = /未定|未実装|予定|後日|Coming\s*Soon|[？?]/i;
+        if (UNCONFIRMED_REGEX.test(cleanedType) || UNCONFIRMED_REGEX.test(cleanedSingers)) {
+          return;
+        }
+
         const rawSingers = cleanedSingers
           ? cleanedSingers
               .split(/[,、]/)
               .map((s) => s.trim())
-              .filter((s) => s && s !== '-' && s !== '―')
+              .filter((s) => s && !['-', '―', 'ー', 'なし', '未定', '?', '？'].includes(s))
           : [];
         const singerIds = rawSingers.map((s) => CHAR_MAP[s] || s);
 
@@ -301,6 +308,19 @@ async function main() {
     const releaseDate = $(tds[18] || tds[tds.length - 1]).text().trim();
 
     if (!noStr || isNaN(parseInt(noStr, 10))) return;
+
+    // Wiki内に個別ページが存在しない（未作成赤リンク等）、またはタイトルが空の場合は除外
+    const isMissingPage = !href || href.includes('cmd=edit') || titleLinkEl.hasClass('noexists');
+    if (!title || isMissingPage) {
+      console.warn(`[スキップ] Wiki個別ページ未作成またはリンクなし: ${title || noStr}`);
+      return;
+    }
+
+    // 実装日が未定・予定・無効な形式の場合は除外
+    if (!/^\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2}$/.test(releaseDate)) {
+      console.warn(`[スキップ] 実装日が未確定または不正な形式: ${title} (${releaseDate})`);
+      return;
+    }
 
     const unitInfo = UNIT_MAP[unitRaw] || { id: 'other', name: 'その他' };
     const detailUrl = href.startsWith('http')

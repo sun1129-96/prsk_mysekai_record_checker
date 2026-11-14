@@ -1,0 +1,86 @@
+name: 楽曲データ自動更新 (Auto Update Records)
+
+on:
+  schedule:
+    # 日本時間 (JST) 毎日 06:00 と 18:00 に実行 (UTC 21:00, 09:00)
+    - cron: '0 9,21 * * *'
+  workflow_dispatch:
+    # GitHub画面からいつでも手動実行可能
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  update-records:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリのチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Node.js のセットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: 依存パッケージのインストール
+        run: npm ci
+
+      - name: Wikiキャッシュの復元・保存
+        uses: actions/cache@v4
+        with:
+          path: scripts/cache
+          key: wiki-cache-${{ github.run_id }}
+          restore-keys: |
+            wiki-cache-
+
+      - name: データ自動更新パイプラインの実行
+        id: update
+        run: node scripts/auto_update_pipeline.mjs
+
+      - name: テストとビルドの検証
+        if: steps.update.outputs.has_changes == 'true'
+        run: |
+          npm test -- --run
+          npm run build
+
+      - name: 変更を main ブランチへ自動コミット＆プッシュ
+        if: steps.update.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/allRecords.ts src/data/dataChangelog.json src/data/allImportedRecords.json records_spreadsheet.csv records_spreadsheet.tsv
+          if git diff --staged --quiet; then
+            echo "ステージングされた変更はありません。"
+          else
+            git commit -m "chore(data): 楽曲データを自動更新 (${{ steps.update.outputs.jst_date }})"
+            git push origin HEAD:main
+          fi
+
+      - name: 開発者へ GitHub Issue で更新通知
+        if: steps.update.outputs.has_changes == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create \
+            --title "[データ自動更新] ${{ steps.update.outputs.jst_date }} 楽曲データを更新しました" \
+            --body-file scripts/.update_summary.md
+
+      - name: Discord Webhook で更新通知（任意設定時のみ）
+        if: steps.update.outputs.has_changes == 'true' && env.DISCORD_WEBHOOK_URL != ''
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          curl -fsS -X POST -H "Content-Type: application/json" -d @scripts/.discord_summary.json "$DISCORD_WEBHOOK_URL"
+
+      - name: エラー発生時の通知 Issue 作成
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create \
+            --title "[エラー通知] 楽曲データの自動更新に失敗しました" \
+            --body "GitHub Actions のデータ自動更新ワークフローがエラーで終了しました。本番サイトのデータは変更されていません。詳細ログを確認してください: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+

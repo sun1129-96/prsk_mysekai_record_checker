@@ -16,6 +16,18 @@ import {
 import type { RecordItem, DisplaySettings } from '../types/record';
 import { encodeShareData, decodeShareData } from '../utils/recordUtils';
 import { useBodyScrollLock } from '../utils/useBodyScrollLock';
+import dataChangelog from '../data/dataChangelog.json';
+
+interface DataChangelogItem {
+  category: 'new_song' | 'another_vocal' | 'connect_live' | 'other_vocal';
+  label: string;
+  text: string;
+}
+
+interface DataChangelogEntry {
+  date: string;
+  items: (string | DataChangelogItem)[];
+}
 
 interface MenuViewProps {
   records: RecordItem[];
@@ -346,7 +358,56 @@ export const MenuView: React.FC<MenuViewProps> = ({
           </div>
         </div>
 
-        <div className="pt-1 text-xs text-slate-600 border-l-2 border-slate-200 ml-3 pl-4">
+        <div className="pt-1 text-xs text-slate-600 border-l-2 border-slate-200 ml-3 pl-4 space-y-6">
+          {/* 自動更新されたデータ更新履歴 */}
+          {(dataChangelog as DataChangelogEntry[]).map((entry) => (
+            <div key={entry.date} className="relative">
+              <div className="absolute -left-[21px] top-1 w-2.5 h-2.5 rounded-full bg-sky-400 border-2 border-white ring-2 ring-sky-400/20" />
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="text-[12px] font-mono font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">
+                  {entry.date}
+                </span>
+              </div>
+              <div className="font-bold text-slate-800 text-xs sm:text-sm mb-2 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-sky-500 inline-block"></span>
+                <span>データ更新</span>
+              </div>
+              <ul className="space-y-2 text-[11px] sm:text-xs text-slate-600 leading-relaxed pl-2">
+                {entry.items.map((item, idx) => {
+                  if (typeof item === 'string') {
+                    return (
+                      <li key={idx} className="flex items-start gap-1.5">
+                        <span className="text-slate-400 select-none">-</span>
+                        <span>{item}</span>
+                      </li>
+                    );
+                  }
+                  const badgeStyle =
+                    item.category === 'new_song'
+                      ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                      : item.category === 'another_vocal'
+                      ? 'bg-purple-50 text-purple-700 border-purple-200'
+                      : item.category === 'connect_live'
+                      ? 'bg-indigo-50 text-indigo-700 border-indigo-200'
+                      : 'bg-sky-50 text-sky-700 border-sky-200';
+                  return (
+                    <li key={idx} className="flex items-start gap-1.5">
+                      <span className="text-slate-400 select-none mt-0.5">-</span>
+                      <div className="space-x-1.5">
+                        <span
+                          className={`inline-block px-1.5 py-0.5 rounded border text-[10px] font-bold leading-none ${badgeStyle}`}
+                        >
+                          {item.label}
+                        </span>
+                        <span className="text-slate-700">{item.text}</span>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ))}
+
           {/* 2026.11.13 */}
           <div className="relative">
             <div className="absolute -left-[21px] top-1 w-2.5 h-2.5 rounded-full bg-[#33ccbb] border-2 border-white ring-2 ring-[#33ccbb]/20" />

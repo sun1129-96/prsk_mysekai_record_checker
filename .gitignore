@@ -23,5 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
-# Scraper cache
+# Scraper cache & temporary update summaries
 scripts/cache
+scripts/.update_summary.md
+scripts/.discord_summary.json
